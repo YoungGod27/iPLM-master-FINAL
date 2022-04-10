@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <a href="{% url 'StudentTC' %}">Back</a> &nbsp; &nbsp; <a href = "{%url 'student'%}">Home</a>
+        <hr>
+        <h1><b>HD Applicant Form</b></h1>
+    </head>
+    <body>
+        <form method='POST' enctype="multipart/form-data">
+            {%csrf_token%}
+            Student Drop Form: <input type="file" id="studentDropform" name="studentDropform", required>
+            <br>
+            <br>
+            Student Clearance Form: <input type="file" id="studentClearanceform" name="studentClearanceform", required>
+            <br>
+            <br>
+            Student Hd Letter: <input type="file" id="studentHdletter" name="studentHdletter", required>
+            <br>
+            <br>
+            Transfer Certificate: <input type="file" id="studentTransfercert" name="studentTransfercert", required>
+            <br><br>
+            Parent Signatures: <input type="file" id="studentsignatures" name="stdParentsig", required>
+            <br>
+            <br>
+            Student Grades: <input type="file" id="studentGrades" name="studentGrades", required>
+            <br>
+            <br>
+            {% if messages %}
+                {% for message in messages %}
+                        {{ message }}
+                {% endfor %}
+            {% endif %}
+            <br>
+            <button>Submit</button>
+            &nbsp; &nbsp;
+            <a class="btn btn-info" href="{% url 'hd_form_submitted' %}">Next</a> 
+        </form>
+    </body>
+</html>

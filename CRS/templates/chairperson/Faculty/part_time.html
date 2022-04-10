@@ -1,0 +1,28 @@
+{% extends 'chairperson/Faculty/full_time.html' %}
+    {% block content %}
+        <h3>Part_time</h3>
+        faculty: {{ count }}
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Faculty No.</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in work_status %}
+                <tr>
+                    <td>{{ i.facultyID }}</td>
+                    <td>{{ i.facultyUser.lastName }}</td>
+                    <td>{{ i.facultyUser.middleName }}</td>
+                    <td>{{ i.facultyUser.firstName }}</td>
+                    <td><a href="{% url 'faculty_schedule' i.facultyUser.id  %}">Profile</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

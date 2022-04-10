@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Schedule</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/sClassroom/sChecklistStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+                /*Side Bar*/
+        .wrapper {
+            display: flex;
+            text-decoration: none;
+            transition: all 0.3s;
+            zoom: 67%;
+        }
+
+        #sidebar {
+            height: 100%;
+            min-width: 175px;
+            max-width: 175px;
+            background: #0C66CC;
+            color: transparent;
+            position: fixed;
+        }
+
+        #sidebar.active {
+            margin-left: -175px;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #0C66CC;
+            text-align: center;
+        }
+
+        #sidebar ul.components {
+            padding: 20px 0;
+        }
+
+        #sidebar ul li a {
+            padding: 20px;
+            display: block;
+            background: #0C66CC;
+            text-align: center;
+        }
+
+        #sidebar ul li a:hover {
+            background: #2852a4;
+            border-radius: 20px 20px 20px 20px;
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #0C66CC;
+        }
+
+        a,
+        a:hover,
+        a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        /*End of Side Bar*/
+    </style>
+</head>
+
+<body>
+{% block content %}
+    <div class="wrapper">
+
+      <!-- Sidebar -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+
+                <div class="edit-1 row">
+                    <div class="backrw row">
+                        <a class="back" id="backimg" href="{% url 'cStudentSchedOnline2' schedule.realsection.id %}"><img src="{% static 'CRS/images/sClassroom/back.svg' %}"></a>
+                        <p id="head1">Checklist</p>
+                    </div>
+                </div>
+
+                <!-- CONTENT -->
+                <form method="POST"> {% csrf_token %}
+                    <div class="edit-2 row">
+                        <div class="col-lg-3">
+
+                            <img id="deleteImg" src="{% static 'CRS/images/sClassroom/clip-deleting-files.png' %}" width="300px" height="auto">
+                            
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <p id="confirmationHeader"><b>Are you sure you want to delete this schedule of <span style="color:#f34e01;">{{schedule.subjectCode.subjectCode.subjectName}}</span>?<br><hr><br>
+                                
+                                <span style="font-size: 24px; margin-left: 70px;"><b>Schedule Details</b></span><br></b>
+                                <span style="font-size: 20px; margin-left: 70px;"><b>Day: </b>{{schedule.day}}<br></span>
+                                <span style="font-size: 24px; margin-left: 70px;"><b>Time: </b>{{schedule.timeStart}} - {{schedule.timeEnd}}</span>
+                            
+                            </p>
+                            
+                            <br><br>
+
+                           <a href="{% url 'cStudentSchedOnline2' schedule.realsection.id %}"><input type="button" class="cancelBtn" value="Cancel"><!-- CANCEL BUTTON --></a>
+                            <input type="submit" class="deleteBtn" value="Delete"><!-- DELETE BUTTON -->
+                        </div>
+
+                    </div>
+                </form>
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- END Content -->
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+{% endblock content %}
+</body>
+
+</html>

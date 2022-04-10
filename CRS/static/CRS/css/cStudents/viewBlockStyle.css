@@ -1,0 +1,817 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+#content {
+    margin-left: 250px;
+    margin-right: 100px;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+    font-family: "Nunito";
+}
+
+/*Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+/*End of Side Bar*/
+
+/*Faculty*/
+
+#head {
+    font-size: 44px;
+    color: #0C66CC;
+    margin-left: 100px;
+    margin-top: 80px;
+    font-family: 'Nunito';
+}
+/*Welcome Section*/
+
+.main {
+    padding-left: 50px;
+    padding-bottom: 5px;
+    background: #0C66CC;
+    border-radius: 40px 40px 40px 40px;
+    margin-left: 40px;
+    margin-right: 50px;
+    height: 120px;
+    box-shadow: 0px 5px 15px #c7c7c7;
+}
+
+
+#uname {
+    padding-left: 55px;
+    padding-top: 0px;
+    font-size: 25px;
+    color: #ffff;
+    font-family: 'Nunito';
+}
+
+/*End of Welcome Section*/
+
+/*Full Time*/
+#fulltime {
+    font-size: 30px;
+    color: #0C66CC;
+    margin-left: 50px;
+    margin-top: 40px;
+    font-family: 'Nunito';
+    font-weight: bold;
+}
+
+#studentCount {
+    position: absolute;
+    top: 341px;
+    left: 550px;
+    font-size: 15px;
+    font-family: 'Nunito';
+    margin-left: 80px;
+    color: #0C66CC;
+    background-color: #e5e5e5;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+}
+
+/*End of Full Time*/
+
+/*Faculty No.*/
+
+.list {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#list {
+    padding-left: 10px;
+    padding-right: 50px;
+    font-size: 23px;
+    color:#0C66CC ;
+    font-family: 'Nunito';
+    margin-left: 70px;
+}
+
+#listname {
+    padding-left: 40px;
+    padding-right: 20px;
+    font-size: 23px;
+    color:#0C66CC ;
+    font-family: 'Nunito';
+    text-align: left;
+}
+
+#editBtn {
+    padding-left: 30px;
+    padding-right: 20px;
+    font-size: 23px;
+    color:#0C66CC ;
+    font-family: 'Nunito';
+    margin-left: 50px;
+}
+
+#editBtn:hover {
+    color:#2852A4 ;
+}
+
+
+/*End of Faculty No.*/
+
+
+hr.new {
+    border-top: 2px solid #E9E9E9;
+    margin-left: 30px;
+}
+
+hr.grey {
+    border-top: 3px solid #0C66CC;
+    margin-left: 30px;
+    width: 101%;
+}
+
+hr.greyLine {
+    border-top: 2px solid #E9E9E9;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+hr.schedInfoLine {
+    border-top: 2px solid #0C66CC;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+
+.manage {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #0C66CC;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    color: white;
+    border: none;
+}
+
+.manage:hover {
+    background: #2852A4;
+}
+
+.manage2 {
+    background: #0C66CC;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    padding: 5px;
+    align-content: center;
+}
+
+.blockManage {
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #0C66CC;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 25px;
+    margin-bottom: 30px;
+    color: white;
+    border: none;
+    height: 70px;
+    width: 300px;
+    text-align: left;
+}
+
+#buttons .btn {
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 50px;
+    height: 40px;
+    background-color: #0C66CC;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+#buttons .btn:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+#buttons .Editbtn {
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 50px;
+    height: 40px;
+    background-color: #0C66CC;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border: none;
+}
+
+
+.Editbtn:hover {
+    background: #2852A4;
+}
+
+#buttons .addbtn {
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: auto;
+    height: 40px;
+    background-color: #0C66CC;
+    margin-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border: none;
+    position: absolute;
+    top: 341px;
+    left: 800px;
+}
+
+#buttons .addbtn:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+#buttons .removebtn {
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 50px;
+    height: 40px;
+    background-color: #0C66CC;
+    margin-left: 120px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+}
+
+#buttons .removebtn:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+
+#buttons .confirmBtn {
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: auto;
+    height: 40px;
+    background-color: #0C66CC;
+    margin-left: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border: none;
+    position: fixed;
+}
+
+#buttons .confirmBtn:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    width: 1000px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: inline;
+}
+/*End of Faculty List*/
+
+/*Search box*/
+.searchbox {
+    position: absolute;
+    right:130px;
+    top:480px;
+}
+
+#search {
+    border-radius: 12px 12px 12px 12px;
+    width: 270px;
+    height: 50px;
+    background-color: #E9E9E9;
+    border: transparent;
+}
+
+#submit {
+    background-color: #0C66CC;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 120px;
+    height: 50px;
+    border: transparent;
+}
+
+.searchbox1 {
+    position: absolute;
+    margin-left: 60px;
+}
+
+#search1 {
+    border-radius: 12px 12px 12px 12px;
+    width: 270px;
+    height: 50px;
+    background-color: #E9E9E9;
+    border: transparent;
+}
+
+#submit1 {
+    background-color: #0C66CC;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 120px;
+    height: 50px;
+    border: transparent;
+}
+
+#confirmSched {
+    background-color: #0C66CC;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 200px;
+    height: 50px;
+    border: transparent;
+    margin-left: 190px;
+}
+
+.confirmSChedContainer {
+    position: absolute;
+    margin-left: 60px;
+    bottom: -200px;
+}
+
+
+.applychanges{
+    margin-top: -100px;
+    margin-left: 1275px;
+}
+
+.buttonapply{
+    border-radius: 10px 10px 10px 10px;
+    width: 200px;
+    height: 60px;
+    background-color: #0C66CC;
+    text-align: center;
+    color: white;
+    border:none;
+    font-size: 20px;
+}
+
+.buttonapply:hover{
+    background-color: #2852A4;
+}
+
+
+
+.grayline{
+    border-bottom: 4px solid;
+    border-color: #E9E9E9;
+    position: absolute;
+    top: 560px;
+    right: 130px;
+    width: 400px;
+}
+
+/* Section Information */
+.boxed{
+    border: 3px solid #0C66CC;
+    padding: 30px;
+    border-radius: 20px;
+    width: 460px;
+    height: 420px;
+    position: absolute;
+    right:100px;
+    top: 600px;
+  }
+  
+  #secInfo p{
+    color: #0C66CC;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Nunito;
+    margin-left: 20px;
+    margin-top: -2px;
+    display:inline-block;
+  }
+  
+  
+  .secInfoHead{
+    margin-bottom: 25px;
+  }
+  
+  #secInfo input[type=text].facilitator{
+    background-color: #ECECEC;
+    color: black;
+    width: 260px;
+    padding:4px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+  }
+  
+  #edit {
+    margin-top: 5px;
+  }
+  
+  #secInfo hr {
+    background-color:#C8C8C8;
+    color: #0C66CC;
+    height: 2px;
+    border-width: 0;
+    width: 380px;
+    margin-left: 20px;
+  }
+
+  
+  #secInfo label.facilitator{
+    font-size: 15px;
+    font-family: Nunito;
+    color: #0C66CC;
+    margin-left: 20px;
+  }
+  
+  #OtherIn label{
+    color: #0C66CC;
+    text-decoration: none;
+    font-family: Nunito;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  #OtherIn input[type=text]{
+    background-color: #ECECEC;
+    color: black;
+    width: 240px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
+  }
+  /****** END of SECTION INFORMATION ******/
+
+
+/* BLOCK SCHED Information */
+.schedInfo{
+    border: 3px solid #0C66CC;
+    padding: 40px;
+    border-radius: 20px;
+    width: 420px;
+    height: 400px;
+    position: absolute;
+    left:50px;
+  }
+
+  #schedInfoLine hr {
+    border: 3px solid #0C66CC;
+    height: 2px;
+    border-width: 0;
+    width: 380px;
+    margin-left: -10px;
+  }
+  
+  .schedInfoHead{
+    position: absolute;
+    left:90px;
+    top: 80px;
+    font-size: 16px;
+    font-weight: 30px;
+    text-decoration: underline;
+  }
+
+  
+
+/*Table*/
+
+#head1 {
+    letter-spacing: 1px;
+    margin-left: 30px;
+    margin-top: 17px;
+    font-size: 40px;
+    color: #0C66CC;
+}
+
+#head2 {
+    letter-spacing: 1px;
+    font-size: 30px;
+    color: #0C66CC;
+}
+
+#head3 {
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: white;
+    padding: 5px;
+}
+
+
+.primary-att {
+    position: sticky;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    /* Don't forget this, required for the stickiness */
+    background: #0C66CC;
+    color: white;
+}
+
+.fill-in {
+    
+}
+
+.tablepanel {
+    overflow-y: scroll;
+    width: 100%;
+    height: 560px;
+    margin-left: 40px;
+}
+
+.tablepanel::-webkit-scrollbar {
+    width: 10px;
+    background: white;
+    border-radius: 0 8px 8px 0;
+
+}
+
+.tablepanel::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 0 8px 8px 0;
+}
+
+.tabletext1 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+
+.tabletext2 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Nunito';
+}
+
+
+
+
+
+.manageName {
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 65px;
+    font-family: 'Nunito';
+}
+
+
+.editSched {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    width: 260px;
+    height: 130;
+    margin-left: 65px;
+}
+
+.editSched:hover{
+    background-color: #2852A4;
+}
+
+
+.active, .buttonSession:hover{
+    background-color: #0C66CC;
+    color: #ffffff;
+}
+
+
+/*Dropdown*/
+.firstyear {
+    background-color: #0C66CC;
+    color: white;
+    padding: 30px;
+    font-size: 25px;
+    font-family: 'Nunito';
+    border: none;
+}
+  
+  .firstdropdown {
+    margin-top: 15px;
+    display: inline-block;
+    z-index: 1;
+  }
+  
+  .firstdropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0C66CC;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 15px 15px 15px 15px;
+  }
+  
+  .firstdropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .firstdropdown-content a:hover {background-color: #2852A4;}
+  
+  .firstdropdown:hover .firstdropdown-content {display: block;}
+
+  .firstdropdown:hover .firstyear {
+      background-color: #2852A4;
+      border-radius: 25px 25px 25px 25px;
+      transition: all 0.5s;
+    }
+
+
+.scroll {
+	position: relative;
+    height: 400px;
+    width: 990px;
+    overflow: auto;
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+
+
+/**END OF RIGHT SIDE**/
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+}
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+@media (max-width: 516px){
+    .wrapper{
+        zoom: 58%;
+    }
+}
+
+/********END BREAKPOINTS*******/

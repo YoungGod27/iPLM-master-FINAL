@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: auto;
+	overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#content {
+    margin-left: 175px;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+}
+
+/*Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+/*End of Side Bar*/
+
+
+/**** TOP PART ****/
+
+.schedule{
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.back {
+    margin-left: 100px;
+    margin-top: 65px;
+}
+
+#backimg {
+    padding-top: 30px;
+}
+
+#backimg:hover,
+#backimg:focus{
+    transition-duration: 0s;
+    filter: brightness(0) saturate(100%) invert(29%) sepia(100%) saturate(1155%) hue-rotate(190deg) brightness(91%) contrast(100%);
+}
+
+#schedtitle {
+    padding-bottom: 10px;
+    line-height: 0px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+
+/**** END OF TOP PART ****/
+
+
+/**** SEMESTER DETAILS ****/
+
+.semdetbox {
+    border: 3px solid #2852a4;
+    border-radius: 30px 30px 30px 30px;
+    margin-top: 80px;
+    height: 280px;
+}
+
+#sdhtext{
+    font-size: 25px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+
+.semdet {
+    margin-top: 5px;
+    height: 30px;
+    width: 105%;
+    font-family: 'Nunito';
+}
+
+.sdtext {
+    font-size: 15px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    font-weight: bold;
+}
+
+.field {
+    font-family: 'Nunito';
+    font-size: 16px; 
+}
+/**** END OF SEMESTER DETAILS ****/
+
+/**** SCHEDULE AREA ****/
+
+#schedarea {
+    margin-left: auto;
+}
+
+#schedtext{
+    font-size: 24px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#schedTimeInText{
+    font-size: 18px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#schedTimeOutText{
+    font-size: 14px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Gray Boxes */
+.sfield {
+    margin-bottom: 40px;
+    font-family: 'Nunito';
+    font-size: 16px; 
+    text-align: center;
+}
+
+
+/**** END OF CONTENT ****/
+
+.timeInLabel {
+    font-size: 22px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    font-weight: bold;
+}
+
+#dayLabel{
+    font-size: 25px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+
+#description{
+    font-size: 18px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-right: 70px;
+}
+
+.optionValue{
+    background: #0C66CC;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    order: 1;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #ffff;
+    font-family: 'Nunito';
+    padding: 20px;
+}
+
+
+
+/**** PART TIME AVAILABILITY ****/
+
+.custom-select {
+    position: relative;
+    font-family: 'Nunito';
+    width:220px;
+    height:50px;
+    background-color: #0C66CC;
+    order: 1;
+    letter-spacing: 1px;
+    transition: all 0.4s;
+    font-size: 16px;
+    border-radius: 15px;
+  }
+  
+  .custom-select select {
+    display: none; 
+  }
+  
+  .select-selected {
+    background-color: #0C66CC;
+    border-radius: 15px;
+  }
+  
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 20px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    border-radius: 15px;
+  }
+  
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .select-items {
+    position: absolute;
+    background-color:#0C66CC;
+    border-radius: 15px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: #2852a4;
+  }
+
+/***** END OF CUSTOM DROPDOWN *****/
+
+hr.dayLine {
+    border-top: 2px solid #dbdbdb;
+    width: 50%;
+    float: left;
+    margin-top: -15px;
+}
+
+hr.main {
+    border-top: 2px solid #dbdbdb;
+    width: 100%;
+    float: left;
+    margin-top: -15px;
+}
+
+
+#buttonSubmitSched .btn {
+    border-radius: 15px 15px 15px 15px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 210px;
+    height: 55px;
+    float: left;
+    background-color: #0C66CC;
+}
+
+#buttonSubmitSched.btn:hover {
+    background-color: #2852A4;
+    cursor: pointer;
+}
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+}
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+@media (max-width: 505px){
+    #content{
+        zoom: 93%;
+    }
+}
+
+/* For screens na 1600 */
+@media (min-width: 1600px) {
+    .wrapper {
+        zoom: 85%;
+    }
+}
+
+/********END BREAKPOINTS*******/

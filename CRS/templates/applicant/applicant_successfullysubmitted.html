@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> 
+	<title>Applicant</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'CRS/css/Applicants/Faculty/applicantsubmit.css' %}">
+
+  <!--  ICON -->
+  <link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+  <style>
+
+	body {
+		overflow-x: hidden;
+	}
+	/*SCROLLBAR*/
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #e4e4e4;
+		border-radius: 12px;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #cbcbcb;
+		border-radius: 12px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #8f8f8f; 
+	}
+</style>
+</head>
+    <body>
+      <a href="{% url 'applicant_facultyapplicationform' %}"> <!--templates/Applicants/Faculty--> <img src="{% static 'CRS/images/Applicants/Faculty/back.png' %}" alt="iplm" id="backbutton" width="35px" height="35px" class=""></a>
+<div id="roundbg">
+    
+	   <img src="{% static 'CRS/images/Applicants/Faculty/clip-1044.png' %}" alt="clip-1044" id="imageSubmit" width="230px" height="230px" class="rounded mx-auto d-block align-middle">
+
+	       <div id="SuccessfullySubmitted">Successfully Submitted!</div>
+	
+	           <div id="SubSS">
+		          You have sucessfully submitted your application form.
+		          <br>
+		          Please check your email for verification and to check the updates of your application.
+	               </div>
+	
+		       <a href="{% url 'index' %}">   <button type="submit" id="homebutton"> <!-- templates/Landing Page/ -->Done</button> </a>
+</div>
+
+ <!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+
+</html>

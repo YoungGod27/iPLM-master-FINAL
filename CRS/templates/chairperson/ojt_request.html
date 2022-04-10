@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Faculty Applicant/s</title>
+</head>
+<body>
+
+<h1>List of Applicant/s</h1>
+    <table>
+
+        <th> Name</th>
+        <th> </th>
+        <tr>
+        {% for ojt in ojtapplicant %}
+
+      <td>
+        {{ ojt.studentID.studentUser.lastName }}, {{ ojt.studentID.studentUser.firstName }}
+      </td>
+      <td><a href="{% url 'ojt_view' ojt.id %}">View</a></td>
+        </tr>
+
+
+    {% endfor %}
+    </table>
+
+</body>
+</html>

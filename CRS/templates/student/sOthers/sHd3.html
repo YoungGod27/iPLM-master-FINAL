@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Honorable Dismissal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+	<link rel="stylesheet" href="{% static 'CRS/css/sOthers/sHd3.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	<!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+	<style>
+        
+        #subjectMessage {
+        margin-top: 10px;
+		margin-left: 100px;
+        padding: 10px;
+        padding-top: 15px;
+        font-size: 18px;
+        color: rgb(248, 248, 248);
+        font-family: 'Nunito';
+        background-color: #ff5f02;
+        border: 2px solid #ff5f02;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgb(199, 199, 199);
+		width: 20%;
+		animation: zoom-in-zoom-out 1s ease;
+    }
+
+	.closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtn:hover {
+        color: #b94807;
+        }
+
+		@keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+	</style>
+</head>
+
+<body>
+	{% block content %}
+    <div class="wrapper">
+
+       <!-- Sidebar -->
+	   <nav id="sidebar">
+		<div class="sidebar-header">
+			<li>
+				<p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+			</li>
+		</div>
+		<ul class="sidebar components">
+			<li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+			<li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+			<li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+			<li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+			<li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+		</ul>
+	</nav>
+	<!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <!--HD head-->
+                <div class="back row">
+					<!-- FILE PATH: Students/sOthers/sHd2.html-->
+					<a href="{% url 'sHd1' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                    
+                    <p id="head1">
+                        Honorable Dismissal
+                    </p>
+                </div>
+                <!--END HD head-->
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Clearance<br>Form</li>
+                                        <li class="active progress-text-active">Transfer<br>Certificate</li>
+                                        <li class="progress-text-active">Dropping<br>Form</li>
+                                        <li class="progress-text">Upload<br>Documents</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+                <!-- Transfer Certificate -->
+				<div class="hd3-content">
+					<h3 class="hd3-header"> Transfer Certificate </h3>
+					<h4 class="instruction"> Please complete the form below. </h4>
+
+					{% if messages %}
+						{% for message in messages %}
+						<div id="subjectMessage">
+							<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+							{{ message }}
+						</div>
+						{% endfor %}
+					{% endif %}
+					
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Student Number</label>
+							<input type="text" class="form-control" placeholder="{{info.studentID}}" disabled> <!-- DB STUDENT Number -->
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Name</label>
+							<input type="text" class="form-control" placeholder="{{info.studentUser.lastName}}" id="transfer-input" required> <!-- DB LAST NAME -->
+							<input type="text" class="form-control" placeholder="{{info.studentUser.firstName}}" id="transfer-input" required> <!-- DB FIRST NAME -->
+							<input type="text" class="form-control" placeholder="{{info.studentUser.middleName}}" id="transfer-input" required> <!-- DB MIDDLE NAME -->
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<p id="nameSpan1">Last Name</p>
+							<p id="nameSpan2">First Name</p>
+							<p id="nameSpan3">Middle Name</p>
+						</div>
+					<form method="POST" enctype="multipart/form-data" onSubmit="alert('Form Submitted, Save a Copy!')">
+						{%csrf_token%}	
+						<div class="form-group col-lg-12 row">
+							<label class="form-label1">Address <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" class="form-control1" placeholder="Address" id="address" name="studentHomeaddress" required> <!-- DB STUDENT Address -->
+						</div>
+						<br><br>
+
+						<hr id="line">				
+						<div class="form-group col-lg-12 row">
+							<label class="college-label">Request Date <span style="color:#ff0000"><b>*</b></span></label>
+							<select style="margin-left: 115px;" name="studentMonth" class="form-control">
+								<option value="January">January</option>
+								<option value="February">February</option>
+								<option value="March">March</option>
+								<option value="April">April</option>
+								<option value="May">May</option>
+								<option value="June">June</option>
+								<option value="July">July</option>
+								<option value="August">August</option>
+								<option value="September">September</option>
+								<option value="October">October</option>
+								<option value="November">November</option>
+								<option value="December">December</option>
+							</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<select name="studentDay" class="form-control">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">20</option>
+								<option value="31">31</option>
+							</select>
+							</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<select name="studentYear" class="form-control">
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+								<option value="2026">2026</option>
+								<option value="2027">2027</option>
+								<option value="2028">2028</option>
+								<option value="2029">2029</option>
+								<option value="2030">2030</option>
+							</select>
+						</div>
+						<div class="form-group col-lg-12 row">
+							<label class="college-label">College <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 170px;" class="form-control" placeholder="College"  name="studentCollege" required> 
+						</div>
+
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Credentials <span style="color:#ff0000"><b>*</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
+								&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<input type="text" style="margin-left: 170px;" class="form-control" placeholder="Credentials"  name="studentCredentials" required> 
+						</div>
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">First Enrollment in College <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 80px;" class="form-control" placeholder="ex.First Semester, 2019" id="transfer-input-sem" name="studentFirstSY" required> 
+						</div>
+						<div class="form-group col-lg-12 row">
+							<p id="semSpan" style="margin-left: 500px; margin-top: -40px;">Sem/Term and Year</p>
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Last Enrollment in College <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 80px;" class="form-control" placeholder="ex.First Semester, 2019" id="transfer-input-sem" name="studentLastPSY" required> 
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<p id="semSpan" style="margin-left: 500px; margin-top: -40px;">Sem/Term and Year</p>
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label1">No. of Semesters/Summers Attended <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" class="form-control" placeholder="No. of Semester" id="sem-summers" name="studentNoOfSem" required>
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label2">Title/Degree Obtained <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 120px;" class="form-control" placeholder="Title/Degree" id="degree" name="studentDegree" required> 
+						</div>
+						
+						<br><br>
+
+						<hr id="line">
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label2">School to Transfer to <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 130px;" class="form-control" placeholder="School" id="school" name="studentSchool" required> 
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label2">School Address <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="text" style="margin-left: 175px;" class="form-control1" placeholder="School Address" id="school-address" name="studentSchooladdress" required> 
+						</div>
+						<br>
+						
+						<hr id="line">
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label2">Date of Application <span style="color:#ff0000"><b>*</b></span></label>
+							<input type="date" style="margin-left: 140px;" class="form-control" id="application-date" name="studentCurrentdate" required> <!-- DB DATE OF APPLICATION -->
+						</div>
+						<br>
+						
+						<hr id="line">
+						<div class="clearance-done">
+								<a href="#" id="button-edit"><button type="submit" class="btn1">Submit</button></a> <!-- SUBMIT -->
+								<a href="{% url 'stc' %}" id="button-edit"><button type="button" class="btn">Save Copy</button></a> <!-- SAVE COPY -->
+								<!-- FILE PATH: Students/sOthers/sHd4.html-->
+								<a href="{% url 'sHd2' %}" id="button-edit"><button type="button" class="btn"> Next</button></a> <!-- NEXT -->
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- END Content -->
+	{% endblock content %}
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        const selected = document.querySelector(".selected");
+        const optionsContainer = document.querySelector(".options-container");
+
+        const optionsList = document.querySelectorAll(".option");
+
+        selected.addEventListener("click", () => {
+            optionsContainer.classList.toggle("active");
+        });
+
+        optionsList.forEach(o => {
+            o.addEventListener("click", () => {
+                selected.innerHTML = o.querySelector("label").innerHTML;
+                optionsContainer.classList.remove("active");
+            });
+        });
+    </script>
+ 
+</body>
+
+</html>

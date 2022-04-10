@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Study Plan </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/sOthers/sStudyplan2.css' %}">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        #checkmark{
+            height: 32px;
+            width: 32px;
+            border: 5px solid rgb(255, 255, 255);
+            border-radius: 45px;
+            background-color: #0b5bb6;
+            margin-left: 15px;
+        }
+
+        tr:nth-child(even) {background-color: #ffffff;}
+
+        #submitbtn{
+            border: none;
+            padding-bottom: 15px;
+            margin-right:-120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <div class="backrw row">
+
+                    <a href="{% url 'stdplnyr' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                   
+                   
+
+                   <p id="head1">
+                        Study Plan
+                    </p>
+
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Upcoming<br>Semester</li>
+                                        <li class="active progress-text-active">Subjects<br>Taken</li>
+                                        <li class="progress-text">Study<br>Plan</li>
+                                        <li class="progress-text">Upload<br>Documents</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+                <div class="subtaken row pt-5">
+                    <div class="col-lg-4">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="head2"><b>Subjects Taken</b></p>
+                            </div>
+                        </div>
+
+                        <div class="row pt-3">
+                            <div id="head3" class="col-lg-3">
+                                <b>Before</b>
+                            </div>
+                            <div id="head3" class="col-lg-5">
+                                {% if status.curricula %}
+                                    <p style="text-align:left; width: 300px;"><b>{{ status.curricula.cYear }}, {{ status.curricula.cSem }}</b></p>
+                                {% endif %}
+                                <!--
+                                <select class="curfield col-lg-5" id="upsem" onchange="nxtsem();">
+                                    <option selected disabled>Select upcoming semester</option>
+                                    <option></option>
+                                </select>-->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 pt-3">
+                                <hr>
+                                <p id="head3">Tick all the subjects taken that has a <br> failed remark.</p>
+                            </div>
+                            <form method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}
+                                <input type="submit" id="submitbtn" value="Submit">
+                        </div>
+
+                    </div>
+
+                    <div class="fill-in col-lg-8 pr-0">
+
+
+                            <div class="tablepanel table-responsive-lg">
+                                <table class="borderless table">
+
+
+                                    <tr class="primary-att">
+                                        <th scope="col"><p id="head3"><b>Code</b></p></th>
+                                        <th scope="col"><p id="head3"><b>Course Name</b></p></th>
+                                        <th scope="col"><p id="head3"><b>Units</b></p></th>
+                                        <th scope="col"><p id="head3" style="font-size: 15px;"><b>Pre(Co)-Requisites</b></p></th>
+                                        <th scope="col"><p id="head3"><b>Failed</b></p></th>
+                                    </tr>
+                                    <!----------------------DATABASE STUFF---------------------->
+                                    {% if status.curricula %}
+                                        {% if semesters and subjects %}
+                                            {% for semester in semesters %}
+                                                {% if semester.departmentID == info.departmentID %}
+                                                    {% if semester.schoolYr == status.admissionYr %}
+                                                        {% if semester == status.curricula %}
+                                                        {{ "<!--" }}
+                                                        {% else %}
+
+                                                            <tr class="tabletext1">
+                                                                <td colspan="5" style="background-color: #cae2ff; box-shadow: 0 0 10px rgb(189, 189, 189);"><b>{{ semester.cYear }}, {{ semester.cSem }}</b></td>
+                                                            </tr>
+                                                            {% for subject in subjects %}
+                                                                {% if semester == subject.curricula %}
+                                                                    <tr class="tabletext2">
+                                                                        <td><p>{{ subject.courseCode }}</p></td>
+                                                                        <td><p class="subjectName">{{ subject.courseName }}</p></td>
+                                                                        <td><p>{{ subject.courseUnit }}</p></td>
+                                                                        <td><p>{{ subject.prerequisite|default_if_none:"" }}</p></td>
+                                                                        <td><input type="checkbox" id="checkmark" name="checkmark" value="{{ subject.id }}"></td>
+                                                                    </tr>
+                                                                {% endif %}
+                                                            {% endfor %}
+
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endif %}    
+                                            {% endfor %}
+                                            {{ "-->" }}
+                                        {% endif %}
+                                    {% endif %}
+                                    <!---------------------------------------------------------->
+
+                                   
+
+                                </table>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- END Content -->
+
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

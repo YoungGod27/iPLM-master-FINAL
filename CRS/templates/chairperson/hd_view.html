@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+</head>
+<body>
+
+<h1>Student</h1>
+Student No. {{ hd_applicant.studentID.studentID }} Name: {{ hd_applicant.studentID.studentUser.lastName }}, {{ hd_applicant.studentID.studentUser.firstName }}
+Status: {{ hd_applicant.remarks }}
+<table border="2">
+    <th>Submitted Files</th>
+    <tr>
+        <td><a href="{{hd_applicant.studentDropform.url}}" class="btn btn-info" target="_blank" >View student Drop form PDF</a></td></tr>
+    <tr>
+        <td><a href="{{hd_applicant.studentClearanceform.url}}" class="btn btn-info" target="_blank" >View student Clearance form PDF</a></td></tr>
+    <tr>
+        <td><a href="{{hd_applicant.studentHdletter.url}}" class="btn btn-info" target="_blank" >View Student Hd letter PDF</a></td></tr>
+    <tr>
+        <td><a href="{{hd_applicant.studentGrades.url}}" class="btn btn-info" target="_blank" >View Student Grades PDF</a></td></tr>
+</table>
+
+    <td><a href="{% url 'feedback' hd_applicant.id %}">Feedback</a></td>
+<br>
+<br>
+    {% if messages %}
+    {% for message in messages %}
+            {{ message }}
+    {% endfor %}
+{% endif %}
+
+    

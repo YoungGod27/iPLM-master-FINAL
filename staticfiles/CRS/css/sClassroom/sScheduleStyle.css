@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: hidden;
+}
+
+#content {
+    margin-left: 150px;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+}
+
+
+/*Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+/*End of Side Bar*/
+
+
+/**** TOP PART ****/
+
+.schedule{
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+
+.backrw {
+    margin-left: 100px;
+    margin-top: 65px;
+    margin-right: 100px;
+}
+
+#backimg {
+    padding-top: 30px;
+}
+
+.back:hover,
+.back:focus {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(100%) saturate(1155%) hue-rotate(190deg) brightness(91%) contrast(100%);
+}
+
+#head1 {
+    letter-spacing: 1px;
+    margin-left: 30px;
+    margin-top: 17px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+#schedtitle {
+    padding-bottom: 10px;
+    line-height: 0px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+
+/**** END OF TOP PART ****/
+
+
+/**** SEMESTER DETAILS ****/
+
+.semdetbox {
+    border: 3px solid #0C66CC;
+    border-radius: 30px 30px 30px 30px;
+    margin-top: 20px;
+    height: 280px;
+}
+
+#sdhtext{
+    font-size: 25px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+
+.semdet {
+    margin-top: 5px;
+    height: 30px;
+    width: 105%;
+    font-family: 'Nunito';
+}
+
+.sdtext {
+    font-size: 15px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    font-weight: bold;
+}
+
+.field {
+    font-family: 'Nunito';
+    font-size: 18px; 
+}
+/**** END OF SEMESTER DETAILS ****/
+
+/**** SCHEDULE AREA ****/
+
+#schedarea {
+    margin-left: auto;
+}
+
+.sfield-2{
+    margin-bottom: 40px;
+    font-family: 'Nunito';
+    font-size: 18px; 
+    text-align: center;
+    
+}
+
+#schedtext{
+    font-size: 24px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* Gray Boxes */
+.sfield {
+    margin-bottom: 40px;
+    font-family: 'Nunito';
+    font-size: 18px; 
+    text-align: left;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/**** END OF CONTENT ****/
+
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+}
+
+  /*Table*/
+
+  #head3 {
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.primary-att {
+    position: sticky;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    /* Don't forget this, required for the stickiness */
+    background-color: #fcfcfc;
+}
+.empty{
+    color:#fcfcfc;
+}
+.fill-in {
+    border-radius: 20px;
+    margin-left: 100px;
+}
+
+.tablepanel {
+    overflow-y: scroll;
+    width: 100%;
+    height: 660px;
+    margin-left: 50px;
+}
+
+.borderless td,
+.borderless th {
+    border: none;
+}
+
+.tablepanel::-webkit-scrollbar {
+    width: 10px;
+    background: #ebebeb;
+    border-radius: 0 8px 8px 0;
+    
+}
+
+.tablepanel::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 0 8px 8px 0;
+    ;
+}
+
+.tabletext1 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+
+.tabletext2 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #252525;
+}
+
+.dataStyle {
+    width: 300px;
+    color: #252525;
+}
+
+.timeStyle {
+    width: 100px;
+}
+
+#remarks {
+    padding-left: 5px;
+    border: none;
+    background: #0C66CC;
+    font-size: 15px;
+    font-family: Nunito;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    height: 33px;
+    width: 88px;
+
+}
+
+#grade {
+    padding-left: 5px;
+    border: none;
+    background: #0C66CC;
+    font-size: 15px;
+    font-family: Nunito;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    height: 33px;
+    width: 88px;
+
+}
+
+.imgSubmit{
+    margin-left: 20px;
+    margin-top: 150px;
+}
+
+#delete{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+/***** END OF CHECKLIST *****/
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+/* For screens na 1600 */
+@media (min-width: 1600px) {
+    .wrapper {
+        zoom: 85%;
+    }
+}
+
+/********END BREAKPOINTS*******/

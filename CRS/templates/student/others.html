@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+</head>
+<body>
+
+<h1>Student</h1>
+Student No. {{ hd_applicant.studentID.studentID }} Name: {{ hd_applicant.studentID.studentUser.lastName }}, {{ hd_applicant.studentID.studentUser.firstName }}
+<table border="2">
+    <th>HD Application Status</th>
+    <tr>
+        <td>{{ hd_applicant.remarks }}</td></tr>
+    <th>OJT Application Status</th>
+    <tr>
+        <td>{{ ojt_applicant.remarks }}</td></tr>
+
+</table>
+
+  
+<br>
+<br>
+</body>
+</html>
+
+    

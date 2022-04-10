@@ -1,0 +1,109 @@
+{% extends 'chairperson/students/students_bsit.html' %}
+{% load static %}
+{% block body %}
+                <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">{{ year }}</p><!-- DB YEAR -->
+                    <p id="fulltime" style="margin-left: 20px;">|</p>
+                    <p id="fulltime" style="margin-left: 20px;">Block {{ block1 }}</p><!-- DB BLOCK -->
+                    <div class="row" id="studentCount">Student: {{ count }}<!-- DB STUDENT COUNT --></div>
+                </div>
+
+                <hr class="new">
+
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="col-15">
+                        <table>
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Faculty -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Faculty -->
+                                <td id="listname"><b><p>View</p></b></td><!-- Middle Name of Faculty -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+
+                <!-- DATA OF TABLE -->
+                <div class="list row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>
+                                <!--ROW 1-->
+
+                                    {% for item in bsit1 %}
+                                    <tr>
+                                        <td id="list">{{ item.studentID }}</td>
+                                        <td id="list">{{ item.studentUser.lastName }}</td>
+                                        <td id="listname">{{ item.studentUser.firstName }}</td>
+                                        <td id="listname">{{ item.studentUser.middleName }}</td>
+                                        <td id="listname"><a href="{% url 'profile1_1' item.pk %}"><button class="manage row"><!-- DB MANAGE FACULTY BUTTON BELOW -->View</button></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+
+                            </table>
+                        </div>
+                    </div>
+
+
+
+
+                <!--Search box-->
+                <div class="searchbox">
+                    <form method ="get">
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </button></form>
+                </div>
+                <!--End of Search box-->
+
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline">
+                    </div>
+                </div>
+                <!--End of gray line-->
+
+                <!--picture-->
+                <div class="boxed" id="secInfo">
+                    <form action="/action_page.php">
+                        <table>
+                            <tr >
+                                <td ><img src="{% static '/CRS/images/cStudents/block.png' %}" width="55px" height="33px" class="secInfoHead"></td>
+                                <td colspan="2"><p class="secInfoHead"> Block Information </p></td>
+                            </tr>
+                            <tr style="background-color: transparent;">
+                                <td rowspan="2"><img src="{% static '/CRS/images/cStudents/userBlue.png' %}" width="50px" height="50px"></td>
+                                <td><input type="text" id="facilitator" name="facilitator"  class="facilitator"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label class="facilitator">Adviser</label></td>
+                            </tr>
+                            <tr style="background-color: transparent;">
+                                <td colspan="3"><hr></td>
+                            </tr>
+                        </table>
+
+                    </form>
+
+                    <div id="OtherIn">
+                        <table>
+                            <tr>
+                                <td><img src="{% static '/CRS/images/cStudents/calendar-2.png' %}" width="50px" height="auto"></td>
+                                <td><a href="{% url 'cStudentSchedOnline' %}"><button class="blockManage row">Schedule<br>Manage/View Schedule</button></a></td><!-- DB MANAGE SCHEDULE BUTTON BELOW -->
+                            </tr>
+                            <tr style="background-color: transparent;"> 
+                                <td><img src="{% static '/CRS/images/cStudents/block.png' %}" width="50px" height="auto"></td>
+                                <td><a href="{% url 'students_bsit1B5' %}"><button class="blockManage row">Manage Students<br>Edit Students</button></a></td><!-- DB MANAGE SCHEDULE BUTTON BELOW -->
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                {% endblock %}

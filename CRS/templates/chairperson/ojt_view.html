@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+</head>
+<body>
+
+<h1>Student</h1>
+Student No. {{ ojt_applicant.studentID.studentID }} Name: {{ ojt_applicant.studentID.studentUser.lastName }}, {{ ojt_applicant.studentID.studentUser.firstName }}
+Status: {{ ojt_applicant.remarks }}
+<table border="2">
+    <th>Submitted Files</th>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtResume.url}}" class="btn btn-info" target="_blank" >Resume</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtRecLetter.url}}" class="btn btn-info" target="_blank" >Recom Recom Letter</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtWaiver.url}}" class="btn btn-info" target="_blank" >Waiver</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtAcceptForm.url}}" class="btn btn-info" target="_blank" >Accept Form</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtCompanyProfile.url}}" class="btn btn-info" target="_blank" >Company Profile</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtDailyReport.url}}" class="btn btn-info" target="_blank" >Daily Report</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtDtr.url}}" class="btn btn-info" target="_blank" >DTR</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtEvalReport.url}}" class="btn btn-info" target="_blank" >Eval Report</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtCertificate.url}}" class="btn btn-info" target="_blank" >Certificate</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtCompanyId.url}}" class="btn btn-info" target="_blank" >Company ID</a></td></tr>
+    <tr>
+        <td><a href="{{ojt_applicant.ojtMedcert.url}}" class="btn btn-info" target="_blank" >Med Cert</a></td></tr>
+</table>
+
+    <td><a href="{% url 'ojt_feedback' ojt_applicant.id %}">Feedback</a></td>
+<br>
+<br>
+    {% if messages %}
+    {% for message in messages %}
+            {{ message }}
+    {% endfor %}
+{% endif %}

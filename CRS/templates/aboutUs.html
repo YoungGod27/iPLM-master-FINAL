@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<title>iPLM</title>
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ 
+ <!--  ICON -->
+<link rel="icon" href="{% static 'CRS/images/landingPage/iPLMlogo.png' %}" type="image/png" sizes="16x16">
+
+<style>
+
+  body{
+    background-color: #ffffff;
+    animation: MoveInFromBottom 1s ease;
+    height: 100%;
+    margin: 0;
+    font-family: Nunito;
+  }
+
+
+
+    .container1{
+        background-image: url("{% static 'CRS/images/landingPage/about3.png' %}");
+        height: 720px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container2{
+        height: 720px;
+    }
+
+    .container3{
+        background-color: #0C66CC;
+        height: 50px;
+        color: #a1c3fc;
+        padding: 10px;
+    }
+
+
+
+  .center{
+    align-items: center;
+    float: center;
+    
+    font-family: Nunito;
+  }
+
+  .mainText{
+    font-size: 250px;
+    color: #BADBFF;
+  }
+
+  .title{
+    font-size: 100px;
+    color: #0C66CC;
+    margin-top: -10px;
+    margin-left: 70px;
+  }
+
+  .description{
+    color: #0C66CC;
+    font-size: 30px;
+    margin-left: 70px;
+    margin-top: -30px;
+  }
+
+  .systemDescription{
+      color: #0C66CC;
+      margin-right: 70px;
+      margin-left: 70px;
+      text-align: right;
+  }
+
+  @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+
+            @keyframes MoveInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(3rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }   
+
+            /*SCROLLBAR*/
+            ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #e4e4e4;
+            border-radius: 12px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #cbcbcb;
+            border-radius: 12px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8f8f8f; 
+        }
+
+
+
+</style>
+</head>
+<body>
+
+    <div class="container1 center">
+
+    
+      <br><br><br><br><br><br>
+      <a href="{% url 'index' %}" style="margin-left: 80px;"><img src="{% static 'CRS/images/landingPage/back3.png' %}" alt="iplm" width="35px" height="35px"></a>
+      <img src="{% static 'CRS/images/landingPage/clip-uniting-the-world.png' %}" height="450px;" width="auto"  align="right" style="margin-right: 50px;">
+      
+      <br><br><br><br>
+      <p class="title">the scrIpTs</p>
+      <p class="description">We make IT happen.</p>
+      <img src="{% static 'CRS/images/landingPage/clip-24.png' %}" height="120px;" width="auto"  align="left" style="margin-top: 15px; margin-left: 70px;">
+    </div>
+
+    <div class="container2">
+        <br><br>
+        
+        <img src="{% static 'CRS/images/landingPage/clip-homework.png' %}" height="550px;" width="auto"  align="left" style="margin-left: 10px;">
+        <br><br><br><br><br>
+        <img src="{% static 'CRS/images/landingPage/iplmSystem.png' %}" height="100px;" width="auto"  align="right" style="margin-top: 15px; margin-right: 70px;">
+        <p class="title" align=right style="margin-right: 80px;">iPLM</p>
+        <p class="systemDescription">The impact that the system will bring to the clients or customer is first, it will be encouraging the users such as the admins, faculties, students, and applicants to use this system due to the flexibility of it. The system is easy to use to the point that the functionality is easy to understand, there will be an icons and words that will be helpful to the users. This system also influences the users to be more technology driven since we are in the 21st century that all transactions are mostly using the technology, and this will be the system allows them to explore the usage and importance of the technological advancement using web application.
+            
+
+
+        </p>
+        
+        <p style="float: right; color: #353535; margin-right: 70px; text-align: right;  width: 350px; font-size: 10px;"><b>Bachelor of Science in Information Technology Undergraduate Project in Professional Elective 2 and Information Management S.Y. 2020-2021</b></p>
+        
+    
+    </div>
+
+    <div class="container3">
+        
+        <p style="text-align: center; margin-left: 10px; margin-right: 10px;">IMxSAD 2020-2021
+        </p>
+    </div>
+    
+
+
+</body>
+</html>

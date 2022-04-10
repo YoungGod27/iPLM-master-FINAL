@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Classroom</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="{% static 'CRS/css/fClassroom/fClassroomStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+
+    .semdetbox {
+        border: 3px solid #2852a4;
+        border-radius: 30px 30px 30px 30px;
+        margin-top: 80px;
+        height: 250px;
+    }
+
+
+    #buttonPartTIme .btn {
+        border-radius: 15px 15px 15px 15px;
+        font-size: 18px;
+        font-family: 'Nunito';
+        color: #ffff;
+        width: 210px;
+        height: 55px;
+        background-color: #0C66CC;
+        margin-top: 20px;
+        margin-left: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #buttonPartTIme .btn:hover {
+        background-color: #2852A4;
+        cursor: pointer;
+    }
+
+    #buttonView .btn {
+        border-radius: 15px 15px 15px 15px;
+        font-size: 14px;
+        font-family: 'Nunito';
+        color: #ffff;
+        width: 60px;
+        height: 35px;
+        background-color: #0C66CC;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #buttonView .btn:hover {
+        background-color: #2852A4;
+        cursor: pointer;
+    }
+
+    .primary-att{
+        height: 70px;
+        
+    }
+    
+    #schedtext{
+    font-size: 20px;
+    color: white;
+    font-family: 'Nunito';
+    font-weight: bolder;
+    text-align: left;
+    padding-top: 20px;
+    }
+
+    #schedtext-1{
+    font-size: 18px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    }
+
+
+    .tablepanel {
+        overflow-y: scroll;
+        width: 1550px;
+        height: 650px;
+        margin-left: -20px;
+        margin-top: 74px;
+    }
+
+    .borderless td,
+        .borderless th {
+            border: none;
+        }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+    .tablepanel{
+        border-radius: 20px;
+    }
+
+    .tablepanel::-webkit-scrollbar {
+        width: 10px;
+        background: #ebebeb;
+        border-radius: 0 8px 8px 0;
+        margin-left: 10px;
+        
+    }
+
+    .tablepanel::-webkit-scrollbar-thumb {
+        background: #cecece;
+        border-radius: 0 8px 8px 0;
+        ;
+    }
+
+    .tabletext1 {
+        text-align: left;
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-family: 'Nunito';
+        color: #0C66CC;
+    }
+
+
+    .tabletext2 {
+        text-align: left;
+        letter-spacing: 1px;
+        font-size: 18px;
+        font-family: 'Nunito';
+        color: #252525;
+    }
+
+    .dataStyle {
+        color: #0C66CC;
+        width: 220px; 
+
+    }
+
+    #remarks {
+        padding-left: 5px;
+        border: none;
+        background: #0C66CC;
+        font-size: 15px;
+        font-family: Nunito;
+        cursor: pointer;
+        color: white;
+        border-radius: 10px;
+        height: 33px;
+        width: 88px;
+
+    }
+
+    #grade {
+        padding-left: 5px;
+        border: none;
+        background: #0C66CC;
+        font-size: 15px;
+        font-family: Nunito;
+        cursor: pointer;
+        color: white;
+        border-radius: 10px;
+        height: 33px;
+        width: 88px;
+    }
+
+    .table-wrapper-scroll-y {
+    display: inline;
+    width: 1100px;
+    }
+    </style>
+
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+            <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+            <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+            <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+            <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: LOG-OUT -->
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+    </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+                <div class="back row">
+                    <object type="image/svg+xml" data="studclassroom_back.svg" id="backimg"></object>
+                    <p id="schedtitle">Classroom</p>
+                </div>
+                <div class="schedule row">                    
+                    <div class="col-lg-3">
+
+                        <!--SEMESTER DETAILS-->
+                        <div class="semdetbox col-lg-12">
+                            <div class="col-lg-12">
+                                <div id="sdhtext">Semester Details</div>
+                                <div class="semdet row">
+                                    {% for acads in acad %}
+                                    <div class="sdtext col">Academic Year:</div>
+                                    <div class="field col">{{acads.yearstarted}}-{{acads.yearended}}</div>
+                                     {% endfor %}<!--DB ACADEMIC YEAR-->
+                                </div>
+                                <div class="semdet row">
+                                    {% for acads in acad %}
+                                    <div class="sdtext col">Semester:</div>
+                                    <div class="field col">{{acads.semester}}</div><!--DB SEMESTER-->
+                                    {% endfor %}
+                                </div>
+
+                                <div class="semdet row">
+                                    <div class="sdtext col">Subjects:</div>
+                                    <div class="field col">{{subjects}}</div><!--DB NO. OF SUBJECTS-->
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <!--Schedule Image Flipped-->
+                        <div class="row">
+                            <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part Time Availability</button></a>
+                            <img src="{% static 'CRS/images/fClassroom/clip-homework.png' %}" height="350" width="auto">
+                        </div>
+                    </div>  
+                    
+                    <!--Text Fields-->              
+                    <div id="schedarea" class="col-lg-9 row">
+
+                        <div class="tablepanel table-responsive-lg">
+                            <table class="borderless table">
+                                <tr class="primary-att" style="background-color: #0C66CC;">
+                                    <th scope="col" id="schedtext"><b>Code</b></th>
+                                    <th scope="col" id="schedtext"><b>Course Name</b></th>
+                                    <th scope="col" id="schedtext"><d ><b>Units</b></p></th>
+                                    <th scope="col" id="schedtext"><b>Section</b></th>
+                                    <th scope="col" id="schedtext"><b>Day</b></th>
+                                    <th scope="col" id="schedtext"><b>Time</b></th>
+                                    <th scope="col" id="schedtext"><b>Room</b></th>
+                                    <th scope="col" colspan="2" id="schedtext"><b>Session Type</b></th>
+                                </tr>
+                                <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
+                                    {% for sched  in schedule %}
+                                <tr class="tabletext2">
+                                    <td id="schedtext-1">{{sched.subjectCode.subjectCode.subjectCode}}</td>
+                                    <td><p  class="dataStyle"><b>{{sched.subjectCode.subjectCode.subjectName}}</b></p></td>
+                                    <td id="schedtext-1">{{sched.subjectCode.subjectUnits}}</td>
+                                    <td id="schedtext-1">{{sched.section}}</td>
+                                    <td id="schedtext-1">{{sched.day}}</td>
+                                    <td id="schedtext-1"><p  class="timeStyle">{{sched.timeStart}} - {{sched.timeEnd}}</p></td>
+                                    <td id="schedtext-1">{{sched.room}}</td>
+                                    <td id="schedtext-1">{{sched.type}}</td>
+                                    <td id="schedtext-1"><a href="{% url 'viewstudent' sched.id  %}" id="buttonView"><button type="button" class="btn">View</button></a></td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %} 
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,329 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Others</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/sOthers/sOthersStyle.css' %}">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        .field {
+            border-radius: 40px 40px 40px 40px;
+            background: #2852A4;
+            width: 50%;
+            height: 25px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .alert{
+        padding: 20px;
+        background-color: #ff5f02;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 0 10px rgb(216, 216, 216);
+        animation: zoom-in-zoom-out 1s ease;
+        width: 200px;
+        margin-left: 1150px;
+        }
+
+        .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtn:hover {
+        color: #b94807;
+        }
+
+        #notif:hover {
+            background: #D6E000;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+
+
+        @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+            <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+    </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+
+                <!-- Others -->
+                <div class="others-main row">
+                    <p id="ohead">Others</p>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <b>{{ message }}</b>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <!--first row-->
+                <div class="others row">
+                    <div class="col-lg-12">
+                        <div class="row">
+
+                            <!--Study Plan Button-->
+                            <div class="obuttons col-lg-4 px-3">
+
+                                <a href="{% url 'donesp' %}"><button class="obtn">
+                                        <div class="obtntext0 row">
+
+                                            <div class="col">
+                                                <p id="obtntext1">Study Plan</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="sub-obuttons row">
+                                            <div class="col-lg-2">
+                                                <p id="obtntext2">Status:</p>
+                                            </div>
+                                            <div class=" col-lg-10">
+                                                <div class="field col" style="color:#BADBFF">
+                                                    {{ sp_applicant.remarks }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button></a>
+
+                            </div>
+                            <!--END Study Plan Button-->
+
+                            <!--Leave of Absence Button-->
+                            <div class="obuttons col-lg-4 px-3">
+
+                                <a href="{% url 'doneLoa' %}"><button class="obtn">
+                                    <div class="oicon row">
+                                        <div class="icon col-lg-11">
+                                        </div>
+
+                                        <div class="icon col-lg-1">
+                                            <img id="notif" src="{% static 'CRS/images/sOthers/info.png' %}" width="30px" height="30px">
+
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Leave of Absence Requirements<br></p>
+                                                <p id="notifdrops"><b>1. Clearance Form</b></p>
+                                                <p id="notifdrops"><b>2. Leave of Absence Form</b></p>
+                                                <p id="notifdrops"><b>3. LOA Request Letter with Scanned ID of Parents with 3 Signatures</b></p>
+                                                <p id="notifdrops"><b>4. Checklist/Taken Subjects</b></p>
+                                                <p id="notifdrops"><b>5. Study Plan</b></p>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="sub-obuttons row">
+                                        <a href="{% url 'doneLoa' %}">
+                                            <div class="col">
+                                                <p id="obtntext1">Leave of Absence</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="sub-obuttons row">
+                                        <div class="col-lg-2">
+                                            <p id="obtntext2">Status:</p>
+                                        </div>
+                                        <div class=" col-lg-10 ">
+                                            <div class="field col" style="color:#BADBFF">
+                                                {{ loa_applicant.remarks }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button></a>
+
+                            </div>
+                            <!--END Leave of Absence Button-->
+
+                            <!--Honnorabble Dismissal Button-->
+                            <div class="obuttons col-lg-4 px-3">
+                                <a href="{% url 'doneHd' %}">
+                                <button class="obtn">
+                                    <div class="oicon row">
+                                        <div class="icon col-lg-11">
+                                        </div>
+                                        <div class="icon col-lg-1">
+                                            
+                                            <img id="notif" src="{% static 'CRS/images/sOthers/info.png' %}" width="30px" height="30px">
+
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Honorable Dissmisal Requirements<br></p>
+                                                <p id="notiftitle">Leave of Absence Requirements<br></p>
+                                                <p id="notifdrops"><b>1. Clearance Form</b></p>
+                                                <p id="notifdrops"><b>2. Dropping Form</b></p>
+                                                <p id="notifdrops"><b>3. Transfer Certificate or Non-Transfering Letter</b></p>
+                                                <p id="notifdrops"><b>4. HD Request Letter</b></p>
+                                                <p id="notifdrops"><b>5. Scanned ID of Parents with 3 Signatures</b></p>
+                                                <p id="notifdrops"><b>6. Checklist/ Taken Subjects</b></p>
+                                            </div> 
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="sub-obuttons row">
+                                            <div class="col">
+                                                <p id="obtntext1">Honorable Dismissal</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="sub-obuttons row">
+                                        <div class="col-lg-2">
+                                            <p id="obtntext2">Status:</p>
+                                        </div>
+                                        <div class=" col-lg-10">
+                                            <div class="field col" style="color:#BADBFF">
+                                                {{ hd_applicant.remarks }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button></a>
+
+                            </div>
+                            <!--END of Honnorabble Dismissal Button-->
+
+                        </div>
+                    </div>
+                </div>
+                <!--END first row-->
+
+                <!--second row-->
+                <div class="others row">
+                    <div class="col-lg-12">
+                        <div class="row">
+
+                            <!--Practicum Button-->
+                            <div class="obuttons col-lg-4">
+                                <a href="{% url 'donepracticum' %}">
+                                <button class="obtn">
+                                    <div class="oicon row">
+                                        <div class="icon col-lg-11">
+                                        </div>
+                                        <div class="icon col-lg-1">
+                                            <img id="notif" src="{% static 'CRS/images/sOthers/info.png' %}" width="30px" height="30px">
+
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Practicum Requirements<br></p>
+                                                <p id="notifdrops"><b>1. Resume</b></p>
+                                                <p id="notifdrops"><b>2. Recommendation letter from the Chairperson / Department</b></p>
+                                                <p id="notifdrops"><b>3. Agreement / Waiver</b></p>
+                                                <p id="notifdrops"><b>4. Acceptance form from the company</b></p>
+                                                <p id="notifdrops"><b>5. Company profile</b></p>
+                                                <p id="notifdrops"><b>6. OJT Company ID</b></p>
+                                                <p id="notifdrops"><b>7. Medical Certificate</b></p>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="sub-obuttons row">
+                                        <div class="col">
+                                            <p id="obtntext1">Practicum</p>
+                                        </div>
+                                </div>
+
+                                    <div class="sub-obuttons row">
+                                        <div class="col-lg-2">
+                                            <p id="obtntext2">Status:</p>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="field col" style="color:#BADBFF">
+                                                {{ ojt_applicant.remarks }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </a>
+
+                               
+                            </div>
+                            <!--END Practicum Button-->
+
+                            <!-- image -->
+                            <div class="img col-lg-4">
+                            </div>
+                            <div class="col-lg-4">
+                                <p id="oimg"> <img src="{% static 'CRS/images/sOthers/student_others_img.png' %}" width="550" height="450"></p>
+                            </div>
+                        </div>
+                        <!--END image-->
+
+                    </div>
+                </div>
+
+            </div>
+            <!--END second row-->
+
+
+        </div>
+    </div>
+    <!-- END Content -->
+
+    <div>
+    </div>
+    {% endblock content %}
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function changeText(obj, text) {
+            obj.innerText = text;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Students | Leave of Absence</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/sOthers/sLoaStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        
+        #subjectMessage {
+        margin-top: 10px;
+        padding: 10px;
+        padding-top: 15px;
+        font-size: 18px;
+        color: rgb(248, 248, 248);
+        font-family: 'Nunito';
+        background-color: #ff5f02;
+        border: 2px solid #ff5f02;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgb(199, 199, 199);
+		width: 40%;
+        animation: zoom-in-zoom-out 1s ease;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtn:hover {
+        color: #b94807;
+        }
+
+		@keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+
+        /*SCROLLBAR*/
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #e4e4e4;
+			border-radius: 12px;
+		}
+		
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #cbcbcb;
+			border-radius: 12px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #8f8f8f; 
+		}
+	</style>
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+	    <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+
+                <!--Study Plan head-->
+                <div class="back row">
+                    <!-- FILE PATH: Students/sOthers/sLoa1.html-->
+                    <a href="{% url 'sLoa1' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                    
+                     <p id="head1">
+                        Leave of Absence
+                    </p>
+                </div>
+                <!--END Study Plan head-->
+
+               <!-- Progress Bar -->
+               <div class="row">
+                <div class="col-lg-12">
+                    <div class="progress row">
+                        <div class="col-lg-12">
+                            <div class="progress-bar "></div>
+                            <div class="progressbar">
+                                    <li class="active progress-text-active">Clearance<br>Form</li>
+                                    <li class="active progress-text-active">LOA<br>Form</li>
+                                    <li class="progress-text">Upload<br>Documents</li>
+                                    <li class="progress-text">Confirmation<br>Submission</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END Progress Bar-->
+
+                <!-- LOA Form Row -->
+                <div class="loaf row">
+					<!-- LOA Form -->
+					<div class="col-lg-6 entireLOA">
+                	<p id="loa-form"><b>Leave of Absence Form</b></p>
+                	<p id="loaf-bottom">Please complete the form below.</p>
+
+                        {% if messages %}
+							{% for message in messages %}
+							<div id="subjectMessage">
+								<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+								{{ message }}
+							</div>
+							{% endfor %}
+						{% endif %}
+
+                    <form method="POST" enctype="multipart/form-data" onSubmit="alert('Form Submitted, Save a Copy!')">
+                        {%csrf_token%}
+                        <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="dof">Date of Filing <span style="color:#ff5f02"><b>*</b></span></label> 
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="dof" type="date" class="form-control-2" required> <!-- DB DATE OF FILING -->
+                            </div>
+                        </div>
+
+                        <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="snum">Student Number</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="snum" type="text" class="form-control-2" placeholder="{{info.studentID}}" disabled> <!-- DB STUDENT NUMBER -->
+                            </div>
+                        </div>
+
+                        <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="snam">Student Name</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="snam" type="text" class="form-control-2" placeholder="{{info.studentUser.firstName}} {{info.studentUser.middleName}} {{info.studentUser.lastName}}" disabled> <!-- DB STUDENT NAME -->
+                            </div>
+                        </div>
+
+                            <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="styp">Student Type</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="styp" type="text" class="form-control-2" placeholder="{{info.studentType}}" disabled> <!-- DB STUDENT TYPE -->
+                            </div>
+                        </div>
+
+                            <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="acstat">Academic Status</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="acstat" type="text" class="form-control-2" placeholder="{{info.studentRegStatus}}" disabled> <!-- DB ACAD STATUS -->
+                            </div>
+                        </div>
+
+                            <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="colg">College</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="colg" type="text" class="form-control-2" placeholder="{{info.collegeID}}" disabled> <!-- DB COLLEGE -->
+                            </div>
+                        </div>
+
+                            <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="crse">Course</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="crse" type="text" class="form-control-2" placeholder="{{info.studentCourse}}" disabled> <!-- DB COURSE -->
+                            </div>
+                        </div>
+
+                        <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="yrlvl">Year Level</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="yrlvl" type="text" class="form-control-2" placeholder="{{info.studentYearlevel}}" disabled> <!-- DB YEAR LEVEL -->
+                            </div>
+                        </div>
+
+                        <div class="lsub row">
+                            <div class="text col-lg-4">
+                                <label for="genave">GWA <span style="color:#ff5f02"><b>*</b></span></label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input name="genave" type="text" class="form-control-2" required> <!-- DB GWA -->
+                            </div>
+                        </div>
+                    
+                </div>
+                <!-- END LOA Form -->
+
+                 <!-- Vertical Line -->
+                <div class="vl"></div>
+                <!-- END Vertical Line -->
+
+                <!-- Effectivity Form -->
+                <div class="efrom row">
+                	<div class="col-lg-12">
+                		<p id="effective"><b>Effective From</b></p>
+                		<b><hr class= "first"></b> 
+                		
+                		<!-- Effective From Form -->
+                	
+                		<div class="from row">
+                                <div class="text col-lg-3">
+                                    <label for="pcon">Sem/Term <span style="color:#ff5f02"><b>*</b></span></label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input name="sem" type="text" class="form-control-3" required> <!-- DB SEM/TERM -->
+                                </div>
+                                <div class="text col-lg-1">
+                                    <label for="pcon">SY<span style="color:#ff5f02"><b>*</b></span></label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input name="sy" type="text" class="form-control-3" required> <!-- DB SY -->
+                                </div>
+                            </div>
+                   		  
+                   		<!-- END ffective From Form -->
+
+                   			<!-- Effective Until Form -->
+                    		<p id="until"><b>Effective Until</b></p>
+	                		<b><hr class= "second"></b> 
+	                		
+	                		<div class="from row">
+	                                <div class="text col-lg-3">
+	                                    <label for="pcon">Sem/Term<span style="color:#ff5f02"><b>*</b></span></label>
+	                                </div>
+	                                <div class="col-lg-4">
+	                                    <input name="sem2" type="text" class="form-control-3" required> <!-- DB SEM/TERM -->
+	                                </div>
+	                                <div class="text col-lg-1">
+	                                    <label for="pcon">SY<span style="color:#ff5f02"><b>*</b></span></label>
+	                                </div>
+	                                <div class="col-lg-4">
+	                                    <input name="sy2" type="text" class="form-control-3" required> <!-- DB SY -->
+	                                </div>
+	                            </div>
+	                    	 
+	                    	<!-- END Effective Until Form -->
+
+	                    	<!-- Reason Form -->
+	                    	
+	                		<div class="reason row">
+	                                <div class="text col-lg-3">
+	                                    <label for="pcon">Reason<span style="color:#ff5f02"><b>*</b></span></label>
+	                                </div>
+	                                <div class="col-lg-9">
+	                                    <input name="reason" type="text" class="form-control-3" required> <!-- DB REASON (LOA FORM) -->
+	                                </div>
+	                          
+	                        <!-- END Reason Form -->
+                	</div>
+                </div> 
+                <!-- END Effectivity Form -->          	
+				</div>
+            <!-- END LOA Form Row-->
+
+			            <!-------------BOTTOM BUTTONS----------->
+                        <div class="loaForm-done">
+
+
+
+                            <a href="#" id="button-edit"><button type="submit" class="btn1">Submit</button></a> <!-- SUBMIT -->
+                            <a href="{% url 'lf' %}" id="button-edit"><button type="button" class="btn">Save Copy</button></a> <!-- SAVE COPY -->
+                            <!-- FILE PATH: Students/sOthers/sLoa3.html-->
+                            <a href="{% url 'sLoa3' %}" id="button-edit"><button type="button" class="btn"> Next</button></a> <!-- NEXT -->
+                        </div>
+             			<!-------------END BOTTOM BUTTONS----------->
+			</form>
+           
+        </div>
+    </div>
+    <br><br>
+    <!-- END Content -->
+
+    {% endblock content %}
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

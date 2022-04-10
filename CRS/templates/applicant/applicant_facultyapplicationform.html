@@ -1,0 +1,227 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Applicant</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'CRS/css/Applicants/Faculty/styles.css' %}">
+
+<script src="{% static 'CRS/js/Applicants/Faculty/applicationform.js' %}"> </script>
+
+<!--  ICON -->
+<link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+<style>
+
+	body {
+		overflow-x: hidden;
+	}
+	/*SCROLLBAR*/
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #e4e4e4;
+		border-radius: 12px;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #cbcbcb;
+		border-radius: 12px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #8f8f8f; 
+	}
+
+	#FullNametext, #ContactInformationText, #DepartmentInformationText
+	{
+		font-size: 18px;
+		font-family: Nunito;
+		color: #0C66CC;
+		position:absolute;
+	}
+	
+	#FullNametext
+	{
+		top: 150px;
+		left: 80px;
+	}
+	
+	#ContactInformationText
+	{
+		top: 220px;
+		left: 80px;
+	}
+		
+	#DepartmentInformationText
+	{
+		top: 290px;
+		left: 80px;
+	}
+
+	#LastName, #FirstName, #MiddleName, #EmailAddress, #Phone, #department
+	{
+		width: 240px;
+		height:25px;
+		box-sizing: border-box;
+		border: 2px solid #ECECEC;
+		border-radius: 7px;
+		background-color: #ECECEC;
+		color: black;
+		text-indent:10px;
+		font-family: Nunito;
+        
+	}
+   
+	/* Contact Info  */
+	#EmailAddress
+	{
+		position:absolute;
+		top: 220px;
+		left: 280px;
+	}
+
+	#Phone
+	{
+		position:absolute;
+		top: 220px;
+		left: 48%;
+	}
+	#department
+	{
+		position:absolute;
+		top: 290px;
+		left: 280px;
+	}
+
+	#subDepartment
+	{
+		font-size: 12px;
+		font-family: Nunito;
+		color: #0C66CC;
+		position:absolute;
+		top: 320px;
+		left: 27%;
+	}
+	
+	#subEmailAddress
+	{
+		top: 250px;
+		left: 27%;
+	}
+	
+	#subPhone
+	{
+		top: 250px;
+		left: 49%;
+	}
+	
+	
+</style>
+
+
+</head>
+
+<body>
+	<div id="backbutton"><a href="{% url 'applicantrequirements' %}"> <!--templates/Applicants/Faculty--><img src="{% static 'CRS/images/Applicants/Faculty/back.png' %}" alt="iplm" width="35px" height="35px"></a></div>
+    
+	<div id="roundbg">
+	<p id="FacultyApplicationFormTitle">Faculty Application Form</p>
+	
+	<p id="FAFSub">Please complete the form below to be admitted in our department.</p> 
+
+	<p id="FullNametext">Full Name<span style="color:#ff0000"><b>*</b></span></p>
+		<form method ="POST" enctype="multipart/form-data" onsubmit ="return checkforblank()">
+			{%csrf_token%}
+            <!--last name-->
+			<input type="text" id="LastName" name="lastName" placeholder="Dela Cruz">
+			<p id="subLastname">Last Name</p>
+            
+            <!--first name-->
+			<input type="text" id="FirstName" name="firstName" placeholder="Juan">
+			<p id="subFirstname">First Name</p>
+            
+            <!--middle name-->
+			<input type="text" id="MiddleName" name="middleName" placeholder="Cortez">
+			<p id="subMiddlename">Middle Name</p>
+		
+	<p id="ContactInformationText">Contact Information<span style="color:#ff0000"><b>*</b></span></p>            <!--email address-->
+			<input type="email" id="EmailAddress" name="email" placeholder="name@email.com">
+			<p id="subEmailAddress">Email Address</p>
+            
+            <!--phone number-->
+			<input type="tel" id="Phone" name="phoneNumber" pattern="[0-9]{11}" placeholder="09123456789">
+			<p id="subPhone">Phone Number</p>
+	
+	<p id="DepartmentInformationText">Department to Apply <span style="color:#ff0000"><b>*</b></span></p>            <!--email address-->
+			<input type="text" id="department" name="department" placeholder="BSIT">
+			<p id="subDepartment">Department</p>
+			
+		
+		
+	<hr id="line2" color="#d3d3d3" width="980px">
+	
+	<p id="UploadDocumentsTitle">Upload Documents</p>
+	<p id="UDSub">Please upload the following documents.</p>
+            
+	<!--left side-->
+	<p id="CVShape">&nbsp;&nbsp;&nbsp;&nbsp;CV</p>
+            
+	<p id="CertificateShape"> &nbsp;&nbsp;&nbsp;&nbsp; Certificate/s (Max:10)</p>
+            
+	<p id="CredentialsShape"> &nbsp;&nbsp;&nbsp;&nbsp; Credentials</p>
+            
+	<p id="TORShape">&nbsp;&nbsp;&nbsp;&nbsp;TOR</p>
+	
+     <!--Choose file-->       
+	<input type="file" id="CVFile" name="CV" mr-4>
+            
+	<input type="file" id="CertificateFile" name="certificates" multiple>
+            
+	<input type="file" id="CredentialsFile" name="credentials">
+            
+	<input type="file" id="TORFile" name="TOR">
+	{% if messages %}
+	{% for message in messages %}
+			{{ message }}
+		</div>
+	{% endfor %}
+{% endif %}
+	
+	
+	<picture><a><p id="imageForm"><img src="{% static 'CRS/images/Applicants/Faculty/clip-1712.png' %}" alt="iplm" width="290px" height="230px"></a></p></picture>
+        
+	<a> <button id="submitbutton"> <!--templates/Applicants/Faculty--> Submit </button></a>
+</form> </div>
+
+
+
+
+<!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+
+</html>

@@ -1,0 +1,1165 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+html {
+	overflow-y: auto;
+}
+
+body {
+    background: #fcfcfc;
+    overflow: auto;
+}
+
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+.content{
+    margin: 50px 150px;
+}
+/***** SIDE BAR *****/
+
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/***** END OF SIDE BAR *****/
+
+
+/**OTHERS > APPLICATION 1ST PAGE & PART-TIME 1ST PAGE**/
+.oth {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+.std {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.fct {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.btn-group-vertical {
+    margin-left: 75px;
+    margin-right: 35px;
+    justify-content: center;
+}
+
+#buttons {
+    padding: 0px;
+    text-align: right;
+}
+
+#others {
+    font-size: 44px;
+    color: #0C66CC;
+    margin-left: 55px;
+    font-family: 'Nunito';
+}
+
+#students {
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 110px;
+    font-family: 'Nunito';
+}
+
+#faculty {
+    margin-top: 50px;
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 105px;
+    font-family: 'Nunito';
+}
+
+#buttons .btn {
+    border-radius: 14px 14px 14px 14px;
+    padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    margin-left: 90px;
+    margin-bottom: 15px;
+    background-color: #0C66CC;
+    text-align: left;
+    width: 70%;
+    height: 60px;
+}
+
+.btn-btn2 {
+    border-radius: 15px 15px 15px 15px;
+    border-color: transparent;
+    padding: 10px 10px 10px 20px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    margin-left: 90px;
+    margin-bottom: 15px;
+    background-color: #ECC429;
+    text-align: left;
+    width: 70%;
+    height: 60px;
+}
+
+#buttons .btn:hover {
+    background-color: #2852A4;
+    color: #ECC429;
+    cursor: pointer
+}
+
+#buttons .btn2 {
+	font-family: 'Nunito';
+    color: #ffff;
+    background-color: #0C66CC;
+	padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+    width: 60%;
+    height: 45px;
+	font-size: 20px;
+	text-align: center;
+	margin: -5px 0px 0px 80px;
+}
+
+#buttons .btn2:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+#application {
+    margin-left: -15px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#cntr {
+	margin-left: 0px;
+}
+
+#studentNo {
+	margin-left: 0px;
+}
+
+#applicantNo {
+	margin-left: 0px;
+}
+
+#facultyNo {
+	margin-left: 0px;
+}
+
+
+#firstName{
+    margin-left: 0px;
+}
+
+#lastName{
+    margin-left: 0px;
+}
+
+.form-control{
+    background: #FCFCFC;
+    border-radius:  15px 15px 15px 15px;
+    border-width: 1px;
+    border-color:  #ECECEC;
+    width: 40%;
+    height: 25px;
+    padding-left: 20px;
+    font-family: 'Nunito';
+    font-size: 20px;
+	margin-top: -27px;
+	margin-left: 75px;
+}
+
+.flex-item {
+    background: #ffff;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+.app-panel{
+    background: #ffff;
+    height: 110px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(211, 211, 211);
+    font-size: 20px;
+    color: #0C66CC;
+    text-align: left;
+	vertical-align: center;
+    padding: 40px 10px 10px 10px;
+    font-family: 'Nunito';
+	
+	margin-top: 35px;
+	margin-bottom: 35px;
+	padding-left: 35px;
+}
+
+/********END OF OTHERS > APPLICATION 1ST PAGE & PART-TIME 1ST PAGE*******/
+
+
+/**OTHERS > APPLICATION 2ND PAGE**/
+
+/**OTHERS > APPLICATION PANEL**/
+#application {
+    margin-left: -45px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#cntr {
+	margin-left: -80px;
+}
+
+#line {
+    border: 2px solid #ECECEC;
+    border-radius: 2px;
+    display: flex;
+    width: 1450px;
+    margin-left: -35px;
+}
+
+.app-panel{
+    background: #ffff;
+    height: 110px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px gray;
+    font-size: 20px;
+    color: #0C66CC;
+    text-align: left;
+	vertical-align: center;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Nunito';
+	
+	margin-top: 35px;
+	margin-bottom: 40px;
+	padding-left: 35px;
+    margin-left: -45px;
+}
+
+.sub {
+    margin-top: 35px;
+    margin-bottom: 40px;
+    padding-left: 35px;
+}
+/**END APPLICATION PANEL**/
+
+/**OTHERS > GRAY BOXES**/
+.gray {
+    margin-top: 30px;
+    margin-left: -35px;
+    margin-bottom: 35px;
+}
+
+.graystno {
+    padding-left: 50px;
+    background: #E9E9E9;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding-right:100px;
+    padding-top: 10px;
+    width: 300px;
+}
+
+.grayname {
+    padding-left: 60px;
+    background: #E9E9E9;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    padding-right:100px;
+    padding-top: 10px;
+}
+
+/**END OTHERS > GRAY BOXES**/
+
+
+/***** SUBMITTED FILES *****/
+#submitted {
+    margin-left: -45px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.fileName {
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 10px;
+    font-family: 'Nunito';
+}
+
+.downloadBtn {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.downloadBtn:hover{
+    background-color: #2852A4;
+}
+  
+
+#submittedFiles td{
+    padding-bottom: 30px;
+    padding-right: 40px;
+    font-weight:500px;
+}
+
+#stat {
+    margin-left: 10px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#stat-slct {
+    background-color: white;
+    color: #0C66CC;
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: #0C66CC;
+    padding: 2px;
+    font-family: 'Nunito';
+    font-size: 18px;
+    margin-right: -50px;
+    margin-top: 28px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+            
+#stat-slct option {
+    font-family: 'Nunito';
+    font-size: 15px;
+    color: #0C66CC;
+    background-color: white;
+    border-radius: 10px;
+    border-color: #0C66CC;
+    border-width: 2px;
+}
+
+
+.status-select:hover::after {
+    color: #0C66CC;
+}
+            
+<!-- For different browsers -->
+.status-select::after {
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+.stat-drop{
+    margin-top: 5px;
+    padding-left: 35px;
+    padding-top: 10px;
+    margin-left: -45px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/***** END OF SUBMITTED FILES *****/
+
+/*****EMAIL APPLICANT*****/
+
+.button2hvr {
+    border: 3px solid #0C66CC ;
+    color: #0C66CC;
+    padding: 15px 70px; 
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 90px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    display: inline-block;
+
+}
+
+
+.button3hvr {
+    border: 3px solid #0C66CC ;
+    color: #0C66CC;
+    padding: 15px 40px; 
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 450px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.button4hvr {
+    border: solid #0C66CC;
+    color: white;
+    padding: 15px 35px; 
+    text-align: bottom;
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 20px;
+    margin-top: 20px;
+    background-color: #0C66CC;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.button5hvr {
+    border: 3px solid #0C66CC ;
+    color: #0C66CC;
+    padding: 15px 40px; 
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 420px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.button6hvr {
+    border: solid #0C66CC;
+    color: white;
+    padding: 15px 35px; 
+    text-align: bottom;
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 20px;
+    margin-top: 20px;
+    background-color: #0C66CC;
+    border-radius: 20px 20px 20px 20px;
+    margin-left: 750px;
+}
+
+
+.button9hvr {
+    border: solid #0C66CC;
+    color: white;
+    padding: 15px; 
+    text-align: bottom;
+    font-size: 12px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    background-color: #0C66CC;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.saveBtn{
+    margin-left: 75px;
+    margin-top: 30px;
+}
+
+
+.button8hvr {
+    border: 3px solid #0C66CC ;
+    color: #0C66CC;
+    padding: 15px 40px; 
+    font-size: 20px;
+    font-family: 'Nunito'; 
+    cursor: pointer;
+    margin: -8px 0px 0px 570px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    position: relative;
+    display: inline-block;
+}
+
+
+.button2hvr:hover {
+    background-color: #0C66CC;
+    color: white;
+}
+
+.button2hvr:focus {
+    background-color: #0C66CC;
+    color: white;
+}
+
+.button3hvr:hover {
+    background-color: #0C66CC;
+    color: white;
+}
+
+.button3hvr:focus {
+    background-color: #0C66CC;
+    color: white;
+}
+
+.button8hvr:hover {
+    background-color: #0C66CC;
+    color: white;
+}
+
+.button8hvr:focus {
+    background-color: #0C66CC;
+    color: white;
+}
+
+
+.feedbackBtn {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.feedbackBtn:hover{
+    background-color: #2852A4;
+}
+
+.cswBtn {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    height: 130px;
+    width: 140px;
+}
+
+.cswBtn:hover{
+    background-color: #2852A4;
+}
+
+.cswBtn2 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 130px;
+    width: 140px;
+    position: absolute;
+
+}
+
+.cswBtn2:hover{
+    background-color: #2852A4;
+}
+
+.cswBtn3 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 130px;
+    width: 140px;
+    margin-left: 150px;
+    
+}
+
+.cswBtn3:hover{
+    background-color: #2852A4;
+}
+
+.feedbackBtn2 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 70px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.feedbackBtn2:hover{
+    background-color: #2852A4;
+}
+
+.feedbackBtn3 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.feedbackBtn3:hover{
+    background-color: #2852A4;
+}
+  
+
+.deleteFileBtn {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 230px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.deleteFileBtn:hover{
+    background-color: #2852A4;
+}
+
+.deleteFileBtn-2 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 180px;
+    margin-top: -130px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.deleteFileBtn-2:hover{
+    background-color: #2852A4;
+}
+
+.deleteFileBtn-3 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 90px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.deleteFileBtn-3:hover{
+    background-color: #2852A4;
+}
+
+.deleteFileBtn-4 {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    margin-left: 160px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.deleteFileBtn-4:hover{
+    background-color: #2852A4;
+}
+  
+/***** END OF EMAIL APPLICANT *****/
+
+/********END OF OTHERS > APPLICATION 2ND PAGE*******/
+
+
+/**** PART TIME AVAIL RIGHT SIDE PAGE ****/
+
+#application {
+    margin-left: -15px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#cntr {
+    margin-left: -20px;
+
+    
+}
+
+.app-panel{
+    background: #ffff;
+    height: 100px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(211, 211, 211);
+    font-size: 20px;
+    padding-top: 35px;
+    color: #0C66CC;
+    text-align: left;
+    font-family: 'Nunito';
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-left: 35px;
+
+}
+
+/** END OF PART TIME AVAILABILITY BANNER **/
+
+/******PART TIME AVAILABILITY 2ND PAGE ******/
+
+#freetime {
+    margin-left: -25px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.margin{
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: solid;
+    border-bottom-color: #DAD9DE;
+    border-width: 2px;
+}
+
+
+.day1{
+    background-color: #0C66CC;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Nunito';
+    color: white;
+    height: 40px;
+    padding-left: 50px;
+    padding-top: 8px;
+}
+
+.day2{
+    background-color: #0C66CC;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Nunito';
+    color: white;
+    height: 40px;
+    padding-left: 35px;
+    padding-top: 8px;
+}
+
+.day3{
+    background-color: #0C66CC;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Nunito';
+    color: white;
+    height: 40px;
+    padding-left: 45px;
+    padding-top: 8px;
+}
+
+.day4{
+    background-color: #0C66CC;
+    border-radius: 15px 15px 15px 15px;
+    font-family: 'Nunito';
+    color: white;
+    height: 40px;
+    padding-left: 55px;
+    padding-top: 8px;
+}
+
+#monday {
+    padding-left: 25px;
+
+}
+
+#tuesday {
+        padding-left: 25px;
+    
+}
+#wednesday {
+       padding-left: 25px;
+       
+}
+#thursday {
+       padding-left: 25px;
+       
+}
+#friday {
+       padding-left: 25px;
+       
+}
+#saturday{
+      padding-left: 25px;
+      
+}
+
+
+ul li{
+    color: #B5B4BD;
+    font-family: 'Nunito';
+}
+
+
+#timeM {
+    margin-left: -15px;
+    margin-top: 20px;
+}
+
+#timeT {
+    margin-left: -8px;
+    margin-top: 20px;
+}
+
+#timeW {
+    margin-left: -12px;
+    margin-top: 20px;
+}
+
+#timeTh {
+    margin-left: -12px;
+    margin-top: 20px;
+}
+
+#timeF {
+    margin-left: -12px;
+    margin-top: 20px;
+}
+
+#timeS {
+    margin-left: -10px;
+    margin-top: 20px;
+}
+
+.margin2{
+    padding-bottom: 10px;
+    border-bottom: solid;
+    border-bottom-color: #DAD9DE;
+    margin-top: 10px;
+    border-width: 2px;
+}
+
+
+#button .btn{
+    border-radius: 17px 17px 17px 17px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 150px;
+    height: 50px;
+    background-color:  #0C66CC;
+    margin-top: 50px;
+}
+
+#button .btn:hover{
+    background-color:  #2852A4;
+    cursor: pointer;
+}
+
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+
+
+/****** END OF PART-TIME AVAILABILITY 2ND PAGE ********/
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+
+    /*****HOME*****/
+    .quickmargin {
+        margin-bottom: 10px;
+    }
+
+    .white-box {
+        width: 100%;
+    }
+
+    .colwhite {
+        width: 100%;
+        padding: 0px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    /*****END HOME*****/
+}
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.app-panel {
+		width: 160%;
+		padding-top: 10px;
+	}
+	
+	#buttons .btn2 {
+		font-family: 'Nunito';
+		color: #ffff;
+		background-color: #0C66CC;
+		
+		border-radius: 15px 15px 15px 15px;
+		border-width: 1px;
+		width: 35%;
+		height: 45px;
+		
+		font-size: 20px;
+		text-align: center;
+		
+		margin: -90px 0px 0px 260px;
+	}
+	
+	.graystno {
+		width: 100%;
+		margin-left: -100px;
+	}
+	
+	.button2hvr {
+		margin-left: 0px;
+	}
+	
+	.button3hvr {
+		margin-left: 0px;
+	}
+	
+	.button4hvr {
+		margin-left: 35px;
+	}
+	
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	.app-panel {
+		width: 135%;
+		height: 15%;
+		padding-top: 10px;
+	}
+	#buttons .btn2 {
+		font-family: 'Nunito';
+		color: #ffff;
+		background-color: #0C66CC;
+		
+		border-radius: 15px 15px 15px 15px;
+		border-width: 1px;
+		width: 35%;
+		height: 45px;
+		
+		font-size: 20px;
+		text-align: center;
+		
+		margin: -15px 0px 0px 400px;
+	}
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.graystno {
+		margin-left: -75px;
+	}
+	
+	.button2hvr {
+		margin-left: 100px;
+	}
+	
+	.button3hvr {
+		margin-left: 100px;
+	}
+	
+	.button4hvr {
+		margin-left: 135px;
+	}
+	
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+	
+	#application {
+		margin-left: 25px;
+	}
+	
+	.app-panel {
+		margin-left: 25px;
+	}
+	
+	#submitted {
+		margin-left: 0px;
+	}
+	
+	.button2hvr {
+		float: left;
+		margin-left: -10px;
+	}
+	
+	.button3hvr {
+		float: left;
+	}
+	
+	.button4hvr {
+		float: left;
+		margin-right: -80px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+	
+	.dropdown {
+		margin-top: -75px;
+		margin-left: 80px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1600px) and (max-width: 1920px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+	
+	.dropdown {
+		margin-top: -75px;
+		margin-left: 80px;
+	}
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+/********END BREAKPOINTS*******/

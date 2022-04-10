@@ -1,0 +1,106 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Feedback</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/cOthers/forms.css' %}">
+    <!--Icon-->
+    <link rel="icon" href="cOthersResources/iPLM.png" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- Others -->
+
+                <div class="back row">
+                    <a href="{% url 'fStudents_advisory' %}"><object type="image/svg+xml" data="{% static 'CRS/images/fStudents/studclassroom_back.svg' %}" id="backimg"></object></a>
+                    <p id="schedtitle">Student Grade</p>
+                </div>
+
+                <!-- Students -->
+                <form class="cswForm" action="{% url 'message' feed.id %}" method="POST">
+                  {% csrf_token %}
+                    <div class="row">
+                        <div class="col-25-2">
+                          <label for="actionRequired">Feedback</label>
+                          <div class ="greyBox">
+                              <table>
+                                <tr>
+                                  <td>{{feed.studentID.studentID}}</td>
+                                  <td>{{feed.studentID.studentUser.lastName }} {{ feed.studentID.studentUser.firstName }}</td>
+                                </tr>
+                              </table>
+                          </div>
+                        </div>
+                        <div class="col-80">
+                          <textarea id="actionRequired" name="actionRequired" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+                    {% if messages %}
+                    {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                {% endif %}
+                    <div class="row">
+                      <div class="col-60"><input type="submit" value="Submit"></div>
+                  </div>
+                    </form>
+            </div>
+        </div>
+
+
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

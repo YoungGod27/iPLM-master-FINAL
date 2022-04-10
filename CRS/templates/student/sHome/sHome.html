@@ -1,0 +1,191 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Home </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!-- JS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/sHome/sHomeStyle.css' %}">
+    <script src="{% static 'CRS/js/cHome/cHomeMain.js' %}"></script>
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+    #notifdrops {
+    color: #0C66CC;
+    font-family: 'Nunito';
+    width: 470px;
+    height: 90px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    margin: -2px 50px -2px 40px;
+    box-shadow: 1px 5px 30px -10px #888888;
+    padding-left: 25px;
+    padding-top: 20px;
+    }
+    </style>
+
+</head>
+
+<body>
+    {%block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <!-- Welcome Panel -->
+                <div class="main row">
+
+                    <div class="col-lg-9">
+                        <div class="row" id="head">
+                            <p>Welcome</p>
+                            <p>&nbsp;Student!</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 pt-3">
+                                <table>
+                                    <tr>
+                                        <td class="notification"><a href="{% url 'sHomeNotifications' %}"><img id="notif" src="{% static 'CRS/images/sHome/notification.svg' %}" width="40px" height="30px"></a>
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Notifications<br></p><!-- DB NOTIFICATION DATA BELOW -->
+                                                <a  href="{% url 'HDNotifdetails' %}"><p id="notifdrops"><b>Honorable Dismissal Feedback</b><br>See more details...</p><br></a>
+                                                <a  href="{% url 'LOANotifdetails' %}"><p id="notifdrops"><b>Leave of Absence Feedback</b><br>See more details...</p><br></a>
+                                                <a  href="{% url 'OJTNotifdetails' %}"><p id="notifdrops"><b>Practicum Feedback</b><br>See more details...</p><br></a>
+                                                <a  href="{% url 'SPNotifdetails' %}"><p id="notifdrops"><b>Studyplan Feedback</b><br>See more details...</p><br></a>
+                                                <a  href="{% url 'GradesNotifdetails' %}"><p id="notifdrops"><b>Grade Submission Feedback</b><br>See more details...</p><br></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p id="pipe">|</p>
+                                        </td>
+                                        <td><img id="user" src="{% static 'CRS/images/sHome/user.svg' %}" width="35px" height="35px"></td>
+                                        <td id="uname">{{info.studentUser.firstName}} {{info.studentUser.middleName}} {{info.studentUser.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <table>
+                            {% for acads in acad %}
+                            <tr>
+                                <td class="academicYearHeader">Academic Year:</td>
+                                <td class = "academicYearDetail">{{acads.yearstarted}}-{{acads.yearended}}</td><!-- DB ACADEMIC YEAR  -->
+                            </tr>
+
+                            <tr>
+                                <td class="semesterHeader">Semester:</td>
+                                <td class = "semesterDetails">{{acads.semester}}</td><!-- DB SEMESTER  -->
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+
+                <!-- Quick Access -->
+                <div class="sub-quick row">
+                    <p id="quick">Quick Access</p>
+                </div>
+
+                <div class="sub-buttons row">
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'sScheduleView' %}" id="buttons"><button type="button" class=" btn">Schedule</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'sChecklist' %}" id="buttons"><button type="button" class="btn">Checklist</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'sGradeSubmission1' %}" id="buttons"><button type="button" class="btn ">Grade Submission</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'sProfileChangePass' %}" id="buttons"><button type="button" class=" btn">Change Password</button></a></div>
+                </div>
+                <!-- END of Quick Access -->
+                <div class="line row">
+                    <hr>
+                </div>
+                <!-- Overview  -->
+                <div class="sub-overview row">
+                    <p id="over">Brief User Profile</p>
+                </div>
+
+                <div class="sub-over row">
+
+                    <div class="col-yellow yellow-box col-lg-8">
+                        <div class="col-lg-12 mt-1">
+                            <table>
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Student Number:</b></td>
+                                    <td class = "briefProfileInfo">{{info.studentID}}</td><!-- DB STUDENT NUMBER  -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Registration Status:</b></td>
+                                    <td class = "briefProfileInfo">{{info.studentRegStatus}}</td><!-- DB STATUS -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Year Level:</b></td>
+                                    <td class = "briefProfileInfo">{{info.studentYearlevel}}</td><!-- DB YEAR LEVEL  -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Degree Program:</b></td>
+                                    <td class = "briefProfileInfo">{{info.studentCourse}}</td><!-- DB DEGREE PROGRAM  -->
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <img src="{% static 'CRS/images/sHome/clip-1377.png' %}" width="auto" height="350px">
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function changeText(obj, text) {
+            obj.innerText = text;
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+{% extends 'chairperson/students/students_bsit1B1.html' %}
+
+    {% block content %}
+ <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">{{ year }}</p><!-- DB YEAR -->
+                    <p id="fulltime" style="margin-left: 50px;">|</p>
+                    <p id="fulltime" style="margin-left: 50px;"> {{ block1 }}</p><!-- DB BLOCK -->
+                    <div class="row" id="studentCount">Student: {{ count }}<!-- DB STUDENT COUNT --></div>
+
+
+                </div>
+
+                <hr class="new">
+
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="col-15">
+                        <table>
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Faculty -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Faculty -->
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- DATA OF TABLE -->
+                <div class="list row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>
+                                <!--ROW 1-->{% for i in bsit3B2 %}
+                                <tr>
+                                    <td id="list"><p>{{ i.studentID }}</p><!-- DB FACULTY NO --></td>
+                                    <td id="listname"><p>{{ i.studentUser.lastName }}</p><!-- DB LAST NAME --></td>
+                                    <td id="listname"><p>{{ i.studentUser.firstName }}</p><!-- DB FIRST NAME --></td>
+                                    <td id="listname"><p>{{ i.studentUser.middleName }}</p><!-- DB MIDDLE NAME --></td>
+                                    <td><!-- DB REMOVE BUTTON -->
+                                        <a href="{% url 'edit_students' i.pk %}" id="buttons"><button type="button" class="Editbtn"><p><b>Edit</b></p></button></a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+
+            <!--Search box-->
+                <div class="searchbox">
+                    <form method ="get">
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </button></form>
+                </div>
+                <!--End of Search box-->
+
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline"></div>
+                </div>
+                <!--End of gray line-->
+    {% endblock %}

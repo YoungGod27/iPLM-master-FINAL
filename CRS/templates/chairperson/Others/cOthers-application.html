@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Faculty Application</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="chairOthers.css">
+    <!--Icon-->
+    <link rel="icon" href="cOthersResources/iPLM.png" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+         <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- OTHERS SIDEBAR -->
+                <div class="oth">
+                    <p id="others">Others</p>
+                </div>
+
+                <div class="row px-5">
+
+                    <!-- STUDENT REQUESTS-->
+                    <div class="col-lg-4">
+                        <p id="students">Students</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-studyPlan.html" id="buttons"><button type="button" class="btn btn1">Study Plan</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-loa.html" id="buttons"><button type="button" class="btn btn1">Leave of Absence</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-hd.html" id="buttons"><button type="button" class="btn btn1">Honorable Dismissal</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-ojt.html" id="buttons"><button type="button" class="btn btn1">Practicum</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-shifter.html" id="buttons"><button type="button" class="btn btn1">Shifter</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-transferee.html" id="buttons"><button type="button" class="btn btn1">Transferee</button></a></div>
+                        <!-- FACULTY REQUESTS-->
+                        <p id="faculty">Faculty</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-application.html" id="buttons"><button type="button" class="btn-btn2">Application</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="cOthers-partTime.html" id="buttons"><button type="button" class="btn btn1">Part-Time Availability</button></a></div>
+
+                    </div>
+                    
+                    <div class="container col-lg-8">
+                        <p id="application"><b>Application</b></p>
+                        
+                        <!-- REQUEST LIST -->
+                        <div class="app-panel row">
+                            <div class="col-sm col-lg-3" id="applicantNo"><b>Applicant No.</b></div><!--DB  STUDENT NO -->
+                            <div class="col-sm col-lg-3" id="lastName">Last Name</div><!-- DB STUDENT LASTNAME -->
+                            <div class="col-sm col-lg-3" id="firstName">First Name</div><!-- DB STUDENT FIRSTNAME -->
+                            <div class="col-sm col-lg-3"><a href="cOthers-applicationView.html" id="buttons"><button type="button" class="btn btn2">View</button></a></div><!-- DB vIEW BUTTON -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: hidden;
+}
+
+#content {
+    margin-left: 150px;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+
+/***** SIDE BAR *****/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/***** END OF SIDE BAR *****/
+
+.clist{
+    margin-left: 50px;
+    margin-right: 100px;    
+}
+
+/***** CHECKLIST *****/
+.row{
+    margin-bottom: 50px;
+}
+
+.backrw {
+    margin-left: 100px;
+    margin-top: 65px;
+    margin-right: 100px;
+}
+
+#backimg {
+    padding-top: 30px;
+    margin-left: 100px;
+}
+
+#backimg img:hover {
+    padding: 5px;
+    background: #ECECEC;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.back:hover,
+.back:focus {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(100%) saturate(1155%) hue-rotate(190deg) brightness(91%) contrast(100%);
+}
+
+#head1 {
+    letter-spacing: 1px;
+    margin-left: 30px;
+    margin-top: 17px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.deleteBtn {
+    width: auto;
+    height: 60px;
+    background: #0C66CC;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Nunito';
+    border: none;
+    padding-right: 20px;
+    padding-left: 20px;
+    float: left;
+}
+
+.deleteBtn:hover {
+    background: #2852A4;
+}
+
+.cancelBtn {
+    width: auto;
+    height: 60px;
+    background:white;
+    color: #0C66CC;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Nunito';
+    padding-right: 20px;
+    padding-left: 20px;
+    float: left;
+    border: 2px solid #0C66CC;
+    margin-right: 30px;
+    margin-left: 450px;
+}
+
+.cancelBtn:hover {
+    background: #0C66CC;
+    color: white;
+}
+
+.submitbtn {
+    width: auto;
+    height: 60px;
+    background: #0C66CC;
+    color: #ffff;
+    border-radius: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    border:none;
+    float: top;
+}
+
+.submitbtn:hover {
+    background: #2852a4;
+    color: #ffff;
+}
+
+#confirmationHeader {
+    letter-spacing: 1px;
+    margin-left: 60px;
+    font-size: 36px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+
+#confirmationDesc {
+    letter-spacing: 1px;
+    margin-left: 60px;
+    font-size: 20px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+#cltitle {
+    padding-bottom: 10px;
+    line-height: 0px;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+#checklisthead {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-top: 90px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#clistarea {
+    margin: auto;
+    overflow-y: scroll;
+    height: 600px;
+}
+
+#clistareahead {
+    margin: auto;
+}
+
+#clistcol {
+    margin-left: 10px; 
+}
+
+
+#clisttext{
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+#cltextgray {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    font-size: 22px;
+    color:#0C66CC;
+    font-weight: 500;
+}
+
+.cfield {
+    margin-bottom: 40px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #3d3c3c;
+}
+
+.checklist-img {
+    display: flex;
+    justify-content: center;
+}
+
+#back-edit {
+    margin-top: 25px;
+    margin-left: 85px;
+}
+
+#back-edit img:hover {
+    padding: 5px;
+    background: #ECECEC;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.text-edit {
+    margin-left: 60px;
+    margin-top: -56px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#deleteImg {
+    margin-left: 100px;
+}
+
+.empty {
+    display: flex;
+    justify-content: center;   
+}
+
+.whitespace {
+    height: 100px;
+}
+
+#oops {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: -70px;
+}
+
+#oopssub{
+    font-size: 24px;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.unavailable {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: -70px;
+    letter-spacing: 2px;
+}
+.unavailableImg{
+    margin-top: -80px;
+}
+
+.unavailablesub{
+    font-size: 24px;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.deleteChecklist {
+    background-color: #0C66CC;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 60px;
+    width: 70px;
+    position: absolute;
+
+}
+
+.deleteChecklist:hover{
+    background-color: #2852A4;
+}
+
+  .deleteChecklist .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #0C66CC;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+    padding: 5px;
+  }
+  
+  .deleteChecklist .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #0C66CC transparent transparent;
+  }
+  .deleteChecklist:hover .tooltiptext {
+    visibility: visible;
+  }
+
+
+  /*Table*/
+
+  #head3 {
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.primary-att {
+    position: sticky;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    /* Don't forget this, required for the stickiness */
+    background-color: #fcfcfc;
+}
+.empty{
+    color:#fcfcfc;
+}
+.fill-in {
+    border-radius: 20px;
+    margin-left: 100px;
+}
+
+.tablepanel {
+    overflow-y: scroll;
+    width: 100%;
+    height: 660px;
+    margin-left: 50px;
+}
+
+.borderless td,
+.borderless th {
+    border: none;
+}
+
+.tablepanel::-webkit-scrollbar {
+    width: 10px;
+    background: #ebebeb;
+    border-radius: 0 8px 8px 0;
+    
+}
+
+.tablepanel::-webkit-scrollbar-thumb {
+    background: #cecece;
+    border-radius: 0 8px 8px 0;
+    ;
+}
+
+.tabletext1 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+
+.tabletext2 {
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #252525;
+}
+
+.dataStyle {
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #252525;
+}
+
+#remarks {
+    padding-left: 5px;
+    border: none;
+    background: #0C66CC;
+    font-size: 15px;
+    font-family: Nunito;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    height: 33px;
+    width: 88px;
+
+}
+
+#grade {
+    padding-left: 5px;
+    border: none;
+    background: #0C66CC;
+    font-size: 15px;
+    font-family: Nunito;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    height: 33px;
+    width: 88px;
+
+}
+
+.imgSubmit{
+    margin-left: 20px;
+    margin-top: 150px;
+}
+
+#delete{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+/***** END OF CHECKLIST *****/
+
+/*SCROLLBAR*/
+#clistarea::-webkit-scrollbar {
+	width: 15px;
+    height: 600px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+}
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+@media (max-width: 516px){
+    .wrapper{
+        zoom: 58%;
+    }
+}
+
+/* For screens na 1600 */
+@media (min-width: 1600px) {
+    .wrapper {
+        zoom: 85%;
+    }
+}
+
+/********END BREAKPOINTS*******/

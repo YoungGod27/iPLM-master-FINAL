@@ -1,0 +1,386 @@
+{% load static %}
+<html>
+<head>
+	<title>Student Clearance Form (SCF)</title>
+
+	<style>
+		body{
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		@page {
+			size: 8.3in 11.7in;
+			margin: 5mm 10mm 2mm 10mm;
+		}
+
+		td{
+			padding-top: 3px;
+		}
+	</style>
+</head>
+
+<body>
+	<table align="center">
+		<tr  align="center">
+			<td width=150>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+			<td align="right" width=50>
+				<img src="https://plm.edu.ph/images/Seal/PLM_Seal_BOR-approved_2014.png", height="70px" width="70px">
+			</td>
+			<td align="center">
+				Republic of the Philippines
+				<br>
+				<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b>
+				<br>
+				<i>(University of the City of Manila)</i>
+				<br>
+				General Luna Street corner Muralla Street
+				<br>
+				Intramuros, Manila
+			</td>
+			<td>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>
+
+<hr color="black">
+<p align="right">OUR Form A, Revised Oct. 2017</p>
+<center><b>STUDENT CLEARANCE FORM (SCF)</b></center>
+<center><b>(Reference: University Code 2005, Title VII, Section XL, Articles 287 & 294)</b></center>
+
+	<table align="center" width=100%>
+		<tr>
+			<td>
+				<b></b>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td align="center">
+				<u><b>{{studentCurrentdate}}</b></u>
+				<br>
+				<b>Date of Application</b> 
+		</tr>
+	</table>
+	
+	<table border=1 align="center" width=100%>
+		<tr>
+			<td align="center" width=20% style="padding: 2px;">
+				<b>NAME</b>
+			</td>
+			<td align="center">
+				<table  align="center" width=100%>
+					<tr align="center">
+						
+						<td style="font-size: 12px;">
+							<b>{{info.studentUser.lastName}}</b><br>
+							<span style="font-size: 8px;">(LAST NAME)</span>
+						</td>
+						<td style="font-size: 12px;">
+							<b>{{info.studentUser.firstName}}</b> 
+							<br>
+							<span style="font-size: 8px;">(FIRST NAME)</span>
+						</td>						
+
+						<td style="font-size: 12px;">
+							<b>{{info.studentUser.middleName}}</b> 
+							<br>
+							<span style="font-size: 8px;">(MIDDLE NAME)</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="center" style="padding: 2px;">
+				<b>STUDENT NUMBER</b>
+			</td>
+			
+			<td style="margin-left: 70px;">
+				<b>{{info.studentID}}</b>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="center" style="padding: 2px;">
+				<b>FIRST ENROLMENT IN PLM</b>
+			</td>
+			
+			<td align="center">
+				<table align="center" width=100%>
+					
+					<tr>
+						<td align="center" colspan=2>
+							Semester/Term: <u><b>{{ firstEnrollment }}</b></u>
+						</td>
+
+						<td align="center" colspan=2>
+						School Year: <u><b>{{ studentFirstSY }}</b></u>
+						</td>
+
+						<td align="center" colspan=2>
+						College: <u><b>{{ studentFirstCollege }}</b></u>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td align="center" style="padding: 2px;">
+				<b>LAST/PRESENT ENROLMENT IN PLM</b>
+			</td>
+			
+			<td align="center">
+				<table align="center" width=100%>
+					
+					<tr>
+						<td align="center" colspan=2>
+							Semester/Term: <u><b>{{lastEnrollment}}</b></u>
+						</td>
+
+						<td align="center" colspan=2>
+						School Year: <u><b>{{studentLastPSY}}</b></u>
+						</td>
+
+						<td align="center" colspan=2>
+						College: <u><b>{{studentLastPCollege}}</b></u>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="center" style="padding: 2px;">
+				<b>SCHOOL, YEAR, GRADUATED & DEGREE
+			</td>
+			<td align="center">
+				<b>N/A</b>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="center" style="padding: 2px;">
+				<b>PURPOSE OF CLEARANCE</b>
+			</td>
+			
+			<td align="center">
+				<table align="center" width=100%>
+					<tr>
+						<td>
+						<!--&#9744 Graduation-->
+						</td>
+
+						{% if studentPurpose == "Graduation" %}
+						<td><b>[&nbsp;&check;&nbsp;] Graduation</b></td>
+						<td><b>[&nbsp;&nbsp;] Transfer</b></td>
+						<td colspan="4"><b>[&nbsp;&nbsp;] Others (please specify):___________________</b></td>
+						{% endif %}
+
+						
+						{% if studentPurpose == "Transfer" %}
+						<td><b>[&nbsp;&nbsp;] Graduation</b></td>
+						<td><b>[&nbsp;&check;&nbsp;] Transfer</b></td>
+						<td colspan="4"><b>[&nbsp;&nbsp;] Others (please specify):___________________</b></td>
+						{% endif %}
+
+						{% if studentPurpose == "Others" %}
+						<td><b>[&nbsp;&nbsp;] Graduation</b></td>
+						<td><b>[&nbsp;&nbsp;] Transfer</b></td>
+						<td colspan="4"><b>[&nbsp;&check;&nbsp;] Others (please specify): <u>{{studentOthers}}</u></b></td>
+                        {% endif %}
+
+
+
+						
+
+						<td>
+						<!--&#9744 Others (please specify): <u><b>(insert here - other)</b></u>-->
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+<br>
+<table border=1 align="center" width=90%>
+	<tr>
+		<td width=50%>
+			<table align="center" width=100%>
+				<tr>
+					<td>&nbsp;1. No Pending Case</td>
+				</tr>
+
+				<tr></tr>
+				
+				<tr>
+					<td align="center">
+						<u><b>________________________________</b></u>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center">
+						Office of Student Development and Services
+					</td>
+				</tr>
+			</table>	
+		</td>
+
+		<td>
+			<table align="center" width=100%>
+				<tr>
+					<td>&nbsp;2. No Obligation</td>
+				</tr>
+
+				<tr></tr>
+				<tr>
+					<td align="center">
+						<u><b>________________________________</b></u>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center">University Library</td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<table align="center" width=100%>
+				<tr>
+					<td>&nbsp;3. No Obligation</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td align="center">
+						<u><b>________________________________</b></u>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center">Accounting Office</td>
+				</tr>
+			</table>	
+		</td>
+
+		<td>
+			<table align="center" width=100%>
+				<tr>
+					<td>&nbsp;4. No Obligation</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td align="center">
+						<u><b>________________________________</b></u>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center">
+						College Dean
+					</td>
+				</tr>
+			</table>	
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan=2>
+			<table align="center" width=100%>
+				<tr>
+					<td>&nbsp;5. No Obligation</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td align="center">
+						<u><b>________________________________</b></u>
+					</td>
+				</tr>
+				
+				<tr>
+					<td align="center">
+						Office of the University Registrar
+					</td>
+				</tr>
+			</table>	
+		</td>
+	</tr>	
+</table>
+<br>
+<b>IMPORTANT INSTRUCTIONS</b>
+<br>
+To ensure a smooth and expedited processing of clearance, please comply with the following instructions:
+	<ol>
+		<li>Secure three(3) copies of the Student Clearance Form (SCF) from the (1) Office of the University Registrar (OUR) for <u>Honorable Dismissal</u> <b>OR</b> (2) College for <u>Graduating Students</u>.</li>
+		<li>Bring your PLM ID and registration for at all times when processing the clerance.</li>
+		<li>Return all borrowed books to the University Library.</li>
+		<li>Settle all financial liabilities to the Accounting Department</li>
+		<li>Submit one (1) copy of the completed clearance form to the Accounting Department, one (1) to the Office of the University Registrar, and the other for personal copy.</li>
+	</ol>
+	
+<hr color="black">
+<center><b>AUTHORIZED OFFICIALS</b></center>
+<hr color="black">
+
+<table align="center" width=100%>
+	<tr>
+		<td>
+			<b>OFFICE</b>
+			<br>
+			<ol>
+				<li>Office of Student Development and Services</li>
+				<li>University Library</li>
+				<li>Accounting Department</li>
+				<li>College</li>
+				<li>Office of the University Registrar</li>
+			</ol>
+		</td>
+		
+		<td>
+			<b>AUTHORIZED OFFICIALS</b>
+			<br>
+			<ol>
+				<li>Prof. Cecil V. Sabordo</li>
+				<li>Ms. Grace M. Mauricio</li>
+				<li>Ms. Luzviminda E. Orozco</li>
+				<li>College Dean</li>
+				<li>Prof. Lalaine A. Isip</li>
+			</ol>
+		</td>
+	</tr>
+</table>
+
+<table align="center" width=100%>
+	<tr>
+		<td>
+			Signed:
+		</td>
+	</tr>
+	<tr></tr>
+	<tr>
+		<td>
+			<u><b>________________________________</b></u>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<b>{{info.departmentID.chairperson.cpersonUser.firstName}} {{info.departmentID.chairperson.cpersonUser.middleName}} {{info.departmentID.chairperson.cpersonUser.lastName}}</b>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			      Chairperson,  {{info.departmentID.courseDesc}}
+		</td>
+	</tr>
+</table>
+</body>
+</html>

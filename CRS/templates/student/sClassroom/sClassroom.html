@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Student | Classroom </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" type="text/css" href="{% static 'CRS/css/sClassroom/sClassroomStyle.css' %}"> 
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+{%block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <div class="backrw row">
+
+                   <p id="head1">
+                        Classroom
+                    </p>
+
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="progress row">
+                            <div class="semImage"><img src="{% static 'CRS/images/sClassroom/semester.png' %}" width="auto" height="50px"></div>
+                        
+                            <p id="head4">Semester</p>
+                            <br>
+                        <div>
+                            {% for acads in acad %}
+                            <p id="semDetails"><b>Academic Year:&nbsp;&nbsp;</b>{{acads.yearstarted}}-{{acads.yearended}} </p>
+                            <p id="semDetails"><b>Semester:&nbsp;&nbsp;</b>{{acads.semester}}</p>
+                            {% endfor %}
+                            <p id="semDetails"><b>Subjects:&nbsp;&nbsp;</b>{{subjects}}</p><!-- DB UNITS -->
+                        </div>
+                            
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="progress1 row">
+                            <div class="deptImage"><img src="{% static 'CRS/images/sClassroom/department.png' %}" width="auto" height="50px"></div>
+                                <p id="head4">Department Information</p>
+                                <br><br><br><br><br>
+                        </div>
+
+                        <div class="deptC">
+                            <img src="{% static 'CRS/images/sClassroom/deptPersonnel.png' %}" width="auto" height="60px">
+                            <div class="head5"><b>{{info.departmentID.chairperson.cpersonUser.firstName}} {{info.departmentID.chairperson.cpersonUser.middleName}} {{info.departmentID.chairperson.cpersonUser.lastName}}</b></div><!-- DB CHAIRPERSON -->
+                            <div class="head6">Chairperson</div>
+                        </div>
+
+                        <div class="vl"></div>
+
+                        <div class="deptA">
+                            <img src="{% static 'CRS/images/sClassroom/deptPersonnel.png' %}"width="auto" height="60px">
+                            <div class="head5"><b>{{info.studentSection.adviser.facultyUser.firstName}} {{info.studentSection.adviser.facultyUser.middleName}} {{info.studentSection.adviser.facultyUser.lastName}}</b></div><!-- DB ADVISER -->
+                            <div class="head6">Adviser</div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+                <form>
+                <div class="subtaken row pt-5">
+                    <div class="col-lg-4">
+
+                        <div class="row">
+                            
+                        </div>
+
+                        <div class="row">
+                            <div class ="imgClass"><img src="{% static 'CRS/images/sClassroom/clip-school-teacher.png' %}" width="400px" height="auto"></div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="fill-in col-lg-8 pr-0">
+                        <div class="sub-buttons row">
+                            <div class="quickmargin col-lg-4 col-md-6 col-sm-12">
+                                <a href="{% url 'sScheduleView' %}" id="buttons">
+                                    <button type="button" class=" btn">
+                                        <img src="{% static 'CRS/images/sClassroom/calendar.png' %}" width="40px" height="auto"><br>
+                                            Schedule<br><p id="buttonDesc">View current <br>semester's schedule.</p></button></a>
+                            </div>
+
+                            <div class="quickmargin col-lg-4 col-md-6 col-sm-12">
+                                <a href="{% url 'sChecklist' %}" id="buttons">
+                                    <button type="button" class=" btn">
+                                        <img src="{% static 'CRS/images/sClassroom/curriculum.png' %}" width="40px" height="auto"><br>
+                                            Checklist<br><p id="buttonDesc">View your subjects for <br>this degree and grades</p></button></a>
+                            </div>
+
+                            <div class="quickmargin col-lg-4 col-md-6 col-sm-12">
+                                <a href="{% url 'donecrs'  %}" id="buttons">
+                                    <button type="button" class=" btn">
+                                        <img src="{% static 'CRS/images/sClassroom/grade.png' %}" width="40px" height="auto"><br>
+                                            Grade Submission<br><p id="buttonDesc">Enter grades.</p></button></a>
+                            </div>
+                            
+                            </div>
+                    
+                    </div>
+
+                </div></form>
+
+            </div>
+        </div>
+
+    </div>
+    {% endblock content %}
+    <!-- END Content -->
+
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Individual Student</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/cStudents/cStudentStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static '/CRS/images/cStudents/iPLM.png' %}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cDepartment/home.svg' %}" width="54px" height="68.71px"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cDepartment/department.svg' %}" width="97px" height="60.56px"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cDepartment/students.svg' %}" width="90px" height="67.14px"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cDepartment/faculty.svg' %}" width="65px" height="74.22px"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cDepartment/others.svg' %}" width="61px" height="68.06px"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cDepartment/log-out.svg' %}" width="72px" height="68.71px"></a></li>
+        </ul>
+		</nav>
+		<!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+                <br><br><br><br>
+                <div class="col-lg-1"><a class="back" href="{% url 'students_bsee' %}"><img src="{% static '/CRS/images/cStudents/back.svg' %}"width="50" height="45" id="backlogo"></a>
+                </div>
+
+                <div class="indvstud row">
+                    <!--Left Side | Student Profile | Blue Box-->
+                    <div class="col-blue blue-box col-lg-4">
+                        <div class="col-lg-12 mt-3">
+                            <div class="stud-profile row">
+                                <img src="{% static '/CRS/images/cStudents/chairpersonstud_student.png' %}" height="32.6857142857" width="39.1428571429">
+                                <p id="sptext">&nbsp;Student Profile</p>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Last Name:</div>
+                                <div class="field col">
+                                    {{ p11.studentUser.lastName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">First Name:</div>
+                                <div class="field col">
+                                    {{ p11.studentUser.firstName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Middle Name:</div>
+                                <div class="field col">
+                                    {{ p11.studentUser.middleName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Gender:</div>
+                                <div class="field col">
+                                    {{ p11.studentGender }}
+                                </div>
+                            </div>
+
+                            <hr class="bluebox">
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Student Number:</div>
+                                <div class="field col">
+                                    {{ p11.studentID }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Student Type:</div>
+                                <div class="field col">
+                                    {{ p11.studentType }}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Year Level:</div>
+                                <div class="field col">
+                                    {{ p11.studentYearlevel }}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Degree Program:</div>
+                                <div class="field col">
+                                    {{ p11.studentCourse }}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Registration Status:</div>
+                                <div class="field col">
+                                    {{ p11.studentRegStatus }}
+                                </div>
+                            </div>
+
+                            <br>
+                            <hr class="bluebox">
+                            <div class="stud-det row">
+                                <div class="sdtext col">PLM Email:</div>
+                                <div class="field col">
+                                    {{ p11.studentUser.email }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Left Side-->
+
+                    <!--Right Side-->
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-7">
+                        <div class="rightside row">
+                            <img src="{% static '/CRS/images/cStudents/clip-library.png' %}" width="912" height="608">
+                        </div>
+                    </div>
+                    <!--End of Right Side-->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

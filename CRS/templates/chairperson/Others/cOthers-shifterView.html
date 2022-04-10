@@ -1,0 +1,368 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Shifter</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/cOthers/chairOthers.css' %}">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        .alertError{
+padding: 20px;
+background-color: #f34e01;
+border-radius: 15px;
+color: white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+}
+
+.alertSuccess{
+padding: 20px;
+background-color: #3fb328;
+border-radius: 15px;
+color:white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+
+}
+
+.closebtnError {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnError:hover {
+    color: #a33908;
+}
+
+.closebtnSuccess {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnSuccess:hover {
+    color: #1c6b0c;
+}
+
+@keyframes zoom-in-zoom-out {
+0% {
+    transform: scale(1, 1);
+}
+50% {
+    transform: scale(1.1, 1.1);
+}
+100% {
+    transform: scale(1, 1);
+}
+}
+
+::-webkit-file-upload-button
+	{
+    background-color: #ffffff;
+    border: none;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 130px;
+    width: 140px;
+    margin-left: -140px;
+    margin-top: -20px;
+	}
+</style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+          </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- Others -->
+                <div class="oth">
+                    <p id="others"><b>Others</b></p>
+                </div>
+
+                <!-- Students -->
+                <div class="row px-5">
+
+                    <div class="col-lg-4">
+                        <p id="students">Students</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-studyPlan' %}" id="buttons"><button type="button" class="btn btn1">Study Plan</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-loa' %}" id="buttons"><button type="button" class="btn btn1">Leave of Absence</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-hd' %}" id="buttons"><button type="button" class="btn btn1">Honorable Dismissal</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-ojt' %}" id="buttons"><button type="button" class="btn btn1">Practicum</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-shifter' %}" id="buttons"><button type="button" class="btn-btn2">Shifter</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-transferee' %}" id="buttons"><button type="button" class="btn btn1">Transferee</button></a></div>
+                        <!-- OTHERS | FACULTY REQUESTS -->
+                        <p id="faculty">Faculty</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cfaculty_applicant' %}" id="buttons"><button type="button" class="btn btn1">Application</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-partTime' %}" id="buttons"><button type="button" class="btn btn1">Part-Time Availability</button></a></div>
+
+                    </div>
+
+                    <div class="col-lg-8">
+                        <!-- Application Panel -->
+                            <p id="application"><b>Shifter</b></p>
+                            <div class="app-panel row">
+                                <div class="col-lg-3" id="studentNo"><b>{{shift.studentID}}</b></div><!-- DB STUDENT NO -->
+                                <div class="col-lg-3" id="lastName">{{shift.lname}}</div><!-- DB STUDENT LAST NAME -->
+                                <div class="col-lg-3" id="firstName">{{shift.fname}}</div><!-- DB STUDENT FIRST NAME -->
+                            </div>
+                        <!-- END Faculty Panel -->
+
+                        <form action="{% url 'cOthers-shifterView' shift.id %}" method="POST"> {% csrf_token %}
+                            <!-- SUBMITTED FILES -->
+                            <div class="sub row">
+    
+                                <!-- SUBMITTED FILES HEADER -->
+                                <div class="col-lg-5">
+                                <p id="submitted"><b>Submitted Files</b></p>
+                                </div>
+                                
+                                <div class="col-lg-6 offset-lg-1">
+                                    <div class= "stat-drop row">
+                                     <p id="stat">Status:&nbsp;&nbsp;</p>
+                                    <div class="dropdown">
+                                            <span class="status-select">
+                                                    <select name="slct" id="stat-slct">
+                                                        {% if shift.remarks == "In Progress" %}
+                                                                <option value="{{shift.remarks}}"> &nbsp; {{shift.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif shift.remarks == "Returned" %}
+                                                                <option value="{{shift.remarks}}"> &nbsp; {{shift.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+                                                            
+                                                            {% elif shift.remarks == "Submitted" %}
+                                                                <option value="{{shift.remarks}}"> &nbsp; {{shift.remarks}} </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif shift.remarks == "Forwarded" %}
+                                                                <option value="{{shift.remarks}}"> &nbsp; {{shift.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif shift.remarks == "Complete" %}
+                                                                <option value="{{shift.remarks}}"> &nbsp; {{shift.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                            {% endif %}
+                                                        
+                                                    </select>
+                                                    </span>
+                                                        <input type="image" src="{% static 'CRS/images/cOthers/save.png' %}" name="submit" width="28" height="28" class="saveBtn" alt="submit" value="submit"/>
+                                                    </div>
+                                                    
+                                     
+                                 </div>
+                                </div>
+                            </form>
+
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                                    <!-- REQUEST LIST -->
+                                    <div class="gray row">                    
+                                        <table id="submittedFiles"> 
+
+
+                                            <tr>
+                                                <td>
+                                                {% if shift.studentStudyplan %}
+                                                    <a href="{{shift.studentStudyplan.url}}"  target="_blank" ><div class="fileName">Study Plan</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{shift.studentStudyplan.url}}" download><!-- DB STUDY PLAN DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Study Plan</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+
+
+                                            <tr> 
+                                                <td>
+                                                {% if shift.studentshifterletter %}
+                                                        <a href="{{shift.studentshifterletter.url}}"  target="_blank" ><div class="fileName">Letter of Intent</div></a>
+                                                    </td>
+                                                <td>
+                                                    <a href="{{shift.studentshifterletter.url}}" download><!-- DB LETTER OF INTENT DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Letter of Intent</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+
+                                            <tr> 
+                                                <td>
+                                                    {% if shift.studentGrade %}
+                                                        <a href="{{shift.studentGrade.url}}"  target="_blank" ><div class="fileName">Grades Screenshot</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{shift.studentGrade.url}}" download><!-- DB GRADES SCREENSHOT DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Grades Screenshot</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+                                        
+                                        </table>
+                                    </div>
+
+
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                        </div>
+                        <!-- END Submitted Files-Gray Boxes  -->
+
+                        <!-------------EMAIL APPLICANT----------->
+                        <div id="list-feedback1">
+                            <div align="left"> 
+                                {% if messages %}
+                                {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alertError">
+                                    <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="alertSuccess">
+                                    <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+                                    
+                                {% endfor %}
+                                {% endif %}
+                                <br>
+                                </div>
+                            <div class="fileName">Manage</div><br>
+                            <a href="{% url 'cOthers-shifter-csw' shift.id %}"><button type="button" class="cswBtn2"><img src="{% static 'CRS/images/cOthers/download2.png' %}" width="auto" height="42"><br>Download CSW</button></a><!-- DB DOWNLOAD CSW BUTTON -->
+                            <form action="{% url 'sendmailwfile' shift.id %}" method="POST" enctype="multipart/form-data" > {% csrf_token %}
+                               
+
+                                <label class="cswBtn3" id="cswDL" for="uploadCSW"><img src="{% static 'CRS/images/cOthers/upload.png' %}" width="auto" height="42"><br>Upload CSW</label><!-- DB UPLOAD CSW BUTTON -->
+                                <input type="file"  id="uploadCSW" name="uploadCSW" required>
+                                </div><br><br>
+
+                                <div class="list-feedback1">
+                                    <button type ="submit" class="button5hvr" name="shifter-email" value="shifter-email" >Forward to Signatories</button></a><!-- DB FORWARD TO SIGNATORIES BUTTON -->
+                            </form>
+                            <a href="{% url 'emailShifter' shift.id %}"><button  class="button4hvr">Email Transferee</button></a>
+                        </div>
+                            
+                    <!-------------END EMAIL APPLICANT----------->
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

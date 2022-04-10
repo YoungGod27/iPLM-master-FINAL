@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leave of Absence Form</title>
+</head>
+<style>
+@page{
+		size: 8.31in 11.7in;
+		margin: 15mm 20mm 10mm 20mm;
+}
+body {
+  font-size: 130%;
+}
+</style>
+<body>
+
+<table align=center width="700">
+	<tr>
+		<td width="190" align=right><img src="https://plm.edu.ph/images/Seal/PLM_Seal_BOR-approved_2014.png" height="80" width="80"></td>
+		<td width="320" align=center><p> Republic of the Philippines <br>
+				<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b> <br>
+				<i>(University of the City of Manila)</i><br>
+				General Luna Street corner Muralla Street<br>
+				Intramuros, Manila </p></td>
+		<td width="190"></td>
+	</tr>
+	<tr>
+		<td colspan=3 align=center><br><strong>LEAVE OF ABSENCE FORM</strong><br></td>
+	</tr>
+</table>
+
+
+<table align=center width="700">
+	<tr>
+		<td width="120" align=right><p>Date of Filing:</p></td>
+		<td width="110"><p>&nbsp;<u><b>{{dof}}</b></u></p></td>
+		<td colspan=2></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Student No.:</p></td>
+		<td width="300"><p><b>&nbsp;<u>{{info.studentID}}</u></b></p></td>
+		<td width="90" align=right><p>College:</p></td>
+		<td width="190"><p><b>&nbsp;<u>{{info.collegeID}}</u></b></p></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Student Name:</p></td>
+		<td width="300"><p><b>&nbsp;<u>{{info.studentUser.firstName}} {{info.studentUser.middleName}} {{info.studentUser.lastName}}</u></b></p></td>
+		<td width="90" align=right><p>Course:</p></td>
+		<td width="190"><p><b>&nbsp;<u>{{info.studentCourse}}</u></b></p></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Student Type:</p></td>
+		<td width="300"><p><b>&nbsp;<u>{{info.studentType}}</u></b></p></td>
+		<td width="90" align=right><p>Year Level:</p></td>
+		<td width="190"><p><b>&nbsp;<u>{{info.studentYearlevel}}</u></b></p></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Academic Status:</p></td>
+		<td width="300"><p><b>&nbsp;<u>{{info.studentRegStatus}}</u></b></p></td>
+		<td width="90" align=right><p>GWA:</p></td>
+		<td width="190"><p><b>&nbsp;<u>{{genave}}</u></b></p></td>
+	</tr>
+</table>
+
+<hr color="#F8F8F8">
+
+<table align=center width="800">
+	<tr>
+		<td width="120" align=right><p>Effective From:</p></td>
+		<td width="115" align=center><p><b>&nbsp;<u>{{sem}}</u></b></p></td>
+		<td width="120" align=right><p>Sem/Term, SY:</p></td>
+		<td width="115"><p><b>&nbsp;<u>{{sy}}</u></b></p></td>
+		<td width="330" align=center><p><b>Please Attached the Following:</b></p></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Until:</p></td>
+		<td width="115" align=center><p><b>&nbsp;<u>{{sem2}}</u></b></p></td>
+		<td width="120" align=right><p>Sem/Term, SY:</p></td>
+		<td width="115"><p><b>&nbsp;<u>{{sy2}}</u></b></p></td>
+		<td width="330"><p>[&nbsp;&nbsp;] Letter of Request for LOA</p></td>
+	</tr>
+	<tr>
+		<td width="470" colspan=4></td>
+		<td width="330"><p>[&nbsp;&nbsp;] Clearance from Registrar</p></td>
+	</tr>
+	<tr>
+		<td width="120" align=right><p>Reason:</p></td>
+		<td width="340" colspan=3><p><b>&nbsp;<u>{{reason}}</u></b></p></td>
+		<td width="330">[&nbsp;&nbsp;] Note of Undertaking <i>(in applicable)</i><br>
+						[&nbsp;&nbsp;] Student's Checklist & Study Plan</td>
+	</tr>
+</table>
+
+<!--end-->
+
+<table align=center width="800">
+	<tr>
+		<td width="50"></td>
+		<td width="300" align=center><br><br><b>{{info.studentUser.firstName}} {{info.studentUser.middleName}} {{info.studentUser.lastName}}</b></td>
+		<td width="50"></td>
+		<td width="50"></td>
+		<td width="300" align=center><br><br><b></b></td>
+		<td width="50"></td>
+	</tr>
+	<tr>
+		<td width="50"></td>
+		<td width="300" align=center style="border-top: 1px solid black;"><i>Student's Signature over printed name</i></td>
+		<td width="50"></td>
+		<td width="50"></td>
+		<td width="300" align=center style="border-top: 1px solid black;"><i>Parent's Signature over printed name</i></td>
+		<td width="50"></td>
+	</tr>
+</table>
+
+<table height=20><tr><td></td></tr></table>
+
+<table align=center width="800">
+	<tr><td style="border:1px solid black;">
+		<table>
+			<tr>
+				<td align=left colspan=6 style="padding-top: 2px;padding-left: 2px;">1. Endorsed by:</td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250" style="border-bottom: 1px solid black;padding-bottom: -1px;"><br><br><b>{{info.departmentID.chairperson.cpersonUser.firstName}} {{info.departmentID.chairperson.cpersonUser.middleName}} {{info.departmentID.chairperson.cpersonUser.lastName}}</b></td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150"><br><br><b></b></td>
+				<td width="100"></td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250">Department Chair</td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150" style="border-top: 1px solid black;">Date</td>
+				<td width="100"></td>
+			</tr>
+		</table>
+	</td></tr>
+	<tr><td style="border:1px solid black;">
+		<table>
+			<tr>
+				<td align=left colspan=6 style="padding-top: 2px;padding-left: 2px;">2. Recommending Approval:</td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250"><br><br><b></b></td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150"><br><br><b></b></td>
+				<td width="100"></td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250" style="border-top: 1px solid black;">College Dean</td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150" style="border-top: 1px solid black;">Date</td>
+				<td width="100"></td>
+			</tr>
+		</table>
+	</td></tr>
+	<tr><td style="border:1px solid black;">
+		<table>
+			<tr>
+				<td align=left colspan=6 style="padding-top: 2px;padding-left: 2px;">3. Recommending Approval:</td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250"><br><br><b></b></td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150"><br><br><b></b></td>
+				<td width="100"></td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250" style="border-top: 1px solid black;">University Registrar</td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150" style="border-top: 1px solid black;">Date</td>
+				<td width="100"></td>
+			</tr>
+		</table>
+	</td></tr>
+	<tr><td style="border:1px solid black;">
+		<table>
+			<tr>
+				<td align=left colspan=6 style="padding-top: 2px;padding-left: 2px;">4. Approved/Disaaproved:</td>
+			</tr>
+			<tr>
+				<td width="100"></td>
+				<td align=center width="250"><br><br><b></b></td>
+				<td width="100"></td>
+				<td width="100"></td>
+				<td align=center width="150"><br><br><b></b></td>
+				<td width="100"></td>
+			</tr>
+			<tr>
+				<td width="90"></td>
+				<td align=center width="270" style="border-top: 1px solid black;">Vice President of Academic Affairs</td>
+				<td width="90"></td>
+				<td width="100"></td>
+				<td align=center width="150" style="border-top: 1px solid black;">Date</td>
+				<td width="100"></td>
+			</tr>
+		</table>
+	</td></tr>
+	<tr>
+		<td style="padding-top: 2px; font-size:0.8em;">
+			PAO 13 S. 2014
+		</td>
+	</tr>
+</table>
+<!--end of table-->
+<br>
+
+<table align="center" width="800">
+	<tr><td align=left><p>Signed:<br><br></p></td></tr>
+	<tr><td align=left><p><b>{{info.departmentID.chairperson.cpersonUser.firstName}} {{info.departmentID.chairperson.cpersonUser.middleName}} {{info.departmentID.chairperson.cpersonUser.lastName}}</b></p> </td> </tr>
+	<tr><td align=left><p>Chairperson, {{info.departmentID.courseDesc}}</p> </td></tr>
+</table>
+
+
+</body>
+</html>

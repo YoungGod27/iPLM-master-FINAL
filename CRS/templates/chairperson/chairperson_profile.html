@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>faculty profile</title>
+    </head>
+    <body>
+        
+        <br>last name: {{user.lastName}}
+        <br>first name: {{user.firstName}}
+        <br>middle name: {{user.middleName}}
+        <br>Pedigree: ????
+        <br>gender: {{facultyInfo.facultyGender}}
+        <br>civil status: {{facultyInfo.facultyCivilstatus}}
+        <br>citizenship: {{facultyInfo.facultyCitizenship}}
+        <br>chairperson number: {{facultyInfo.facultyID}}
+        <br>College: {{college}}
+        <br>Department:{{department}}
+        <br>email:{{user.email}}
+        <br>contact number: {{facultyInfo.facultyContact}}  
+        <br><br>
+        <a href="{%url 'chairperson_edit_profile' %}">edit</a>
+        <br><a href="{%url 'chairperson_change_password'%}">change password</a>
+        <br><a href="{% url 'logout' %}">Log Out</a>
+    </body>
+</html>

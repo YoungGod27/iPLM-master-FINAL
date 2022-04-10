@@ -1,0 +1,23 @@
+<html>
+    <head>
+        admin
+    </head>
+    <body>
+        <br>username: {{username}}
+        <form method="POST">
+            {%csrf_token%}
+            <input type="text" id="username" name="username">
+            <input type="text" id="password" name="password">
+            <select name="user_type" id="user_type">
+                <option value="admin">Admin</option>
+                <option value="applicant">Applicant</option>
+                <option value="chairperson">Chairperson</option>
+                <option value="faculty">Faculty</option>
+                <option value="student">Student</option>
+            </select>
+            <div class="container2">
+                <button class="btn btn6">Register</button>
+            </div>
+        </form>
+    </body>
+</html>

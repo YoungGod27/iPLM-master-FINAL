@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>IT| {% block title %} CSW {% endblock %}</title>
+	<style>
+		@page{
+			size: 8.31in 11.7in;
+			margin: 15mm 20mm 10mm 20mm;
+		}
+		body{
+			font-size: 130%;
+			font-family: "Times New Roman", Times, serif;
+		}
+	</style>
+</head>
+
+<body>
+{% block content %}
+<table align="center" width="700">
+	<tr>
+		<td width="175" align=right><img src="https://plm.edu.ph/images/Seal/PLM_Seal_BOR-approved_2014.png" width=100px height=100px></td>
+		<td width="350" align=center><p> Republic of the Philippines <br>
+				<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b> <br>
+				<i>(University of the City of Manila)</i><br>
+				General Luna Street corner Muralla Streets, Intramuros<br>
+				Manila 1002, Philippines</p></td>
+		<td width="175" align=left><img src="https://archive.plm.edu.ph/images/CET.jpg" width=100px height=100px></td>
+	</tr>
+	<tr>
+		<td colspan=3 align="center"><br><strong>COLLEGE OF ENGINEERING AND TECHNOLOGY</strong><br><br></td>
+	</tr>
+</table>
+
+<table align=center width="700">
+	<tr>
+		<td width="125"><b>MEMORANDUM</b></td>
+		<td width="5">:</td>
+		<td width="570"></td>
+	</tr>
+	<tr><td height="20"></td></tr>
+	<tr>
+		<td width="125">DATE</td>
+		<td width="5">:</td>
+		<td width="570">{{date}}</td>
+	</tr>
+	<tr>
+		<td width="125">FROM</td>
+		<td width="5">:</td>
+		<td width="570"><b>{{from}}</b><br>
+						<i>Chairperson, Information Technology Department</i></td>
+	</tr>
+	<tr>
+		<td width="125">SUBJECT</td>
+		<td width="5">:</td>
+		<td width="570"><b>{{subject}}</b></td>
+	</tr>
+</table>
+
+<hr width="700" style="border: 2px solid black">
+
+<table align="center" width="700">
+	<tr>
+		<td colspan=2><b>&#9632 Action Required</b></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="680">{{action}}</td>	
+	</tr>
+	<tr><td height="15"></td></tr>
+	<tr>
+		<td colspan=2><b>&#9632 Reference</b></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="680">{{reference}}</td>	
+	</tr>
+	<tr><td height="15"></td></tr>
+	<tr>
+		<td colspan=2><b>&#9632 Background</b></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="680">{{background}}</td>	
+	</tr>
+	<tr><td height="15"></td></tr>
+	<tr>
+		<td colspan=2><b>&#9632 Analysis</b></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="680">{{analysis}}</td>	
+	</tr>
+	<tr><td height="15"></td></tr>
+	<tr>
+		<td colspan=2><b>&#9632 Recommendation</b></td>
+	</tr>
+	<tr>
+		<td width="20"></td>
+		<td width="680">{{recommendation}}</td>	
+	</tr>
+</table>
+<br>
+
+<table align=center width="700">
+	<tr>
+		<td align=justified style="font-size:0.611em;">
+			<i>I hereby certify that I have subjected the abovementioned proposal or recommendations to "Complete Staff Work" through my Office, 
+			College of Engineering and Technology, in full and strict compliance with Pamantasan Administrative Order No. 35-GPP, series of 2016.</i>
+		</td>
+	</tr>
+</table>
+<br>
+<table align=center width="700">
+	<tr>
+		<td colspan=2>
+			<b>Recommended by:</b>
+		</td>
+	</tr>
+		<td width="350">
+			<br>
+			{% if pdf1.signature1 %}
+			<img src="{{pdf1.signature1.path}}" height='50px' width='120px'>
+			{% else %}
+				<span class="text-muted"> No Files uploaded</span>
+			{% endif %}
+			<br><br>
+			<b>1. Charito M. Molina</b>
+			<br>
+			<i>Chairperson, Information Technology Department</i>
+		</td>
+
+		<td width="350">
+			<br>
+			{% if pdf1.signature2 %}
+			<img src="{{pdf1.signature2.path}}" height='50px' width='120px'>
+			{% else %}
+				<span class="text-muted"> No Files uploaded</span>
+			{% endif %}
+			<br><br>
+			<b>2. Engr. Juan C. Tallara Jr.</b>
+			<br>
+			<i>Dean, College of Engineering and Technology</i>
+		</td>
+</table>
+<br>
+<table align=center width="700">
+	<tr>
+		<td width="300" style="border-top: 1px solid black;border-left: 1px solid black;border-right: 1px solid black; padding-top: 2px; padding-left: 4px;">
+					[&nbsp;]<b>APPROVED</b></td>
+		<td width="400"></td>
+	</tr>
+	<tr>
+		<td width="300" style="border-left: 1px solid black; border-right: 1px solid black; padding-left: 4px;">
+					[&nbsp;]<b>DISAPPROVED</b></td>
+		<td width="400"></td>
+	</tr>
+	<tr>
+		<td align=center width="300" style="border-left: 1px solid black;border-right: 1px solid black;">
+					<br><br><br><b>Ms. LALINE A. ISIP</b></td>
+		<td width="400"></td>
+	</tr>
+	<tr>
+		<td align=center width="300" style="border-left: 1px solid black;border-right: 1px solid black;border-bottom: 1px solid black;">
+					<i>University Registrar</i></td>
+		<td width="400"></td>
+	</tr>
+</table>
+
+
+{% endblock %}
+</body>
+</html>

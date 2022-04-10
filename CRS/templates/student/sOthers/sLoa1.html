@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Students | Leave of Absence</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+	<link rel="stylesheet" href="{% static 'CRS/css/sOthers/sLoaStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	<!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+	<style>
+        
+        #subjectMessage {
+        margin-top: 10px;
+        padding: 10px;
+        padding-top: 15px;
+        font-size: 18px;
+        color: rgb(248, 248, 248);
+        font-family: 'Nunito';
+        background-color: #ff5f02;
+        border: 2px solid #ff5f02;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgb(199, 199, 199);
+		animation: zoom-in-zoom-out 1s ease;
+		width: 20%;
+    }
+
+	.closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtn:hover {
+        color: #b94807;
+        }
+
+		@keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+
+				/*SCROLLBAR*/
+				::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #e4e4e4;
+			border-radius: 12px;
+		}
+		
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: #cbcbcb;
+			border-radius: 12px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+			background: #8f8f8f; 
+		}
+	</style>
+</head>
+
+<body>
+	{% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <!--Study Plan head-->
+                <div class="back row">
+					<!-- FILE PATH: Students/sOthers/sOthers.html-->
+					<a href="{% url 'sOthers' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                    <p id="head1">
+                        Leave of Absence
+                    </p>
+                </div>
+                <!--END Study Plan head-->
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Clearance<br>Form</li>
+                                        <li class="progress-text">LOA<br>Form</li>
+                                        <li class="progress-text">Upload<br>Documents</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+                <!-- Clearance Form -->
+				<div class="clearanceForm container-fluid">
+					<div class="clearanceHeader">
+						<h1><b>Clearance Form</b></h1>
+						<p>Please complete the form below.</p>
+						
+						{% if messages %}
+							{% for message in messages %}
+							<div id="subjectMessage">
+								<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+								{{ message }}
+							</div>
+							{% endfor %}
+						{% endif %}
+
+						
+					</div>
+					
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Student Number</label>
+							<input type="text" class="form-control" placeholder="{{info.studentID}}" disabled> <!-- DB STUDENT Number -->
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<label class="form-label">Name</label>
+							<input type="text" class="form-control" placeholder="{{info.studentUser.lastName}}" id="clearanceForm-input" disabled> <!-- DB LAST NAME -->
+							<input type="text" class="form-control" placeholder="{{info.studentUser.firstName}}" id="clearanceForm-input" disabled> <!-- DB FIRST NAME -->
+							<input type="text" class="form-control" placeholder="{{info.studentUser.middleName}}" id="clearanceForm-input" disabled> <!-- DB MIDDLE NAME -->
+						</div>
+						
+						<div class="form-group col-lg-12 row">
+							<p id="nameSpan1">Last Name</p>
+							<p id="nameSpan2">First Name</p>
+							<p id="nameSpan3">Middle Name</p>
+						</div>
+						
+						<hr id="line">
+						<form method="POST" enctype="multipart/form-data" onSubmit="alert('Form Submitted, Save a Copy!')">
+							{%csrf_token%}
+							<div class="form-group col-lg-12 row">
+								<label class="form-label">First Enrollment <span style="color:#ff5f02"><b>*</b></span><br>in PLM</label>
+								&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control" name="studentFirstCollege2" id="clearanceForm-input-college" required> <!-- DB COLLEGE -->
+								<input type="text" class="form-control" name="studentFirstSY2" id="clearanceForm-input-sy" required> <!-- DB SY -->
+								
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="firstEnrollment2" value="First Semester" required>
+								  <label class="form-check-label" name="firstEnrollment2">1st Sem</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="firstEnrollment2" value="Second Semester" required>
+								  <label class="form-check-label" name="firstEnrollment2">2nd Sem</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="firstEnrollment2" value="Summer Semester" required>
+								  <label class="form-check-label" name="firstEnrollment2">Summer</label>
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12 row">
+								<p id="collegeSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College</p>
+								<p id="sySpan">SY</p>
+							</div>
+							
+							<div class="form-group col-lg-12 row">
+								<label class="form-label">Last/Present<br>Enrollment in PLM <span style="color:#ff5f02"><b>*</b></span></label>
+								<input type="text" class="form-control" name="studentLastPCollege2" id="clearanceForm-input-college1" required> <!-- DB COLLEGE -->
+								<input type="text" class="form-control" name="studentLastPSY2" id="clearanceForm-input-college2" required> <!-- DB SY -->
+								
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="lastEnrollment2" value="First Semester" required>
+								  <label class="form-check-label" name="lastEnrollment2">1st Sem</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="lastEnrollment2" value="Second Semester" required>
+								  <label class="form-check-label" name="lastEnrollment2">2nd Sem</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="lastEnrollment2" value="Summer Semester" required>
+								  <label class="form-check-label" name="lastEnrollment2">Summer</label>
+								</div>
+							</div>
+							
+							<div class="form-group col-lg-12 row">
+								<p id="collegeSpan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College</p>
+								<p id="sySpan">SY</p>
+							</div>
+							
+							<hr id="line">
+							
+							<div class="form-group col-lg-12 row">
+								<label class="form-label">Purpose of <span style="color:#ff5f02"><b>*</b></span><br>Clearance</label>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="studentPurpose2" value="Graduation" required>
+								  <label class="form-check-label" name="studentPurpose2">Graduation</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="studentPurpose2" value="Transfer" required>
+								  <label class="form-check-label" name="studentPurpose2">Transfer</label>
+								</div>
+								<div class="form-check form-check-inline">
+								 <input type="radio" name="studentPurpose2" value="Others" required>
+								 <input type="text" name="studentOthers2" placeholder="Others" id="purposeOthers"> <!-- DB PURPOSE OF CLEARANCE>OTHERS -->
+								</div>
+							</div>
+							
+							<br><br>
+							
+							<hr id="line">
+							
+							<div class="form-group col-lg-12 row">
+								<label class="form-label">Date of<br>Application<span style="color:#ff5f02"><b>*</b></span></label>
+								<input type="date" class="form-control" name="studentCurrentdate2" id="application-date" required> <!-- DB DATE OF APPLICATION -->
+								<div class="clearance-done">
+
+									
+
+									<a href="#" id="button-edit"><button type="submit" class="btn1">Submit</button></a> <!-- SUBMIT -->
+									<a href="{% url 'lscf' %}" id="button-edit"><button type="button" class="btn">Save Copy</button></a> <!-- SAVE COPY -->
+									<a href="{% url 'sLoa2' %}" id="button-edit"><button type="button" class="btn"> Next</button></a> <!-- NEXT -->
+								</div>
+							</div>
+							<br><br>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+    <!-- END Content -->
+
+	{% endblock content %}
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        const selected = document.querySelector(".selected");
+        const optionsContainer = document.querySelector(".options-container");
+
+        const optionsList = document.querySelectorAll(".option");
+
+        selected.addEventListener("click", () => {
+            optionsContainer.classList.toggle("active");
+        });
+
+        optionsList.forEach(o => {
+            o.addEventListener("click", () => {
+                selected.innerHTML = o.querySelector("label").innerHTML;
+                optionsContainer.classList.remove("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

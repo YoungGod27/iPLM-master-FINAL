@@ -1,0 +1,161 @@
+<html>
+<head>
+	<title>Studyplan</title>
+	<link href='https://fonts.googleapis.com/css?family=Nunito%20Sans' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Nunito Sans';font-size: 20px;
+}
+@media print {
+  #printPageButton {
+    display: none;
+  }
+}
+.button { 
+height: 50px; 
+width: 100px; 
+}
+
+
+td{
+	padding-top: 10px;
+	margin-left: 10px;
+}
+</style>
+</head>
+
+<a class="button" id="printPageButton" href="javascript:window.print()">CLICK HERE TO OPEN PRINT DIALOGUE (SAVE AS PDF)</a>
+<body>
+	<table align="center">
+		<tr>
+			
+			<td align="center">
+				<br>
+				<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b>
+				<br>
+				{{ info.collegeID.collegeDesc }}
+				<br><br><br>
+				{{ info.departmentID.courseDesc }}
+				<br>
+				S.Y. 2020-2021
+			</td>
+		</tr>
+	</table>
+
+<hr color="black">
+	<table align="center" width=100% style="font-size: 14px;">
+		<tr>
+			<td><b>Name:</b></td>
+			<td>
+				{{ info.studentUser.firstName }} {{ info.studentUser.middleName|slice:1 }}. {{ info.studentUser.lastName }}<!--INSERT STUDENT NAME-->
+			</td>
+
+			<td><b>Entrance Date:</b></td>
+
+			<td>
+				{{ status.admissionYr }}<!--INSERT STUDENT ENTRANCE DATE-->
+			</td>
+		</tr>
+
+		<tr>
+			<td><b>Student Number:</b></td>
+			<td>
+				{{ info.studentID }}<!--INSERT STUDENT NUMBER-->
+			</td>
+
+			<td><b>Total Number of Units:</b></td>
+
+			<td>
+				{{ ogunits|floatformat }}<!--INSERT UNITS-->
+			</td>
+		</tr>
+	</table>
+	<hr color="black">
+	<br><br>
+
+	<table border="1" align="center" width=100% style="font-size: 14px;">
+		{% if semesters and subjects %}
+			<!--open-->
+			{% for semester in semesters %}
+				
+					{% if semester == status.curricula %}
+
+						<td colspan="6">{{ semester.cYear }}, {{ semester.cSem }}</td>
+						<tr align="left">
+							<td><b>COURSE CODE</b></td>
+							<td colspan="2"><b>COURSE NAME</b></td>
+							<td><b>UNITS</b></td>
+							<td style="font-size: 10px;"><b>PRE(CO)-REQUISITES</b></td>
+							<td><b>GRADE</b></td>						
+						</tr>
+						{% for l in list %}
+							<tr align="left">
+								<td>{{ l.courseCode }}</td>
+								<td colspan="2">{{ l.courseName }}</td>
+								<td>{{ l.courseUnit }}</td>
+								<td>{{ l.prerequisite|default_if_none:"" }}</td>
+								<td></td>					
+							</tr>
+						{% endfor %}
+						{% for subject in subjects %}
+							{% if semester == subject.curricula %}
+								{% if subject.prerequisite not in fscourseCode %}
+									{% if subject.prerequisite not in cCode %}
+										<tr align="left">
+											<td>{{ subject.courseCode }}</td>
+											<td colspan="2">{{ subject.courseName }}</td>
+											<td>{{ subject.courseUnit }}</td>
+											<td>{{ subject.prerequisite|default_if_none:"" }}</td>
+											<td></td>					
+										</tr>
+									{% endif %}
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+						<tr align="left">
+							<td></td>
+							<td align="right" colspan="2">TOTAL&nbsp;&nbsp;</td>
+							<td>{{ totalnum|floatformat }}</td>
+							<td align="right">GWA&nbsp;&nbsp;</td>
+							<td></td>						
+						</tr>
+
+						{% else %}
+                        <!--close
+
+						<td>{{ semester.cYear }}, {{ semester.cSem }}</td>
+						<tr align="left">
+							<td><b>COURSE CODE</b></td>
+							<td><b>COURSE NAME</b></td>
+							<td><b>UNITS</b></td>
+							<td><b>PRE(CO)-REQUISITES</b></td>
+							<td><b>GRADE</b></td>						
+						</tr>
+						{% for subject in subjects %}
+							{% if semester == subject.curricula %}
+								<tr align="left">
+									<td>{{ subject.courseCode }}</td>
+									<td>{{ subject.courseName }}</td>
+									<td>{{ subject.courseUnit }}</td>
+									<td>{{ subject.prerequisite|default_if_none:"" }}</td>
+									<td></td>					
+								</tr>
+							{% endif %}
+						{% endfor %}
+						<tr align="left">
+							<td></td>
+							<td align="right">TOTAL&nbsp;&nbsp;</td>
+							<td>{{ semester.totalUnits }}</td>
+							<td align="right">GWA&nbsp;&nbsp;</td>
+							<td></td>						
+						</tr>-->
+
+					{% endif %}
+				
+			{% endfor %}
+		{% endif %}
+	</table><br><br>
+
+</body>
+<a class="button" id="printPageButton" href="javascript:window.print()">CLICK HERE TO OPEN PRINT DIALOGUE (SAVE AS PDF)</a>
+</html>

@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Edit Student </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/cStudents/cAddStudentStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cStudents/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        #button-edit{
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+
+                <div class="edit-1 row">
+                    <div class="col-lg-12">
+                        <a href="{% url 'students_bsit1'%}" id="back-edit"><img src="{% static 'CRS/images/cStudents/cBack.svg' %}" width="50"></a>
+                        <p class="text-edit">&nbsp;Edit Student</p>
+                    </div>
+                </div>
+
+                <!-- EDIT FORM -->
+                <form method="POST" onsubmit="return confirm('Are you sure to this update?')">
+
+                    <div class="edit-2 row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group row">
+                                {% csrf_token %}
+                                <label for="" class="col-lg-7 col-form-label form-text-edit">{{ user_form }}</label>
+                                <div class="col-lg-7">
+                                </div>
+                            </div>
+
+                            <br><br>
+                                <a href="{% url 'students_bsit1' %}" id="button-edit"><button class="btn" type="submit">Edit Student</button></a>
+                                
+                        </div>
+
+                        <div class="col-lg-6">
+                            <img id="img" src="{% static 'CRS/images/cStudents/clip-1064.png' %}" width="600px" height="auto">
+                        </div>
+
+                    </div>
+                </form>
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- END Content -->
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+

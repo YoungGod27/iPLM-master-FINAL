@@ -1,0 +1,219 @@
+{%load static%}
+<html>
+<head>
+	<title>Request for Transfer Certificate</title>
+
+	<style>
+		body{
+			font-family: "Times New Roman", Times, serif;
+			font-size: 14px;
+		}
+
+		@page {
+			size: 8.3in 11.7in;
+			margin: 10mm 10mm 10mm 10mm;
+		}
+
+
+	</style>
+</head>
+
+<body>
+Revised July 2007
+<table align="center">
+	<tr>
+		<td width=150>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+		<td align="right" width=50>
+			<img src="https://plm.edu.ph/images/Seal/PLM_Seal_BOR-approved_2014.png", height="70px" width="70px">
+		</td>
+		<td align="center" style="font-size: 10px;">
+			<br>
+			<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b>
+			<br>
+			<i>(University of the City of Manila)</i>
+			<br>
+			Intramuros, Manila
+		</td>
+		<td>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+<table align="center">
+	<tr>
+		<td colspan=2 align="center">
+		<br>
+		<b>REQUEST FOR TRANSFER CERTIFICATE</b>
+		</td>
+	</tr>
+</table>
+
+<table align="center" width=100%>
+	<tr></tr>
+	<tr></tr>
+	<tr>
+		<td width=50% rowspan=2 style="margin-right: 30px;">
+			I have the honor to apply for the issuance of my Transfer Credentials this <u><b>{{ studentDay }}</b></u> day of <u><b>{{ studentMonth }}</b></u>, <u><b>{{ studentYear }}</b></u>.
+		</td>
+
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentCollege}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;College&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+		
+	</tr>
+
+	<tr>
+	</tr>
+
+	
+	<tr>
+		<td width=50% style="margin-right: 30px;">
+			I am going to enroll in <u><b>{{ studentSchool }}</b></u> located at <u><b>{{ studentSchooladdress }}</b></u>
+		</td>
+
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentCredentials}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Credentials&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	<tr>
+
+	<tr>
+		<td align="right" style="margin-right: 40px;">
+			<b>_____________________</b><br><span style="margin-right: 60px;">Signature&nbsp;</span>
+		</td>
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentFirstSY}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Enrollment in College&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentLastPSY}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Enrollment in College&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	<tr>
+
+	<tr style="margin-top: -400px;"> 
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{info.studentUser.lastName}}, &nbsp;&nbsp;{{info.studentUser.firstName}} &nbsp;&nbsp;{{info.studentUser.middleName}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name, &nbsp;&nbsp;First Name&nbsp;&nbsp;Middle Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></td>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentNoOfSem}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No. Of Semester/ Summers Attended&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			</td>
+	</tr>
+
+	<tr>
+		<td width=50% align="center"><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentHomeaddress}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			
+		<td width=50% align="center"><br><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{studentDegree}}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title/Degree Obtained&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	<tr>
+
+	<tr>
+		<td width=50% align="right">
+			<table width=100%>
+				<tr></tr>
+				<tr>
+					<td></td>
+					
+					<td align="center">
+						<u><b>________________________</b></u>
+						<br>
+						Receiving Clerk
+					</td>
+				</tr>
+			</table>
+		</td>
+		
+		<td width=50% align="right">
+			<table width=100%>
+				<tr></tr>
+				<tr>
+					<td align="center">
+						<u><b>_______________________</b></u>
+						<br>
+						Date Obtained
+					</td>
+					
+					<td width=50%>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<center><b>(COPY FOR THE UNIVERSITY REGISTRAR)</center>
+
+<hr color="black">
+
+
+<table align="center">
+	<tr>
+		<td>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+		<td align="right">
+			<img src="https://plm.edu.ph/images/Seal/PLM_Seal_BOR-approved_2014.png", height="70px" width="70px">
+		</td>
+		<td align="center" style="font-size: 10px; margin-left: -70px;" colspan=2>
+			<br>
+			<b>PAMANTASAN NG LUNGSOD NG MAYNILA</b>
+			<br>
+			<i>(University of the City of Manila)</i>
+			<br>
+			Intramuros, Manila
+		</td>
+		<td>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+	</tr>
+	
+	<tr align="center">
+		<td colspan=5 align="center">
+			<br>
+		<b>CERTIFICATE OF TRANSFER</b>
+		
+		</td>
+	</tr>
+</table>
+
+<table width=100% align="center">
+
+
+	<tr style="float: right;">
+			{{ studentMonth }} {{ studentDay }}, {{ studentYear }}
+
+	</tr>
+	
+	<tr>
+		<td colspan=2>
+	
+		TO WHOM IT MAY CONCERN:
+		<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		This is to certify that, Mr./Ms. <u><b>{{info.studentUser.firstName}}  {{info.studentUser.middleName}} {{info.studentUser.lastName}}</b></u> (Student No. <u><b>{{info.studentID}}</b></u> of the College of <u><b>{{ studentCollege }}</b></u> is hereby issued this certificate of Transfer from this University effective today. His/her official transcript of records shall be forwarded upon receipt of the <b>REQUEST SLIP</b> below.
+		<br><br>	
+	</tr>
+
+	<tr>
+		<td>
+		NOT valid without SEAL.
+		</td>
+		
+		<td align="center">
+			<u><b>_______________________</u></b>
+			<br>
+			University Registrar
+		</td>
+	</tr>	
+</table>
+
+<hr color="black">
+<center><b>REQUEST SLIP</b></center>
+
+</body>
+</html>

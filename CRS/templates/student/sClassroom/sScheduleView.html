@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Schedule</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/sClassroom/sScheduleStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+    .tablepanel {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 1300px;
+    height: 660px;
+    margin-left: 20px;
+    }
+
+    .dataStyle {
+        color: #0C66CC;
+        width: 220px; 
+        word-break: break-all;
+        overflow: hidden;
+    }
+
+    #schedtext-1{
+    font-size: 18px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    }
+
+    .tabletext2{
+        color: #0C66CC;
+    }
+
+    .semdetbox {
+    border: 3px solid #0C66CC;
+    border-radius: 30px 30px 30px 30px;
+    margin-top: 20px;
+    height: 240px;
+    margin-top: 50px;
+    }
+
+    #head3{
+        color: white; 
+        margin-top: 10px;
+    }
+
+    .tablepanel{
+        border-radius: 20px;
+        margin-top: 50px;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    </style>
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <div class="backrw row">
+                    <a href="{% url 'sClassroom' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+
+                  <p id="head1">Schedule</p>
+                </div>
+
+                <div class="schedule row">                    
+                    <div class="col-lg-3">
+
+                        <!--SEMESTER DETAILS-->
+                        <div class="semdetbox col-lg-12">
+                            
+                            <div class="col-lg-12">
+                                
+                                <div id="sdhtext">Semester Details</div>
+                                <div class="semdet row">
+                                    {% for acads in acad %}
+                                    <div class="sdtext col">Academic Year:</div>
+                                    <div class="field col">{{acads.yearstarted}}-{{acads.yearended}} </div><!--DB ACADEMIC YEAR-->
+                                </div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Semester:</div>
+                                    <div class="field col">{{acads.semester}}</div><!--DB SEMESTER-->
+                                    {% endfor %}
+                                </div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Subjects:</div>
+                                    <div class="field col">{{subjects}}</div><!--DB NO. OF SUBJECTS-->
+                                </div>                                
+                            </div>
+                            
+                        </div>
+
+                        <!--Schedule Image Flipped-->
+                        <div class="row">
+                            <img src="{% static 'CRS/images/sClassroom/studclassroom_schedule-img.png' %}" height="434.285714286" width="434.285714286">
+                        </div>
+                    </div>  
+                    
+                    <!--Text Fields-->              
+                    <div id="schedarea" class="col-lg-9 row">
+
+                        <div class="tablepanel table-responsive-lg">
+                            <table class="borderless table">
+                                <tr class="primary-att" style="background-color: #0C66CC;">
+                                    <th scope="col"><p id="head3"><b>Code</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Course Name</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Units</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Section</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Day</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Time</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Room</b></p></th>
+                                    <th scope="col"><p id="head3" style="font-size: 14px;"><b>Session Type</b></p></th>
+                                </tr>
+                                <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
+                                    {% for sched  in schedule %}
+                                <tr class="tabletext2">
+                                    <td  id="schedtext-1">{{sched.subjectCode.subjectCode.subjectCode}}</td>
+                                    <td><b>{{sched.subjectCode.subjectCode.subjectName}}</b></td>
+                                    <td>{{sched.subjectCode.subjectUnits}}</td>
+                                    <td>{{sched.section}}</td>
+                                    <td>{{sched.day}}</td>
+                                    <td><p  class="timeStyle">{{sched.timeStart}} - {{sched.timeEnd}}</p></td>
+                                    <td>{{sched.room}}</td>
+                                    <td>{{sched.type}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

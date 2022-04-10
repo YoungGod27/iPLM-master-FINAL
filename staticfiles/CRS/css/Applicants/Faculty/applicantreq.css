@@ -1,0 +1,124 @@
+body
+{
+    background-color: #0C66CC;
+    
+}
+
+*
+{
+    margin: 0;
+    padding:0;
+}
+
+#gridplm
+{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+}
+
+#backbutton
+{
+    position: fixed;
+    top: 160px;
+    left: 170px;
+}
+
+#ApplicantRequirementtext
+{
+    font-size:22px;
+    font-family:Nunito;
+    font-weight:bold;
+    color: #BADBFF;
+    position: fixed;
+    top: 220px;
+    left: 170px;
+}
+
+#SubDescription1
+{
+    font-size: 12px;
+    font-family: Nunito;
+    color: white;
+    position: fixed;
+    top: 250px;
+    left: 170px;
+}
+
+#ListOfRequirements
+{
+    font-size: 16px;
+    font-family: Nunito;
+    color: white;
+    position: fixed;
+    top: 310px;
+    left: 170px;
+}
+
+#image1
+{
+    position: fixed;
+    top: 200px;
+    left: 700px;
+}
+
+#proceedbutton
+{
+    border: 1px solid white;
+    background: white;
+    font-size: 14px;
+    font-family: Nunito;
+    cursor: pointer;
+    margin: 10px;
+    color: #0C66CC;
+    transition: 0.8;
+    border-radius: 10px;
+    height: 43px;
+    width: 128px;
+    transition-duration: 0.4s;
+    position: fixed;
+    top: 450px;
+    left: 150px;
+}
+
+#proceedbutton:hover
+{
+    background-color: #d3d3d3;
+    border: 1px solid #d3d3d3;
+}
+ /* for large screens*/
+@media (min-width:1600px) {
+   html
+{
+    
+}
+
+body
+{
+    background-color: #0C66CC;
+    overflow-y: auto;
+    height: 1000px;
+    overflow-x:hidden;
+    zoom:120%;
+
+}
+}
+/* for extra large screens*/
+@media (min-width:1920px) {
+
+    html
+{
+    
+}
+
+body
+{
+    background-color: #0C66CC;
+    overflow-y: auto;
+    height: 1000px;
+    overflow-x:hidden;
+    zoom:133%;
+
+}
+}

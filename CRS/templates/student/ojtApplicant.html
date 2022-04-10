@@ -1,0 +1,226 @@
+{% load static %}
+
+<html>
+<title>Admin Login</title>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<style>
+
+body
+	{
+	background-color: #0C66CC;
+	}
+
+*
+	{
+	margin: 0;
+	padding: 0;
+	}
+
+#imageplm
+	{
+	position: fixed;
+	top: 180px;
+	left: 100px;
+	}
+
+#gridplm
+	{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	}
+	
+#rounded
+	{
+	border-radius: 25px;
+	background: white;
+	width: 500px;
+	height: 250px;
+	position: fixed;
+	top: 240px;
+	right: 130px;
+	}
+
+#login
+	{
+	font-size: 22px;
+	font-family: Nunito;
+	font-weight: bold;
+	color: #0C66CC;
+	position: fixed;
+	top: 280px;
+	right: 500px;
+	}
+
+#admin
+	{
+	font-size: 22px;
+	font-family: Nunito;
+	font-weight: bold;
+	color: #ECC429;
+	position: fixed;
+	top: 280px;
+	right: 433px;
+	}
+
+#line
+	{
+	border: 2px solid #E9E9E9;
+	border-radius: 2px;
+	width: 400px;
+	position: fixed;
+	top: 320px;
+	right: 176px;
+	}
+
+
+#username
+	{
+	width: 300px;
+	height: 25px;
+	box-sizing: border-box;
+	border: 2px solid #0C66CC;
+	border-radius: 10px;
+	background-color: #0C66CC;
+	color: white;	
+	position: fixed;
+	top: 350px;
+	right: 175px;
+	}
+
+#password
+	{
+	width: 300px;
+	height: 25px;
+	box-sizing: border-box;
+	border: 2px solid #0C66CC;
+	border-radius: 10px;
+	background-color: #0C66CC;
+	color: white;
+	position: fixed;
+	top: 390px;
+	right: 175px;
+	}
+
+#tusername
+	{
+	font-size: 18px;
+	font-family: Nunito;
+	color: #0C66CC;
+	position: fixed;
+	top: 350px;
+	right: 500px;
+	}
+	
+#tpassword
+	{
+	font-size: 18px;
+	font-family: Nunito;
+	color: #0C66CC;
+	position: fixed;
+	top: 390px;
+	right: 500px;
+	}
+
+.btn6
+	{
+	border: 1px solid #ECC429;
+	background: #ECC429;
+	font-size: 14px;
+	font-family: Nunito;
+	cursor: pointer;
+	margin: 10px;
+	color: #0C66CC;
+	transition: 0.8;
+	border-radius: 12px;
+	height: 30px;
+	width: 80px;
+	transition-duration: 0.4s;
+	position: fixed;
+	top: 420px;
+	right: 165px;
+	}
+
+.btn6:hover
+	{
+	background-color: #DAB014;
+	border: 1px solid #DAB014;
+	}
+
+#backbutton
+	{
+	position: fixed;
+	top: 500px;
+	right: 590px;
+	}
+
+</style>
+</head>
+
+<body>
+    <center>
+	<br>
+    <h2>OJT APPLICATION</h2>
+	<br>
+	<form method="POST" enctype="multipart/form-data">
+		{%csrf_token%}
+		<table width="500">
+			<tr>
+				<td>Resume</td>
+				<td><input type="file" name="resume", required></td>
+			</tr>
+			<tr>
+				<td>Recommendation Letter</td>
+				<td><input type="file" name="recletter", required></td>
+			</tr>
+			<tr>
+				<td>Waiver</td>
+				<td><input type="file" name="waiver", required></td>
+			</tr>
+			<tr>
+				<td>Acceptance Form</td>
+				<td><input type="file" name="acceptform", required></td>
+			</tr>
+			<tr>
+				<td>Company Profile</td>
+				<td><input type="file" name="companyprofile", required></td>
+			</tr>
+			<tr>
+				<td>Daily Report</td>
+				<td><input type="file" name="dailyreport", required></td>
+			</tr>
+			<tr>
+				<td>DTR</td>
+				<td><input type="file" name="dtr", required></td>
+			</tr>
+			<tr>
+				<td>Evaluation Report</td>
+				<td><input type="file" name="evalreport", required></td>
+			</tr>
+			<tr>
+				<td>Certificate of Completion</td>
+				<td><input type="file" name="certificate", required></td>
+			</tr>
+			<tr>
+				<td>Company ID</td>
+				<td><input type="file" name="companyid", required></td>
+			</tr>
+			<tr>
+				<td>Medical Certificate</td>
+				<td><input type="file" name="medcert", required></td>
+			</tr>
+		</table>
+		{% csrf_token %}
+		<br><button type="submit">Upload File</button>
+	</form>
+    {% if messages %}
+    {% for message in messages %}
+            {{ message }}
+    {% endfor %}
+{% endif %}
+	<p id="backbutton"><a href="{% url 'student' %}"><img src="{% static 'CRS/images/back.png' %}" alt="iplm" width="35px" height="35px"></a></p>
+    </center>
+
+</body>
+</html>

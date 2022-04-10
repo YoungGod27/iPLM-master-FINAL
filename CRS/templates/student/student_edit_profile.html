@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>student edit profile</title>
+    </head>
+    <body>
+        <br>last name: {{user.lastName}}
+        <br>first name: {{user.firstName}}
+        <br>middle name: {{user.middleName}}
+        <br>Pedigree: ????
+        <br>gender: {{studentInfo.studentGender}}
+        <br>civil status: {{studentInfo.studentCivilstatus}}
+        <br>citizenship: {{studentInfo.studentCitizenship}}
+        <br>student number: {{studentInfo.studentID}}
+        <br>student type: {{studentInfo.studentType}}
+        <br>Registration status: {{studentInfo.studentRegStatus}}
+        <br>Degree Program??:{{department}}
+        <br>Yr lvl: {{studentInfo.studentYearlevel}}
+        <br>email: {{user.email}}
+        <br><br>
+        <form method ="POST">
+            {%csrf_token%}
+            <br>contact number: format(09xxxxxxxxx) <input name="newContact" type = 'tel' pattern="09[0-9]{9}" value={{facultyInfo.facultyContact}}>
+            <button>submit</button>
+        </form>
+    </body>
+</html>

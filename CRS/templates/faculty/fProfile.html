@@ -1,0 +1,308 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Profile </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fHomeAndProfile/fHomeStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+
+    .alertError{
+    padding: 20px;
+    background-color: #f34e01;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 0 10px rgb(216, 216, 216);
+    margin-top: 50px;
+    margin-left: 1100px;
+    margin-bottom: 10px;
+    animation: zoom-in-zoom-out 1s ease;
+    }
+
+    .alertSuccess{
+    padding: 20px;
+    background-color: #3fb328;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 0 10px rgb(216, 216, 216);
+    margin-top: 50px;
+    margin-left: 1100px;
+    margin-bottom: 10px;
+    animation: zoom-in-zoom-out 1s ease;
+    }
+
+    .closebtnError {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtnError:hover {
+            color: #a33908;
+        }
+
+        .closebtnSuccess {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtnSuccess:hover {
+            color: #1c6b0c;
+        }
+
+
+
+    @keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+
+                <!--Profile-->
+                <div class="sub-box row">
+                    <p class="text-profile">Profile</p>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div class="alertError">
+                        <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        {{ message }}
+                    </div>
+                    {% endif %}
+
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="alertSuccess">
+                        <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        {{ message }}
+                    </div>
+                    {% endif %}
+                        
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+                <div class="profile-box row">
+                    
+                    <div class="col-lg-11 py-2">
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Last Name:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{user.lastName}}
+                            </div>
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Faculty Number:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{facultyInfo.facultyID}}
+                            </div>
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">First Name:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{user.firstName}}
+                            </div>
+                            <div class="col-lg-3">
+                                <p id="text-pbox">College:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{college}}
+                            </div>
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Middle Name:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{user.lastName}}
+                            </div>
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Department:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{department}}
+                            </div>
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Pedegree:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                None
+                            </div>
+                            <div class="col-lg-3" >
+                                <p id="text-pbox">PLM Email:</p>
+                            </div>
+                            <div class="col-lg-3"id="text-pbox">
+                                {{user.email}}
+                            </div>
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Gender:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{facultyInfo.facultyGender}}
+                            </div>
+
+                            <div class="col-lg-3" >
+                                <p id="text-pbox">Contact Number:</p>
+                            </div>
+                            <div class="col-lg-3"id="text-pbox">
+                                {{facultyInfo.facultyContact}}
+                            </div>
+                        
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Civil Status:</p>
+                            </div>
+                            <div class="col-lg-3" id="text-pbox">
+                                {{facultyInfo.facultyCivilstatus}}
+                            </div>
+
+                           
+                            
+                        </div>
+                        
+                        <div class="phor row">
+                            <div class="col-lg-3">
+                                <p id="text-pbox">Country of Citizenship:</p>
+                            </div>
+                            <div class="col-lg-3"id="text-pbox">
+                                {{facultyInfo.facultyCitizenship}}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FILE PATH: Faculty/cHome/fProfileEdit.html-->
+                    <div class="col-lg-1"><a href="{%url 'fProfileEdit' %}" id="pichover"><img id="picpic" src="{% static 'CRS/images/cHome/view_profile_edit_img.png' %}" height="30px" width="30px" ></a></div>
+                </div>
+                <!--END of Profile-->
+
+                <div class="profile-border row">
+                    <div class="col-12-lg"></div>
+                </div>
+
+                <!--Edit Account-->
+                <div class="edit-box row">
+
+                    <div class="col-lg-5">
+
+                        <p class="text-profile" id="edit">Edit Account</p>
+
+                        <div class="small-pbox ">
+                            <div class="row">
+                                <div class="text-details col">
+                                    <p id="password-text">Password</p>
+                                    <p>Change Password</p>
+                                </div>
+                                <div class="change-spacing col">
+                                    <!-- FILE PATH: Faculty/cHome/fProfileChangePass.html-->
+                                    <a href="{%url 'fProfileChangePass'%}" id="change"><div class="change-box" >
+                                        Change
+                                    </div></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                    </div>
+
+                    <div class="col-lg-5 img">
+                        <!-- style="background-color: purple"-->
+                        <img src="{% static 'CRS/images/cHome/view_profile_img.png' %}" width="100%" height="400">
+                    </div>
+                </div>
+                <!--END of Edit Account-->
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+</body>
+
+</html>

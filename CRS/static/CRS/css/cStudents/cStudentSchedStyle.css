@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+html {
+    overflow-y: auto;
+}
+
+body {
+    background: #fcfcfc;
+    overflow: hidden;
+}
+
+#content {
+    margin-left: 150px;
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+}
+/***** SIDE BAR *****/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/***** END OF SIDE BAR *****/
+/***** WELCOME SECTION *****/
+
+.main {
+    padding-left: 50px;
+    background: #fcfcfc;
+    border-radius: 40px 40px 40px 40px;
+    margin-left: 100px;
+    margin-top: 60px;
+    margin-right: 100px;
+}
+
+#head {
+    padding-top: 60px;
+    line-height: 15px;
+    font-size: 40px;
+    color: #fcfcfc;
+    font-family: 'Nunito';
+}
+/********END WELCOME SECTION*******/
+
+/********CONTENT*******/
+    /********SCHEDULE TITLE BAR*******/
+    .sched {
+        margin-right: 80px;
+        margin-top: 10px;
+    }
+
+    #schedhead {
+        margin-top: 10px;
+        font-size: 40px;
+        color: #0C66CC;
+        font-family: 'Nunito';
+    }
+
+    #backlogo {
+        margin-top: 18px;
+        float: right;
+    }
+
+    .back img:hover {
+        padding: 5px;
+        background: #ECECEC;
+        border-radius: 10px 10px 10px 10px;
+    }
+    /********END OF SCHEDULE TITLE BAR*******/
+    
+    /********SUBJECT TITLE BAR*******/
+    .sub {
+        margin-right: 80px;
+        margin-top: 10px;
+    }
+
+    #subject {
+        margin-top: 10px;
+        font-size: 30px;
+        color: #0C66CC;
+        font-family: 'Nunito';
+    }
+
+    .buttons {
+        background-color: #ffffff;
+        height: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: 5px;
+        text-align: center;
+        font-size: 18px;
+        border: 2px solid #0C66CC;
+        border-radius: 16px;
+    }
+
+    #regular {
+        color:#0C66CC;
+        margin-top: 12px;
+    }
+
+    #online {
+        background-color: #0C66CC;
+        color:#ffffff;
+        margin-top: 12px;
+        margin-left: -32px;
+    }
+
+    .buttonSession {
+        background-color: #ffffff;
+        height: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+        text-align: center;
+        font-size: 18px;
+        border: 2px solid #0C66CC;
+        border-radius: 12px;
+        color: #0C66CC;
+    }
+    
+    .active, .buttonSession:hover{
+        background-color: #0C66CC;
+        color: #ffffff;
+    }
+
+    
+    /********END OF SUBJECT TITLE BAR*******/
+    /********MAIN CONTENT*******/
+
+        /********TABLE HEADER*******/
+        #head3 {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+        }
+
+         /********TABLE ATTRIBUTES*******/
+         .borderless td,
+         .borderless th {
+             border: none;
+         }
+ 
+         .tablepanel {
+             overflow-y: scroll;
+             width: 100%;
+             height: 560px;
+         }
+ 
+         .tablepanel::-webkit-scrollbar {
+             width: 10px;
+             background: #ebebeb;
+             border-radius: 0 8px 8px 0;
+         
+         }
+         
+         .tablepanel::-webkit-scrollbar-thumb {
+             background: #cecece;
+             border-radius: 0 8px 8px 0;
+             ;
+         }
+
+        /********FIELDS*******/
+        #info_fields {
+            font-size: 20px;
+            color: #0C66CC;
+            margin-top: 32px;
+            margin-bottom: -20px;
+            margin-left: 24px; 
+        }
+
+        .subjectCode{
+            font-size: 18px;
+            color: #0C66CC;
+            text-align: left;
+        }
+
+        .subjectName{
+            font-size: 18px;
+            color: #0C66CC;
+            text-align: left;
+        }
+
+        input[type=text]{
+            width: 50%;
+            height:50px;
+            padding: 3px;
+            border: 3px solid #0C66CC;
+            border-radius: 15px;
+            resize: vertical;
+            color: #595a5a;
+            font-size: 18px;
+            text-indent: 20px;
+        }
+
+        #instructorField[type=text]{
+            width: 100%;
+            height:50px;
+            padding: 3px;
+            border: 3px solid #0C66CC;
+            border-radius: 15px;
+            resize: vertical;
+            color: #595a5a;
+            font-size: 18px;
+            text-indent: 20px;
+        }
+
+        #timeField[type=text]{
+            width: 100%;
+            height:50px;
+            padding: 3px;
+            border: 3px solid #0C66CC;
+            border-radius: 15px;
+            resize: vertical;
+            color: #595a5a;
+            font-size: 18px;
+            text-indent: 20px;
+        }
+
+        .fields {
+            border: 2px solid #0C66CC;
+            border-radius: 8px;
+        }
+
+
+        #addbtn {
+            background-color: #0C66CC;
+            color: #ffffff;
+            font-size: 20px;
+            border: #0C66CC;
+            border-radius: 10px;
+            padding-left: 24px;
+            padding-right: 24px;
+            height: 48px;
+        }
+
+        #remarks {
+            padding-left: 5px;
+            border: none;
+            background: #0C66CC;
+            font-size: 15px;
+            font-family: Nunito;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            height: 48px;
+            width: 100px;
+        
+        }
+
+        #sessionType {
+            padding-left: 5px;
+            border: none;
+            background: #0C66CC;
+            font-size: 15px;
+            font-family: Nunito;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            height: 48px;
+            width: 150px;
+        
+        }
+
+        /********END OF FIELDS*******/
+        /********CONFIRM SCHEDULE*******/
+        #confirm_sched {
+            background-color: #0C66CC;
+            color: #ffffff;
+            border: 1px #0C66CC;
+            border-radius: 15px;
+            float: right;
+            margin-top: 40px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        /********END OF CONFIRM SCHEDULE*******/
+    /********END OF MAIN CONTENT*******/
+/********END OF CONTENT*******/
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+    #content {
+        zoom: 100%;
+    }
+}
+
+/********END BREAKPOINTS*******/

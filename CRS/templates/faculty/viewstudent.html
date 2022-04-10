@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Student</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fStudents/fStudentsStyle.css' %}">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/fStudents/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        #back-edit {
+        margin-left: -40px;
+        margin-right: 20px;
+    }
+
+    #back-edit img:hover {
+        padding: 5px;
+        background: #ECECEC;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    #studentCount {
+
+    font-size: 15px;
+    font-family: 'Nunito';
+    margin-top: -15px;
+    margin-left: 480px;
+    color: #0C66CC;
+    background-color: #e5e5e5;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    }
+
+    .searchbox {
+    position: absolute;
+    right:110px;
+    top:350px;
+    }
+
+    .grayline{
+    border-bottom: 4px solid;
+    border-color: #E9E9E9;
+    position: absolute;
+    top: 460px;
+    right: 130px;
+    width: 480px;
+    }
+
+    .boxed-2{
+    padding: 30px;
+    border-radius: 20px;
+    width: 500px;
+    height: 350px;
+    position: absolute;
+    right:75px;
+    top: 500px;
+    }
+
+    #studentCount {
+
+    font-size: 15px;
+    font-family: 'Nunito';
+    margin-left: 50px;
+    color: #0C66CC;
+    background-color: #e5e5e5;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    height: 50%;
+    margin-top: 40px;
+    }
+
+    .space{
+        margin-top: 100px;
+        padding-top: 100px;
+    }
+
+    #list {
+    padding-left: 10px;
+    padding-right: 50px;
+    font-size: 23px;
+    color:#0C66CC ;
+    font-family: 'Nunito';
+    margin-left: 70px;
+    padding-bottom: 40px;
+    }
+
+    #listname {
+    padding-left: 40px;
+    padding-right: 20px;
+    font-size: 23px;
+    color:#0C66CC ;
+    font-family: 'Nunito';
+    padding-bottom: 40px;
+    }
+
+    .table-wrapper-scroll-y {
+    display: inline;
+    width: 850px;
+    }
+    .borderless td,
+        .borderless th {
+            border: none;
+        }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+    .list{
+            margin-top: 40px;
+    }
+    .list-1{
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+            <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+            <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+            <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+            <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: LOG-OUT -->
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+    </nav>
+    <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+                <div class="row" id="head">
+                    <a href="{% url 'fViewSched' %}" id="back-edit"><img src="{% static 'CRS/images/cHome/back.svg' %}" width="50"></a>
+                        <p>Students</p>
+                    </div>
+                <!-- NAVIGATIO BAR -->
+                
+
+                <!--End of NAVIGATION BAR-->
+                
+                <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">
+                        {{schedule.subjectCode.subjectCode.subjectCode}}
+                    </p><!-- DB YEAR -->
+                    <p id="fulltime" style="margin-left: 50px;">|</p>
+                    <p id="fulltime" style="margin-left: 50px;">
+                        {{schedule.subjectCode.subjectCode.subjectName}}
+                    </p><!-- DB BLOCK -->
+                    <div class="row" id="studentCount">Student: {{students}}</div><!-- STUDENT COUNT -->
+                </div>
+                
+                <hr class="new">
+                
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="col-15">
+                        <table>    
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Faculty -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Faculty -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                
+
+                <!-- DATA OF TABLE -->
+                <div class="list-1 row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>   
+                                <!--ROW 1-->
+                                {% for stud in student %}
+                                <tr  class="space"> 
+                                    <td id="list">{{ stud.studentID }}</td>
+                                    <td id="list">{{ stud.studentUser.lastName }}</td>
+                                    <td id="listname">{{ stud.studentUser.firstName }}</td>
+                                    <td id="listname" colspan="3">{{ stud.studentUser.middleName }}</td>
+                                        <!-- FILE PATH: Faculty/fStudents/fStudents_viewStudentGrade.html-->
+                                    
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                
+                <!--Search box-->
+                <div class="searchbox">
+                    <form method ="get">
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </form>
+                </div>
+                <!--End of Search box-->
+                
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline">
+                    </div>
+                </div>
+                <!--End of gray line-->
+
+                <!--picture-->
+                <div class="boxed-2">
+                    <img src="{% static 'CRS/images/fStudents/clip-school-teacher-near-the-blackboard.png' %}"g width="400px" height="auto">
+                </div>
+                <!--End of picture-->
+            </div>
+        </div>
+        <br><br>
+
+</div>
+</div>
+</body>
+</html>
+

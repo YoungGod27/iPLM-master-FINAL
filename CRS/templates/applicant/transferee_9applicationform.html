@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Transferee</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'CRS/css/Applicants/Students/Transferee/styles_appform.css' %}">
+
+  <!--  ICON -->
+  <link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+  <style>
+	/*SCROLLBAR*/
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #e4e4e4;
+		border-radius: 12px;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #cbcbcb;
+		border-radius: 12px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #8f8f8f; 
+	}
+</style>
+<script>
+		function checkforblank()
+		{
+			var errormessage = "";
+			if (document.getElementById('StudNum').value == ""){
+			errormessage += "Enter your Student Number\n";
+			}
+			if (document.getElementById('LastName').value == ""){
+			errormessage += "Enter your Last Name\n";
+			}
+			if (document.getElementById('FirstName').value == ""){
+			errormessage += "Enter your First Name\n";
+			}
+			if (document.getElementById('EmailAddress').value == ""){
+			errormessage += "Enter your Email Address\n";
+			}
+			if (document.getElementById('Phone').value == ""){
+			errormessage += "Enter your Phone Number\n";
+			}
+			if (document.getElementById('HonDis').value == ""){
+			errormessage += "Upload your Honorable Dismissal\n";
+			}
+			if (document.getElementById('GoodMoral').value == ""){
+			errormessage += "Upload your Good Moral\n";
+			}
+			if (document.getElementById('NOU').value == ""){
+			errormessage += "Upload your Note of Undertaking\n";
+			}
+			if (document.getElementById('Grades').value == ""){
+			errormessage += "Upload your Screenshot of Grades\n";
+			}
+			if (document.getElementById('studyPLan').value == ""){
+			errormessage += "Upload your Studyplan\n";
+			}
+			if (errormessage != ""){
+			alert(errormessage)
+			return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="backbutton"><a href="{% url 'transferee_3GWAQual' %}"><img src="{% static 'CRS/images/Applicants/Students/Transferee/back.png' %}" alt="iplm" width="35px" height="35px"></a></div>
+    
+	<div id="roundbg">
+	<p id="TransApplicationFormTitle">Student Application Form</p>
+	
+	<p id="TransSub">Please complete the form below to be admitted in our department.</p> 
+	
+
+	<p id="StudentNumber">Student Information <span style="color:#ff0000"><b>*</b></span></p>
+	<form method ="POST" action="" enctype="multipart/form-data" onsubmit ="return checkforblank()">
+		{% csrf_token %}
+			<!--Student Number-->
+			<input type="text" id="StudNum" name="StudentNumber" pattern="[0-9]{9}" required>
+			<p id="subStudNum">Student Number</p>
+
+			<input type="text" id="degree" name="degree" placeholder="BSIT/BSEE" required>
+			<p id="subDegree">Degree Applying For</p>
+
+			<p id="FullNametext">Full Name <span style="color:#ff0000"><b>*</b></span></p>
+            <!--last name-->
+			<input type="text" id="LastName" name="LastName" placeholder="Dela Cruz" required>
+			<p id="subLastname">Last Name</p>
+            
+            <!--first name-->
+			<input type="text" id="FirstName" name="FirstName" placeholder="Juan" required>
+			<p id="subFirstname">First Name</p>
+            
+            <!--middle name-->
+			<input type="text" id="MiddleName" name="MiddleName" placeholder="Cortez" required>
+			<p id="subMiddlename">Middle Name</p>
+		
+	<p id="ContactInformationText">Contact Information <span style="color:#ff0000"><b>*</b></span></p>            <!--email address-->
+			<input type="email" id="EmailAddress" name="EmailAddress" placeholder="name@email.com" required>
+			<p id="subEmailAddress">Email Address</p>
+            
+            <!--phone number-->
+			<input type="tel" id="Phone" name="Phone" pattern="[0-9]{11}" placeholder="09123456789" required>
+			<p id="subPhone">Phone Number</p>
+		
+		
+	<hr id="line2" color="#d3d3d3" width="980px">
+	
+	<p id="UploadDocumentsTitle">Upload Documents</p>
+	<p id="UDSub">Please upload the following documents.</p>
+            
+	<!--left side-->
+	<p id="HonDisShape">&nbsp;&nbsp;&nbsp;&nbsp; Honorable Dismissal</p>
+            
+	<p id="GoodMoralShape"> &nbsp;&nbsp;&nbsp;&nbsp; Good Moral</p>
+            
+	<p id="NOUShape"> &nbsp;&nbsp;&nbsp;&nbsp; Note of Undertaking</p>
+            
+	<p id="GradesShape">&nbsp;&nbsp;&nbsp;&nbsp;Grades</p>
+
+	<p id="studyPlanShape">&nbsp;&nbsp;&nbsp;&nbsp;Studyplan</p>
+	
+     <!--Choose file-->       
+	<input type="file" id="HonDis" name="HonorableDis" mr-4>
+            
+	<input type="file" id="GoodMoral" name="GoodMoral" >
+            
+	<input type="file" id="NOU" name="NoteofUndertaking">
+            
+	<input type="file" id="Grades" name="Grades">
+
+	<input type="file" id="studyPLan" name="studyPLan">
+	
+	
+	<picture><a><p id="imageForm"><img src="{% static 'CRS/images/Applicants/Students/Transferee/clip-1712.png' %}" alt="iplm" width="290px" height="230px"></a></p></picture>
+    
+	<a><button type="submit" value="Submit" id="submitbutton">Submmit</a> 
+	{%csrf_token%}
+	</form>
+	</div>
+
+
+
+<!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+
+</html>

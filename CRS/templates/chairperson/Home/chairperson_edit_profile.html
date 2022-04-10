@@ -1,0 +1,178 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Edit Profile </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/cHome/cHomeStyle.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="{% static 'CRS/images/cHome/iPLM.png'%}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+
+                <div class="edit-1 row">
+                    <div class="col-lg-12">
+                        <a href="{% url 'chairperson_profile'%}" id="back-edit"><img src="{% static 'CRS/images/cHome/back.svg'%}" width="50"></a>
+                        <!--Chairperson/Home/chairperson_view_profile-->
+                        <p class="text-edit">&nbsp;Edit Profile</p>
+                    </div>
+                </div>
+
+                <!-- EDIT FORM -->
+                
+                    <div class="edit-2 row">
+                        <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Last Name:</label>
+                                <div class="col-lg-7"><!-- DB LAST NAME BELOW -->
+                                    <input type="text" placeholder=" {{info.facultyUser.lastName}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">First Name:</label>
+                                <div class="col-lg-7"><!-- DB FIRST NAME BELOW -->
+                                    <input type="text" placeholder="{{info.facultyUser.firstName}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Middle Name:</label>
+                                <div class="col-lg-7"><!-- DB MIDDLE NAME BELOW -->
+                                    <input type="text" placeholder="{{info.facultyUser.middleName}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Pedigree:</label>
+                                <div class="col-lg-7"><!-- DB PEDIGREE BELOW -->
+                                    <input type="text" placeholder="None" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Gender:</label>
+                                <div class="col-lg-7"><!-- DB GENDER BELOW -->
+                                    <input type="text" placeholder="{{info.facultyGender}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Civil Status:</label>
+                                <div class="col-lg-7"><!-- DB CIVIL STATUS BELOW -->
+                                    <input type="text" placeholder=" {{info.facultyCivilstatus}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit"> Citizenship:</label>
+                                <div class="col-lg-7"><!-- DB COUNTRY OF CITIZENSHIP BELOW -->
+                                    <input type="text" placeholder="{{info.facultyCitizenship}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Chairperson Number:</label>
+                                <div class="col-lg-7"><!-- DB CHAIRPERSON NO BELOW -->
+                                    <input type="text" placeholder=" {{info.facultyID}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">College:</label>
+                                <div class="col-lg-7"><!-- DB COLLEGE BELOW -->
+                                    <input type="text" placeholder="CET" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Department:</label>
+                                <div class="col-lg-7"><!-- DB DEPARTMENT BELOW -->
+                                    <input type="text" placeholder="{{info.departmentID}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">PLM Email:</label>
+                                <div class="col-lg-7"><!-- DB PLM EMAIL BELOW -->
+                                    <input type="email" placeholder="{{info.facultyUser.email}}" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+                            <form method="POST">
+                                {%csrf_token%}
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Contact Number:</label>
+                                <div class="col-lg-7"><!-- DB CONTACT  NUMBER BELOW -->
+                                    <input type="number" pattern="[0-9]{11}" placeholder="{{info.facultyContact}}" name="newContact" class="form-control" id="editprofile" required>
+                                
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+                    <div class="edit-3 row">
+                        <div class="col-lg-4 pr-4 pt-4">
+                            <img id="img" src="{% static 'CRS/images/cHome/edit_profile_img.png'%}" width="100%" height="300px">
+                        </div>
+                        <div class="col-lg-3 ml-auto">
+                            <a href="#" id="button-edit"><button type="submit" class="btn">Save Changes</button></a>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- END Content -->
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

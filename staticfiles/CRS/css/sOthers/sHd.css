@@ -1,0 +1,1240 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: auto;
+	overflow-x: hidden;
+}
+
+#content {
+    margin-left: 175px;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+}
+
+
+/*Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+/*End of Side Bar*/
+
+
+/********* OTHERS *********/
+
+.others-main {
+    margin-bottom: -30px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+
+}
+
+#ohead {
+    font-family: 'Nunito';
+    font-size: 40px;
+    color: #0C66CC;
+    margin-top: 10px;
+    margin-left: 14px;
+    
+}
+
+.others {
+    margin-left: 85px;
+    margin-right: 85px;
+  
+}
+
+.obtn {
+    margin-top: 30px;
+    width: 100%;
+    height: 200px;
+    border-radius: 30px 30px 30px 30px;
+    background: #0C66CC;
+    box-shadow: 0px 5px 10px #888888;
+    border: none;
+	
+	cursor: pointer;
+
+}
+
+.obtn:hover {
+    background-color: #2852a4;
+    cursor: default;
+}
+
+.othrs{
+     margin-left: 14px;
+     margin-right: 14px;
+}
+
+#btntext1 {
+    font-size: 20px;
+    color: white;
+    font-family: 'Nunito';
+    text-align: left;
+    margin-bottom: 0px;
+  
+}
+
+#btntext2 {
+    font-size: 20px;
+    color: white;
+    font-family: 'Nunito';
+    text-align: left;
+   
+}
+
+.field {
+    border-radius: 40px 40px 40px 40px;
+    background: #2852A4;
+    width: 100px;
+    height:  25px;
+}
+
+
+.oicon {
+    margin-top: -10px;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+
+.othrs1{
+    margin-top: 80px;
+    margin-left: 14px;
+}
+
+#oimg {
+    margin-top: 70px;
+    text-align: center;
+}
+
+
+
+/********END OTHERS *******/
+
+
+/***** PROGRESS BAR *****/
+.progress {
+    height: 150px;
+    margin-left: 90px;
+    margin-right: 90px;
+    border-radius: 30px 30px 30px 30px;
+    background: #0C66CC;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 50px;
+}
+
+.progress-bar {
+    height: 5px;
+    width: 100%;
+    background: #3C84D6;
+}
+
+.progress-text {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #3C84D6;
+    font-family: 'Nunito';
+}
+
+.progressbar li {
+    position: relative;
+    list-style-type: none;
+    float: left;
+    width: 20%;
+    text-align: center;
+    margin-top: -30px;
+}
+
+.progressbar li:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    border: 1px solid #3C84D6;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: #3C84D6;
+}
+
+.progress-text-active {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #B6D1EF;
+    font-family: 'Nunito';
+}
+
+.progressbar li.active:before {
+    font-family: 'Nunito';
+    border-color: #B6D1EF;
+    background-color: #B6D1EF;
+}
+
+
+/***** END PROGRESS BAR *****/
+/******** LOA 1 ************/
+
+.clearanceHeader {
+	font-size: 20px;
+	color: #0C66CC;
+    font-family: 'Nunito';
+	
+	margin: 100px 0px 0px 100px;
+}
+
+.form-group {
+	margin-top: 50px;
+}
+
+.form-label {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: 15px 50px 0px 100px;
+}
+
+.form-control{
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 20%;
+    height: 50px;
+    padding-left: 20px;
+	font-size: 20px;
+}
+
+.form-control-2{
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 50%;
+    height: 50px;
+    padding-left: 10px;
+	font-size: 20px;
+}
+
+.form-control-3{
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+	font-size: 20px;
+}
+
+
+#clearanceForm-input {
+	margin: 0px -50px 0px 95px;
+}
+
+#clearanceForm-input-sy {
+	margin: 0px -50px 0px 95px;
+}
+
+#nameSpan1 {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: -50px 0px 0px 300px;
+}
+
+#nameSpan2 {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: -50px 0px 0px 305px;
+}
+
+#nameSpan3 {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: -50px 0px 50px 305px;
+}
+
+#line {
+	color: #ECECEC;
+	width: 90%;
+	border-width: 5px;
+	
+	margin-bottom: 50px;
+}
+
+.form-check {
+	margin: -20px -50px 0px 100px;
+}
+
+#clearanceForm-input-college {
+	margin: 0px -40px 0px 0px;
+}
+
+input[type=radio] {
+	height: 40%;
+	width: 50px;
+}
+
+.form-check-label {
+	color: #0C66CC;
+	font-size: 20px;
+}
+
+#collegeSpan {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: -75px 0px 0px 290px;
+}
+
+#sySpan {
+	font-size: 20px;
+  	font-family: 'Nunito';
+    color:  #0C66CC;
+	
+	margin: -75px 0px 0px 340px;
+}
+
+#clearanceForm-input-college1 {
+	margin: 0px 0px 0px -20px;
+}
+
+#clearanceForm-input-college2 {
+	margin: 0px -45px 0px 50px;
+}
+
+#purposeOthers {
+	border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: 1px solid gray;
+    height: 50px;
+	font-size: 20px;
+	padding: 20px;
+	
+	width: 300px;
+}
+
+#application-date {
+	margin-left: 35px;
+}
+
+#button-edit .btn {
+  	border-radius: 15px 15px 15px 15px;
+  	font-size: 22px;
+  	font-family: 'Nunito';
+	border: 2px solid #0C66CC;
+  	background-color: white;
+	color: #0C66CC;
+	
+	width: 180px;
+    height: 55px;
+
+	margin: 0px 10px 0px 0px;
+}
+
+#button-edit .btn:hover{
+    background-color:  #0C66CC;
+    color: #ffff;
+    cursor: pointer;
+}
+
+#button-edit .btn1 {
+  	border-radius: 15px 15px 15px 15px;
+  	font-size: 22px;
+  	font-family: 'Nunito';
+  	color: #ffff;
+  	background-color:  #0C66CC;
+    border: none;
+	
+	width: 180px;
+    height: 55px;
+	
+	float: left;
+	margin: 0px 10px 0px 0px;
+}
+
+#button-edit .btn1:hover{
+  	background-color:  #2852A4;
+    cursor: pointer;
+}
+
+.clearance-done {
+	margin: 0px 0px 0px 1000px;
+	display: inline-block;
+}
+
+
+.loaForm-done {
+	margin: 0px 0px 0px 900px;
+	display: inline-block;
+}
+/*******END LOA 1 ***********/
+
+/********LOA 2*******/
+.loa {
+    margin-left: 50px;
+    margin-right: 80px;
+    margin-top: 70px;
+}
+
+.back {
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+#backimg {
+    padding-top: 30px;
+}
+
+.back:hover,
+.back:focus {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(100%) saturate(1155%) hue-rotate(190deg) brightness(91%) contrast(100%);
+}
+
+#head1 {
+    margin-left: 30px;
+    margin-top: 17px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.entireLOA {
+	margin: 0px -100px 0px 0px;
+}
+
+/********Vertical Line*******/
+.vl {
+  border-left: 4px solid #0C66CC;
+  height: 850px;
+  margin-top: 200px;
+  margin-left: -30px;
+}
+/********END Vertical Line*******/
+
+/********Forms*******/
+.loaf{
+    margin-left: 120px;
+    width: 100%;
+}
+
+#loa-form {
+    margin-top: 70px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#loaf-bottom{
+    margin-top: -15px;
+    font-size: 25px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.change-pword {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 60px;
+}
+
+.lsub {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.text {
+    margin-top: 25px;
+    font-size: 25px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+.lfield {
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 75%;
+    height: 60px;
+    padding-left: 20px;
+    margin-top: 15px;
+	
+	font-size: 20px;
+}
+
+.efrom{
+    margin-left: 50px;
+    margin-right: -85px;
+    margin-top: 70px;
+    width: auto;
+}
+
+#effective {
+    color: #0C66CC;
+    font-family: 'Nunito';
+    margin-top: 110px;
+    font-size: 25px;
+    width: 100%;
+}
+
+hr.first {
+    border: 1px solid #ECECEC;
+    width: 670px;
+    margin top: 10px;
+}
+
+.ftext {
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    margin-top: 15px;
+	
+	font-size: 20px;
+}
+
+#until {
+    color: #0C66CC;
+    font-family: 'Nunito';
+    margin-top: 80px;
+    font-size: 25px;
+    width: 100%;
+}
+
+hr.second {
+    border: 1px solid #ECECEC;
+    width: 670px;
+    margin top: 10px;
+}
+
+.reason {
+    margin-top: 90px;
+}
+
+.rsn{
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 220px;
+    padding-left: 20px;
+    margin-top: 15px;
+	
+	font-size: 20px;
+	vertical-align: baseline;
+}
+
+/********END FormS*******/
+
+/********Bottom Buttons*******/
+.bottom-buttons {
+    width: 100%;
+
+}
+
+.loaForm-buttons {
+	display: inline-block;
+	margin: 0px 0px 50px 1100px;
+}
+
+.button2hvr {
+    border-radius: 15px 15px 15px 15px;
+  	font-size: 22px;
+  	font-family: 'Nunito';
+	border: 3px solid #0C66CC;
+  	background-color: white;
+	color: #0C66CC;
+	
+	width: 180px;
+    height: 55px;
+	
+    margin: 0px 5px 0px 0px;
+}
+.button4hvr {
+	border-radius: 15px 15px 15px 15px;
+  	font-size: 22px;
+  	font-family: 'Nunito';
+  	color: #ffff;
+  	background-color:  #0C66CC;
+	
+	width: 180px;
+    height: 55px;
+	
+    margin: 0px 5px 0px 0px;
+}
+
+
+.button2hvr:hover {
+    background-color: #ECECEC;
+	cursor: pointer;
+}
+
+.button4hvr:hover {
+    background-color: #2852A4;
+	cursor: pointer;
+}
+/********END Bottom Buttons*******/
+
+/********END LOA 2*******/
+
+/********LOA 3**************/
+
+#uploadtitle {
+	font-size: 35px;
+    color: #0C66CC;
+    margin-left: 140px;
+    font-family: 'Nunito';
+    margin-top: 35px;
+}
+#uploadtitle2 {
+	font-size: 25px;
+    color: #0C66CC;
+    margin-left: 140px;
+    font-family: 'Nunito';
+    margin-top: -10px;
+}
+
+#buttontitles {
+
+	background-color: #0C66CC;
+	margin-left: 160px;
+	height: 65px;
+	border-radius: 20px;
+	color: white;
+	font-family: 'Nunito';
+	font-size: 21px;
+	padding-left: 30px;
+	padding-top: 17px;
+}
+
+
+#buttons {
+    padding: 0px;
+    text-align: right;
+}
+
+
+#buttons .btn {
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    margin-left: 5px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    background-color: white;
+    text-align: center;
+    width: 45%;
+    height: 60px;
+    box-shadow: 1px 5px 30px -10px #888888;
+}
+
+#buttons .btn:hover {
+    background-color: #ECC429;
+    cursor: pointer
+}
+
+#photounder {
+	margin-left: 120px;
+	margin-top: -90px;
+}
+
+#button .btn3{
+    border-radius: 15px 15px 15px 15px;
+  	font-size: 22px;
+  	font-family: 'Nunito';
+  	color: #ffff;
+  	background-color:  #0C66CC;
+	
+	width: 180px;
+    height: 55px;
+	
+	margin: 20px 0px 50px 0px;
+}
+
+#button .btn3:hover{
+    background-color:  #2852A4;
+    cursor: pointer;
+}
+
+/******** END LOA 3**************/
+
+
+/****** LOA 4 ****************/
+
+/***** CONFIRM SUBMISSION *****/
+.back {
+    margin-left: 100px;
+    margin-top: 65px;
+}
+
+#backimg {
+    padding-top: 30px;
+}
+
+.back:hover,
+.back:focus {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(100%) saturate(1155%) hue-rotate(190deg) brightness(91%) contrast(100%);
+}
+
+#head1 {
+    margin-left: 30px;
+    margin-top: 17px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#head2 {
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-weight: bold;
+    
+}
+
+#head3 {
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    margin-top: 10px;
+}
+
+
+.upload {
+    margin-top: 40px;
+    margin-left: 80px;
+}
+
+/*****DONE BUTTON *****/
+
+#submitbtn {
+    width: 180px;
+    height: 60px;
+    background: #0C66CC;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 13px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: 'Nunito';
+    position: absolute;
+    top: 500px;
+    right: 220px;
+    border: 2px solid #0C66CC;
+}
+
+
+#submitbtn:hover {
+    background: #2852A4;
+   
+}
+
+
+
+
+
+#button2hvr {
+        border: 1px solid #0C66CC;
+        color: white;
+        text-align: left;
+        width: 370px;
+        height: 55px;
+        margin-top: 20px;
+        font-size: 18px;
+        font-family: 'Nunito';
+        top: 10px;
+        background-color: #0C66CC;
+        border-radius: 15px;
+
+}
+
+
+#button2hvr:hover {
+        margin-top: 20px;
+        background-color: #0360AD;
+        color: white;
+        border-radius: 20px 20px 20px 20px;
+}
+
+
+.button4hvr {
+    background-color: white;
+    color: #0360AD;
+    text-align: center;
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 170px;
+    height: 55px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    border: none;
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 12px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 15px;
+    content: 'Choose File';
+}
+
+
+.button4hvr:hover {
+        margin-left: 25px;
+        margin-top: 20px;
+        background-color: #ECC429;
+        color: #0360AD;
+        border-radius: 20px 20px 20px 20px;   
+}
+
+::-webkit-file-upload-button
+	{
+		color: #0C66CC;
+		background: white;
+		padding: 10px;
+		border: none;
+		cursor: pointer;
+        color: #0360AD;
+        margin-bottom: 20px;
+        text-align: center;
+        margin-left: 25px;
+        margin-top: 1px;
+        width: 170px;
+        height: auto;
+        font-size: 18px;
+        font-family: 'Nunito';
+        box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.19); 
+        border-radius: 15px;
+	}
+
+    ::-webkit-file-upload-button:hover
+	{
+		background: #f7f7f7;
+	}
+
+/***** END OF CONTENT *****/
+
+/******CONFIRM SUBMISSION ******/
+
+.img-row {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#button{
+     margin-top: 40px;
+}
+
+.button {
+    background-color: #ECC429;
+	border: none;
+	color: #0C66CC;
+	padding: 15px 60px;
+	border-radius: 15px;
+	text-align: center;
+	font-size: 20px;
+	letter-spacing: 1px;
+	font-family: 'Nunito';
+	cursor: pointer;
+	letter-spacing: 1px;
+
+}
+
+.button:hover {
+    background-color: #0C66CC;
+    color: #ECC429;
+}
+
+/***** END CONFIRM SUBMISSION *****/
+/****** END LOA 4 ****************/
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+
+    /*****HOME*****/
+    .quickmargin {
+        margin-bottom: 10px;
+    }
+
+    .white-box {
+        width: 100%;
+    }
+
+    .colwhite {
+        width: 100%;
+        padding: 0px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    /*****END HOME*****/
+}
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.efrom {
+		margin-left: -100px;
+	}
+	
+	#buttons .btn {
+		margin-left: 160px;
+	}
+	
+	#clearanceForm-input {
+		margin: 0px 0px 0px 15px;
+	}
+	
+	#nameSpan1 {
+		margin: -50px 0px 0px 220px;
+	}
+	#nameSpan2 {
+		margin: -50px 0px 0px 50px;
+	}
+	#nameSpan3 {
+		margin: -50px 0px 0px 50px;
+	}
+	
+	.form-check {
+		margin-top: 50px;
+	}
+	
+	.loaForm-buttons {
+		margin: 50px 0px 50px 0px;
+	}
+	
+	#clearanceForm-input-college {
+	margin: 0px 30px 0px 0px;
+	}
+	#clearanceForm-input-sy {
+	margin: 0px 0px 0px 20px;
+	}
+	
+	#collegeSpan {
+		margin: -150px 0px 0px 300px;
+	}
+	
+	#sySpan {
+		margin: -150px 0px 0px 100px;
+	}
+	
+	.progress {
+		height: 150px;
+		margin-left: 30px;
+		margin-right: 50px;
+		border-radius: 30px 30px 30px 30px;
+		background: #0C66CC;
+		padding-left: 150px;
+		padding-right: 150px;
+		padding-top: 50px;
+		
+		margin-right: 115px;
+	}
+	
+	.clearance-done {
+		margin: 50px 0px 0px 50px;
+	}
+	
+	#button .btn3 {
+		margin-left: 500px;
+	}
+
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.efrom {
+		margin-left: -50px;
+	}
+	
+	#buttons .btn {
+		margin-left: 160px;
+	}
+	
+	#clearanceForm-input {
+		margin: 0px -70px 0px 95px;
+	}
+	
+	#nameSpan1 {
+		margin: -50px 0px 0px 300px;
+	}
+	#nameSpan2 {
+		margin: -50px 0px 0px 80px;
+	}
+	#nameSpan3 {
+		margin: -50px 0px 0px 60px;
+	}
+	
+	.form-check {
+		margin-top: 45px;
+		margin-right: 0px;
+	}
+	
+	.loaForm-buttons {
+		margin: 50px 0px 50px 0px;
+	}
+	
+	#clearanceForm-input-college {
+	margin: 0px 30px 0px 0px;
+	}
+	
+	#collegeSpan {
+		margin: -150px 0px 0px 300px;
+	}
+	
+	#sySpan {
+		margin: -150px 0px 0px 100px;
+	}
+	
+	#clearanceForm-input-sy {
+		margin: 0px 0px 0px 0px;
+	}
+	
+	#clearanceForm-input-college2 {
+		margin: 0px 0px 0px 30px;
+	}
+	
+	.clearance-done {
+		margin: 50px 0px 0px 125px;
+	}
+	
+	#button .btn3 {
+		margin-left: 700px;
+	}
+	
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+		overflow: auto;
+    }
+	
+	.loaForm-buttons {
+		margin: 50px 0px 50px 250px;
+	}
+	
+	#clearanceForm-input {
+		margin: 0px -70px 0px 95px;
+	}
+	
+	#nameSpan1 {
+		margin: -50px 0px 0px 300px;
+	}
+	#nameSpan2 {
+		margin: -50px 0px 0px 110px;
+	}
+	#nameSpan3 {
+		margin: -50px 0px 0px 100px;
+	}
+	
+	.form-check {
+		margin-top: 45px;
+		margin-right: 0px;
+	}
+	
+	#clearanceForm-input-college {
+	margin: 0px 30px 0px 0px;
+	}
+	
+	#collegeSpan {
+		margin: -150px 0px 0px 290px;
+	}
+	
+	#sySpan {
+		margin: -150px 0px 0px 150px;
+	}
+	
+	#clearanceForm-input-college2 {
+		margin: 0px 50px 0px 30px;
+	}
+	
+	#clearanceForm-input-sy {
+		margin: 0px 50px 0px 0px;
+	}
+	
+	.clearance-done {
+		margin: 50px 0px 0px 300px;
+	}
+	
+	#button .btn3 {
+		margin-left: 800px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	body {
+		overflow-x: auto;
+	}
+    #content {
+        zoom: 100%;
+    }
+    #sidebar {
+        zoom: 67%;
+    }
+	.loaForm-buttons {
+		left: -50px;
+	}
+	.button2hvr {
+		margin-top: 20px;
+		margin-right: 100px;
+	}
+	#nameSpan1 {
+		margin: -50px 0px 0px 300px;
+	}
+	#nameSpan2 {
+		margin: -50px 0px 0px 210px;
+	}
+	#nameSpan3 {
+		margin: -50px 0px 0px 210px;
+	}
+	
+	#sySpan {
+		margin: -75px 0px 0px 250px;
+	}
+	
+	.clearance-done {
+		margin: 0px 0px 0px 700px;
+	}
+	
+	.form-check {
+		margin-right: -100px;
+	}
+	
+}
+
+/* For screens na 1600x900 */
+@media (min-width: 1600px) {
+    .wrapper {
+        zoom: 67%;                                
+    }
+	#nameSpan1 {
+		margin: -50px 0px 0px 300px;
+	}
+	#nameSpan2 {
+		margin: -50px 0px 0px 370px;
+	}
+	#nameSpan3 {
+		margin: -50px 0px 0px 370px;
+	}
+	
+	#sySpan {
+		margin: -75px 0px 0px 420px;
+	}
+	
+	.clearance-done {
+		margin: 0px 0px 0px 700px;
+	}
+	
+	.loaForm-buttons {
+		left: 200px;
+	}
+	
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+
+}
+
+/********END BREAKPOINTS*******/

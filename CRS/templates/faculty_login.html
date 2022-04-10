@@ -1,0 +1,187 @@
+{% load static %}
+
+<html>
+<title>Faculty Login</title>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<style>
+
+body
+	{
+	background-color: #0C66CC;
+	}
+
+*
+	{
+	margin: 0;
+	padding: 0;
+	}
+
+#imageplm
+	{
+	position: fixed;
+	top: 180px;
+	left: 100px;
+	}
+
+#gridplm
+	{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	}
+	
+#rounded
+	{
+	border-radius: 25px;
+	background: white;
+	width: 500px;
+	height: 250px;
+	position: fixed;
+	top: 240px;
+	right: 130px;
+	}
+
+#login
+	{
+	font-size: 22px;
+	font-family: Nunito;
+	font-weight: bold;
+	color: #0C66CC;
+	position: fixed;
+	top: 280px;
+	right: 500px;
+	}
+
+#chairperson
+	{
+	font-size: 22px;
+	font-family: Nunito;
+	font-weight: bold;
+	color: #ECC429;
+	position: fixed;
+	top: 280px;
+	right: 380px;
+	}
+
+#line
+	{
+	border: 2px solid #E9E9E9;
+	border-radius: 2px;
+	width: 400px;
+	position: fixed;
+	top: 320px;
+	right: 176px;
+	}
+
+
+#username
+	{
+	width: 300px;
+	height: 25px;
+	box-sizing: border-box;
+	border: 2px solid #0C66CC;
+	border-radius: 10px;
+	background-color: #0C66CC;
+	color: white;	
+	position: fixed;
+	top: 350px;
+	right: 175px;
+	}
+
+#password
+	{
+	width: 300px;
+	height: 25px;
+	box-sizing: border-box;
+	border: 2px solid #0C66CC;
+	border-radius: 10px;
+	background-color: #0C66CC;
+	color: white;
+	position: fixed;
+	top: 390px;
+	right: 175px;
+	}
+
+#tusername
+	{
+	font-size: 18px;
+	font-family: Nunito;
+	color: #0C66CC;
+	position: fixed;
+	top: 350px;
+	right: 500px;
+	}
+	
+#tpassword
+	{
+	font-size: 18px;
+	font-family: Nunito;
+	color: #0C66CC;
+	position: fixed;
+	top: 390px;
+	right: 500px;
+	}
+
+.btn6
+	{
+	border: 1px solid #ECC429;
+	background: #ECC429;
+	font-size: 14px;
+	font-family: Nunito;
+	cursor: pointer;
+	margin: 10px;
+	color: #0C66CC;
+	transition: 0.8;
+	border-radius: 12px;
+	height: 30px;
+	width: 80px;
+	transition-duration: 0.4s;
+	position: fixed;
+	top: 420px;
+	right: 165px;
+	}
+
+.btn6:hover
+	{
+	background-color: #DAB014;
+	border: 1px solid #DAB014;
+	}
+	
+#backbutton
+	{
+	position: fixed;
+	top: 200px;
+	right: 590px;
+	}
+
+</style>
+</head>
+<body>
+
+    <p id="imageplm"><img src="{% static 'CRS/images/iplm.png' %}" alt="iplm" width="457px" height="343px"></p>
+    <p id="gridplm"><img src="{% static 'CRS/images/grid.png' %}" alt="grid" width="300px" height="300px"></p>
+    
+    <p id="rounded"></p>
+    
+    <p id="login">log-in | </p>
+    <p id="faculty">faculty</p>
+    <p id="line"></p>
+
+    <form method = 'POST'>
+		{%csrf_token%}
+        <input type="text" id="username" name="email">
+        <input type="text" id="password" name="password">
+		<div class="container2">
+			<button class="btn btn6">log-in</button>
+		</div>
+    </form>
+    
+    <p id="tusername">username</p>
+    <p id="tpassword">password</p>
+    
+    
+    <p id="backbutton"><a href="{% url 'index' %}"><img src="{% static 'CRS/images/back.png' %}" alt="iplm" width="35px" height="35px"></a></p>
+        
+</body>
+</html>

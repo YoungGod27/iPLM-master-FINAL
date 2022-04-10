@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<title>iPLM</title>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'CRS/css/landingPage/styles.css' %}">
+<!--  ICON -->
+<link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+<style>
+	body{
+    overflow-y: hidden;
+  	}
+
+	.container{
+		animation: MoveInFromBottom 1s ease;
+	}
+
+	@keyframes MoveInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(3rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+        
+</style>
+
+</head>
+<body>
+
+<div class="container pads">
+
+<div class="row d-flex col-lg-12 col-md-6 col-sm-5">
+	<p id="backbutton"><a href="{% url 'index' %}"><img src="{% static 'CRS/images/landingPage/back3.png' %}" alt="iplm" width="35px" height="35px"></a></p>
+
+<br>
+ <!--medium, large, small screen -  then ilang columns, max columns is 12 so divide it -->
+
+<div class="col-lg-4 text-center">
+	<picture> <img src="{% static 'CRS/images/landingPage/clip-education.png' %}" width="260px" height="200px"> </picture> <br>		
+	<p class="apptitle"> Student Applicant </p> <br>
+	<!--FILE PATH: ../../Applicants/Shifter/Shifters_FINAL/shifter1.html-->
+	<a href="{% url 'shifter1' %}"><button class="btn">shifter	</button></a> <br>
+
+	<!--FILE PATH: ../../Applicants/Transferee/Transferee_FINAL/transferee_1requirements.html-->
+	<a href="{% url 'transferee_1requirements' %}"><button class="btn">transferee</button></a>
+</div>
+
+<div><hr class="verticalL"> </div>
+
+<div class="col-lg-4 col-md-4 sm-3 ml-1 pl-1 text-center">
+	<picture> <img src="{% static 'CRS/images/landingPage/clip-pupil.png' %}" width="255px" height="200px"> </picture> <br>
+	<p class="apptitle"> Faculty Applicant </p>	<br>
+	<!--FILE PATH: ../../Faculty/Faculty FINAL/applicantrequirements.html-->
+	<a href="{% url 'applicantrequirements' %}">	<button class="btn">faculty	</button></a>
+	</div>
+</div>
+
+</div> 
+ <picture>
+<p id="gridplm"><img src="{% static 'CRS/images/landingPage/grid.png' %}" alt="grid" width="300px" height="300px"></p> </picture>
+
+
+
+<!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+</html>

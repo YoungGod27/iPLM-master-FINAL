@@ -1,0 +1,514 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Student | Grade Submission </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" type="text/css" href="{% static 'CRS/css/sClassroom/sGradeSubmission1.css' %}"> 
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+
+        body {
+            overflow-y: auto;
+        }
+
+        #yearHeader {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            padding-left: 5px;
+            padding-top: 20px;
+        }
+
+        #semHeader {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            padding-left: 55px;
+            padding-top: 20px;
+        }
+        
+        #subHeader {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            padding-left: 40px;
+            padding-top: 20px;
+        }
+        #gradeHeader {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            padding-left: 630px;
+            padding-top: 20px;
+        }
+
+
+
+        #subjectHeader-1 {
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            margin-left: 60px;
+        }
+
+        #nextbtn1 {
+            width: 180px;
+            height: 60px;
+            background: #ffff;
+            color: #0C66CC;
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 13px;
+            font-size: 20px;
+            font-family: 'Nunito';
+            letter-spacing: 1px;
+            border: 2px solid #0C66CC;
+            float: left;
+        }
+
+        #nextbtn1:hover {
+            background: #0C66CC;
+            color: #ffff;
+        }
+
+        #submitbtn3 {
+            width: 180px;
+            height: 60px;
+            background: #0C66CC;
+            color: #ffff;
+            border-radius: 15px;
+            text-align: center;
+            letter-spacing: 1px;
+            font-size: 20px;
+            font-family: 'Nunito';
+            border: none;
+            float: right;
+            margin-top: 10px;
+        }
+
+        #submitbtn3:hover {
+            background: #2852a4;
+            color: #ffff;
+        }
+
+        #head2 {
+            letter-spacing: 1px;
+            font-size: 20px;
+            color: #0C66CC;
+            font-family: 'Nunito';
+            margin-right: 40px;
+            margin-top:20px;
+        }
+
+        .fill-in {
+            border-radius: 20px;
+            background: #f5f5f5;
+            margin-left: -20px;
+            width: 110%;
+        }
+
+        .fill-in-1{
+            border-radius: 20px;
+            background: transparent;
+            margin-left: -20px;
+            width: 110%;
+        }
+
+
+
+
+        .imgSubmit{
+            margin-left: 20px;
+            margin-top: 150px;
+        }
+
+        .dropDown{
+            color:  #0C66CC;
+            margin-right: 10px;
+        }
+
+        .alertSuccess{
+        padding: 20px;
+        background-color: #3fb328;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 0 10px rgb(216, 216, 216);
+        animation: zoom-in-zoom-out 1s ease;
+        font-size: 18px;
+        width: 300px;
+        }
+
+        .alertError{
+        padding: 20px;
+        background-color: #ff5f02;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 0 10px rgb(216, 216, 216);
+        animation: zoom-in-zoom-out 1s ease;
+        font-size: 18px;
+        width: 300px;
+        }
+
+        .closebtnError {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtnError:hover {
+            color: #a33908;
+        }
+
+        .closebtnSuccess {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtnSuccess:hover {
+            color: #1c6b0c;
+        }
+
+        /*SCROLLBAR*/
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #e4e4e4;
+            border-radius: 12px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #cbcbcb;
+            border-radius: 12px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8f8f8f; 
+        }
+
+
+        @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+
+        .borderless td,
+    .borderless th {
+        border: none;
+    }
+
+
+
+.primary-att {
+    position: sticky;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    color: white;
+    background-color: #fcfcfc;
+    border-radius: 20px;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+    .tablepanel::-webkit-scrollbar {
+        width: 10px;
+        background: white;
+        border-radius: 20px;
+        height: 200px;
+        
+    }
+
+    .tablepanel::-webkit-scrollbar-thumb {
+        background:#c5c5c5;
+        border-radius: 0 8px 8px 0;
+        height: 300px;
+    }
+
+    .tabletext1 {
+        text-align: left;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-family: 'Nunito';
+        color: #242424;
+        
+    }
+
+    .tablepanel {
+        overflow-y: scroll;
+        width: 100%;
+        height: 560px;
+        border-radius: 20px;
+        font-family: 'Nunito';
+        color: #242424;
+        font-size: 20px;
+    }
+
+    #addbtn:hover{
+        background-color: #359e20;
+    }
+
+        
+    #addbtn {
+        background-color: #3fb328;
+        color: #ffffff;
+        font-size: 22px;
+        border: #0C66CC;
+        border-radius: 10px;
+        padding-left: 24px;
+        padding-right: 24px;
+        height: 40px;
+        margin-top: 5px;
+    }
+
+    #head3 {
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    }
+
+    #head2 {
+    letter-spacing: 1px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    }
+    </style>
+</head>
+
+<body>
+    {%block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <div class="backrw row">
+                    <a href="{% url 'sClassroom' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                    <p id="head1">
+                        Grade Submission
+                    </p>
+
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Grade<br>Submission</li>
+                                        <li class="progress-text">Grade<br>Screenshot</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+                <div class="subtaken row pt-5">
+                    <div class="col-lg-4">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="head2"><b>Submit Grades</b></p>
+                                <hr>
+                                <p id="head3">Input the semester, year, subject, and its' grade.</p>
+                            </div>
+                        </div>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+
+                        <div class="row">
+                            <br><br>
+                            {% if messages %}
+                            {% for message in messages %}
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                            <div class="alertError">
+                                <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                {{ message }}
+                            </div>
+                            {% endif %}
+
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <div class="alertSuccess">
+                                <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                {{ message }}
+                            </div>
+                            {% endif %}
+                                
+                            {% endfor %}
+                            {% endif %}
+                            <div><br><br><br><br><br><br><br><img src="{% static 'CRS/images/sClassroom/clip-1397.png' %}" width="300px" height="auto"></div>
+                        </div>
+                        <br>
+                        <a href="{% url 'sGradeSubmission2' %}">
+                            <div id="nextbtn1">
+                                Next
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="fill-in-1 col-lg-8 pr-0">
+                        
+                            
+                        <table class="borderless table">
+                            
+                            <tr class="primary-att" style="font-size: 20px; border-radius: 20px; background-color: #0C66CC; box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                <td>Year</td>
+                                <td>Semester</td>
+                                <td>Subject</td>
+                                <td>Grade</td>
+                                <td>&nbsp;&nbsp;</td>
+                            </tr>
+                        
+                            {{ formset.management_form }}
+                            {% for form  in formset %}
+                        
+                            <tr>
+                                <td size="500" style="margin-right: 10px;">
+                                    {{form.yearTaken}}
+                                </td>
+
+                                <td size="300">
+                                    {{form.semTaken}}
+                                </td>
+
+                                <td size="300">
+                                    {{form.curriculumCode}}
+                                </td>
+
+                                <td size="500">
+                                    {{form.subjectGrades}}
+                                </td>
+
+                                <td>
+                                    <input type="submit" id="addbtn" value="+">
+
+                                </td>
+                                <br>
+                            </tr>
+                                {% endfor %}
+
+                                
+                            </form>
+                        </table>
+
+
+                                <br><br>
+                                <div class="tablepanel table-responsive-lg">
+                                <table class="borderless table">
+
+                                    <tr class="primary-att" style="font-size: 20px; background-color: #0C66CC; box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                        <td>Year</td>
+                                        <td>Semester</td>
+                                        <td>Subject</td>
+                                        <td>Grade</td>
+                                    </tr>
+
+                                    
+                                    {% for subject in subjects %}
+
+                                        <tr class="tabletext2">
+                                            <td><p>{{subject.yearTaken}}</p></td>
+                                            <td><p>{{subject.semTaken}}</p></td>
+                                            <td><p class="subjectName">{{subject.curriculumCode}}</p></td>
+                                            <td><p>{{subject.subjectGrades}}</p></td>
+                                        </tr>
+                                    
+                                    {% endfor %}
+
+                                </table>
+                            
+                        </div>
+
+
+                  
+
+                            <!-- DATABASE -->
+                            
+                        
+                    </div>
+
+
+
+
+                </div></form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- END Content -->
+
+    {% endblock content %}
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

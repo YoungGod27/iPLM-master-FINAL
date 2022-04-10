@@ -1,0 +1,426 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Practicum</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/cOthers/chairOthers.css' %}">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cOthers/iPLM.png' %}  " type="image/png" sizes="16x16">
+
+    <style>
+        .alertError{
+padding: 20px;
+background-color: #f34e01;
+border-radius: 15px;
+color: white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+}
+
+.alertSuccess{
+padding: 20px;
+background-color: #3fb328;
+border-radius: 15px;
+color:white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+
+}
+
+.closebtnError {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnError:hover {
+    color: #a33908;
+}
+
+.closebtnSuccess {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnSuccess:hover {
+    color: #1c6b0c;
+}
+
+@keyframes zoom-in-zoom-out {
+0% {
+    transform: scale(1, 1);
+}
+50% {
+    transform: scale(1.1, 1.1);
+}
+100% {
+    transform: scale(1, 1);
+}
+}
+</style>
+
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+         <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- Others -->
+                <div class="oth">
+                    <p id="others"><b>Others</b></p>
+                </div>
+
+                <!-- Students -->
+                <div class="row px-5">
+
+                    <div class="col-lg-4">
+                        <p id="students">Students</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-studyPlan' %}" id="buttons"><button type="button" class="btn btn1">Study Plan</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-loa' %}" id="buttons"><button type="button" class="btn btn1">Leave of Absence</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-hd' %}" id="buttons"><button type="button" class="btn btn1">Honorable Dismissal</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-ojt' %}" id="buttons"><button type="button" class="btn-btn2">Practicum</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-shifter' %}" id="buttons"><button type="button" class="btn btn1">Shifter</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-transferee' %}" id="buttons"><button type="button" class="btn btn1">Transferee</button></a></div>
+                        <!-- OTHERS | FACULTY REQUESTS -->
+                        <p id="faculty">Faculty</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cfaculty_applicant' %}" id="buttons"><button type="button" class="btn btn1">Application</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-partTime' %}" id="buttons"><button type="button" class="btn btn1">Part-Time Availability</button></a></div>
+
+                    </div>
+                    
+                    <div class="col-lg-8">
+                        <!-- Application Panel -->
+                            <p id="application"><b>Practicum</b></p>
+                            <div class="app-panel row">
+                                <div class="col-lg-3" id="studentNo"><b>{{ ojt_applicant.studentID.studentID }}</b></div><!-- DB STUDENT NO -->
+                                <div class="col-lg-3" id="lastName">{{ ojt_applicant.studentID.studentUser.lastName }}</div><!-- DB LAST NAME-->
+                                <div class="col-lg-3" id="firstName">{{ ojt_applicant.studentID.studentUser.firstName }}</div><!-- DB FIRST NAME-->
+                            </div>
+                        <!-- END Faculty Panel -->
+
+                        <!-- Submitted Files-Gray Boxes -->
+                        <form action ="" method="POST">
+                            {% csrf_token %}
+                            <!-- SUBMITTED FILES -->
+                            <div class="sub row">
+    
+                                <!-- SUBMITTED FILES HEADER -->
+                                <div class="col-lg-5">
+                                <p id="submitted"><b>Submitted Files</b></p>
+                                </div>
+                                
+                                <div class="col-lg-6 offset-lg-1">
+                                    <div class= "stat-drop row">
+                                     <p id="stat">Status:&nbsp;&nbsp;</p>
+                                    <div class="dropdown">
+                                            <span class="status-select">
+                                            <select name="slct" id="stat-slct">
+                                                {% if ojt_applicant.remarks == "Submitted" %}
+                                                <option value="{{ojt_applicant.remarks}}"> &nbsp; {{ojt_applicant.remarks}} </option>
+                                                <option value="Returned"> &nbsp; Returned </option>
+                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                <option value="Complete"> &nbsp; Complete </option>
+                                                {% elif ojt_applicant.remarks == "Returned" %}
+                                                <option value="{{ojt_applicant.remarks}}"> &nbsp; {{ojt_applicant.remarks}} </option>
+                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                <option value="Complete"> &nbsp; Complete </option>
+                                                {% elif ojt_applicant.remarks == "In Progress" %}
+                                                <option value="{{ojt_applicant.remarks}}"> &nbsp; {{ojt_applicant.remarks}} </option>
+                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                <option value="Returned"> &nbsp; Returned </option>
+                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                <option value="Complete"> &nbsp; Complete </option>
+                                                {% elif ojt_applicant.remarks == "Forwarded" %}
+                                                <option value="{{ojt_applicant.remarks}}"> &nbsp; {{ojt_applicant.remarks}} </option>
+                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                <option value="Returned"> &nbsp; Returned </option>
+                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                <option value="Complete"> &nbsp; Complete </option>
+                                                {% elif ojt_applicant.remarks == "Complete" %}
+                                                <option value="{{ojt_applicant.remarks}}"> &nbsp; {{ojt_applicant.remarks}} </option>
+                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                <option value="Returned"> &nbsp; Returned </option>
+                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                {%endif%}
+                                            </select>
+                                            
+                                        </span>
+                                        </div><div><input type="image" src="{% static 'CRS/images/cOthers/save.png' %}" name="submit" width="28" height="28" class="saveBtn" alt="submit"/></div>
+                                     
+                                 </div>
+                                </div>
+                            </form>
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                                    <!-- Gray Row -->
+                                    <div class="gray row">                    
+                                        <!--Start of Gray boxes list-->
+                                        <table id="submittedFiles"> 
+                                            
+                                            <!--1st Row-->
+                                            <tr> 
+                                                <!--file 1-->
+                                                {% if ojt_applicant.ojtResume.url != NULL  %}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtResume.url}}"  target="_blank" ><div class="fileName">Resume</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtResume.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">Resume</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+                                                
+                                                <!--file 2-->
+                                                {% if ojt_applicant.ojtCompanyId.url != NULL %}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtCompanyId.url}}"  target="_blank" ><div class="fileName">OJT Company ID</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtCompanyId.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">OJT Company</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+                                            </tr>
+
+
+                                            <!--2nd Row-->
+                                            <tr> 
+                                                {% if ojt_applicant.ojtAcceptForm.url != NULL%}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtAcceptForm.url}}"  target="_blank" ><div class="fileName">Acceptance Form</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtAcceptForm.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">Acceptance Form</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+
+                                                {% if ojt_applicant.ojtCompanyProfile.url != NULL %}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtCompanyProfiles.url}}"  target="_blank" ><div class="fileName">Company Profile</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtCompanyProfile.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">Company Profile</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+                                            </tr>
+
+                                            <!--3rd Row-->
+                                            <tr> 
+                                                {% if ojt_applicant.ojtWaiver.url != NULL %}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtWaiver.url}}"  target="_blank" ><div class="fileName">Waiver</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtWaiver.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">Waiver</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+
+                                            </tr>
+
+                                            <!--4th Row-->
+                                            {% if ojt_applicant.ojtRecLetter.url != NULL %}
+                                            <td>
+                                                <a href="{{ojt_applicant.ojtRecLetter.url}}"  target="_blank" ><div class="fileName">Reccomendation Letter</div></a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ojt_applicant.ojtRecLetter.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                    <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                </a>
+                                            </td>
+                                            {% else %}
+                                            <td>
+                                                <div class="fileName">Reccomendation Letter</div>
+                                            </td>
+                                            <td>
+                                            <div class="fileName">No file</div>
+                                        </td>
+                                            {% endif %}
+                                            </tr>
+
+                                            <!--5th Row-->
+                                            <tr> 
+                                                {% if ojt_applicant.ojtMedcert.url != NULL %}
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtMedcert.url}}"  target="_blank" ><div class="fileName">Medical Certificate</div></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ojt_applicant.ojtMedcert.url}}" download><!-- DB RESUME FILE DOWNLOAD BUTTON BELOW -->
+                                                        <button class="downloadBtn"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                </td>
+                                                {% else %}
+                                                <td>
+                                                    <div class="fileName">Medical Certificate</div>
+                                                </td>
+                                                <td>
+                                                <div class="fileName">No file</div>
+                                            </td>
+                                                {% endif %}
+                                                
+                                            </tr>
+                                        
+                                        </table>
+                                    </div>
+                                    <!-- END Gray Row -->
+
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                        </div>
+                        <!-- END Submitted Files-Gray Boxes  -->
+
+                        <!-------------EMAIL APPLICANT----------->
+                        <div id="list-feedback1">
+                            <div align="left"> 
+                                {% if messages %}
+                                {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alertError">
+                                    <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="alertSuccess">
+                                    <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+                                    
+                                {% endfor %}
+                                {% endif %}
+                                <br>
+                                </div>
+                            <div class="fileName">Manage</div><br>
+                            <a href="{% url 'ojt_feedback' ojt_applicant.id %}"><button class="feedbackBtn3" ><img src="{% static 'CRS/images/cOthers/feedback.png' %}" width=auto height="42"><br>Feedback</button></a><!-- DB FEEDBACK BUTTON -->
+                            <form action="{% url 'del_allojt' ojt_applicant.id %}" method="post">
+                                {% csrf_token %}
+                            <button class="deleteFileBtn-4" href="#"><img src="{% static 'CRS/images/cOthers/return.png' %}" width=auto height="42"><br>Return Files</button><!-- DB RETURN FILE BUTTON -->
+                        </form>
+                        </div><br><br><br><br><br><br><br>
+
+                        
+                        <!-------------END EMAIL APPLICANT----------->
+
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

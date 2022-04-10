@@ -1,0 +1,40 @@
+<html>
+    <head>
+        Student home
+    </head>
+    <body>
+        <br>Name: {{info.studentUser.firstName}} {{info.studentUser.middleName}} {{info.studentUser.lastName}}
+        <br>studentID:  {{info.studentID}}
+        <br> collegeID:  {{info.collegeID}}
+        <br>departmentID: {{info.departmentID}}
+        <br>studentCitizenship : {{info.studentCitizenship}}
+        <br>studentGender: {{info.studentGender}}
+        <br>studentCivilstatus:  {{info.studentCivilstatus}}
+        <br>studentContact: {{info.studentContact}}
+        <br>studentRegStatus: {{info.studentRegStatus}}
+        <br>studentType: {{info.studentType}}
+        <br>studentCourse: {{info.studentCourse}}
+        <br>studentYearlevel: {{info.studentYearlevel}}
+        <br> studentSection: {{info.studentSection}}
+        <br>studentCurriculum: {{info.studentCurriculum}}
+        <br> studentSection: {{info.studentSection.adviser.facultyUser.firstName}}
+        {% for acads in acad %}
+        <br>Academic Year: {{acads.yearstarted}} - {{acads.yearended}} 
+        <br>Academic Sem: {{acads.semester}}
+        {% endfor %}
+        <br><br>
+        <a href="{% url 'student_profile' %}">profile</a>
+        <br>
+        <br>
+        <a href="{% url 'ojtApplicant' %}">Ojt Application</a><br>
+        <a href="{% url 'others' user.id %}">Others</a><br>
+        <a href="{% url 'notification' user.id %}">Notification</a><br>
+        <a href="{% url 'grades' user.id %}">View Grades</a><br>
+        <a href="{% url 'checklist' user.id %}">Checklist</a><br>
+
+        <form method="POST">
+            <input type="text" name="student">
+            <button>submit</button>
+        </form>
+    </body>
+</html>

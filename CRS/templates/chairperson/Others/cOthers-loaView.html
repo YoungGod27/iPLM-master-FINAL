@@ -1,0 +1,434 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Leave of Absence</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/cOthers/chairOthers.css' %}">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        .alertError{
+padding: 20px;
+background-color: #f34e01;
+border-radius: 15px;
+color: white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+}
+
+.alertSuccess{
+padding: 20px;
+background-color: #3fb328;
+border-radius: 15px;
+color:white;
+font-size: 18px;
+width: 50%;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+
+}
+
+.closebtnError {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnError:hover {
+color: #a33908;
+}
+
+.closebtnSuccess {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnSuccess:hover {
+color: #1c6b0c;
+}
+
+@keyframes zoom-in-zoom-out {
+0% {
+transform: scale(1, 1);
+}
+50% {
+transform: scale(1.1, 1.1);
+}
+100% {
+transform: scale(1, 1);
+}
+}
+::-webkit-file-upload-button
+	{
+    background-color: #ffffff;
+    border: none;
+    color: white;
+	}
+</style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+         <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- OTHERS | SIDEBAR -->
+                <div class="oth">
+                    <p id="others"><b>Others</b></p>
+                </div>
+
+                <div class="row px-5">
+                    <!-- STUDENT REQUESTS-->
+                    <div class="col-lg-4">
+                        <p id="students">Students</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-studyPlan' %}" id="buttons"><button type="button" class="btn btn1">Study Plan</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-loa' %}" id="buttons"><button type="button" class="btn-btn2">Leave of Absence</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-hd'  %}" id="buttons"><button type="button" class="btn btn1">Honorable Dismissal</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-ojt' %}" id="buttons"><button type="button" class="btn btn1">Practicum</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-shifter'  %}" id="buttons"><button type="button" class="btn btn1">Shifter</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-transferee' %}" id="buttons"><button type="button" class="btn btn1">Transferee</button></a></div>
+                        
+                        <!-- OTHERS | FACULTY REQUESTS -->
+                        <p id="faculty">Faculty</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cfaculty_applicant' %}" id="buttons"><button type="button" class="btn btn1">Application</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-partTime' %}" id="buttons"><button type="button" class="btn btn1">Part-Time Availability</button></a></div>
+
+                    </div>
+
+                    <div class="col-lg-8">
+
+                        <!-- SELECTED REQUEST CONTAINER-->
+                            <p id="application"><b>Leave of Absence</b></p>
+
+                            <div class="app-panel row">
+                                <div class="col-lg-3" id="studentNo"><b>{{loaview.studentID}}</b></div><!-- DB STUDENT NO -->
+                                <div class="col-lg-3" id="lastName">{{ loaview.studentID.studentUser.lastName }}</div><!-- DB LAST NAME-->
+                                <div class="col-lg-3" id="firstName">{{ loaview.studentID.studentUser.firstName }}</div><!-- DB FIRST NAME-->
+                            </div>
+
+                            <form action="{% url 'cOthers-loaView' loaview.id %}" method="POST"> {% csrf_token %}
+                                <!-- SUBMITTED FILES -->
+                                <div class="sub row">
+        
+                                    <!-- SUBMITTED FILES HEADER -->
+                                    <div class="col-lg-5">
+                                    <p id="submitted"><b>Submitted Files</b></p>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 offset-lg-1">
+                                        <div class= "stat-drop row">
+                                         <p id="stat">Status:&nbsp;&nbsp;</p>
+                                        <div class="dropdown">
+                                                <span class="status-select">
+                                                        <select name="slct" id="stat-slct">
+                                                            {% if loaview.remarks == "In Progress" %}
+                                                                <option value="{{loaview.remarks}}"> &nbsp; {{loaview.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif loaview.remarks == "Returned" %}
+                                                                <option value="{{loaview.remarks}}"> &nbsp; {{loaview.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+                                                            
+                                                            {% elif loaview.remarks == "Submitted" %}
+                                                                <option value="{{loaview.remarks}}"> &nbsp; {{loaview.remarks}} </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif loaview.remarks == "Forwarded" %}
+                                                                <option value="{{loaview.remarks}}"> &nbsp; {{loaview.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Complete"> &nbsp; Complete </option>
+
+                                                            {% elif loaview.remarks == "Complete" %}
+                                                                <option value="{{loaview.remarks}}"> &nbsp; {{loaview.remarks}} </option>
+                                                                <option value="Submitted"> &nbsp; Submitted </option>
+                                                                <option value="Returned"> &nbsp; Returned </option>
+                                                                <option value="In Progress"> &nbsp; In Progress </option>
+                                                                <option value="Forwarded"> &nbsp; Forwarded </option>
+                                                            {% endif %}
+                                                            
+                                                        </select>
+                                                        </span>
+                                                            <input type="image" src="{% static 'CRS/images/cOthers/save.png' %}" name="submit" width="28" height="28" class="saveBtn" alt="submit" value="submit"/>
+                                                        </div>
+                                                        
+                                         
+                                     </div>
+                                    </div>
+                                </form>
+
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                                    <!--TABLE OF SUBMITTED FILE-->
+                                    <div class="gray row">                    
+                                        <table id="submittedFiles"> 
+                                            
+                                            <!--CLEARANCE FORM ROW-->
+                                            <tr> 
+                                                <!--CLEARANCE FORM COLUMN-->
+                                                
+                                                <td>
+                                                {% if loaview.studentLOAClearanceform %}
+                                                    <a href="{{loaview.studentLOAClearanceform.url}}"  target="_blank" ><div class="fileName">Clearance Form</div></a>
+                                                    
+                                                </td>
+                                                <!--DOWNLOAD BUTTON COLUMN-->
+                                                <td>
+                                                    <a href="{{loaview.studentLOAClearanceform.url}}" download ><!-- DB STUDY PLAN FILE DOWNLOAD BELOW-->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Clearance Form</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                                
+
+
+                                                <!--STUDENT'S CHECKLIST COLUMN-->
+                                                
+                                                <td>
+                                                {% if loaview.studentChecklist %}
+                                                    <a href="{{loaview.studentChecklist.url}}"  target="_blank" >
+                                                        <div class="fileName">Student's Checklist</div>
+                                                    </a>
+                                                </td>
+                                                <!--DOWNLOAD BUTTON COLUMN-->
+                                                <td>
+                                                    <a href="{{loaview.studentChecklist.url}}" download><!-- DB STUDENT CHECKLIST FILE DOWNLOAD BELOW-->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Letter of Request</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+
+                                            <!--LEAVE OF ABSENCE ROW-->
+                                            <tr> 
+                                                <!--LABEL COLUMN-->
+                                                
+                                                <td>
+                                                {% if loaview.studentLOAFORM  %}
+                                                    <a href="{{loaview.studentLOAFORM.url}}"  target="_blank" >
+                                                        <div class="fileName">Leave of Absence<br>Form</div>
+                                                    </a>
+                                                </td>
+
+                                                <!--DOWNLOAD BUTTON COLUMN-->
+                                                <td>
+                                                    <a href="{{loaview.studentLOAFORM.url}}" download><!-- DB LEAVE OF ABSENCE FILE DOWNLOAD BELOW-->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Leave of Absence<br>Form</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+
+                                                
+
+                                                <!--STUDENT'S STUDYPLAN COLUMN-->
+                                                
+                                                <td>
+                                                {% if loaview.studentStudyplan %}
+                                                    <a href="{{loaview.studentStudyplan.url}}"  target="_blank" >
+                                                        <div class="fileName">Student's Studyplan</div>
+                                                    </a>
+                                                </td>
+                                                <!--DOWNLOAD BUTTON COLUMN-->
+                                                <td>
+                                                    <a href="{{loaview.studentStudyplan.url}}" download><!-- DB STUDENT'S STUDYPLAN FILE DOWNLOAD BELOW-->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Study Plan</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+
+
+                                            </tr>
+
+                                            <!--Letter of Request ROW-->
+                                            <tr> 
+                                                <!--LABEL COLUMN-->
+                                               
+                                                <td>
+                                                {% if loaview.studentLOAletter %}
+                                                    <a href="{{loaview.studentLOAletter.url}}"  target="_blank" >
+                                                        <div class="fileName">Letter of Request</div>
+                                                    </a>
+                                                </td>
+                                                <!--DOWNLOAD BUTTON COLUMN-->
+                                                <td>
+                                                    <a href="{{loaview.studentLOAletter.url}}" download><!-- DB LETTER OF REQUEST FILE DOWNLOAD BELOW-->
+                                                        <button class="downloadBtn" type="button"><img src="{% static 'CRS/images/cOthers/download.png' %}" width=auto height="24">&nbsp;&nbsp;Download</button>
+                                                    </a>
+                                                {% else %}
+                                                    <td>
+                                                        <div class="fileName">Letter of Request</div>
+                                                    </td>
+                                                    <td>  
+                                                        <div class="text-muted"> NO FILE</div>
+                                                    </td> 
+                                                {% endif %}
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                    <!-- END Gray Row -->
+
+                            <!-- Line -->
+                            <p id="line"></p>
+                            <!-- End Line -->
+
+                        </div>
+                        <!-- END Submitted Files-Gray Boxes  -->
+
+                        <!-------------CHAIRPERSON MANAGEMENT----------->
+                        <div id="list-feedback1">
+                            <div align="left"> 
+                                {% if messages %}
+                                {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <div class="alertError">
+                                    <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                <div class="alertSuccess">
+                                    <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                    {{ message }}
+                                </div>
+                                {% endif %}
+                                    
+                                {% endfor %}
+                                {% endif %}
+                                <br>
+                                </div>
+                            <div class="fileName">Manage</div><br>
+                            
+                            <a href="{% url 'cOthers-loa-feedback' loaview.id %}"><button type="button" class="feedbackBtn2" style="margin-left: 10px;"><img src="{% static 'CRS/images/cOthers/feedback.png' %}" width=auto height="42"><br>Feedback</button></a><!-- DB FEEDBACK BUTTON -->
+                            <a href="{% url 'del_allLOA' loaview.id %}"> <button type="button" class="deleteFileBtn" style="margin-left: 170px;"><img src="{% static 'CRS/images/cOthers/return.png' %}" width=auto height="42"><br>Return File</button></a><!-- DB RETURN FILE BUTTON -->
+                                
+
+                            <a href="{% url 'cOthers-loa-csw' loaview.id %}"><button type="button" class="cswBtn2" style="margin-left: 400px;"><img src="{% static 'CRS/images/cOthers/download2.png' %}" width="auto" height="42"><br>Download CSW</button></a><!-- DB DOWNLOAD CSW BUTTON -->
+                            <form action="{% url 'sendmailwfile' loaview.id %}" method="POST" enctype="multipart/form-data" > {% csrf_token %} 
+                            
+                            <label class="cswBtn3" id="cswDL" for="uploadCSW" style="margin-left: 550px;"><img src="{% static 'CRS/images/cOthers/upload.png' %}" width="auto" height="42"><br>Upload CSW</label><!-- DB UPLOAD CSW BUTTON -->
+                                
+                            <input type="file" id="uploadCSW" name="uploadCSW" style="margin-left: 600px;" required>
+
+                           </div><br><br>
+
+                            <div class="list-feedback1">
+                                <button type="submit" class="button8hvr" name="loa-email" value="loa-email" >Forward to Signatories</button><!-- DB FORWARD TO SIGNATORIES BUTTON -->
+                    
+                            </div>
+                        </form>
+
+                        <!-------------END CHAIRPERSON MANAGEMENT----------->
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

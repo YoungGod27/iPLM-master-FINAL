@@ -1,0 +1,28 @@
+{% extends 'chairperson/faculty/faculty_editSched.html' %}
+    {% block content %}
+        <h2>Enlisted Subjects</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Section</th>
+                    <th>Subject Name</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ info.subjectCode.subjectName }}
+                {% for i in ggh %}
+                <tr>
+                    <td>{{ i.subjectCode }}</td>
+                    <td>{{ i.blockSection }}</td>
+                    <td>{{ i.subjectCode.subjectName }}</td>
+                    <td>{{ i.roomSchedule.classDay}}</td>
+                    <td>{{ i.roomSchedule.classTimeIn}} - {{ i.roomSchedule.classTimeOut}}</td>
+                    <td><a href="#"> - </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

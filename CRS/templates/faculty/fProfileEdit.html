@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Edit Profile </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fHomeAndProfile/fHomeStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+
+                <div class="edit-1 row">
+                    <div class="col-lg-12">
+                        <!-- FILE PATH: Faculty/cHome/fProfile.html-->
+                        <a href="{% url 'fProfile' %}" id="back-edit"><img src="{% static 'CRS/images/cHome/back.svg' %}" width="50"></a>
+                        <p class="text-edit">&nbsp;Edit Profile</p>
+                    </div>
+                </div>
+
+                <!-- EDIT FORM -->
+                <form method ="POST">
+                    {%csrf_token%}
+                    <div class="edit-2 row">
+                        <div class="col-lg-6">
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Last Name:</label>
+                                <div class="col-lg-7"><!-- DB LAST NAME BELOW -->
+                                    <input type="text" placeholder={{user.lastName}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">First Name:</label>
+                                <div class="col-lg-7"><!-- DB FIRST NAME BELOW -->
+                                    <input type="text" placeholder={{user.firstName}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Middle Name:</label>
+                                <div class="col-lg-7"><!-- DB MIDDLE NAME BELOW -->
+                                    <input type="text" placeholder={{user.middleName}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Pedigree:</label>
+                                <div class="col-lg-7"><!-- DB PEDIGREE BELOW -->
+                                    <input type="text" placeholder="None" class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Gender:</label>
+                                <div class="col-lg-7"><!-- DB GENDER BELOW -->
+                                    <input type="text" placeholder={{facultyInfo.facultyGender}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Civil Status:</label>
+                                <div class="col-lg-7"><!-- DB CIVIL STATUS BELOW -->
+                                    <input type="text" placeholder={{facultyInfo.facultyCivilstatus}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Country of Citizenship:</label>
+                                <div class="col-lg-7"><!-- DB COUNTRY OF CITIZENSHIP BELOW -->
+                                    <input type="text" placeholder={{facultyInfo.facultyCitizenship}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Faculty Number:</label>
+                                <div class="col-lg-7"><!-- DB CHAIRPERSON NO BELOW -->
+                                    <input type="text" placeholder={{facultyInfo.facultyID}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">College:</label>
+                                <div class="col-lg-7"><!-- DB COLLEGE BELOW -->
+                                    <input type="text" placeholder={{college}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Department:</label>
+                                <div class="col-lg-7"><!-- DB DEPARTMENT BELOW -->
+                                    <input type="text" placeholder={{department}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">PLM Email:</label>
+                                <div class="col-lg-7"><!-- DB PERSONAL EMAIL BELOW -->
+                                    <input type="email" name="newEmail" placeholder={{user.email}} class="form-control" id="editprofile" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-5 col-form-label form-text-edit">Contact Number:</label>
+                                <div class="col-lg-7"><!-- DB CONTACT  NUMBER BELOW -->
+                                    <input type="tel"  pattern="[0-9]{11}" name="newContact" placeholder={{facultyInfo.facultyContact}} class="form-control" id="editprofile" required>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                    </div>
+                    <div class="edit-3 row">
+                        <div class="col-lg-4 pr-4 pt-4">
+                            <img id="img" src="{% static 'CRS/images/cHome/edit_profile_img.png' %}" width="100%" height="300px">
+                        </div>
+                        <div class="col-lg-3 ml-auto">
+                            <a href="#" id="button-edit"><button type="submit" class="btn">Save Changes</button></a>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- END Content -->
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

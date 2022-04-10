@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="62.553" viewBox="0 0 52 62.553">
+  <g id="profile" transform="translate(-75.063 -427.686)">
+    <g id="Component_51_1" data-name="Component 51 – 1" transform="translate(75.063 427.686)">
+      <text id="Profile-2" data-name="Profile" transform="translate(0 56.553)" fill="#fbfbfb" font-size="18" font-family="Nunito,Nunito_MSFontService,sans-serif"><tspan x="0" y="0">Profile</tspan></text>
+      <g id="profile-3" data-name="profile" transform="translate(-695.629 -277.993)">
+        <g id="Group_10" data-name="Group 10" transform="translate(706.106 277.993)">
+          <path id="Path_22" data-name="Path 22" d="M709.281,457.279h21.154c.237,0,.475-.009.711,0a1.419,1.419,0,0,1,.013,2.837c-.592.025-1.185.007-1.778.007H707.92c-1.526,0-2.059-.683-1.713-2.184q.812-3.52,1.618-7.041a6.744,6.744,0,0,1,6.148-4.993q8.685-.049,17.37,0A6.637,6.637,0,0,1,737.5,451.1c.527,2.39,1.024,4.787,1.527,7.182a1.433,1.433,0,1,1-2.794.579c-.52-2.432-1.015-4.869-1.564-7.294a3.3,3.3,0,0,0-3.558-2.819q-8.418-.011-16.836,0a3.38,3.38,0,0,0-3.7,2.944C710.151,453.531,709.724,455.374,709.281,457.279Z" transform="translate(-706.106 -425.975)" fill="#fbfbfb" fill-rule="evenodd"/>
+          <path id="Path_23" data-name="Path 23" d="M790.068,286.52a8.538,8.538,0,1,1-8.534-8.527A8.8,8.8,0,0,1,790.068,286.52Zm-2.848.037a5.689,5.689,0,1,0-5.744,5.664A5.462,5.462,0,0,0,787.22,286.556Z" transform="translate(-765.062 -277.993)" fill="#fbfbfb" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

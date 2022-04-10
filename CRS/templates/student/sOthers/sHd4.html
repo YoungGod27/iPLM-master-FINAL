@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Honorable Dismissal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/sOthers/sHd.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/sOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        #button-edit{
+            float: right;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+{% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <!--Study Plan head-->
+                <div class="back row">
+                    <!-- FILE PATH: Students/sOthers/sLoa2.html-->
+                    <a href="{% url 'sHd3' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                    
+                    <p id="head1">
+                        Honorable Dismissal
+                    </p>
+                </div>
+                <!--END Study Plan head-->
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Clearance<br>Form</li>
+                                        <li class="active progress-text-active">Dropping<br>Form</li>
+                                        <li class="active progress-text-active">Transfer<br>Certificate</li>
+                                        <li class="active progress-text-active">Upload<br>Documents</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload row">
+                    <div class="col-lg-6">
+                   
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="head2"><b>Upload Documents</b><br></p>
+                                <p id="head3">Please upload the following documents.</p>
+                                {% if messages %}
+                                {% for message in messages %}
+                                <p id="head3"> {{ message }} </p>
+                                {% endfor %}
+                            {% endif %}
+
+                            </div>
+                        </div>
+                    <form method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}	                   
+                        <div>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;Clearance Form</button>
+                            <input type="file" name="studentClearanceform" required>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;Dropping Form</button>
+                            <input type="file" name="studentDropform" required>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;Transfer Certificate</button>
+                            <input type="file" name="studentTransfercert" required>
+                        </div>
+                         
+                        <!---------ILLUSTRATION------->
+                        <div class="rows">
+                            <br>
+                            <div class="col-lg-12"><img src="{% static 'CRS/images/sOthers/clip-remote.png' %}" height="210px" width="350px">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                    
+                        <br><br><br><br><br>
+                        <div>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;Letter of Request for HD</button>
+                            <input type="file" name="studentHdletter" required>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;ID of Parent with Signatures (3)</button>
+                            <input type="file" name="stdParentsig" required>
+                            <button  id="button2hvr">&nbsp;&nbsp;&nbsp;Checklist</button>
+                            <input type="file" name="studentGrades" required>
+                        </div>
+                        <br><br>
+                    <a href="#" id="button-edit"><button type="submit" class="btn1">Submit</button></a> 
+                </form>
+                </div>
+
+            </div>
+{% endblock content %}
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

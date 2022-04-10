@@ -1,0 +1,240 @@
+
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: scroll;
+		
+	}
+	
+	#backbutton
+	{
+	    top: 60px;
+		left: 140px;
+        position:relative;
+	}
+	
+	#roundbg
+	{
+		border-radius: 25px;
+		background: white;
+		width: 1100px;
+		height: 490px;
+		position: relative;
+		top: 75px;
+		left: 130px;
+	}
+	
+	#imageSubmit
+	{
+		position:absolute;
+		top:     45px;
+		left:    429px;
+        width:   230px;
+        height:  230px;
+       
+		}
+
+	.wrapper{
+		display:flex;
+	}
+	/*Subjects Taken */
+	#SubjectsTaken
+	{
+		font-size:22px;
+		font-family:Nunito;
+		font-weight:bold;
+		color: #0C66CC;
+		position:absolute;
+		top: 60px;
+		
+	}
+
+	.grayname{
+		background-color:#E9E9E9;
+		top: 102px;
+		left:120px;
+		width:140px;
+		height: 20px;
+		position:absolute;
+		border-radius: 20px;
+	}
+	
+	#curr
+	{
+		font-size: 16px;
+		font-family: Nunito;
+		color: #0C66CC;
+	    position:absolute;
+		top: 100px;	
+	}
+	.line1{
+
+		background-color: #E9E9E9;
+		width: 270px;
+		top:125px;
+		position:absolute;
+	}
+	#tick
+	{
+		font-size: 16px;
+		font-family: Nunito;
+		color: #0C66CC;
+	    position:absolute;
+		top: 160px;	
+	}
+	/* ---*/
+
+	/*Table*/
+
+
+	.tableSub{
+		right: 50px;
+		position:absolute;
+		overflow-y:scroll;
+		height:330px;
+		width: 650px;
+		top: 60px;
+	
+	}
+	.headsub{
+		font-family: Nunito;
+		color:#0C66CC;
+		font-size: 14px;
+	}
+	.headtab{
+		color:#0C66CC;
+		font-style:bold; 
+		font-family: Nunito;
+		font-size: 16px;
+		
+	}
+	
+
+	.divv{
+		width:590px;
+		border-spacing: 10px;
+		border-collapse: separate;
+		height:px;
+		
+		
+	}
+	.trow{
+		line-height: 8px;
+	
+	}
+	td{
+		vertical-align: middle;
+	
+	}
+	.grayfill
+	{
+
+		border-radius: 10px;
+		
+		font-size:13px;
+		vertical-align:middle;
+		text-align:center;
+		height:10px;
+		position:relative;
+		padding-top: 12px;
+		
+		
+	}
+
+	#year
+	{
+  		border: 2px solid #0C66CC;
+  		background: #0C66CC;
+  		font-size: 14px;
+		font-family: Nunito;
+		cursor: pointer;	
+		color: white;
+		transition: 0.8;
+		border-radius: 10px;
+		height: 33px;
+		width: 88px;
+		transition-duration: 0.4s;
+ 		border-radius: 10px;
+ 		
+		position: relative;
+
+	}
+	
+	#homebutton
+	{
+		border: 1px solid #0C66CC;
+		background: #0C66CC;
+		font-size: 14px;
+		font-family: Nunito;
+		cursor: pointer;
+		margin: 10px;
+		color: #ffffff;
+		transition: 0.8;
+		border-radius: 10px;
+		height: 43px;
+		width: 128px;
+		transition-duration: 0.4s;
+		top: 365px;
+	}
+
+		.positn
+	{
+		position:absolute;
+		right:20px;
+		bottom: 20px;
+	}
+	/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+	/* for large screens*/
+@media (min-width:1600px) {
+   	html
+	{
+		
+	}
+	
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: auto;
+		height: 1000px;
+		overflow-x:hidden;
+		zoom:120%;
+	
+	}
+}
+/* for extra large screens*/
+@media (min-width:1920px) {
+   
+		html
+	{
+		
+	}
+	
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: auto;
+		height: 1000px;
+		overflow-x:hidden;
+		zoom:133%;
+	
+	}

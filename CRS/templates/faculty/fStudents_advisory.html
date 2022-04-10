@@ -1,0 +1,242 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Student</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fStudents/fStudentsStyle.css' %}">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/fStudents/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+      #error{
+        font-size: 24px;
+        color: #f86f14;
+        font-family: 'Nunito';
+        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-left: 250px;
+        font-weight: bold;
+
+      }
+
+            #studentCount {
+
+        font-size: 15px;
+        font-family: 'Nunito';
+        margin-left: 50px;
+        color: #0C66CC;
+        background-color: #e5e5e5;
+        padding-top: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 10px;
+        height: 50%;
+        margin-top: 40px;
+        }
+
+        
+        #list1 {
+            padding-left: 10px;
+            padding-right: 50px;
+            font-size: 23px;
+            color:#0C66CC ;
+            font-family: 'Nunito';
+        }
+
+        .manage1 {
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: #0C66CC;
+            border-radius: 10px 10px 10px 10px;
+            margin-left: 50px;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #submit {
+            background-color: #0C66CC;
+            color: white;
+            border-radius: 12px 12px 12px 12px;
+            width: 120px;
+            height: 50px;
+            border: transparent;
+            margin-top: 200px;
+            margin-right: 30px;
+        }
+
+        .table-wrapper-scroll-y {
+            display: inline;
+            width: 1100px;
+            height: 550px;
+        }
+
+        .list{
+            margin-top: 40px;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+
+        .alertError{
+        padding: 20px;
+        background-color: #f34e01;
+        border-radius: 15px;
+        color: white;
+        font-size: 18px;
+        width: 50%;
+        box-shadow: 0 0 10px rgb(216, 216, 216);
+        float: center;
+        animation: zoom-in-zoom-out 1s ease;
+        }
+
+        .closebtnError {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+
+        .closebtnError:hover {
+            color: #a33908;
+        }
+
+        @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+    </style>  
+
+<body>
+
+    <div class="wrapper">
+        
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+                <div class="row" id="head" style="margin-left: 20px;">
+                        <p><b>Students</b></p>
+                    </div>
+                <!-- NAVIGATIO BAR -->
+                
+
+                <!--End of NAVIGATION BAR-->
+                
+                <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">Advisory</p>
+                    <div class="row" id="studentCount">Student: {{count}}</div><!-- STUDENT COUNT -->
+                    
+                    
+                </div>
+                
+                <hr class="new">
+                
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="table-wrapper-scroll-y scroll">
+                        <table>    
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Faculty -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Faculty -->
+                                <td id="listname"><b><p>Year & Block</p></b></td>
+                                <td></td>
+                            </tr>
+
+                            {% for i in stud_advisory %}
+                            <tr> 
+                                
+                                <td id="list">{{ i.studentID }}</td>
+                                <td id="list">{{ i.studentUser.lastName }}</td>
+                                <td id="listname">{{ i.studentUser.firstName }}</td>
+                                <td id="listname">{{ i.studentUser.middleName }}</td>
+                                <td id="listname">{{ i.studentSection }}</td>
+                                <td id="list1 row">
+                                    <!-- FILE PATH: Faculty/fStudents/fStudents_viewStudentGrade.html-->
+                                    <a href="{% url 'fStudents_viewStudentGrade' i.studentUser.id %}"><button class="manage1 row"><!-- DB VIEW STUDENT -->View</button></a>
+                                </td>
+                                
+                            </tr>
+                            {% endfor %}
+
+                            
+                        </table>
+
+                        <br><br><br>
+
+                        <div id="error">
+                            {% if messages %}
+                                        {% for message in messages %}
+                                        <div class="alertError">
+                                            <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                            {{ message }}
+                                        </div>
+                                        {% endfor %}
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="boxed-2">
+                    <img  style="margin-left: 50px;" src="{% static 'CRS/images/fStudents/clip-school-teacher-near-the-blackboard.png' %}"g width="400px" height="auto">
+                </div>
+            
+            </div>
+        </div>
+        <br><br>
+
+</div>
+</div>
+</body>
+</html>
+

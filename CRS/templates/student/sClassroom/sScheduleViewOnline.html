@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student | Schedule</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/sClassroom/sScheduleStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="icon" href="{% static 'CRS/images/sClassroom/iPLM.png' %}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <div class="backrw row">
+                    <a class="back" id="backimg" href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/sClassroom/back.svg' %}"></a>
+                    <p id="head1">Schedule</p>
+                </div>
+
+                <div class="schedule row">                    
+                    <div class="col-lg-3">
+
+                        <!--SEMESTER DETAILS-->
+                        <div class="semdetbox col-lg-12">
+                            <div class="col-lg-12">
+                                <div id="sdhtext">Semester Details</div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Academic Year:</div>
+                                    <div class="field col">2020-2021</div><!--DB ACADEMIC YEAR-->
+                                </div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Semester:</div>
+                                    <div class="field col">2nd</div><!--DB SEMESTER-->
+                                </div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Units:</div>
+                                    <div class="field col">24</div><!--DB NO. OF UNITS-->
+                                </div>
+                                <div class="semdet row">
+                                    <div class="sdtext col">Subjects:</div>
+                                    <div class="field col">7</div><!--DB NO. OF SUBJECTS-->
+                                </div>                                
+                            </div>
+                        </div>
+
+                        <!--Schedule Image Flipped-->
+                        <div class="row">
+                            <img src="{% static 'CRS/images/sClassroom/studclassroom_schedule-img.png' %}" height="434.285714286" width="434.285714286">
+                        </div>
+                    </div>  
+                    
+                    <!--Text Fields-->              
+                    <div id="schedarea" class="col-lg-9 row">
+
+                        <div class="tablepanel table-responsive-lg">
+                            <table class="borderless table">
+                                <tr class="primary-att">
+                                    <th scope="col"><p id="head3"><b>Course Code</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Course Name</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Section</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Day</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Time</b></p></th>
+                                    <th scope="col"><p id="head3"><b>Session Type</b></p></th>
+                                </tr>
+                                <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
+                           
+                                <tr class="tabletext2">
+                                    <td>ICC-001</td>
+                                    <td><p  class="dataStyle">Interdisiplinaryong Pagbasa at Pagsulat sa mga Diskurso ng Pagpapahayag</p></td>
+                                    <td>3</td>
+                                    <td>Monday</td>
+                                    <td><p  class="timeStyle">7:00 am - 8:20 am</p></td>
+                                    <td>Synchronous</td>
+                                </tr>
+
+                                <tr class="tabletext2">
+                                    <td>ICC-001</td>
+                                    <td><p  class="dataStyle">Science, Technology, and Society</p></td>
+                                    <td>3</td>
+                                    <td>Monday</td>
+                                    <td><p  class="timeStyle">7:00 am - 8:20 am</p></td>
+                                    <td>Synchronous</td>
+                                </tr>
+
+                                <tr class="tabletext2">
+                                    <td>ICC-001</td>
+                                    <td><p  class="dataStyle">Introduction to Computing</p></td>
+                                    <td>3</td>
+                                    <td>Monday</td>
+                                    <td><p  class="timeStyle">7:00 am - 8:20 am</p></td>
+                                    <td>Synchronous</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+    {% endblock content %}
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

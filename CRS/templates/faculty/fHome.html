@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Home </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fHomeAndProfile/fHomeStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!-- JS -->
+    <script src="fHomeMain.js"></script>
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        .academicYearHeader{
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: white;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+    .academicYearDetail{
+        font-size: 20px;
+        font-family: 'Nunito';
+        color: #BADBFF;
+        padding-right: 50px;
+        padding-top: 20px;
+    }
+
+    .semesterHeader{
+        font-size: 20px;
+        font-family: 'Nunito';
+        color: white;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+
+    .semesterDetails{
+        font-size: 20px;
+        font-family: 'Nunito';
+        color: #BADBFF;
+        padding-right: 50px;
+        padding-top: 10px;
+    }
+
+    tr{
+    padding-bottom: 100px;
+    }
+
+    #uname {
+    padding-left: 15px;
+    padding-top: -15px;
+    font-size: 25px;
+    color: #ffff;
+    font-family: 'Nunito';
+    margin-top: 100px;
+    }
+
+    .main {
+    padding-left: 50px;
+    background: #0C66CC;
+    border-radius: 40px 40px 40px 40px;
+    margin-left: 100px;
+    margin-top: 60px;
+    margin-right: 100px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+    padding-bottom: 30px;
+    }
+
+    .academicYearHeader{
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: white;
+    padding-right: 20px;
+    margin-top: 70px;
+}
+
+.academicYearDetail{
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #BADBFF;
+    padding-right: 50px;
+    margin-top: 70px;
+}
+
+.semesterHeader{
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: white;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.semesterDetails{
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #BADBFF;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <!-- Welcome Panel -->
+                <div class="main row">
+
+                    <div class="col-lg-9">
+                        <div class="row" id="head">
+                            <p>Welcome</p>
+                            <p>&nbsp;Faculty!</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 pt-3">
+                                <table>
+                                    <tr>
+                                        <br>
+                                        <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
+                                        <td id="uname">{{user.firstName}} {{user.middleName}} {{user.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <br><br>
+                        <table>
+                            {% for acads in acad %}
+                           <tr>
+                                <td class="academicYearHeader">Academic Year:</td>
+                                <td class = "academicYearDetail">{{acads.yearstarted}}-{{acads.yearended}}</td><!-- DB ACADEMIC YEAR  --> 
+                            </tr>
+                            <tr>
+                                <td class="semesterHeader">Semester:</td>
+                                <td class = "semesterDetails">{{acads.semester}}</td>
+                                <!-- DB SEMESTER -->
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+
+                <!-- Quick Access -->
+                <div class="sub-quick row">
+                    <p id="quick">Quick Access</p>
+                </div>
+
+                <div class="sub-buttons row">
+                    <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'fViewSched' %}" id="buttons"><button type="button" class=" btn">View Schedule</button></a></div>
+                    <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'fStudents_advisory' %}" id="buttons"><button type="button" class="btn">View Advisory</button></a></div>
+                    <!-- FILE PATH: Faculty/fHome/fProfileEdit.html-->
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{%url 'fProfileEdit' %}" id="buttons"><button type="button" class="btn ">Edit Profile</button></a></div>
+                    <!-- FILE PATH: Faculty/fHome/fProfileChangePass.html-->
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{%url 'fProfileChangePass'%}" id="buttons"><button type="button" class=" btn">Change Password</button></a></div>
+                </div>
+                <!-- END of Quick Access -->
+                <div class="line row">
+                    <hr>
+                </div>
+                <!-- Overview  -->
+                <div class="sub-overview row">
+                    <p id="over">Brief User Profile</p>
+                </div>
+
+                <div class="sub-over row">
+
+                    <div class="col-yellow yellow-box col-lg-8">
+                        <div class="col-lg-12 mt-1">
+                            <table>
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Faculty Number:</b></td>
+                                    <td class = "briefProfileInfo">{{facultyInfo.facultyID}}</td><!-- DB STUDENT NUMBER  -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>College:</b></td>
+                                    <td class = "briefProfileInfo">{{college}}</td><!-- DB COLLEGE -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Faculty Type:</b></td>
+                                    <td class = "briefProfileInfo">{{facultyInfo.facultyWorkstatus}}</td><!-- DB DEPARTMENT  -->
+                                </tr>
+
+                                <tr>
+                                    <td class="briefProfileHeader"><b>Department:</b></td>
+                                    <td class = "briefProfileInfo">{{department}}</td><!-- DB DEPARTMENT  -->
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <img src="{% static 'CRS/images/fHomeAndProfile/clip-girls-study-together.png' %}" width="auto" height="350px">
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function changeText(obj, text) {
+            obj.innerText = text;
+        }
+    </script>
+
+</body>
+
+</html>

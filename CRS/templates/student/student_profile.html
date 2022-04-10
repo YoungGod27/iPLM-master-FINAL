@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>student profile</title>
+    </head>
+    <body>
+        
+        <br>last name: {{user.lastName}}
+        <br>first name: {{user.firstName}}
+        <br>middle name: {{user.middleName}}
+        <br>Pedigree: ????
+        <br>gender: {{studentInfo.studentGender}}
+        <br>civil status: {{studentInfo.studentCivilstatus}}
+        <br>citizenship: {{studentInfo.studentCitizenship}}
+        <br>student number: {{studentInfo.studentID}}
+        <br>student type: {{studentInfo.studentType}}
+        <br>Registration status: {{studentInfo.studentRegStatus}}
+        <br>Degree Program??:{{department}}
+        <br>Yr lvl: {{studentInfo.studentYearlevel}}
+        <br>email:{{user.email}}
+        <br>contact number: {{studentInfo.studentContact}}
+        <br><br>
+        <a href="{%url 'student_edit_profile' %}">edit</a>
+        <br><a href="{%url 'student_change_password'%}">change password</a>
+        <br><a href="{% url 'logout' %}">Log Out</a>
+    </body>
+</html>

@@ -1,0 +1,364 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<title>iPLM</title>
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+ 
+ <link rel="stylesheet" href="{% static 'CRS/css/landingPage/styles.css' %}">
+ <link rel="stylesheet" href="{% static 'CRS/js/password.js' %}">
+ <!--  ICON -->
+<link rel="icon" href="{% static 'CRS/images/landingPage/iPLMlogo.png' %}" type="image/png" sizes="16x16">
+
+<style>
+
+    #ListOfRequirements
+      {
+          font-size: 16px;
+          font-family: Nunito;
+          color: white;
+    }
+      body{
+        overflow-y: hidden;
+      }
+      .applicantInfo{
+      color: white;
+      margin-left: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .applicantInfo :hover{
+      color: #abc9f7;
+    }
+
+    #rounded
+      {
+      border-radius: 25px;
+      background: white;
+      width: 400px;
+      height: 200px;
+      box-shadow: 0 0 10px rgb(5, 47, 110);
+    }
+
+    #welcometext
+      {
+      font-size: 45px;
+      font-family: Nunito;
+      color: white;
+      margin-top: 30px;
+    }
+
+    .btn7 {
+      border: 1px solid white;
+      background-color: #0C66CC;
+      font-size: 12px;
+      font-family: Nunito;
+      cursor: pointer;
+      margin: 10px;
+      color: white;
+      transition: 0.8;
+      border-radius: 12px;
+      height: 35px;
+      width: 100px;
+      transition-duration: 0.4s;
+    }
+
+        .alert{
+        padding: 10px;
+        background-color: #ff5f02;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 0 10px rgb(71, 71, 71);
+        margin-top: 10px;
+        animation: zoom-in-zoom-out 1s ease;
+        border: none;
+        font-size: 12px;
+        width: 330px;
+        }
+
+        .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: -5px;
+        }
+
+        .closebtn:hover {
+        color: #b94807;
+        }
+
+        #imageplm{
+          animation: MoveInFromBottom 1s ease;
+        }
+
+        #rounded{
+          animation: MoveInFromBottom 1s ease;
+        }
+
+        .description{
+          animation: MoveInFromBottom 1s ease;
+          animation-delay: 0.1s;
+        }
+
+        .centerImg{
+          animation: MoveInFromBottom 1s ease;
+          animation-delay: 0.1s;
+        }
+
+        #welcometext{
+          animation: MoveInFromBottom 1s ease;
+        }
+
+        .applicantInfo{
+          animation: MoveInFromBottom 1s ease;
+          animation-delay: 0.2s;
+        }
+
+        body{
+          animation: animated-gradient;
+        }
+        
+      
+        @keyframes zoom-in-zoom-out {
+        0% {
+            transform: scale(1, 1);
+        }
+        50% {
+            transform: scale(1.1, 1.1);
+        }
+        100% {
+            transform: scale(1, 1);
+        }
+        }
+
+            @keyframes MoveInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(3rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }   
+
+    .animationItem {
+        position: absolute;
+        margin-right: 35px;
+      }
+
+#animationItem-image--bigCloud {
+	animation: bobble 2s infinite;
+	font-size: 170px;
+	color: #7ec0ee;
+}
+
+#animationItem-image--smallCloud {
+	animation: bobble 4s infinite;
+	margin-top: 65px;
+	margin-left: 140px;
+	font-size: 145px;
+	color: #e9e9e9;
+}
+
+.smallCloud-two {
+	margin-bottom: 5px;
+	margin-right: 320px;	
+	font-size: 145px;
+	z-index: -1;
+	color: #d9d9d9 !important;
+	animation: bobble 2.5s ease infinite !important;
+}
+
+.about:hover{
+  color: #D6E000;
+}
+
+
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+#email:focus{
+  outline: none;
+  background-color:#BADBFF;
+  border: none;
+  color: #2852A4 !important;
+}
+
+#password:focus{
+  outline: none;
+  background-color:#BADBFF;
+  border: none;
+  color: #2852A4 !important;
+}
+
+@keyframes bobble {
+	0% {
+		transform: translate3d(0px, -25px, 0px);
+		animation-timing-function: ease-in;
+	}
+	50% {
+		transform: translate3d(0px, -35px, 0px);
+		animation-timing-function: ease-out;	
+	}
+	100% {
+		transform: translate3d(0px, -25px, 0px);	
+	}
+}  
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #2852A4;
+   color: white;
+   text-align: center;
+   color: #BADBFF;
+   padding-top: 3px;
+}
+
+</style>
+</head>
+<body>
+
+  
+
+<div class="container pads">
+<div class="row">
+<div class="col-md-9 col-lg-6  col-sm-10">
+  
+  
+
+  <i id="animationItem-image--bigCloud" style="margin-left: 150px; margin-top: 15px;" class="animationItem material-icons"><img src="{% static 'CRS/images/landingPage/hat.png' %}" width="auto" height="100px"></i>
+
+<p id="imageplm" ><img src="{% static 'CRS/images/landingPage/iplm5.png' %}" width="457px" height="343px"></p>
+  
+  <p class="description">in collaboration with</p>
+  
+  <div class="centerImg">
+    <img src="{% static 'CRS/images/landingPage/plm.png' %}" alt="plm" width="40px" height="auto">
+    <img src="{% static 'CRS/images/landingPage/cet.png' %}" alt="plm" width="45px" height="auto">
+    
+    <img src="{% static 'CRS/images/landingPage/it.png' %}" alt="plm" width="40px" height="auto">
+    <img src="{% static 'CRS/images/landingPage/ee.png' %}" alt="plm" width="40px" height="auto">
+    
+  </div>
+  
+
+</div>
+
+
+<!--tabs--> 
+
+
+<div class="col-md-3 col-lg-6  col-sm-2">
+  <h1 id="welcometext">Welcome! 
+  </h1>
+
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      {{ message }}
+    </div>
+  {% endfor %}
+  {% endif %}
+
+  <table id="rounded"> 
+    
+    <tr>
+      <td class="d-flex justify-content-start ml-5 pt-4"> 
+        <p id="login"><img src="{% static 'CRS/images/landingPage/userBlue.png' %}" alt="iplm" width="32px" height="auto">&nbsp;&nbsp;&nbsp;Log In<br></p>
+      </td>  
+
+      <td class="d-flex  ml-5 pt-4">
+        <hr></td> 
+    </tr>
+    
+    <tr> 
+      <td id="show_hide_password">
+      <form  method = 'POST'>
+        <br>
+        {% csrf_token %}
+        <p id="tusername">email &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" id="email" name="email" required> </p> 
+        <p id="tpassword">password &nbsp; &nbsp; <input type="password" id="password" name="password" required> 
+        <br>
+        <span style="font-size: 12px; float: left; margin-left: 100px;  margin-top: 10px;">
+        <input type="checkbox" onclick="myFunction()">&nbsp;&nbsp;Show Password</span></p> 
+      </td> </tr> 
+    
+        <tr> <td> <p class="d-flex justify-content-end align-items-start mr-5"> <input type="submit" class="btn7" value="Log in">
+          </p> </td> </tr>    
+      </form> 
+
+
+</table>
+<p class="applicantInfo">Are you an applicant? <a href="{% url 'applicant' %}"><u>click here</u></a></p>
+  
+
+  
+</div>
+<p id="gridplm"><img src="{% static 'CRS/images/landingPage/grid.png' %}" alt="grid" width="300px" height="300px"></p> </picture>
+
+</div>
+
+<div class="footer">
+  <p style="padding-top: 5px;">Powered by the scrIpTs&nbsp;•&nbsp;<a href="{% url 'aboutUs' %}" class="about"><u>About Us</u></a>&nbsp;•&nbsp;IMxSAD 2020-2021</p>
+</div>
+
+<!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+  <script>
+      function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+  </script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+  </script>
+
+
+</body>
+</html>

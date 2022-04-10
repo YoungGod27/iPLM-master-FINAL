@@ -1,0 +1,194 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Student</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+    <script src="cHomeMain.js"> </script>
+
+    <!-- static > CRS > css > cStudents -->
+    <link rel="stylesheet" type="text/css" href="{% static 'CRS/css/cStudents/viewBlockStyle.css' %}">
+
+
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cStudents/iPLM.png'%}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+
+                <!-- static > CRS > images > cStudents -->
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cDepartment/home.svg' %}" width="54px" height="68.71px"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cDepartment/department.svg' %}" width="97px" height="60.56px"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cDepartment/students.svg' %}" width="90px" height="67.14px"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cDepartment/faculty.svg' %}" width="65px" height="74.22px"></a></li>
+            <li><a href="#"><img src="{% static 'CRS/images/cDepartment/others.svg' %}" width="61px" height="68.06px"></a></li>
+            <li><a href="#"><img src="{% static 'CRS/images/cDepartment/log-out.svg' %}" width="72px" height="68.71px"></a></li>
+        </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+                <div class="row" id="head">
+                        <p>Student</p>
+                    </div>
+                <!-- NAVIGATIO BAR -->
+                <div class="main row">
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee' %}"><p class="firstyear">1st Year</p></a>
+                        <div class="firstdropdown-content">
+                        <!-- Templates > Chairperson > Student  -->
+                          <a href="{% url 'students_bsee1' %}" >Block 1</a>
+                            <a href="{% url 'students_bsee1-2' %}" >Block 2</a>
+                            <a href="{% url 'students_bsee1-3' %}" >Block 3</a>
+                            <a href="{% url 'students_bsee1-4' %}" >Block 4</a>
+                            <a href="{% url 'students_bsee1-5' %}" >Block 5</a>
+                            <a href="{% url 'students_bsee1-6' %}" >Block 6</a>
+                          <a href="{% url 'students_bsee1I' %}">Irregular</a>
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee2' %}"><p class="firstyear">2nd Year</p></a>
+                        <div class="firstdropdown-content">
+                          <a href="{% url 'students_bsee2-1' %}">Block 1</a>
+                            <a href="{% url 'students_bsee2-2' %}" >Block 2</a>
+                            <a href="{% url 'students_bsee2-3' %}" >Block 3</a>
+                            <a href="{% url 'students_bsee2-4' %}" >Block 4</a>
+                            <a href="{% url 'students_bsee2-5' %}" >Block 5</a>
+                            <a href="{% url 'students_bsee2-6' %}" >Block 6</a>
+                          <a href="{% url 'students_bsee2I' %}">Irregular</a>
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee3' %}"><p class="firstyear">3rd Year</p></a>
+                        <div class="firstdropdown-content">
+                          <a href="{% url 'students_bsee3-1' %}">Block 1</a>
+                            <a href="{% url 'students_bsee3-2' %}" >Block 2</a>
+                            <a href="{% url 'students_bsee3-3' %}" >Block 3</a>
+                            <a href="{% url 'students_bsee3-4' %}" >Block 4</a>
+                            <a href="{% url 'students_bsee3-5' %}" >Block 5</a>
+                            <a href="{% url 'students_bsee3-6' %}" >Block 6</a>
+                          <a href="{% url 'students_bsee3I' %}">Irregular</a>
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee4' %}"><p class="firstyear">4th Year</p></a>
+                        <div class="firstdropdown-content">
+                          <a href="{% url 'students_bsee4-1' %}">Block 1</a>
+                            <a href="{% url 'students_bsee4-2' %}" >Block 2</a>
+                            <a href="{% url 'students_bsee4-3' %}" >Block 3</a>
+                            <a href="{% url 'students_bsee4-4' %}" >Block 4</a>
+                            <a href="{% url 'students_bsee4-5' %}" >Block 5</a>
+                            <a href="{% url 'students_bsee4-6' %}" >Block 6</a>
+                          <a href="{% url 'students_bsee4I' %}">Irregular</a>
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee5' %}"><p class="firstyear">5th Year</p></a>
+                        
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_bsee6' %}"><p class="firstyear">6th Year</p></a>
+                        
+                    </div>
+
+                    <div class="firstdropdown">
+                        <a href="{% url 'students_allbsee' %}"><p class="firstyear">All</p></a>
+                        <div class="firstdropdown-content">
+                          <a href="{% url 'students_allIbsee' %}">Irregular</a>
+                        </div>
+                    </div>
+                </div>
+                <!--End of NAVIGATION BAR-->
+                {% block content %}
+                <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">{{ year }}</p><!-- DB YEAR -->
+                    <p id="fulltime" style="margin-left: 50px;">|</p>
+                    <p id="fulltime" style="margin-left: 50px;"> {{ block1 }}</p><!-- DB BLOCK -->
+                    <div class="row" id="studentCount">Student: {{ count }}<!-- DB STUDENT COUNT --></div>
+
+                </div>
+
+                <hr class="new">
+
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="col-15">
+                        <table>
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Faculty -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Faculty -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- DATA OF TABLE -->
+                <div class="list row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>
+                                <!--ROW 1-->{% for i in bsee1B1 %}
+                                <tr>
+                                    <td id="list"><p>{{ i.studentID }}</p><!-- DB FACULTY NO --></td>
+                                    <td id="listname"><p>{{ i.studentUser.lastName }}</p><!-- DB LAST NAME --></td>
+                                    <td id="listname"><p>{{ i.studentUser.firstName }}</p><!-- DB FIRST NAME --></td>
+                                    <td id="listname"><p>{{ i.studentUser.middleName }}</p><!-- DB MIDDLE NAME --></td>
+                                    <td id="listname"><a href="{% url 'edit_students' i.pk %}"><button class="manage row"><!-- DB MANAGE FACULTY BUTTON BELOW -->Edit</button></a></td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+
+            <!--Search box-->
+                <div class="searchbox">
+                    <form method ="get">
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </button></form>
+                </div>
+                <!--End of Search box-->
+
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline"></div>
+                </div>
+                <!--End of gray line-->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

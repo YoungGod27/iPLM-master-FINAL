@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<title>Transferee</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	  <!-- Bootstrap CSS --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'CRS/css/Applicants/Students/Transferee/transf1.css' %}">
+
+  <!--  ICON -->
+  <link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+  <style>
+
+	body {
+			overflow-x: hidden;
+			overflow-y: hidden;
+		}
+
+	/*SCROLLBAR*/
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #e4e4e4;
+		border-radius: 12px;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #cbcbcb;
+		border-radius: 12px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #8f8f8f; 
+	}
+
+
+	@keyframes MoveInFromBottom {
+        0% {
+            opacity: 0;
+            transform: translateY(3rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+        
+</style>
+</head>
+
+<body>
+
+<picture><p id="gridplm"><img src="{% static 'CRS/images/Applicants/Students/Transferee/grid.png' %}" alt="grid" width="300px" height="300px"></p></picture>
+<picture><p id="backbutton"><a href="{% url 'applicant' %}"> <!--templates/Landing Page--> <img src="{% static 'CRS/images/Applicants/Students/Transferee/back.png' %}" alt="back" width="35px" height="35px"></a></p></picture>
+
+<p id="Transferee1">Transferee Qualification</p>
+<p id="SubDescription1">Be sure to have the following upon registration.</p>
+<p id="Requirement">1. GWA: 2.25 (previous semester)</p>
+<hr class="line1">
+
+<p id="Transferee2">Transferee Requirements</p>
+<p id="SubDescription2">Be sure to have the following upon registration.</p>
+<p id="ListOfRequirements">
+	1. Honorable Dismissal
+	<br>
+	2. Good Moral
+	<br>
+	3. Note of Undertaking
+</p>
+
+<picture><p id="image1"><img src="{% static 'CRS/images/Applicants/Students/Transferee/clip-1397.png' %}" alt="clip-1397" width="250px" height="250px"></p></picture>
+
+<a href="{% url 'transferee_2GWA' %}"> <!--templates/Applicants/Students/Transferee--><button id="proceedbutton">Proceed</button></a>
+    
+    <!-- tether, jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+	
+</body>
+
+</html>

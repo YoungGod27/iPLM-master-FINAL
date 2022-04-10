@@ -1,0 +1,846 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+body {
+    background: #fcfcfc;
+    overflow: hidden;
+}
+
+#content {
+    margin-left: 170px;
+    width: 100%;
+    padding: 50px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #fcfcfc;
+}
+
+
+/*Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+/*End of Side Bar*/
+
+
+/***** WELCOME SECTION *****/
+
+.main {
+    padding-left: 50px;
+    background: #0C66CC;
+    border-radius: 40px 40px 40px 40px;
+    margin-left: 100px;
+    margin-top: 60px;
+    margin-right: 100px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+}
+
+#head {
+    padding-top: 60px;
+    line-height: 15px;
+    font-size: 36px;
+    color: #D6E000;
+    font-family: 'Nunito';
+    margin-bottom: -20px;
+}
+
+.pic {
+    border-radius: 60px;
+}
+
+#row img {
+    padding: 0;
+}
+
+#notif {
+    margin-left: -20px;
+    margin-top: -15px;
+}
+
+#pipe {
+    color: #ECC429;
+    margin-top: -7px;
+    font-size: 35px;
+    margin-left: 2px;
+    margin-right: 10px;
+}
+
+#user {
+    margin-top: -15px;
+    margin-left: -5px;
+}
+
+#uname {
+    padding-left: 15px;
+    padding-top: -15px;
+    font-size: 25px;
+    color: #ffff;
+    font-family: 'Nunito'
+}
+
+#uname a:hover {
+    background: #2852a4;
+    padding: 7px;
+    border-radius: 10px;
+    color: #D6E000;
+}
+
+/********END WELCOME SECTION*******/
+
+/**QUICK ACCESS SECTION**/
+.sub-quick {
+    margin-left: 85px;
+    margin-right: 85px;
+    margin-top: 30px;
+}
+
+.sub-buttons {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#quick {
+    font-size: 33px;
+    color: #0C66CC;
+    margin-left: 14px;
+    font-family: 'Nunito'
+}
+
+.line {
+    background-color: #cfcfcf;
+    height: 2px;
+    border-radius: 2px;
+    margin: 30px 100px;
+    border: none;
+}
+
+#buttons .btn {
+    border-radius: 30px 30px 30px 30px;
+    font-size: 24px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 100%;
+    height: 130px;
+    background-color: #0C66CC;
+    float: left;
+    margin-left: 1000px;
+}
+
+#buttons .btn:hover {
+    background-color: #2852a4;
+    cursor: pointer
+}
+
+/********END QUICK ACCESS*******/
+
+/***** OVERVIEW *****/
+.sub-over {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.sub-overview {
+    margin-left: 85px;
+    margin-right: 85px;
+}
+
+#over {
+    font-size: 33px;
+    color: #0C66CC;
+    margin-left: 14px;
+    font-family: 'Nunito'
+}
+
+.col-yellow {
+    margin-bottom: 20px;
+}
+
+.yellow-box {
+    padding: 30px 30px 30px 30px;
+    height: 250px;
+    width: 100%;
+    background: #BADBFF;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+}
+
+.semdet {
+    text-align: right;
+    height: 40px;
+    width: 100%;
+    font-size: 30px;
+    font-family: 'Nunito';
+    color: #D6E000;
+    margin-bottom: 30px;
+    margin-left: -5px;
+}
+
+.hordet {
+    margin-bottom: 20px;
+    height: 30px;
+    width: 100%;
+}
+
+.text {
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+.field {
+    border-radius: 40px 40px 40px 40px;
+    background: #91C3F9;
+}
+
+#sd {
+    width: 100%;
+    text-align: center;
+}
+
+#sdtext {
+    color: #0C66CC;
+}
+
+#sdline {
+    color: #DAB014;
+}
+
+.colwhite {
+    padding-left: 115px;
+}
+
+.white-box {
+    padding-top: 60px;
+    text-align: center;
+    height: 250px;
+    width: 250px;
+    background: #ffffff;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+}
+
+#cardnumber {
+    font-size: 70px;
+    color: #ECC429;
+    font-family: 'Nunito';
+}
+
+#cardtext {
+    font-size: 20px;
+    color: gray;
+    font-family: 'Nunito';
+}
+
+/********END OVERVIEW*******/
+
+/********NOTIFICATION*******/
+
+.dropdown-menu {
+    background-color: white;
+    width: 550px;
+    height: 650px;
+    
+    margin-left: -50px;
+
+}
+
+.notification{
+    height: 100px;
+}
+
+#notiftitle{
+    border-radius: 10px;
+    width: 25%;
+    text-align: center;
+}
+
+#notiftitle:hover {
+    background-color: #cecece;
+    cursor: pointer
+}
+
+.notification:hover .dropdown-menu {
+    display: block;
+    cursor: pointer;
+    border-radius: 30px 30px 30px 30px;
+    border: none;
+    box-shadow: 0px 5px 15px #888888;
+    transition: all 0.5s;
+
+}
+
+#notiftitle {
+    color: #0C66CC;
+    font-family: 'Nunito';
+    margin-left: 40px;
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+#notifdrops {
+    color: #0C66CC;
+    font-family: 'Nunito';
+    width: 470px;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    margin: -2px 50px -2px 40px;
+    box-shadow: 1px 5px 30px -10px #888888;
+    padding-left: 25px;
+    padding-top: 20px;
+}
+
+.dropdown-menu #notifdrops:hover {
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+#notifrow{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+#notifcol{
+    border-right: solid;
+    border-right-color: #cecece;
+    border-right-width: 3px;
+}
+#bluebell{
+    color:#0C66CC;
+    height: 40px;
+    width: 50px;
+}
+#notifhead{
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-size: 40px;
+}
+
+#notifhead2{
+    margin-top: 50px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-size: 30px;
+}
+
+#notifhead3{
+    color: #0C66CC;
+    font-family: 'Nunito';
+    font-size: 20px;
+}
+#notiftext{
+    color: #aaaaaa;
+    font-family: 'Nunito';
+    font-size: 18px;
+}
+
+#userblue{
+    border-radius: 20px 20px 20px 20px;
+    background:#add8e6 ;
+    padding: 4px;
+}
+
+#notifline{
+    background-color: #cfcfcf;
+    height: 2px;
+    border-radius: 2px;
+    margin-top: 30px;
+    margin-left: 40px;
+    border: none;
+    
+}
+.notifpanels{
+    color: #0C66CC;
+    font-family: 'Nunito';
+    width: 85%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 1px 5px 30px -10px #888888;
+    padding-left: 25px;
+    padding-top: 20px;
+}
+/********END OF NOTIFICATION*******/
+
+
+/********PROFILE*******/
+.sub-box {
+    margin-left: 80px;
+}
+
+.profile-box {
+    padding: 30px 30px 30px 80px;
+    margin: 0px 80px;
+    border-radius: 40px 40px 40px 40px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+    background: #0C66CC;
+    color: white;
+    font-size: 14;
+}
+
+.phor {
+    margin-top: 8px;
+    width: 100%;
+}
+
+#spacing-profile {
+    padding: 80px 80px 80px 80px;
+}
+
+.text-profile {
+    margin-top: 50px;
+    font-size: 33px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.text-details {
+    margin-left: 45px;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Nunito';
+}
+
+#text-pbox {
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Nunito';
+}
+
+#password-text {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-size: 25px;
+}
+
+#change {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: 'Nunito';
+}
+
+#change div:hover {
+    color: #ECC429;
+}
+
+#edit {
+    margin-left: -15px;
+}
+
+.change-spacing {
+    padding-top: 25px;
+}
+
+.change-box {
+    margin: auto;
+    padding-top: 10px;
+    border-radius: 20px 20px 20px 20px;
+    background: #2852a4;
+    width: 70%;
+    height: 70%;
+    text-align: center;
+}
+
+.profile-border {
+    height: 70px;
+    margin: 0px 100px;
+    border-bottom: solid;
+    border-bottom-width: 3px;
+    border-bottom-color: #ECC429;
+}
+
+.edit-box {
+    margin: 0px 80px;
+    /**guide lang
+    border-radius: 20px 20px 20px 20px; 
+    background-color: pink;**/
+}
+
+.small-pbox {
+    height: 100px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(172, 170, 170);
+    background: #0C66CC;
+    margin: 0px -15px;
+}
+
+#picpic {
+    margin-left: 13px;
+    margin-top: 10px;
+}
+
+#pichover {
+    float: right;
+    width: 50px;
+    height: 50px;
+}
+
+.editpic {
+    padding-left: 10px;
+}
+
+.col-lg-1 a:hover {
+    background: #2852a4;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/********END OF PROFILE*******/
+
+/********CHANGE PASS*******/
+.pword {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+}
+
+.change-pword {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 60px;
+}
+
+#phead {
+    margin-top: 10px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#backlogo {
+    margin-top: 18px;
+    float: right;
+}
+
+.psub {
+    margin-bottom: 20px;
+}
+
+.ptext {
+    margin-top: 18px;
+    padding-left: 155px;
+    font-size: 25px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+}
+
+.pfield {
+    font-family: 'Nunito';
+    font-size: 18px;
+}
+
+#password1 {
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+}
+
+#password2 {
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+}
+
+#password3 {
+    border-radius: 15px 15px 15px 15px;
+    background: #ECECEC;
+    border: none;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+}
+
+#eye-span {
+    top: 20px;
+    right: 40px;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+#eye1 {
+    font-size: 20px;
+    color: #7a797e;
+}
+
+#eye2 {
+    font-size: 20px;
+    color: #7a797e;
+}
+
+#eye3 {
+    font-size: 20px;
+    color: #7a797e;
+}
+
+.password-policies {
+    height: 0px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: height 300ms ease-in-out,
+        opacity 300ms ease-in-out;
+}
+
+.password-policies.active {
+    opacity: 1;
+    padding: 10px;
+    height: 180px;
+}
+
+.password-policies > div {
+    margin: 15px 10px;
+    font-weight: 600;
+    color: #888;
+    transition: all 300ms ease-in-out;
+}
+
+.password-policies > div.active {
+    color: #ECC429;
+}
+
+
+#pimg {
+    margin-top: -30px;
+}
+
+#pbuttons .pbtn {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-left: 90px;
+    border-radius: 15px 15px 15px 15px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 250px;
+    height: 60px;
+    background-image: linear-gradient(to right, #0C66CC, #2852A4) !important;
+    border: none;
+}
+
+#pbuttons .pbtn:hover {
+    background-color: #2852A4;
+    color: #ECC429;
+    cursor: pointer;
+}
+
+.back img:hover {
+    padding: 5px;
+    background: #ECECEC;
+    border-radius: 10px 10px 10px 10px;
+}
+
+/********END OF CHANGE PASS*******/
+
+/********EDIT PROFILE*******/
+.edit-1 {
+    padding: 60px 120px 20px 120px;
+}
+
+.edit-2 {
+    padding: 0px 25px;
+}
+
+.edit-3 {
+    padding-right: 155px;
+    padding-left: 120px;
+}
+
+.text-edit {
+    margin-left: 60px;
+    margin-top: -56px;
+    font-size: 40px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+.form-text-edit {
+    font-size: 24px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+
+}
+
+.form-control {
+    background: #FCFCFC;
+    border-radius: 15px 15px 15px 15px;
+    border-width: 1px;
+    border-color: #ECECEC;
+    width: 70%;
+    height: 45px;
+    padding-left: 20px;
+    font-family: 'Nunito';
+    font-size: 20px;
+}
+
+.form-group {
+    padding-top: 0px;
+    margin-left: 80px;
+}
+
+#back-edit {
+    margin-top: 50px;
+}
+
+#back-edit img:hover {
+    padding: 5px;
+    background: #ECECEC;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#button-edit .btn {
+    border-radius: 15px 15px 15px 15px;
+    font-size: 22px;
+    font-family: 'Nunito';
+    color: #ffff;
+    width: 210px;
+    height: 55px;
+    float: right;
+    background-color: #0C66CC;
+    margin-right: 130px;
+}
+
+#button-edit .btn:hover {
+    background-color: #2852A4;
+    cursor: pointer;
+}
+
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+
+
+/********END OF EDIT PROFILE PASS*******/
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+
+    /*****HOME*****/
+    .quickmargin {
+        margin-bottom: 10px;
+    }
+
+    .white-box {
+        width: 100%;
+    }
+
+    .colwhite {
+        width: 100%;
+        padding: 0px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    /*****END HOME*****/
+
+    /*****PASSWORD*****/
+    #pbuttons .pbtn {
+        margin-left: 105px;
+    }
+
+    .ptext {
+        margin-left: -135px;
+    }
+
+
+
+    /*****END PASSWORD*****/
+}
+
+/********END BREAKPOINTS*******/

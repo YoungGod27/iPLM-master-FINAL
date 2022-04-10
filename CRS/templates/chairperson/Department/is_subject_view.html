@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | College Subjects</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/cDepartment/deptSubjectsStyle.css' %}">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cDepartment/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+
+    #studentCount {
+    font-size: 15px;
+    font-family: 'Nunito';
+    margin-left: 80px;
+    color: #0C66CC;
+    background-color: #e5e5e5;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    padding-top: 10px;
+    height: 40px;
+    margin-top: 40px;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+    body {
+            overflow-y: auto;
+        }
+    
+            /*SCROLLBAR*/
+            ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #e4e4e4;
+            border-radius: 12px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #cbcbcb;
+            border-radius: 12px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8f8f8f; 
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+          </nav>
+        <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+                <!-- Department -->
+                <div class="pword row">
+                    <div class="col-lg-1"><a class="back" href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cDepartment/back.svg' %}" width="50" height="45" id="backlogo"></a>
+                    </div>
+                    <div class="col-lg-11">
+                        <p id="phead">College Subjects</p>
+                    </div>
+                </div>
+                <!-- End Department -->
+
+                <!--End of Welcome Panel-->
+
+                <!--Subject and Section-->
+                <div class="sub-year row">
+                    <p id="fulltime">{{ subj.subjectCode.subjectCode.subjectCode }} | {{subj.realsection.blockCourse}} Block  {{subj.realsection.blockYear}} - {{subj.realsection.blockSection}}</p><!-- DB SUBJECT -->
+                    <div class="row" id="studentCount">Student: {{count}}</div><!-- STUDENT COUNT -->
+                </div>
+                <hr class="new">
+                <!-- End Subject and Section -->
+
+                <!-- HEADER -->
+                <div class="list row">
+                    <div class="col-15 ">
+                        <table>
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b><!-- Student Number Label --></td>
+                                <td id="list"><b><p>Last Name</p></b><!-- Last Name of Student --></td>
+                                <td id="listname"><b><p>First Name</p></b><!-- Firs Name of Student --></td>
+                                <td id="listname"><b><p>Middle Name</p></b><!--Middle Name of Student --></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+
+                <!--Start of LIST-->
+
+                <div class="list row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>
+                                <!--ROW-->
+                                {% for i in students %}
+                                <tr>
+                                    <td id="list"><p>{{ i.studentID }}</p><!-- DB Student Number Label --></td>
+                                    <td id="list"><p>{{ i.studentUser.lastName }}</p><!-- DB Last Name of Student --></td>
+                                    <td id="listname"><p>{{ i.studentUser.firstName }}</p><!-- DB First Name of Student --></td>
+                                    <td id="listname"><p>{{ i.studentUser.middleName }}</p><!-- DB Middle Name of Student --></td>
+                                </tr>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                    </div>
+
+                <!--End of LISTt-->
+
+                <!--Search box-->
+                <div class="searchbox">
+                    <form method ="get">
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </form>
+                </div>
+                <!--End of Search box-->
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline">
+                    </div>
+                </div>
+                <!--End of gray line-->
+
+                <!-- Section Information -->
+                <div class="boxed" id="secInfo">
+                    <form action="/action_page.php">
+                        <table>
+                            <tr>
+                                <td ><img src="{% static 'CRS/images/cDepartment/block.png' %}" width="55px" height="33px" class="secInfoHead"></td>
+                                <td colspan="2"><p class="secInfoHead"><b>Section Information</b></p></td>
+                            </tr>
+                            <tr style="background-color: transparent;"><!-- DB FACILITATOR ROW -->
+                                <td rowspan="2"><img src="{% static 'CRS/images/cDepartment/userBlue.png' %}" width="50px" height="50px"></td>
+                                <td><label class="facilitator" style="font-size: 20px;">{{ subj.instructor.facultyUser.lastName }}, {{ subj.instructor.facultyUser.firstName }}</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><label class="facilitator"><b>Facilitator</b></label></td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td colspan="3"><hr></td>
+                            </tr>
+                        </table>
+                        <div id="OtherIn">
+                        <table>
+                            <tr><!-- DB SESSION TYPE ROW -->
+                                <td><label for="sessType">Session Type</label></td>
+                                <td><p id="sessType" name="sessType">{{subj.type}}</p></td>
+                            </tr>
+                            <tr style="background-color: transparent;"><!-- DB DAY ROW -->
+                                <td><label for="day">Day</label></td>
+                                <td><p id="day" name="day">{{subj.day}}</p></td>
+                            </tr>
+                            <tr><!-- DB TIME ROW -->
+                                <td><label for="time">Time</label></td>
+                                <td><p id="time" name="time">{{subj.timeStart}} - {{subj.timeEnd}}</p></td>
+                            </tr>
+                            <tr style="background-color: transparent;"><!-- DB ROOM ROW -->
+                                <td><label for="room">Room</label></td>
+                                <td><p id="room" name="room">{{subj.room}}</p></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </form>
+                </div>
+            
+                
+
+            </div>
+        </div>
+    </p>
+</li>
+</div>
+</nav>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+html {
+	overflow-y: auto;
+}
+
+body {
+    background: #fcfcfc;
+    overflow: auto;
+}
+
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+    zoom: 67%;
+}
+
+.content{
+    margin: 50px 150px;
+}
+/***** SIDE BAR *****/
+
+
+#sidebar {
+    height: 100%;
+    min-width: 175px;
+    max-width: 175px;
+    background: #0C66CC;
+    color: transparent;
+    position: fixed;
+}
+
+#sidebar.active {
+    margin-left: -175px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 20px;
+    display: block;
+    background: #0C66CC;
+    text-align: center;
+}
+
+#sidebar ul li a:hover {
+    background: #2852a4;
+    border-radius: 20px 20px 20px 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #0C66CC;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/***** END OF SIDE BAR *****/
+
+
+/**OTHERS > APPLICATION 1ST PAGE & PART-TIME 1ST PAGE**/
+.oth {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+.std {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.fct {
+    margin-left: 95px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.btn-group-vertical {
+    margin-left: 75px;
+    margin-right: 35px;
+    justify-content: center;
+}
+
+#buttons {
+    padding: 0px;
+    text-align: right;
+}
+
+#others {
+    font-size: 44px;
+    color: #0C66CC;
+    margin-left: 55px;
+    font-family: 'Nunito';
+}
+
+#students {
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 110px;
+    font-family: 'Nunito';
+}
+
+#faculty {
+    margin-top: 50px;
+    font-size: 23px;
+    color: #0C66CC;
+    margin-left: 105px;
+    font-family: 'Nunito';
+}
+
+#buttons .btn {
+    border-radius: 14px 14px 14px 14px;
+    padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    font-family: 'Nunito';
+    color: #ffff;
+    margin-left: 90px;
+    margin-bottom: 15px;
+    background-color: #0C66CC;
+    text-align: left;
+    width: 70%;
+    height: 60px;
+}
+
+.btn-btn2 {
+    border-radius: 15px 15px 15px 15px;
+    border-color: transparent;
+    padding: 10px 10px 10px 20px;
+    font-size: 20px;
+    font-family: 'Nunito';
+    color: #0C66CC;
+    margin-left: 90px;
+    margin-bottom: 15px;
+    background-color: #ECC429;
+    text-align: left;
+    width: 70%;
+    height: 60px;
+}
+
+#buttons .btn:hover {
+    background-color: #2852A4;
+    color: #ECC429;
+    cursor: pointer
+}
+
+#buttons .btn2 {
+	font-family: 'Nunito';
+    color: #ffff;
+    background-color: #0C66CC;
+	padding: 10px 10px 10px 10px;
+    border-radius: 15px 15px 15px 15px;
+    width: 60%;
+    height: 45px;
+	font-size: 20px;
+	text-align: center;
+	margin: -5px 0px 0px 80px;
+}
+
+#buttons .btn2:hover {
+    background-color: #2852A4;
+    cursor: pointer
+}
+
+#application {
+    margin-left: -15px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#cntr {
+    font-size: 20px;
+    white-space: nowrap;
+    width: 50px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.form-control{
+    background: #FCFCFC;
+    border-radius:  15px 15px 15px 15px;
+    border-width: 1px;
+    border-color:  #ECECEC;
+    width: 40%;
+    height: 25px;
+    padding-left: 20px;
+    font-family: 'Nunito';
+    font-size: 20px;
+	margin-top: -27px;
+	margin-left: 75px;
+}
+
+.flex-item {
+    background: #ffff;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.year {
+	font-family: Nunito;
+	color: #C8C8C8;
+	font-size: 28px;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+
+
+.app-panel{
+    background: #ffff;
+    height: 130px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(211, 211, 211);
+    font-size: 20px;
+    color: #0C66CC;
+    text-align: left;
+	vertical-align: center;
+    padding: 2px;
+    font-family: 'Nunito';
+	margin-top: 35px;
+	margin-bottom: 55px;
+	padding-left: 5px;
+}
+
+.scroll {
+	height: 750px;
+    display: block;
+    width: 100%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/*SCROLLBAR*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e4e4e4;
+	border-radius: 12px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #cbcbcb;
+	border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8f8f8f; 
+}
+
+/********END OF OTHERS > APPLICATION 1ST PAGE & PART-TIME 1ST PAGE*******/
+
+
+/**OTHERS > APPLICATION 2ND PAGE**/
+
+
+/**OTHERS > GRAY BOXES**/
+.gray {
+    margin-top: 30px;
+    margin-left: -35px;
+    margin-bottom: 35px;
+}
+
+.graystno {
+    padding-left: 50px;
+    background: #E9E9E9;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding-right:100px;
+    padding-top: 10px;
+    width: 300px;
+}
+
+.grayname {
+    padding-left: 60px;
+    background: #E9E9E9;
+    border-radius: 15px 15px 15px 15px;
+    margin-left: 35px;
+    margin-bottom: 20px;
+    padding-right:100px;
+    padding-top: 10px;
+}
+
+/**END OTHERS > GRAY BOXES**/
+
+
+
+/**** PART TIME AVAIL RIGHT SIDE PAGE ****/
+
+#application {
+    margin-left: -15px;
+    font-size: 30px;
+    color: #0C66CC;
+    font-family: 'Nunito';
+}
+
+#cntr {
+    margin-left: -20px;    
+}
+
+.app-panel{
+    background: #ffff;
+    height: 100px;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0 0 10px rgb(211, 211, 211);
+    font-size: 20px;
+    padding-top: 35px;
+    color: #0C66CC;
+    text-align: left;
+    font-family: 'Nunito';
+    
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-left: 35px;
+
+}
+
+/** END OF PART TIME AVAILABILITY BANNER **/
+
+
+
+/****** END OF PART-TIME AVAILABILITY 2ND PAGE ********/
+
+
+/********BREAKPOINTS*******/
+@media (max-width: 768px) {
+    body {
+        background: #fcfcfc;
+        overflow: auto;
+    }
+
+    #content {
+        margin-left: 0px;
+    }
+
+    /*****SIDEBAR*****/
+    #sidebar {
+        margin-left: -175px;
+    }
+
+    /*****END SIDEBAR*****/
+
+    /*****HOME*****/
+    .quickmargin {
+        margin-bottom: 10px;
+    }
+
+    .white-box {
+        width: 100%;
+    }
+
+    .colwhite {
+        width: 100%;
+        padding: 0px;
+        margin-left: 25px;
+        margin-bottom: 10px;
+    }
+
+    /*****END HOME*****/
+}
+
+
+/* Extra small devices (portrait phones, Less than 576px) */ 
+@media (max-width: 575.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.app-panel {
+		width: 160%;
+		padding-top: 10px;
+	}
+	
+	#buttons .btn2 {
+		font-family: 'Nunito';
+		color: #ffff;
+		background-color: #0C66CC;
+		
+		border-radius: 15px 15px 15px 15px;
+		border-width: 1px;
+		width: 35%;
+		height: 45px;
+		
+		font-size: 20px;
+		text-align: center;
+		
+		margin: -90px 0px 0px 260px;
+	}
+	
+	.graystno {
+		width: 100%;
+		margin-left: -100px;
+	}
+	
+	.button2hvr {
+		margin-left: 0px;
+	}
+	
+	.button3hvr {
+		margin-left: 0px;
+	}
+	
+	.button4hvr {
+		margin-left: 35px;
+	}
+	
+}
+/* Small devices (Landscape phones, 576px and up)*/ 
+@media (min-width: 576px) and (max-width: 767.98px) {
+    body {
+    overflow: auto;
+    }
+	
+	.app-panel {
+		width: 135%;
+		height: 15%;
+		padding-top: 10px;
+	}
+	#buttons .btn2 {
+		font-family: 'Nunito';
+		color: #ffff;
+		background-color: #0C66CC;
+		
+		border-radius: 15px 15px 15px 15px;
+		border-width: 1px;
+		width: 35%;
+		height: 45px;
+		
+		font-size: 20px;
+		text-align: center;
+		
+		margin: -15px 0px 0px 400px;
+	}
+	#sidebar {
+		margin-left: -175px;
+	}
+	
+	.graystno {
+		margin-left: -75px;
+	}
+	
+	.button2hvr {
+		margin-left: 100px;
+	}
+	
+	.button3hvr {
+		margin-left: 100px;
+	}
+	
+	.button4hvr {
+		margin-left: 135px;
+	}
+	
+}
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+    body {
+    overflow: auto;
+    }
+	
+	#application {
+		margin-left: 25px;
+	}
+	
+	.app-panel {
+		margin-left: 25px;
+	}
+	
+	#submitted {
+		margin-left: 0px;
+	}
+	
+	.button2hvr {
+		float: left;
+		margin-left: -10px;
+	}
+	
+	.button3hvr {
+		float: left;
+	}
+	
+	.button4hvr {
+		float: left;
+		margin-right: -80px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    #content {
+        zoom: 67%
+    }
+    #sidebar {
+        zoom: 75%;
+    }
+	
+	.dropdown {
+		margin-top: -75px;
+		margin-left: 80px;
+	}
+}
+
+/* For screens na 1920x1080 */
+@media (min-width: 1920px) {
+    .wrapper {
+        zoom: 100%;                                        
+    }
+}
+
+/********END BREAKPOINTS*******/

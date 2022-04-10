@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | CSW</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+  <link rel="stylesheet" href="{% static 'CRS/css/cOthers/forms.css' %}">
+  <link rel="stylesheet" href="{% static 'CRS/css/cOthers/chairOthers.css' %}">
+  <!--Icon-->
+  <link rel="icon" href="{% static 'CRS/images/cOthers/iPLM.png' %}" type="image/png" sizes="16x16">
+
+<style>
+.alertError{
+padding: 20px;
+background-color: #f34e01;
+border-radius: 15px;
+color: white;
+font-size: 18px;
+width: 30%;
+margin-left: 150px;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+}
+
+.alertSuccess{
+padding: 20px;
+background-color: #3fb328;
+border-radius: 15px;
+color:white;
+font-size: 18px;
+width: 30%;
+margin-left: 150px;
+box-shadow: 0 0 10px rgb(216, 216, 216);
+animation: zoom-in-zoom-out 1s ease;
+
+}
+
+.closebtnError {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnError:hover {
+color: #a33908;
+}
+
+.closebtnSuccess {
+margin-left: 15px;
+color: white;
+font-weight: bold;
+float: right;
+font-size: 22px;
+line-height: 20px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.closebtnSuccess:hover {
+color: #1c6b0c;
+}
+
+@keyframes zoom-in-zoom-out {
+0% {
+transform: scale(1, 1);
+}
+50% {
+transform: scale(1.1, 1.1);
+}
+100% {
+transform: scale(1, 1);
+}
+}
+</style>
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+ <!-- Sidebar -->
+ <nav id="sidebar">
+  <div class="sidebar-header">
+      <li>
+          <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+      </li>
+  </div>
+  <ul class="sidebar components">
+      <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+      <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+      <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+      <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+      <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+      <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+  </ul>
+</nav>
+<!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- Others -->
+
+                <div class="pword row">
+                  <div class="col-lg-1"><a href="{% url 'cOthers-transfereeView' trans_csw.id %}" class="back" ><img src="{% static 'CRS/images/cOthers/back.svg' %}" width="50" height="45" id="back"></a>
+                  </div>
+                  <div class="col-lg-11">
+                      <p id="phead">CSW</p>
+                  </div>
+                </div>
+
+                <!-- Students -->
+                <div align="left"> 
+                  {% if messages %}
+                  {% for message in messages %}
+                  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="alertError">
+                      <span class="closebtnError" onclick="this.parentElement.style.display='none';">&times;</span> 
+                      {{ message }}
+                  </div>
+                  {% endif %}
+
+                  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                  <div class="alertSuccess">
+                      <span class="closebtnSuccess" onclick="this.parentElement.style.display='none';">&times;</span> 
+                      {{ message }}
+                  </div>
+                  {% endif %}
+                      
+                  {% endfor %}
+                  {% endif %}
+                  <br>
+                  </div>
+                <form class="cswForm" action="{% url 'attach' trans_csw.id %}"  method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                  <div class="row">
+
+                        <div class="col-15"><!-- DB DATE -->
+                          <label for="date">Date</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" name="date" placeholder="January 1, 2021"></input>
+                        </div>
+
+                        <div class="col-15"><!-- DB FROM -->
+                          <label for="from">From</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" name="from" placeholder="Chairperson Name"></input>
+                        </div>
+
+                        <div class="col-15"><!-- DB SUBECT -->
+                          <label for="subject">Subject</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" name="subject" placeholder="CSW"></input>
+                        </div>
+                        
+                   </div>
+                    
+
+                    <br><hr class="blue"><br><br><br>
+                   
+                    <div class="row"><!-- ACTION ACQUIRED -->
+                        <div class="col-25">
+                          <label for="actionRequired">Action Required</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="actionRequired" name="actionRequired" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row"><!-- DB REFERENCE -->
+                        <div class="col-25">
+                          <label for="reference">Reference</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="reference" name="reference" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row"><!-- DB BACKGROUND -->
+                        <div class="col-25">
+                          <label for="background">Background</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="background" name="background" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row"><!-- DB ANALYSIS -->
+                        <div class="col-25">
+                          <label for="analysis">Analysis</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="analysis" name="analysis" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row"><!-- DB RECOMMENDATION -->
+                        <div class="col-25">
+                          <label for="recommendation">Recommendation</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="recommendation" name="recommendation" placeholder="Write something.." style="height:200px"></textarea>
+                        </div>
+                    </div>
+
+                    <br><br><hr class="blue"><br><br><br><br>
+
+                    <div class="row">
+                        <div class = "col-25-4"><p id="chairpersonSignature" name="chairpersonSignature">Charito M. Molina <br>IT Department</p></div>
+                        <div class = "col-75"><input type="file" id="cSignatureFile" name="cSignatureFile1"></div><!-- DB CHAIRPERSON SIGNATURE UPLOAD BUTTON -->
+
+                        <div class = "col-25-3"><p id="chairpersonSignature" name="chairpersonSignature">Engr. Juan C. Tallara Jr.<br>Dean</p></div>
+                        <div class = "col-75"><input type="file" id="cSignatureFile-2" name="cSignatureFile2"></div><!-- DB CHAIRPERSON SIGNATURE UPLOAD BUTTON -->
+                    </div>
+
+                    <div class="row">
+                      <div class="col-75" align="right"><a href="{% url 'transferee_Pdf' trans_csw.id %}" class="submitButton" type="button" target="_blank">Generate PDF</a></div><!-- DB GENERATE PDF BUTTON -->
+                      <input class="submitButton" type="submit" value="Attach" name="transfer-attach"></div><!-- DB GENERATE PDF BUTTON -->
+                  </div>
+                    </form>
+            </div>
+        </div>
+
+
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+
+</body>
+
+</html>

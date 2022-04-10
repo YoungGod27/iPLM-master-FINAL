@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<a href="{% url 'StudentCF' %}">Back</a> &nbsp; &nbsp; <a href = "{%url 'student' %}">Home</a>
+<h1>Dropping Form</h1>
+{% for post in file %}
+<a href="{{ post.Admin_Upload.url }}" download="{{ post.Admin_Upload.url }}">Save A Copy</a>
+&nbsp; &nbsp; 
+<a href="{% url 'StudentTC' %}">Next</a>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Notification </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fHomeAndProfile/fHomeStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--  ICON -->
+    <link rel="icon" href="{% static 'CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+                <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+                <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+                <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <!-- FILE PATH: LOG-OUT -->
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <!-- Welcome Panel -->
+                <div class="main row">
+
+                    <div class="col-lg-9">
+                        <div class="row" id="head">
+                            <p>Welcome</p>
+                            <p>&nbsp;Faculty!</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 pt-3">
+                                <table>
+                                    <tr>
+                                        <td class="notification"><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px">
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Notifications<br></p><!-- DB NOTIFICATION DATA BELOW -->
+                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
+                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
+                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
+                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
+                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
+                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
+                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
+                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p id="pipe">|</p>
+                                        </td>
+                                        <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
+                                        <td id="uname">Full Name</td><!-- Yung Fullname daw dito galing DB -->
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <table>
+                            <tr>
+                                <td class="academicYearHeader">Academic Year:</td>
+                                <td class = "academicYearDetail">2020-2021</td><!-- DB ACADEMIC YEAR  -->
+                            </tr>
+
+                            <tr>
+                                <td class="semesterHeader">Semester:</td>
+                                <td class = "semesterDetails">1st</td><!-- DB SEMESTER  -->
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+                <!--NOTIFICATION-->
+                
+                <div id="notifrow" class="row pt-5">
+                    <div id="notifcol" class="col-lg-5">
+                        <p id="notifhead"><img id="bluebell" src="{% static 'CRS/images/cHome/bluebell.svg' %}">&nbsp;&nbsp;Notification</p>
+                        
+                        <!-- DB NOTIFICATION LIST BELOW -->
+                        <p class="notifpanels" href="#"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br>
+                        
+                    </div>
+                    
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-12 pl-5">
+                                <p id="notifhead2">Notification Title<br></p><!-- DB NOTIFICATION TITLE BELOW -->
+                                <p id="notifhead3"><img id="userblue" src="{% static 'CRS/images/cHome/userblue.svg' %}" height="35" width="35">&nbsp;&nbsp;Sender's Name</p>
+                            </div>
+                        </div>
+                        <hr id="notifline">
+                        <div class="row">
+                            <div class="col-lg-12 pt-3 pl-5"><!-- DB NOTIFICATION CONTENT / MESSAGE BELOW -->
+                                <p id="notiftext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--END NOTIFICATION-->
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function changeText(obj, text) {
+            obj.innerText = text;
+        }
+    </script>
+
+</body>
+
+</html>

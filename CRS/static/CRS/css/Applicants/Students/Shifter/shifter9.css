@@ -1,0 +1,386 @@
+<style>
+	html
+	{
+		
+	}
+	
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: auto;
+		height: 1000px;
+		overflow-x:hidden;
+	
+	}
+	
+	#backbutton
+	{
+		top:        80px;
+		left:       144px;
+        position:   relative;
+	}
+	
+	#roundbg
+	{
+		border-radius: 25px;
+		background: white;
+		width: 1100px;
+		height: 850px;
+		position:relative;
+		top: 100px;
+		left: 120px;
+	}
+	
+	#StudentApplicationFormTitle, #UploadDocumentsTitle
+	{
+		font-size:22px;
+		font-family:Nunito;
+		font-weight:bold;
+		color: #0C66CC;
+		position:absolute;
+		
+	}
+	
+	
+	#StudentApplicationFormTitle
+	{
+		top: 50px;
+		left: 80px;
+	}
+	
+	#UploadDocumentsTitle
+	{
+		top: 46%;
+		left: 80px;
+	}
+	
+	#SAFSub, #UDSub
+	{
+		font-size: 14px;
+		font-family: Nunito;
+		color: #0C66CC;
+		position:absolute;
+	}
+	
+	#SAFSub
+	{
+		top: 90px;
+		left: 80px;
+	}
+	
+	#UDSub
+	{
+		top: 430px;
+		left: 80px;
+	}
+	
+	#FullNametext, #ContactInformationText, #StudentNumber, #degreePorgram
+	{
+		font-size: 18px;
+		font-family: Nunito;
+		color: #0C66CC;
+		position:absolute;
+	}
+	
+	#FullNametext
+	{
+		top: 200px;
+		left: 80px;
+	}
+	
+	#ContactInformationText
+	{
+		top: 32%;
+		left: 80px;
+	}
+	
+	#StudentNumber
+	{
+		top: 145px;
+		left: 80px;
+	}
+
+	#degreeProgram
+	{
+		top: 145px;
+		left: 100px;
+	}
+
+	#LastName, #FirstName, #MiddleName, #EmailAddress, #Phone, #StudNum, #degree
+	{
+		width: 240px;
+		height:25px;
+		box-sizing: border-box;
+		border: 2px solid #ECECEC;
+		border-radius: 7px;
+		background-color: #ECECEC;
+		color: black;
+		text-indent:10px;
+		font-family: Nunito;
+        
+	}
+
+	#StudNum
+	{
+		position:absolute;
+        top: 140px;
+        left: 280px;
+
+	}
+
+	#degree
+	{
+		position:absolute;
+        top: 140px;
+        left: 530px;
+
+	}
+   
+    /* Full Name  */
+	#LastName
+	{
+		position:absolute;
+        top: 200px;
+        left: 280px;
+	}
+	
+	#FirstName
+	{
+		
+		position:absolute;
+        top: 200px;
+        left:48%;
+        
+	}
+	
+	#MiddleName
+	{
+		position:absolute;
+        top: 200px;
+        left:70.5%;
+	}
+	/* Contact Info  */
+	#EmailAddress
+	{
+		position:absolute;
+		top: 32%;
+		left: 280px;
+	}
+	
+	#Phone
+	{
+		position:absolute;
+		top: 32%;
+		left: 48%;
+	}
+	
+	#subLastname, #subFirstname, #subMiddlename, #subEmailAddress, #subPhone, #subDegree, #subStudNum
+	{
+		font-size: 12px;
+		font-family: Nunito;
+		color: #0C66CC;
+		position:absolute;
+	}
+	
+    /* Full Name sub  */
+	#subLastname
+	{
+        
+		top: 230px;
+        left: 27%;
+	}
+
+	#subFirstname
+	{
+		top: 230px;
+		left: 49%;
+	}
+	
+	#subMiddlename
+	{
+		top: 230px;
+		left: 72%;
+	}
+
+	#subStudNum{
+		top: 165px;
+		left: 280px;
+	}
+
+	#subDegree{
+		top: 165px;
+		left: 530px;
+	}
+	
+    /* Contact Info sub  */
+	#subEmailAddress
+	{
+		top: 305px;
+		left: 27%;
+	}
+	
+	#subPhone
+	{
+		top: 305px;
+		left: 49%;
+	}
+	
+	#line2
+	{
+		position:absolute;
+		top: 40%;
+		left: 80px;
+	}
+
+	#LetterofIntentShape, #GradeSSShape, #studPlanShape
+	{
+		border: 1px solid #0C66CC;
+		background: #0C66CC;
+		font-size: 14px;
+		font-family: Nunito;
+		margin-right: 10px;
+		color: white;
+		border-radius: 10px;
+		height: 40px;
+		width: 210px;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		position:absolute;
+		filter:drop-shadow(1px 1px 3px gray);
+	}
+	
+	#LetterofIntentShape
+	{
+		top: 488px;
+		left: 80px;
+	}
+
+	#GradeSSShape
+	{
+		top: 558px;
+		left: 80px;
+	}
+
+	#studPlanShape
+	{
+		top: 628px;
+		left: 80px;
+	}
+	
+	#LetterofIntentFile, #GradeScreenshotFile, #studyPlanFile
+	{
+		font-family: Nunito;
+		font-size:14px;
+		background: white;
+		border-radius: 10px;
+		filter:drop-shadow(0px 0px 10px rgb(211,211,211));
+		height: 40px;
+		width: 210px;
+		outline: none;
+		position:absolute;
+	}
+	
+	::-webkit-file-upload-button
+	{
+		color: #0C66CC;
+		background: white;
+		padding: 13px;
+		border: none;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+	
+	::-webkit-file-upload-button:hover
+	{
+		background: #ECC429;
+	}
+	
+	#LetterofIntentFile
+	{
+		top: 488px;
+		left: 320px;
+	}
+	
+	#GradeScreenshotFile
+	{
+		top: 558px;
+		left: 320px;
+	}
+
+	#studyPlanFile
+	{
+		top: 628px;
+		left: 320px;
+	}
+
+	
+	#submitbutton
+	{
+		border: 1px solid #0C66CC;
+		background: #0C66CC;
+		font-size: 14px;
+		font-family: Nunito;
+		cursor: pointer;
+		margin: 10px;
+		color: white;
+		transition: 0.8;
+		border-radius: 10px;
+		height: 43px;
+		width: 128px;
+		transition-duration: 0.4s;
+		position:absolute;
+		top: 760px;
+		left: 890px;
+	}
+	
+	#submitbutton:hover
+	{
+		
+		background-color: #2852A4;
+		border: 1px solid #2852A4;
+	}
+	
+	#imageForm
+	{
+		position:absolute;
+		top: 518px;
+		left: 740px;
+	}
+	
+/* for large screens*/
+@media (min-width:1600px) {
+   	html
+	{
+		
+	}
+	
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: auto;
+		height: 1000px;
+		overflow-x:hidden;
+		zoom:120%;
+	
+	}
+}
+/* for extra large screens*/
+@media (min-width:1920px) {
+   
+		html
+	{
+		
+	}
+	
+	body
+	{
+		background-color: #0C66CC;
+		overflow-y: auto;
+		height: 1000px;
+		overflow-x:hidden;
+		zoom:133%;
+	
+	}
+}
+	</style>

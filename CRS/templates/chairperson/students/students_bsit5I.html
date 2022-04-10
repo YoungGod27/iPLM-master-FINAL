@@ -1,0 +1,33 @@
+{% extends 'chairperson/students/students_bsit5.html' %}
+    {% block content %}
+        <form method="get">
+            {{result.form}}
+            <button type="submit">Search</button>
+        </form>
+        <br>
+        {{ year }}
+        Students:{{count}}
+        <a href="{% url 'students_bsit5I' %}">Irregular</a>
+        <table>
+            <thead>
+                <h3></h3>
+                <tr>
+                    <th>Student No.</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in bsit5 %}
+                <tr>
+                    <td>{{ i.studentID }}</td>
+                    <td>{{ i.studentUser.lastName }}</td>
+                    <td>{{ i.studentUser.firstName }}</td>
+                    <td>{{ i.studentUser.middleName }}</td>
+                    <td><div class="container1"><a href="{% url 'profile1_1' i.pk %}"><button class="btn btn5">view</button></a></div></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

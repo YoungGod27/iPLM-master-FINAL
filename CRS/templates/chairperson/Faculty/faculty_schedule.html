@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | Faculty</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/cFaculty/cFacultyStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+     <!--Icon-->
+     <link rel="icon" href="{% static 'CRS/images/cDepartment/iPLM.png' %}" type="image/png" sizes="16x16">
+
+    <style>
+        .tablepanel{
+            border-radius: 20px;
+            border: none;
+        }
+        
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        
+        #head3{
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+      </nav>
+    <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+                <br><br><br><br>
+                <div class="col-lg-1"><a class="back" href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cFaculty/back.svg' %}" width="50" height="45" id="backlogo"></a>
+                </div>
+
+                <div class="indvstud row">
+                    <!--Left Side | Faculty Profile | Blue Box-->
+                    <div class="col-blue blue-box col-lg-4">
+                        <div class="col-lg-12 mt-3">
+                            <div class="stud-profile row">
+                                <img src="{% static 'CRS/images/cFaculty/faculty.png' %}" height="32.6857142857" width="39.1428571429">
+                                <p id="sptext">&nbsp;&nbsp;Faculty Profile</p>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Last Name:</div>
+                                <div class="field col"><!-- DB LAST NAME -->
+                                    {{ info.facultyUser.lastName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">First Name:</div>
+                                <div class="field col"><!-- DB FIRST NAME -->
+                                    {{ info.facultyUser.firstName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Middle Name:</div>
+                                <div class="field col"><!-- DB MIDDLE NAME -->
+                                    {{ info.facultyUser.middleName }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Gender:</div>
+                                <div class="field col"><!--  DB GENDER -->
+                                    {{ info.facultyGender }}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Civil Status:</div>
+                                <div class="field col"><!-- DB CIVIL STATUS -->
+                                    {{ info.facultyCivilstatus }}
+                                </div>
+                            </div>
+                            <div class="stud-det row">
+                                <div class="sdtext col">Citizenship:</div>
+                                <div class="field col"><!-- DB CITIZENSHIP -->
+                                    {{ info.facultyCitizenship }}
+                                </div>
+                            </div>
+
+                            <hr class="bluebox">
+                            <div class="stud-det row">
+                                <div class="sdtext col">Faculty ID:</div>
+                                <div class="field col"><!-- DB FACULTY ID -->
+                                    {{ info.facultyID }}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">Department:</div>
+                                <div class="field col"><!-- DB DEPARTMENT -->
+                                    {{ info.departmentID }}
+                                </div>
+                            </div>
+
+                            <hr class="bluebox">
+                            <div class="stud-det row">
+                                <div class="sdtext col">Contact Number</div>
+                                <div class="field col"><!-- DB CONTACT NUMBER -->
+                                    {{info.facultyContact}}
+                                </div>
+                            </div>
+
+                            <div class="stud-det row">
+                                <div class="sdtext col">PLM Email:</div>
+                                <div class="field col"><!-- DB EMAIL -->
+                                    {{ info.facultyUser.email }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of Left Side-->
+
+
+
+                    <!--Right Side / SCHEDULE-->
+
+                        <div class="fill-in col-lg-8 pr-0">
+                            <form>
+                                <div class="tablepanel table-responsive-lg">
+                                    <table class="borderless table">
+
+                                        <tr class="primary-att"><!-- TABLE HEADER -->
+                                            <th scope="col"><p id="head3"><b>Code</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Subject Name</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Section</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Day</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Time Start</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Time End</b></p></th>
+                                            <th scope="col"><p id="head3"><b>Session Type</b></p> </th>
+
+                                             
+                                              {% for i in schedule %}
+                                        <tr class="tabletext2"><!-- FIRST ROW / SUBJECT -->
+                                            <td><p> {{i.subjectCode.subjectCode.subjectCode}}</p></td> <!-- DB SUBJECT CODE -->
+                                            <td><p> {{i.subjectCode.subjectCode.subjectName}} </p></td><!-- DB SUBJECT NAME -->
+                                            <td><p> {{i.subjectCode.blockCourse}}{{ i.realsection}} </p></td><!-- DB SECTION -->
+                                            <td><p> {{ i.day}} </p></td><!-- DB DAY -->
+                                            <td><p> {{ i.timeStart}} </p></td><!-- DB TIME IN -->
+                                            <td><p> {{ i.timeEnd}} </p></td><!-- DB TIME OUT -->
+                                            <td><p> {{i.type}} </p></td><!-- DB SESSION TYPE -->
+                                        </tr>
+                                        {%endfor%}
+                                    </table>
+                                </div>
+                            </form>
+
+                            <div id="list-feedback1">
+                                <br><!-- DB EDIT SCHEDULE BUTTON BELOW-->
+                                <a href="{% url 'faculty_edit' info.facultyUser.id %}"><button class="editSched"><img src="{% static 'CRS/images/cFaculty/edit2-white.png' %}" width="36" height="auto">Edit Schedule</button></a><!-- DB FEEDBACK BUTTON -->
+                            </div>
+                        </div>
+                    <!--End of Right Side-->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

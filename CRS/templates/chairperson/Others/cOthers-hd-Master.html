@@ -1,0 +1,392 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>  
+ 
+<head>
+    <title>Chairperson | Honorable Dismissal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="{% static 'CRS/css/cOthers/chairOthers.css' %}">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cOthers/iPLM.png' %}  " type="image/png" sizes="16x16">
+
+    
+    <style>
+
+        #buttons-1 .btn-1 {
+        border-radius: 14px 14px 14px 14px;
+        padding-right: 25px;
+        padding-left: 25px;
+        font-size: 18px;
+        text-align: center;
+        width: auto;
+        height: 50px;
+        background-color: #0C66CC;
+        color: white;
+        border: 3px solid #0C66CC ;
+    
+        
+        }
+    
+        #buttons-2 .btn-2 {
+        border-radius: 14px 14px 14px 14px;
+        padding-right: 25px;
+        padding-left: 25px;
+        font-size: 18px;
+        text-align: center;
+        width: auto;
+        height: 50px;
+        background-color: white;
+        color: #0C66CC;
+        border: 3px solid #0C66CC ;
+        margin-right: 20px;
+        }
+    
+    
+        #buttons-1 .btn-1:hover{
+            background-color: #0b5bb6;
+            color: white;
+        }
+    
+        #buttons-2 .btn-2:hover{
+            background-color: #0b5bb6;
+            border: 3px solid #0b5bb6 ;
+            color: white;
+        }
+    
+        .status {
+        font-family: Nunito;
+        color: #C8C8C8;
+        font-size: 28px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+        }
+    
+        #submit {
+        background-color: #0C66CC;
+        color: white;
+        border-radius: 12px;
+        width: 60px;
+        height: 50px;
+        border: transparent;
+        float: right;
+        margin-top: -55px;
+        }
+    
+        #submit:hover{
+            background-color: #0850a1;
+        }
+    
+    
+        .form-control{
+        border-radius: 15px;
+        background: #ECECEC;
+        border: none;
+        height: 50px;
+        width: 30%;
+        font-size: 20px;
+        }
+    
+        .searchBox{
+        border-radius: 15px;
+        background: #ECECEC;
+        border: none;
+        height: 50px;
+        width: 30%;
+        font-size: 20px;
+        float: right;
+        margin-top: -55px;
+        margin-right: 70px;
+        }
+    
+        .searchbox :focus{
+            outline: none;
+        }
+    
+        .app-panel{
+        box-shadow: none;
+        background: none;
+        height: 70px;
+        font-size: 20px;
+        color: #0C66CC;
+        text-align: left;
+        vertical-align: center;
+        padding: 40px 10px 10px 10px;
+        font-family: 'Nunito';
+        
+        margin-top: 35px;
+        margin-bottom: 35px;
+        padding-left: 35px;
+        }
+    
+        .borderless td,
+            .borderless th {
+                border: none;
+        }
+    
+        .primary-att {
+            position: sticky;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            color: white;
+            background-color: #fcfcfc;
+            }
+    
+            tr:nth-child(even) {background-color: #f2f2f2;}
+    
+            .tablepanel::-webkit-scrollbar {
+                width: 10px;
+                background: white;
+                border-radius: 20px;
+                height: 200px;
+                
+            }
+    
+            .tablepanel::-webkit-scrollbar-thumb {
+                background:#c5c5c5;
+                border-radius: 0 8px 8px 0;
+                height: 300px;
+            }
+    
+            .tabletext1 {
+                text-align: left;
+                letter-spacing: 1px;
+                font-size: 14px;
+                font-family: 'Nunito';
+                color: #0C66CC;
+                
+            }
+    
+            .tablepanel {
+                overflow-y: scroll;
+                width: 100%;
+                height: 560px;
+                border-radius: 20px;
+                font-family: 'Nunito';
+                color: #0C66CC;
+                font-size: 20px;
+            }
+    
+    
+    
+        </style>
+</head>
+
+<body>
+    {% block content %}
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+          </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- OTHERS SIDEBAR -->
+                <div class="oth">
+                    <p id="others">Others</p>
+                </div>
+                
+                <div class="row px-5">
+
+                    <div class="col-lg-4">
+                        <p id="students">Students</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-studyPlan' %}" id="buttons"><button type="button" class="btn btn1">Study Plan</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-loa' %}" id="buttons"><button type="button" class="btn btn1">Leave of Absence</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-hd' %}" id="buttons"><button type="button" class="btn-btn2">Honorable Dismissal</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-ojt' %}" id="buttons"><button type="button" class="btn btn1">Practicum</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-shifter' %}" id="buttons"><button type="button" class="btn btn1">Shifter</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-transferee' %}" id="buttons"><button type="button" class="btn btn1">Transferee</button></a></div>
+                        <!-- FACULTY REQUESTS-->
+                        <p id="faculty">Faculty</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cfaculty_applicant' %}" id="buttons"><button type="button" class="btn btn1">Application</button></a></div>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'cOthers-partTime' %}" id="buttons"><button type="button" class="btn btn1">Part-Time Availability</button></a></div>
+
+                    </div>
+                    <div class="container col-lg-8">
+                        <p id="application"><b>Honorable Dismissal</b>
+                            <div class="searchbox">
+                                <a href="{% url 'cOthers-hd' %}" id="buttons-2"><button type="button" class="btn-2 btn2">General</button></a>
+                                <a href="{% url 'cOthers-hd-Master' %}" id="buttons-1"><button type="button" class="btn-1 btn2">Master List</button></a>
+
+                               
+                            </div>
+                        </p>
+
+                        <br><hr><br>
+
+                        <!-- REQUEST LIST -->
+
+                        <!-- INDIVIDUAL REQUEST-->
+                        {% if hd_masterlist %}
+                        <div class="tablepanel table-responsive-lg">
+                            <table class="borderless table">
+                                <tr class="primary-att" style="font-size: 20px; background-color: #0C66CC; box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                    <td>ID</td>
+                                    <td colspan="2">Name</td>
+                                    <td>Year</td>
+                                    <td>Registration</td>
+                                    <td>Date</td>
+                                    <td>Status</td>
+                                </tr>
+                        
+
+                                <!--SUBMITTED-->
+                                {% if hd_submitted %}
+                                
+                                <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                    <td colspan="7" style="font-size: 20px; background-color: #cae2ff;"><b>Submitted</b></td>
+                                </tr>
+                                {% for hd in hd_submitted %}
+                                <tr>
+                                    {%if info.departmentID == hd.studentID.departmentID%}
+                                    <td><b>{{ hd.studentID.studentID }}</b></td>
+                                    <td colspan="2">{{ hd.studentID.studentUser.lastName }}, {{ hd.studentID.studentUser.firstName }}</td>
+                                    <td>{{ hd.studentID.studentYearlevel }}</td>
+                                    <td>{{ hd.studentID.studentRegStatus }}</td>
+                                    <td>{{ hd.hd_dateSubmitted }}</td>
+                                    <td><b>{{ hd.remarks }}</b></td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                            
+
+                            <!--Forwarded-->
+                            {% if hd_forwarded %}
+                                
+                            <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                <td colspan="7" style="font-size: 20px; background-color: #cae2ff;"><b>Forwarded</b></td>
+                            </tr>
+                            {% for hd in hd_forwarded %}
+                            <tr>
+                                {%if info.departmentID == hd.studentID.departmentID%}
+                                <td><b>{{ hd.studentID.studentID }}</b></td>
+                                <td colspan="2">{{ hd.studentID.studentUser.lastName }}, {{ hd.studentID.studentUser.firstName }}</td>
+                                <td>{{ hd.studentID.studentYearlevel }}</td>
+                                <td>{{ hd.studentID.studentRegStatus }}</td>
+                                <td>{{ hd.hd_dateSubmitted }}</td>
+                                <td><b>{{ hd.remarks }}</b></td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+
+
+                            <!--Returned-->
+                            {% if hd_returned %}
+                                
+                            <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                <td colspan="7" style="font-size: 20px; background-color: #cae2ff;"><b>Returned</b></td>
+                            </tr>
+                            {% for hd in hd_returned %} 
+                            <tr>
+                                {%if info.departmentID == hd.studentID.departmentID%}
+                                <td><b>{{ hd.studentID.studentID }}</b></td>
+                                <td colspan="2">{{ hd.studentID.studentUser.lastName }}, {{ hd.studentID.studentUser.firstName }}</td>
+                                <td>{{ hd.studentID.studentYearlevel }}</td>
+                                <td>{{ hd.studentID.studentRegStatus }}</td>
+                                <td>{{ hd.hd_dateSubmitted }}</td>
+                                <td><b>{{ hd.remarks }}</b></td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                            
+
+                            <!--In Progress-->
+                            {% if hd_inprogress %}
+    
+                            <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                <td colspan="7" style="font-size: 20px; background-color: #cae2ff;"><b>In Progress</b></td>
+                            </tr>
+                            {% for hd in hd_inprogress %}
+                            <tr>
+                                {%if info.departmentID == hd.studentID.departmentID%}
+                                <td><b>{{ hd.studentID.studentID }}</b></td>
+                                <td colspan="2">{{ hd.studentID.studentUser.lastName }}, {{ hd.studentID.studentUser.firstName }}</td>
+                                <td>{{ hd.studentID.studentYearlevel }}</td>
+                                <td>{{ hd.studentID.studentRegStatus }}</td>
+                                <td>{{ hd.hd_dateSubmitted }}</td>
+                                <td><b>{{ hd.remarks }}</b></td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        
+
+                            <!--Complete-->
+                            {% if hd_complete %}
+
+                            <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
+                                <td colspan="7" style="font-size: 20px; background-color: #cae2ff;"><b>In Progress</b></td>
+                            </tr>
+                            {% for hd in hd_complete %} 
+                            <tr>
+                                {%if info.departmentID == hd.studentID.departmentID%}
+                                <td><b>{{ hd.studentID.studentID }}</b></td>
+                                <td colspan="2">{{ hd.studentID.studentUser.lastName }}, {{ hd.studentID.studentUser.firstName }}</td>
+                                <td>{{ hd.studentID.studentYearlevel }}</td>
+                                <td>{{ hd.studentID.studentRegStatus }}</td>
+                                <td>{{ hd.hd_dateSubmitted }}</td>
+                                <td><b>{{ hd.remarks }}</b></td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        
+                        </table></div>
+
+                        {% else %}
+                                <div align="center">
+                                    <img src="{% static 'CRS/images/cOthers/clip-2.png' %}" width="600px" height="auto">
+                                    <br>
+                                    <span class="fileName"> NO HD APPLICANTS</span>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+{% endblock %} 
+</body>
+</html>

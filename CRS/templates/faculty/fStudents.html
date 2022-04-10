@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Faculty | Student</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'CRS/css/fStudents/fStudentsStyle.css' %}">
+    <!--Font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/fStudents/iPLM.png' %}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        
+       <!-- Sidebar -->
+       <nav id="sidebar">
+        <div class="sidebar-header">
+            <li>
+                <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+            </li>
+        </div>
+        <ul class="sidebar components">
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fHome.html-->
+            <li class="active"><a href="{% url 'fHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fHomeAndProfile/fProfile.html-->
+            <li><a href="{% url 'fProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+            <li><a href="{% url 'fStudents_advisory' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: Faculty/fClassroom/fViewSched.html-->
+            <li><a href="{% url 'fViewSched' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+            <!-- FILE PATH: LOG-OUT -->
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
+    </nav>
+    <!--End of Sidebar -->
+
+
+        <!-- Content -->
+        <div id="content">
+            <div class=" container-fluid">
+                <div class="row" id="head">
+                        <p>Students</p>
+                    </div>
+                <!-- NAVIGATIO BAR -->
+                <div class="main row">
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+                    <div class="firstdropdown">
+                        <p class="firstyear">Subject</p><!-- DB SUBJECT NAME -->
+                        <div class="firstdropdown-content">
+                            <!-- FILE PATH: Faculty/fStudents/fStudents.html-->
+                          <a href="{% url 'fStudents' %}">Section 1</a><!-- DB SUBJECT SECTION -->
+                        </div>
+                    </div>
+
+     
+                </div>
+
+                <!--End of NAVIGATION BAR-->
+                
+                <!--FULL TIME LIST-->
+                <div class="sub-year row">
+                    <p id="fulltime">Subject</p><!-- DB YEAR --><!-- DB SUBJECT NAME -->
+                    <p id="fulltime" style="margin-left: 50px;">|</p>
+                    <p id="fulltime" style="margin-left: 50px;">Section</p><!-- DB SUBJECT SECTION -->
+                    <div class="row" id="studentCount">Student: 0</div><!-- STUDENT COUNT -->
+                </div>
+                
+                <hr class="new">
+                
+                <!-- TABLE HEADER -->
+                <div class="list row">
+                    <div class="col-15">
+                        <table>    
+                            <tr>
+                                <td id="list"><b><p>Student No.</p></b></td><!-- Student Number Label -->
+                                <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Student -->
+                                <td id="listname"><b><p>First Name</p></b></td><!-- Firs Name of Student -->
+                                <td id="listname"><b><p>Middle Name</p></b></td><!-- Middle Name of Student -->
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                
+
+                <!-- DATA OF TABLE -->
+                <div class="list row">
+                        <div class="table-wrapper-scroll-y scroll">
+                            <table>   
+                                <!--ROW 1-->
+                                <tr> 
+                                    <td id="list"><p>201810246</p><!-- DB STUDENT NO --></td>
+                                    <td id="listname"><p>dela Cruz</p><!-- DB LAST NAME --></td>
+                                    <td id="listname"><p>Juana Rose</p><!-- DB FIRST NAME --></td>
+                                    <td id="listname"><p>Roberto</p><!-- DB MIDDLE NAME --></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                
+                <!--Search box-->
+                <div class="searchbox">
+                    <input type="text" name="search" id="search">&nbsp;&nbsp;
+                    <a href="#"><button type="submit" id="submit" value="Search"> Search </button></a>
+                    </button>
+                </div>
+                <!--End of Search box-->
+                
+
+                <!--Gray Line-->
+                <div class="col-searchline">
+                    <div class="grayline">
+                    </div>
+                </div>
+                <!--End of gray line-->
+
+                <!--picture-->
+                <!-- Section Information -->
+                <div class="boxed" id="secInfo">
+                    <form action="/action_page.php">
+                        <table>
+                            <tr>
+                                <td ><img src="{% static 'CRS/images/fStudents/block.png' %}" width="55px" height="33px" class="secInfoHead"></td>
+                                <td colspan="2"><p class="secInfoHead"> Section Information </p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><hr></td>
+                            </tr>
+                        </table>
+                        
+                        <div id="OtherIn">
+                        <table>
+                            <tr><!-- DB SESSION TYPE ROW -->
+                                <td><label for="sessType">Code</label></td>
+                                <td><p id="sessType" name="sessType">ICC-001</p></td>
+                            </tr>
+                            <tr><!-- DB DAY ROW -->
+                                <td><label for="day">Day</label></td>
+                                <td><p id="day" name="day">Monday</p></td>
+                            </tr>
+                            <tr><!-- DB TIME ROW -->
+                                <td><label for="time">Time In</label></td>
+                                <td><p id="time" name="time">7:00 am</p></td>
+                            </tr>
+                            <tr><!-- DB ROOM ROW -->
+                                <td><label for="room">Time Out</label></td>
+                                <td><p id="room" name="room">9:30 am</p></td>
+                            </tr>
+                            
+                        </table>
+                        
+                        </div>
+                    </form>
+                </div>
+                <!--End of picture-->
+            </div>
+        </div>
+        <br><br>
+
+</div>
+</div>
+</body>
+</html>

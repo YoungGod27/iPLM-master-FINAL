@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Student Others </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static 'CRS/css/sOthers/sStudyplan4.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
+    <style>
+            #saveacopybtn {
+            width: 180px;
+            height: 60px;
+            background: #0C66CC;
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-family: 'Nunito';
+            float: right;
+            margin-right: 150px;
+            margin-top: 20px;
+            border: 2px solid #0C66CC;
+            }
+
+            #saveacopybtn:hover {
+                background: #2852a4;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'sHome' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}"width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sProfile' %}"><img src="{% static 'CRS/images/cIcons/profile2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sClassroom' %}"><img src="{% static 'CRS/images/cIcons/classroom2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'sOthers' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+        </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+        <div id="content">
+            <div class="container-fluid">
+
+                <div class="back row">
+                    <a href="{% url 'stdplnview' %}" id="back-edit"><img src="{% static 'CRS/images/sClassroom/back.svg' %}" width="50" style="margin-top: 30px;"></a>
+                   <p id="head1">
+                        Study Plan
+                    </p>
+
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="progress row">
+                            <div class="col-lg-12">
+                                <div class="progress-bar "></div>
+                                <div class="progressbar">
+                                        <li class="active progress-text-active">Upcoming<br>Semester</li>
+                                        <li class="active progress-text-active">Subjects<br>Taken</li>
+                                        <li class="active progress-text-active">Study<br>Plan</li>
+                                        <li class="active progress-text-active">Upload<br>Documents</li>
+                                        <li class="progress-text">Confirmation<br>Submission</li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END Progress Bar-->
+
+            
+         <!------Upload content------>
+
+ 
+                <div class="upload row">
+                    <div class="col-lg-12">
+                   
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p id="head2"><b>Upload Documents</b><br></p>
+                                <p id="head3">Please upload your Study Plan.</p>
+                            </div>
+                            {% if messages %}
+                            {% for message in messages %}
+                            <p id="head3">{{ message }}</p>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <form method="POST" enctype="multipart/form-data">
+                            {%csrf_token%}   
+                        <div>
+                            <button style="padding-left: 20px;" id="button2hvr">Study Plan</button>
+                            <input type="file" name="studyPlanUp" required>
+
+                            
+                        </div>
+                        
+                        <!-----------SUBMIT BUTTON------->
+                        <div class="rows">
+                            <br>
+                            <div class="col-lg-12"><img src="{% static 'CRS/images/sOthers/clip-remote.png' %}" height="210px" width="350px">
+                                
+                            </div>
+                        </div>
+
+                        <a href="#"><button type="submit"  id="saveacopybtn">Submit</button></a>
+                        
+                        
+                        </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END Upload Content -->
+
+
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        const selected = document.querySelector(".selected");
+        const optionsContainer = document.querySelector(".options-container");
+
+        const optionsList = document.querySelectorAll(".option");
+
+        selected.addEventListener("click", () => {
+            optionsContainer.classList.toggle("active");
+        });
+
+        optionsList.forEach(o => {
+            o.addEventListener("click", () => {
+                selected.innerHTML = o.querySelector("label").innerHTML;
+                optionsContainer.classList.remove("active");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
