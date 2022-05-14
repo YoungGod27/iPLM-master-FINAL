@@ -45,8 +45,8 @@ def index(request):
         if user is not None:
             login(request, user)
             type_obj = request.user
-            if user.is_authenticated and type_obj.is_chairperson and type_obj.is_admin and type_obj.is_faculty:
-                return redirect('choose_one')
+            if user.is_authenticated and type_obj.is_chairperson:
+                return redirect('chairperson')
             elif user.is_authenticated and type_obj.is_admin:
                 return redirect('admin')
             elif user.is_authenticated and type_obj.is_faculty:
