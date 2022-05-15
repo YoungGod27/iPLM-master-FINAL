@@ -82,7 +82,7 @@ DATABASES = {
 'ENGINE': 'django.db.backends.mysql',
 'NAME': 'iplmdatabase',
 'USER': 'root',
-'PASSWORD': 'password',
+'PASSWORD': '',
 'HOST': '',
 'PORT': '',
 'OPTIONS': {
