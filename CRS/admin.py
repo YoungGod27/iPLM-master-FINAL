@@ -326,7 +326,7 @@ class subjectInfoAdmin(admin.ModelAdmin):
         return obj.yearstanding 
 
     def college(self, obj):
-        return obj.college.collegeName
+        return obj.college.collegeNamecd 
 
     #list_filter = ('subjectCode','subjectName','yearstanding','college')
 

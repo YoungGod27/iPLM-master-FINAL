@@ -5149,6 +5149,22 @@ def GradesNotif(request):
     else:
          return redirect('index')
 
+def send_notifications (user_id, title, description):
+    Notification(user_id=user_id, title=title, description=description) 
+    Notification.save() 
+    return 'Successfully Send Notification'
+
+def students_allI(request):
+    bsit = StudentInfo.objects.filter(studentRegStatus='Irregular', studentCourse='BSIT') 
+    result = filters. Search(request.GET, queryset=bsit); bsit = result.qs 
+    year = "ALL" 
+    context = {'bsit': bsit, 'result': result, 'count': count, 'year': year} 
+    send_notifications(
+    user_id=chairperson.id, 
+    title="Someone Accessed Students All Page", 
+    description="A notification sent at students_allI"
+    )
+    return render(request, './chairperson/students/students_alli.html', context),
 
 
 
