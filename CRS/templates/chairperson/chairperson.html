@@ -85,10 +85,13 @@
                                         <td class="notification"><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px">
                                             <div class="dropdown-menu">
                                                 <p id="notiftitle">Notifications<br></p><!-- DB NOTIFICATION DATA BELOW -->
-                                                <a  href="chairperson_notification.html"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <a  href="chairperson_notification.html"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <a  href="chairperson_notification.html"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <a  href="chairperson_notification.html"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
+                                                {% if notifications %}
+                                                    {% for notification in notifications %}
+                                                    <a  href="chairperson_notification.html"><p id="notifdrops"><b>{{notification.title}}</b><br>{{notification.description}}</p><br></a>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <p>No Notifications</p>
+                                                {% endif %}
                                             </div>
                                         </td>
                                         <td>
