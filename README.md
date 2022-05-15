@@ -35,5 +35,8 @@ DB_NAME = **iplmdatabase**
 > Password: Abc_1234 (Type lang kayo kahit di visible) <br>
 > Password (again): Abc_1234 <br>
 
+_Optional_
+You can run `python manage.py databaseseed` to add users with default password of `password`
+
 **9 Runserver**
 `python manage.py runserver` then **Ctrl+click 127.0.0.1:8000**

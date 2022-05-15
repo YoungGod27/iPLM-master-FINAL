@@ -35,6 +35,17 @@ def error_500_view(request):
 
 def aboutUs(request):
     return render(request, 'aboutUs.html')
+
+def get_notifications(user_id):
+    try :
+        return Notification.objects.filter(user_id=user_id)
+    except Notification.DoesNotExist:
+        return None
+
+def send_notifications(user_id, title, description):
+    Notification(user_id=user_id, title=title, description=description)
+    Notification.save()
+    return 'Successfully Send Notification'
     
 def index(request):
     if request.method == 'POST':
@@ -89,9 +100,10 @@ def chairperson(request):
             countf = FacultyInfo.objects.filter(departmentID=cperson.departmentID).count()
             college = College.objects.filter(collegeName='CET')
             countsub = subjectInfo.objects.filter(college__in=college).count()
+        notifications = get_notifications(id)
         return render(request, './chairperson/chairperson.html', {'user': user, 'fname': fname, 'mname': mname,
                                                                   'lname': lname, 'counts': counts, 'countf': countf,
-                                                                  'countsub': countsub, 'acad': acad})
+                                                                  'countsub': countsub, 'acad': acad, 'notifications': notifications})
     else:
         return redirect('index')    
 
