@@ -807,3 +807,8 @@ class courseListAdmin(admin.ModelAdmin):
 admin.site.register(Curricula, CurriculaAdmin),
 admin.site.register(courseList, courseListAdmin),
 admin.site.register(studyPlan),
+
+class NotificationAdmin(admin.ModelAdmin): 
+    list_display = ['user_id', 'title', 'description', 'status', 'created_at']
+
+admin.site.register(Notification, NotificationAdmin) 
