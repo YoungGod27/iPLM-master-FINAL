@@ -400,8 +400,7 @@ urlpatterns = [
     path(r'cOthers-transferee-csw/<transf_id>', views.transferee_csw, name="cOthers-transferee-csw"),
     path(r'transferee_Pdf/<transf_id>', views.transferee_Pdf, name="transferee_Pdf"),
     path(r'del_alltransferee/<transf_id>', views.del_alltransferee, name="del_alltransferee"),
-
-
+    path(r'notifications/<notification_id>', views.notifications, name='notifications'),
 
     #etc 
     url(r'^admin/$', views.admin, name='admin'),
