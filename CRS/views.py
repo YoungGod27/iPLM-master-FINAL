@@ -1458,13 +1458,30 @@ def students_bsee6B6(request):
     return render(request, './chairperson/students BSEE/students_bsee6B6.html', context)
 
 # Faculty (chairperson)
+#def full_time(request):
+   # id = request.user.id; cperson = FacultyInfo.objects.get(pdk=id)
+    #work_status = FacultyInfo.objects.filter(facultyWorkstatus='Full-Time').filter(departmentID=cperson.departmentID)
+    #count = work_status.count()
+    #result = filters.Faculty(request.GET, queryset=work_status); work_status = result.qs
+    #context = {'work_status': work_status, 'count': count, 'result': result}
+    #return render(request, './chairperson/Faculty/full_time.html', context)
+
+
 def full_time(request):
     id = request.user.id; cperson = FacultyInfo.objects.get(pk=id)
     work_status = FacultyInfo.objects.filter(facultyWorkstatus='Full-Time').filter(departmentID=cperson.departmentID)
     count = work_status.count()
-    result = filters.Faculty(request.GET, queryset=work_status); work_status = result.qs
-    context = {'work_status': work_status, 'count': count, 'result': result}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        work_status = FacultyInfo.objects.filter(
+            Q(facultyID__contains=search) |
+            Q(facultyUser__firstName__icontains=search) |
+            Q(facultyUser__lastName__icontains=search) |
+            Q(facultyUser__middleName__icontains=search)
+        )
+    context = {'work_status': work_status, 'count': count}
     return render(request, './chairperson/Faculty/full_time.html', context)
+
 def part_time(request):
     id = request.user.id; cperson = FacultyInfo.objects.get(pk=id)
     work_status = FacultyInfo.objects.filter(facultyWorkstatus='Part-Time').filter(departmentID=cperson.departmentID)
@@ -1835,7 +1852,7 @@ def parttime_sched(request):
         return redirect('index')
 
 
-def fStudents_advisory(request):
+"""def fStudents_advisory(request):
     if request.user.is_authenticated and request.user.is_faculty:
         id= request.user.id
         f_user = FacultyInfo.objects.get(pk = id)
@@ -1848,7 +1865,24 @@ def fStudents_advisory(request):
         context = {'advisory': advisory, 'count': count, 'stud_advisory': stud_advisory}
         return render(request, 'faculty/fStudents_advisory.html', context)
     else:
+        return redirect('index')"""
+
+def fStudents_advisory(request):
+    if request.user.is_authenticated and request.user.is_faculty:
+        id= request.user.id
+        f_user = FacultyInfo.objects.get(pk = id)
+        advisory = BlockSection.objects.filter(adviser = f_user)
+        section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSIT')
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).filter(studentSection__in=section); 
+        count = stud_advisory.count()
+        if count == 0:
+            messages.error (request, 'You have no advisory class!')
+            return render (request, './faculty/fStudents_advisory.html')
+        context = {'advisory': advisory, 'count': count, 'stud_advisory': stud_advisory}
+        return render(request, 'faculty/fStudents_advisory.html', context)
+    else:
         return redirect('index')
+
 
 def fStudents_viewStudentGrade (request,stud_id):
     fcount = 0
