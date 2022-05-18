@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CRS",
+    "\\CRS\\management",
+    "\\CRS\\management\\commands",
+    "\\CRS\\static",
+    "\\CRS\\static\\CRS",
+    "\\CRS\\static\\CRS\\images",
+    "\\CRS\\templates",
+    "\\staticfiles"
+  ],
+  "SelectedNode": "\\CRS\\views.py",
+  "PreviewInSolutionExplorer": false
+}
