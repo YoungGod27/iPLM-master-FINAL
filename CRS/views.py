@@ -5161,6 +5161,19 @@ def GradesNotif(request):
     else:
          return redirect('index')
 
-
-
+def notifications(request, notification_id):
+    fname = request.user.firstName
+    mname = request.user.middleName
+    lname = request.user.lastName
+    notification = Notification.objects.get(pk=notification_id)
+    notifications = get_notifications(request.user.id)
+    print(notification.title)
+    return render(request, 'chairperson/chairperson_notification.html', 
+    {
+        'fname' : fname,
+        'mname' : mname,
+        'lname' : lname,
+        'notification' : notification,
+        'notifications': notifications
+    })
 
