@@ -1,3 +1,4 @@
+import dataclasses
 from django.contrib.messages.api import error
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, update_session_auth_hash
@@ -6,7 +7,7 @@ from django.contrib import messages
 from . import filters
 from .forms import *
 from .models import *
-from django.conf import os
+from django.conf import PASSWORD_RESET_TIMEOUT_DAYS_DEPRECATED_MSG, os
 from iPLMver2.settings import EMAIL_HOST_USER
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -22,10 +23,16 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.forms import inlineformset_factory
 from django.db.models import Avg, Sum
-from django.core.mail import EmailMultiAlternatives, send_mail, EmailMessage
+from django.core.mail import EmailMultiAlternatives, send_mail, EmailMessage, BadHeaderError
 from CRS.models import FacultyApplicant
 from django.db.models import Q
 from django.utils import timezone
+from django.contrib.auth.forms import PasswordResetForm
+from django.template.loader import render_to_string
+from django.db.models.query_utils import Q
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 
 def error_404_view(request,exception):
     return render(request, 'error.html')
@@ -5211,3 +5218,34 @@ def notifications(request, notification_id):
         'notifications': notifications
     })
 
+def pw_reset(request):
+    if request.method == 'POST':
+        password_form = PasswordResetForm(request.POST)
+        if password_form.is_valid():
+            data = password_form.cleaned_data['email']
+            user_email = User.objects.filter(Q(email=data))
+            if user_email.exists():
+                for user in user_email:
+                    subject = 'Password Reset Request'
+                    email_template_name = 'pw_reset/password_message.txt'
+                    parameters = {
+                        'email': user.email,
+                        'lastName': user.lastName,
+                        'domain': '127.0.0.1:8000',
+                        'site_name': 'iPLM',
+                        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                        'token': default_token_generator.make_token(user),
+                        'protocol': 'http',
+                    }
+                    email = render_to_string(email_template_name, parameters)
+                    try:
+                        send_mail(subject, email, '', [user.email], fail_silently=False)
+                    except:
+                        return HttpResponse('Invalid Header')
+                    return redirect('password_reset_done')
+    else:
+        password_form = PasswordResetForm()
+    context = {
+        'password_form': password_form,
+    }
+    return render(request, 'pw_reset/password_reset.html', context)

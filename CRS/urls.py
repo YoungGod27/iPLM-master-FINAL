@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 # This code is for creating new pages and redirecting to their URLS.
+from django.contrib.auth import views as auth_view # this is for pw-reset
 
 urlpatterns = [
 
@@ -410,6 +411,15 @@ urlpatterns = [
     url(r'^cStudentSchedOnline/$', views.schedOnline, name='cStudentSchedOnline'),
     path(r'^cStudentSchedOnline2/<block_id>$', views.schedOnline2, name='cStudentSchedOnline2'),
     url(r'^cStudentDeleteSched/(?P<block_id>[a-zA-Z0-9]+)/(?P<sec_id>[a-zA-Z0-9]+$)', views.cStudentDeleteSched, name='cStudentDeleteSched'),
-    
+
+    # pw_reset
+    path('password_reset/', views.pw_reset, name='password_reset'),
+    path('password_reset_done/', auth_view.PasswordResetDoneView.as_view(template_name='pw_reset/password_reset_done.html'),
+         name='password_reset_done'),
+    path('password_reset_confirm/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='pw_reset/password_reset_confirm.html'),
+         name='password_reset_confirm'),
+    path('password_reset_complete/', auth_view.PasswordResetCompleteView.as_view(template_name='pw_reset/password_reset_complete.html'),
+         name='password_reset_complete'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
