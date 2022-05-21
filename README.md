@@ -7,7 +7,7 @@
 
 **2 Activate virtual env.**
 Bash : `$ source ./env/Scripts/Activate`
-CMD : `env\Scripts\Activate.bat`
+CMD : `env\Scripts\Activate.bat` or by simply typing `env`
 
 **3 Install dependencies**
 `pip install -r requirements.txt`
@@ -41,3 +41,4 @@ You can run `python manage.py databaseseed` to add users with default password o
 
 **9 Runserver**
 `python manage.py runserver` then **Ctrl+click 127.0.0.1:8000**
+<br> or you can simply type `run` then hit enter then paste this link `localhost:8000` in your browser to access the iPLM website.
