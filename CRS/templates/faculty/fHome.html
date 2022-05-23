@@ -156,7 +156,14 @@
                             <div class="col-lg-9 pt-3">
                                 <table>
                                     <tr>
-                                        <br>
+                                       <td class="notification"><a href="{% url 'fHomeNotification' %}"><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px"></a>
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Notifications<br></p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p id="pipe">|</p>
+                                        </td>
                                         <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
                                         <td id="uname">{{user.firstName}} {{user.middleName}} {{user.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
                                     </tr>
