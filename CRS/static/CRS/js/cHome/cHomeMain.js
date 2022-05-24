@@ -48,3 +48,27 @@ _id("password-field").addEventListener("keyup", function () {
         _class("policy-length")[0].classList.remove("active");
     }
 });
+
+
+
+
+
+
+
+function togglemenu() {
+var x = document.getElementById("qlinks");
+if (x.style.display === "none") {
+    x.style.display = "block";
+} else {
+    x.style.display = "none";
+}
+
+var y = document.getElementById("sidebar-wrapper");
+if (y.style.display === "none") {
+    y.style.display = "block";
+} else {
+    y.style.display = "none";
+}
+
+}
+        

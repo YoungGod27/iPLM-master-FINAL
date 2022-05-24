@@ -352,7 +352,22 @@ hr.schedInfoLine {
     top:280px;
 }
 
+#search {
+    border-radius: 12px 12px 12px 12px;
+    width: 360px;
+    height: 50px;
+    background-color: #E9E9E9;
+    border: transparent;
+}
 
+#submit {
+    background-color: #0C66CC;
+    color: white;
+    border-radius: 12px 12px 12px 12px;
+    width: 120px;
+    height: 50px;
+    border: transparent;
+}
 
 .searchbox1 {
     position: absolute;
