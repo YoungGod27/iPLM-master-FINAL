@@ -1635,6 +1635,7 @@ def others_studyplan(request):
 # -------------------- FACULTY VIEWS ----------------------------------
 def fHome(request):
     if request.user.is_authenticated and request.user.is_faculty:
+        id_adv = request.user.id
         user = request.user
         facultyInfo = request.user.facultyinfo
         acad = AcademicYearInfo.objects.all
@@ -1642,8 +1643,13 @@ def fHome(request):
         collegeid=facultyInfo.collegeID_id
         college=College.objects.get(id=collegeid)
         department=Department.objects.get(id = departmentid)
+        f_user = FacultyInfo.objects.get(pk = id_adv)
+        advisory = BlockSection.objects.filter(adviser = f_user)
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory)
+        count_block = advisory.count()
+        count_stud = stud_advisory.count()
         
-        return render(request,'./faculty/fHome.html',{'user':user,'facultyInfo':facultyInfo,'department':department,'college':college,'acad':acad})
+        return render(request,'./faculty/fHome.html',{'user':user,'facultyInfo':facultyInfo,'department':department,'college':college,'acad':acad, 'count_block':count_block, 'count_stud':count_stud})
     else:
         return redirect('index')
 
@@ -1652,7 +1658,7 @@ def fProfile(request):
         user = request.user
         facultyInfo = request.user.facultyinfo
         departmentid=facultyInfo.departmentID_id
-        collegeid=facultyInfo.departmentID_id
+        collegeid=facultyInfo.collegeID_id
         college=College.objects.get(id=collegeid)
         department=Department.objects.get(id = departmentid)
         return render(request,'./faculty/fProfile.html',{'user':user,'facultyInfo':facultyInfo,'department':department,'college':college})
@@ -1674,7 +1680,7 @@ def fProfileEdit(request):
         user = request.user
         facultyInfo = request.user.facultyinfo
         departmentid=facultyInfo.departmentID_id
-        collegeid=facultyInfo.departmentID_id
+        collegeid=facultyInfo.collegeID_id
         college=College.objects.get(id=collegeid)
         department=Department.objects.get(id = departmentid)
         
@@ -1886,20 +1892,29 @@ def fStudents_advisory(request):
         f_user = FacultyInfo.objects.get(pk = id)
         advisory = BlockSection.objects.filter(adviser = f_user)
         stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory)
-        result = filters.Search(request.GET, queryset=stud_advisory); stud_advisory = result.qs
+
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).order_by('studentUser__lastName')
+
+        #FILTER DROPDOWN
         block = '0'
         if (request.method=='POST'):
             status=request.POST.get('slct')
             if (status == '0'):
-                stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory)
+                stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).order_by('studentUser__lastName')
             else: 
                 stud_advisory = stud_advisory.filter(studentSection_id = status)
                 block = '1'
-        #stud_advisory = stud_advisory.order_by('studentID')
-        #result = filters.SearchBlock(request.GET, queryset=stud_advisory); stud_advisory = result.qs
-        count = stud_advisory.count()
-        #result = filters.Search(request.GET, queryset=stud_advisory); stud_advisory = result.qs
         
+        if request.GET.get('studentID'):
+            search = request.GET['studentID']
+            stud_advisory = stud_advisory.filter(
+                Q(studentID__contains=search) |
+                Q(studentUser__firstName__icontains=search) |
+                Q(studentUser__lastName__icontains=search) |
+                Q(studentUser__middleName__icontains=search)
+            )
+        
+        count = stud_advisory.count()
         if count == 0:
             messages.error (request, 'You have no advisory class!')
             context = {'advisory': advisory}
@@ -2171,6 +2186,7 @@ def fViewSched(request):
     if request.user.is_authenticated and request.user.is_faculty:
         acad = AcademicYearInfo.objects.all
         id= request.user.id
+        facultyInfo = request.user.facultyinfo
         info = FacultyInfo.objects.get(facultyUser=id)
         schedule = studentScheduling.objects.filter(instructor=info)
         subjects = schedule.count()
