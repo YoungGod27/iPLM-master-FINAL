@@ -215,7 +215,7 @@ def students_all(request):
     year = 'All';
     if request.GET.get('search'):
         search = request.GET['search']
-        bsit1 = StudentInfo.objects.filter(
+        bsit = StudentInfo.objects.filter(
             Q(studentID__contains=search) |
             Q(studentUser__firstName__icontains=search) |
             Q(studentUser__lastName__icontains=search) |
@@ -236,7 +236,7 @@ def students_allI(request):
     year = 'All';
     if request.GET.get('search'):
         search = request.GET['search']
-        bsit1 = StudentInfo.objects.filter(
+        bsit = StudentInfo.objects.filter(
             Q(studentID__contains=search) |
             Q(studentUser__firstName__icontains=search) |
             Q(studentUser__lastName__icontains=search) |
