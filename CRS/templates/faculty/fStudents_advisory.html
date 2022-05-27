@@ -30,7 +30,7 @@
 
       }
 
-            #studentCount {
+        #studentCount {
 
         font-size: 15px;
         font-family: 'Nunito';
@@ -118,6 +118,80 @@
             color: #a33908;
         }
 
+        .filterbox {
+            position: absolute;
+            right: 100px;
+            top: 325px;
+        }
+
+        .searchbox {
+            position: absolute;
+            right: 50px;
+            top: 100px;
+        }
+        #search1 {
+            border-radius: 12px 12px 12px 12px;
+            width: 250px;
+            height: 50px;
+            background-color: #E9E9E9;
+            border: transparent;
+        }
+
+        #submit1 {
+            background-color: #0C66CC;
+            color: white;
+            border-radius: 12px 12px 12px 12px;
+            width: 80px;
+            height: 50px;
+            border: transparent;
+        }
+
+        #stat-slct {
+            background-color: white;
+            width:300px;
+            color: #0C66CC;
+            border-width: 2px;
+            border-radius: 8px;
+            border-color: #0C66CC;
+            padding: 2px;
+            font-family: 'Nunito';
+            font-size: 18px;
+            margin-left: 15px;
+            margin-right: -50px;
+            margin-top: 5px;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+
+        #stat-slct option {
+            font-family: 'Nunito';
+            font-size: 15px;
+            color: #0C66CC;
+            background-color: white;
+            border-radius: 10px;
+            border-color: #0C66CC;
+            border-width: 2px;
+        }
+
+        .status-select:hover::after {
+            color: #0C66CC;
+        }
+
+        .saveBtn{
+            font-family: 'Nunito';
+            font-size: 15px;
+            color:white;
+            margin-left: 75px;
+            margin-top: 0px;
+            height: 40px;
+            width: 50px;
+            background-color: #0C66CC;
+            border-width: 2px;
+            border-radius: 10px;
+            border-color: #0C66CC;
+        }
+
         @keyframes zoom-in-zoom-out {
         0% {
             transform: scale(1, 1);
@@ -182,7 +256,7 @@
                 <!-- TABLE HEADER -->
                 <div class="list row">
                     <div class="table-wrapper-scroll-y scroll">
-                        <table>    
+                        <table id="advisory">
                             <tr>
                                 <td id="list"><b><p>Student No.</p></b></td><!-- Faculty Number Label -->
                                 <td id="list"><b><p>Last Name</p></b></td><!-- Last Name of Faculty -->
@@ -210,7 +284,7 @@
 
                             
                         </table>
-
+                        
                         <br><br><br>
 
                         <div id="error">
@@ -225,6 +299,40 @@
                             
                         </div>
                     </div>
+                </div>
+
+          
+
+                <div class="filterbox">
+                    <div class="dropdown">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <span class="status-select">
+                                <select name="slct" id="stat-slct">
+                                    {% if block == '0' %}
+                                        <option disabled selected hidden>All</option>
+                                    {% else %}
+                                        {% for i in stud_advisory|slice:":1" %}
+                                        <option disabled selected hidden>{{i.studentSection}}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                    <option value="0">All</option>
+                                    {% for i in advisory%}
+                                    <option value="{{i.id}}">  {{i.blockCourse}} {{i.blockYear}} - {{i.blockSection}} </option>
+                                    {% endfor %}
+                                </select>
+                            </span>
+                            <button name="submit" class="saveBtn" alt="submit" value="submit">Go</button>
+                        </form>
+                    </div>
+                
+
+                <div class="searchbox">
+                    <form method ="get">
+                        <input type="text" name="studentID" id="search1" placeholder="Student Number">
+                        {{ result.form }}&nbsp;
+                        <button type="submit" id="submit1" value="Search"> Search </button>
+                    </form>
                 </div>
 
                 <div class="boxed-2">

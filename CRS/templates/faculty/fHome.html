@@ -107,6 +107,56 @@
     padding-right: 50px;
     padding-top: 10px;
 }
+#current_date{
+    background: #0C66CC;
+    border-radius: 40px 40px 40px 40px;
+    width:500px;
+    height:250px;
+}
+
+#current_month-day-year{
+    font-size: 50px;
+    font-family: 'Nunito';
+    color: #ECC429;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+#block_advisory{
+    background: #0C66CC;
+    border-radius: 40px 40px 40px 40px;
+    width:500px;
+    height:250px;
+    margin-right:100px;
+    margin-left: 30px;
+}
+.blockNumber{
+    font-size: 70px;
+    font-family: 'Nunito';
+    color: white;
+    padding-right: 20px;
+    padding-top: 40px;
+    text-align: center;
+    
+}
+
+.blockDetails{
+    font-size: 50px;
+    font-family: 'Nunito';
+    color: #ECC429;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#nameday{
+    font-size: 30px;
+    font-family: 'Nunito';
+    color: white;
+    padding-right: 20px;
+    padding-top: 40px;
+    text-align: center;
+}
 
     </style>
 
@@ -156,10 +206,7 @@
                             <div class="col-lg-9 pt-3">
                                 <table>
                                     <tr>
-<<<<<<< Updated upstream
-                                        <br>
-=======
-                                       <td class="notification"><!--<a href="{% url 'fHomeNotification' %}">--><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px"></a>
+                                        <td class="notification"><!--<a href="{% url 'fHomeNotification' %}">--><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px"></a>
                                             <div class="dropdown-menu">
                                                 <p id="notiftitle">Notifications<br></p>
                                                 {% for i in grade_file reversed %}
@@ -174,7 +221,6 @@
                                         <td>
                                             <p id="pipe">|</p>
                                         </td>
->>>>>>> Stashed changes
                                         <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
                                         <td id="uname">{{user.firstName}} {{user.middleName}} {{user.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
                                     </tr>
@@ -196,6 +242,7 @@
                                 <td class = "semesterDetails">{{acads.semester}}</td>
                                 <!-- DB SEMESTER -->
                             </tr>
+
                             {% endfor %}
                         </table>
                     </div>
@@ -221,7 +268,7 @@
                 <div class="line row">
                     <hr>
                 </div>
-                <!-- Overview  -->
+                <!-- Overview 
                 <div class="sub-overview row">
                     <p id="over">Brief User Profile</p>
                 </div>
@@ -233,36 +280,74 @@
                             <table>
                                 <tr>
                                     <td class="briefProfileHeader"><b>Faculty Number:</b></td>
-                                    <td class = "briefProfileInfo">{{facultyInfo.facultyID}}</td><!-- DB STUDENT NUMBER  -->
+                                    <td class = "briefProfileInfo">{{facultyInfo.facultyID}}</td><!-- DB STUDENT NUMBER  
                                 </tr>
 
                                 <tr>
                                     <td class="briefProfileHeader"><b>College:</b></td>
-                                    <td class = "briefProfileInfo">{{college}}</td><!-- DB COLLEGE -->
+                                    <td class = "briefProfileInfo">{{college}}</td><!-- DB COLLEGE 
                                 </tr>
 
                                 <tr>
                                     <td class="briefProfileHeader"><b>Faculty Type:</b></td>
-                                    <td class = "briefProfileInfo">{{facultyInfo.facultyWorkstatus}}</td><!-- DB DEPARTMENT  -->
+                                    <td class = "briefProfileInfo">{{facultyInfo.facultyWorkstatus}}</td><!-- DB DEPARTMENT 
                                 </tr>
 
                                 <tr>
                                     <td class="briefProfileHeader"><b>Department:</b></td>
-                                    <td class = "briefProfileInfo">{{department}}</td><!-- DB DEPARTMENT  -->
+                                    <td class = "briefProfileInfo">{{department}}</td><!-- DB DEPARTMENT  
                                 </tr>
                             </table>
                         </div>
+                    </div>  -->
+                <div class="sub-buttons row">
+                    <div id="block_advisory">
+                 
+                        <div class="blockNumber">  {{count_block}} </div>       
+                        <div class="blockDetails"> Block Advisory</div>
+                            
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <img src="{% static 'CRS/images/fHomeAndProfile/clip-girls-study-together.png' %}" width="auto" height="350px">
-                        </div>
+                    <div id="block_advisory">
+                 
+                                <div class="blockNumber">  {{count_stud}} </div>
+                                <div class="blockDetails"> Student Advisory</div>
+                            
                     </div>
                     
+                    <div id="current_date"></p>
+                        <div id="nameday"></p>
+                            <script>
+                                const dayIndex = new Date().getDay();
+                                const getDayName = (dayIndex) =>{
+                                    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                                    return days[dayIndex];
+                                }
+                                const dayName = getDayName(dayIndex)
+                                document.getElementById("nameday").innerHTML = dayName
+                            </script>
+                        </div>
+                        <div id="current_month-day-year"></p>
+                            <script>
+                                mo = null
+                                strMonth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                                date = new Date();
+                                month = date.getMonth() + 1;
+                                day = date.getDate();
+                                year = date.getFullYear();
+                                for (i=0;i<12;i++) {
+                                    if (month-1 == i){
+                                        mo = strMonth[i];
+                                    }
+                                }
+                                document.getElementById("current_month-day-year").innerHTML = mo +" "+ day + " ," + year;
+                            </script>
+                        </div>
+                    </div>
+                </div>
                 </div>
 
-            </div>
+            </div> 
 
         </div>
     </div>

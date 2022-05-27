@@ -58,7 +58,7 @@
             font-size: 18px;
             color: #0C66CC;
             font-family: 'Nunito';
-            width: 20%;
+            width: 50%;
         }
 
         .primary-att {
@@ -295,7 +295,7 @@
     .saveBtn{
     margin-left: 75px;
     margin-top: 30px;
-    padding-top: 10px;
+    padding-top: 37px;
     background-color: transparent;
     border: none;
     }
@@ -491,7 +491,9 @@
                         <span id="note-text">The grade shall be verified through<br> the screenshots submitted by the students.</span>
                     </div>
                     <!--end info-->
-                    <div class="searchbox">
+                
+
+                <div class="searchbox">
                         <div class="dropdown">
                             <form method="POST">
                                 {% csrf_token %}
@@ -557,13 +559,16 @@
                                
                             </tr>
                             <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
-<<<<<<< Updated upstream
-=======
                             {% if semester == '1' %}
->>>>>>> Stashed changes
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>1st Yr, 1st Sem</b></td>
-                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave | floatformat:2 }}</p></td>
+                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave | floatformat:2 }}
+                                    {% if flag == 0 %}
+                                        {% if ave <= 1.75 and ave >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist %}
                             <tr class="tabletext2">
@@ -586,7 +591,13 @@
                             {% elif semester == '2' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>1st Yr, 2nd Sem</b></td>
-                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave2|floatformat:2 }}</p></td>
+                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave2|floatformat:2 }}
+                                    {% if flag2 == 0 %}
+                                        {% if ave2 <= 1.75 and ave2 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist2 %}
                             <tr class="tabletext2">
@@ -604,11 +615,17 @@
                             </tr>
                             {% endfor %}
 
-                            <!------------------------------------------------------->
+                            
                             {% elif semester == '3' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>2nd Yr, 1st Sem</b></td>
-                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave3|floatformat:2 }}</p></td>
+                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave3|floatformat:2 }}
+                                    {% if flag3 == 0 %}
+                                        {% if ave3 <= 1.75 and ave3 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
 
                             {% for subject in checklist3 %}
@@ -631,7 +648,13 @@
                             {% elif semester == '4' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3"style="font-size: 20px; background-color: #cae2ff;"><b>2nd Yr, 2nd Sem</b></td>
-                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave4|floatformat:2 }}</p></td>
+                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave4|floatformat:2 }}
+                                    {% if flag4 == 0 %}
+                                        {% if ave4 <= 1.75 and ave4 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
 
                             {% for subject in checklist4 %}
@@ -654,7 +677,13 @@
                             {% elif semester == '5' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>3rd Yr, 1st Sem</b></td>
-                                <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave5|floatformat:2 }}</p></td>
+                                <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave5|floatformat:2 }}
+                                    {% if flag5 == 0 %}
+                                        {% if ave5 <= 1.75 and ave5 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
 
                             {% for subject in checklist5 %}
@@ -666,7 +695,7 @@
                                 <td>    {{subject.curriculumCode.subjectUnits}}</td>
                                 <td>    {{subject.subjectGrades}}</td>
                                 <td>    {% if subject.subjectGrades <= 3.00 %}
-                                            PASSED
+                                            PASSED 
                                         {% else %}
                                             FAILED
                                         {% endif %}</td>
@@ -676,7 +705,13 @@
                             {% elif semester == '6' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3"style="font-size: 20px; background-color: #cae2ff;"><b>3rd Yr, 2nd Sem</b></td>
-                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave6 |floatformat:2 }}</p></td>
+                                <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave6 |floatformat:2 }}
+                                    {% if flag6 == 0 %}
+                                        {% if ave6 <= 1.75 and ave6 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist6 %}
                             <tr class="tabletext2">
@@ -697,7 +732,13 @@
                             {% elif semester == '7' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>4th Yr, 1st Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave7|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave7|floatformat:2 }}
+                                    {% if flag7 == 0 %}
+                                        {% if ave7 <= 1.75 and ave7 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
 
                             {% for subject in checklist7 %}
@@ -719,7 +760,13 @@
                             {% elif semester == '8' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>4th Yr, 2nd Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave8|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave8|floatformat:2 }}
+                                    {% if flag8 == 0 %}
+                                        {% if ave8 <= 1.75 and ave8 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
 
                             {% for subject in checklist8 %}
@@ -741,7 +788,13 @@
                             {% elif semester == '9' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>5th Yr, 1st Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave9|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave9|floatformat:2 }}
+                                    {% if flag9 == 0 %}
+                                        {% if ave9 <= 1.75 and ave9 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist9 %}
                             <tr class="tabletext2">
@@ -762,7 +815,13 @@
                             {% elif semester == '10' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>5th Yr, 2nd Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave10|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave10|floatformat:2 }}
+                                    {% if flag10 == 0 %}
+                                        {% if ave10 <= 1.75 and ave10 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist10 %}
                             <tr class="tabletext2">
@@ -784,7 +843,13 @@
                             {% elif semester == '11' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>6th Yr, 1st Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave11|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave11|floatformat:2 }}
+                                    {% if flag11 == 0 %}
+                                        {% if ave11 <= 1.75 and ave11 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist11 %}
                             <tr class="tabletext2">
@@ -806,7 +871,13 @@
                             {% elif semester == '12' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>6th Yr, 2nd Sem</b></td>
-                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave12|floatformat:2 }}</p></td>
+                                <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave12|floatformat:2 }}
+                                    {% if flag12 == 0 %}
+                                        {% if ave12 <= 1.75 and ave12 >= 1.00 %}
+                                            <b>&nbsp;&nbsp;&nbsp;Dean's Lister
+                                        {% endif %}
+                                    {% endif %}
+                                </p></td>
                             </tr>
                             {% for subject in checklist12 %}
                             <tr class="tabletext2">
@@ -878,27 +949,28 @@
                                                     {% elif grade_file.remarks == "Returned" %}
                                                     <option value="{{grade_file.remarks}}"> &nbsp; {{grade_file.remarks}} </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set the status to returned if there are any errors in the grades)</option>
-                                                    <option value="Submitted"> &nbsp; Submitted  </option>
+                                                    <option disabled value="Submitted"> &nbsp; Submitted  </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set Status to submitted if the student submitted the required file)</option>
-                                                    <option value="Approved"> &nbsp; Approved </option>
+                                                    <option disabled value="Approved"> &nbsp; Approved </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set status to approved if grades are valid)</option>
 
 
                                                     {% elif grade_file.remarks == "Approved" %}
                                                     <option value="{{grade_file.remarks}}"> &nbsp; {{grade_file.remarks}} </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set status to approved if grades are valid)</option>
-                                                    <option value="Submitted"> &nbsp; Submitted </option>
+                                                    <option disabled value="Submitted"> &nbsp; Submitted </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set Status to submitted if the student submitted the required file)</option>
-                                                    <option value="Returned"> &nbsp; Returned </option>
+                                                    <option disabled value="Returned"> &nbsp; Returned </option>
                                                     <option disabled style="font-style:italic">&nbsp;&nbsp;&nbsp;(Set the status to returned if there are any errors in the grades)</option>
 
                                                     {%endif%}
                                                 </select>
+                                                <button name="submit" class="saveBtn" alt="submit" value="submit"><img src="{% static 'CRS/images/cOthers/savebutton.png' %}" width="35" height="35" ></button>
                                             </span>
                                             
                                         </form>
                                     </div>
-                                    <button name="submit" class="saveBtn" alt="submit" value="submit"><img src="{% static 'CRS/images/cOthers/savebutton.png' %}" width="35" height="35" ></button>
+                                   
                                 </div>
 
 

@@ -176,7 +176,6 @@
     display: inline;
     width: 1100px;
     }
-
     </style>
 
 </head>
@@ -223,7 +222,7 @@
                             <div class="col-lg-12">
                                 <div id="sdhtext">Semester Details</div>
                                 <div class="semdet row">
-                                    
+                                   
                                     <div class="sdtext col">Academic Year:</div>
                                     <div class="field col">{{acad.yearstarted}}-{{acad.yearended}}</div>
                                     <!--DB ACADEMIC YEAR-->
@@ -234,23 +233,16 @@
                                     <div class="field col">{{acad.semester}}</div><!--DB SEMESTER-->
                                     
                                 </div>
-                                <!--
-                                <div class="semdet row">
-                                    <div class="sdtext col">Subjects:</div>
-                                    <div class="field col">{{subjects}}</div><!--DB NO. OF SUBJECTS
-                                </div>      -->                          
+
+                                                       
                             </div>
                         </div>
 
                         <!--Schedule Image Flipped-->
                         <div class="row">
-<<<<<<< Updated upstream
-                            <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part Time Availability</button></a>
-=======
                             {% if facultyInfo.facultyWorkstatus == 'Part-Time' %}
-                            <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part-Time Availability</button></a>
+                            <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part Time Availability</button></a>
                             {% endif %}
->>>>>>> Stashed changes
                             <img src="{% static 'CRS/images/fClassroom/clip-homework.png' %}" height="350" width="auto">
                         </div>
                     </div>  
@@ -261,7 +253,7 @@
                         <div class="tablepanel table-responsive-lg">
                             <table class="borderless table">
                                 <tr class="primary-att" style="background-color: #0C66CC;">
-                                    <th scope="col" id="schedtext"><b>Code</b></th>
+                                    <th scope="col" id="schedtext"><b>Subject Code</b></th>
                                     <th scope="col" id="schedtext"><b>Course Name</b></th>
                                     <th scope="col" id="schedtext"><d ><b>Units</b></p></th>
                                     <th scope="col" id="schedtext"><b>Section</b></th>
