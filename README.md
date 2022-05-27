@@ -1,43 +1,79 @@
-# iPLM-master-FINAL-fork
+# iPLM
+An Integrated PLM Website
 
-## How to install
+| [**View Code**](https://github.com/YoungGod27/iPLM-master-FINAL) |
+|--------------------------------------------|
 
-**1 Create virtual environment**
-`python -m venv env`
+# Requirements
+|  Install | Download links |
+|--------------------------------------------|--------------------------------------------|
+| Python 3.10.4 or higher | [Click here to downlod python](https://www.python.org/downloads/) |
+| XAMPP Control Panel | [Click here to download xampp](https://www.apachefriends.org/download.html) |
 
-**2 Activate virtual env.**
-Bash : `$ source ./env/Scripts/Activate`
-CMD : `env\Scripts\Activate.bat`
-
-**3 Install dependencies**
-`pip install -r requirements.txt`
-
-**4 create database in phpmyadmin**
-DB_NAME = **iplmdatabase**
-
-**5 Make Migrations**
-`python manage.py makemigrations`
-
-**6 Migrate**
-`python manage.py migrate`
-
-**7 Statics**
-`py manage.py collectstatic` then type `yes`
-
-**8 Create Admin**
-`python manage.py createsuperuser`
-
+# Setup
+1. Run command prompt and change directory to project folder.
+2. Install virtual environment
+```cmd
+pip install virtualenv
+```
+3. Create virtual environment
+```cmd
+python -m venv env
+```
+4. Activate virtual environment
+```bash
+if using bash: $ source ./env/Scripts/Activate
+```
+```cmd
+if using cmd: env
+```
+5. Install dependencies
+```cmd
+pip install -r requirements.txt
+```
+6. Create database in phpmyadmin. DB_NAME = **iplmdatabase**
+7. Make migrations
+```cmd
+python manage.py makemigrations
+```
+8. Migrate
+```cmd
+python manage.py migrate
+```
+9. Collect static files. After running command wait for a while then type **yes**
+```cmd
+py manage.py collectstatic
+```
+10. Create admin
+```cmd
+python manage.py createsuperuser
+```
 > Sample <br>
 > Email: admin@plm.edu.ph <br>
 > First name: Admin <br>
 > Middle name: Admin <br>
 > Last name: Admin <br>
-> Password: Abc_1234 (Type lang kayo kahit di visible) <br>
+> Password: Abc_1234 (note: this is not visible) <br>
 > Password (again): Abc_1234 <br>
 
 _Optional_
-**NOTE: Pwede mo lang ito magamit pag fresh pa ang database mo (Walang laman)**
+: **pwede mo lang ito magamit pag fresh pa ang database mo (walang laman)**
 You can run `python manage.py databaseseed` to add users with default password of `password`
 
-**9 Runserver**
-`python manage.py runserver` then **Ctrl+click 127.0.0.1:8000**
+11. Run server
+```cmd
+run
+```
+12. Server address = 127.0.0.1:8000 or localhost:8000
+
+# Usage
+1. Run XAMPP Control Panel and make sure Apache & MySQL is running.
+2. Run command prompt and change directory to project folder.
+3. Activate virtual environment
+```cmd
+env
+```
+4. Run server
+```cmd
+run
+```
