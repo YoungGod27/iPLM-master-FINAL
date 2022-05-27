@@ -420,6 +420,9 @@ urlpatterns = [
          name='password_reset_confirm'),
     path('password_reset_complete/', auth_view.PasswordResetCompleteView.as_view(template_name='pw_reset/password_reset_complete.html'),
          name='password_reset_complete'),
+    path('events/', views.events, name='events'),
+    path('events/<event_id>', views.events, name='events'),
+    path('events-create', views.eventsCreate, name='events.create') 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -5249,3 +5249,49 @@ def pw_reset(request):
         'password_form': password_form,
     }
     return render(request, 'pw_reset/password_reset.html', context)
+
+def events(request, event_id=None):
+    if not event_id == None:
+        try:
+            event = Event.objects.filter(pk=event_id).first()
+        except Event.DoesNotExist:
+            event = None
+        return render(request, 'testfiles/event-view.html', {'event': event} )
+    if not request.user.is_authenticated:
+        return redirect('index')
+    authorization = 'none'
+    if request.user.is_chairperson: 
+        authorization = 'chairperson'
+    if request.user.is_student:
+        authorization = 'student'
+    events = Event.objects.all().order_by('eventStartDate')
+    if request.GET.get('sortCategory'):
+        events = Event.objects.filter(eventCategory=request.GET['sortCategory']).order_by('eventStartDate')
+    return render(request, 'testfiles/event-test.html', {'authorization': authorization, 'events': events}) 
+
+def eventsCreate(request):
+    if request.user.is_authenticated and not request.user.is_chairperson:
+        return redirect('events')
+    if request.method == 'POST':
+        try:
+            event = Event(
+                eventCategory=request.POST['eventCategory'],
+                eventTitle=request.POST['eventTitle'],
+                eventDescription=request.POST['eventDescription'],
+                eventStartDate=request.POST['eventStartDate'],
+                eventEndDate=request.POST['eventEndDate']
+                )
+            event.validate_frontend()
+            event.save()
+            messages.success(request, 'Event Created!')
+            return redirect('events.create')
+        except ValidationError as error:
+            messages.error(request, error.message)
+            return redirect('events.create')
+    return render(request, 'testfiles/event-create.html')
+
+# For rendering in homapages
+def eventsComponent(request):
+    if request.GET.get('sortCategory'):
+        return Event.objects.filter(eventCategory=request.GET['sortCategory']).order_by('eventStartDate')
+    return Event.objects.all().order_by('eventStartDate')
