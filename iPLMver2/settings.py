@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-from datetime import timedelta
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,10 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #Session-timeout
-    'django_session_timeout.middleware.SessionTimeoutMiddleware',
-    #auto-logout
-    'django_auto_logout.middleware.auto_logout'
 ]
 
 ROOT_URLCONF = 'iPLMver2.urls'
@@ -72,8 +66,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #auto-logout
-                'django_auto_logout.context_processors.auto_logout_client'
             ],
         },
     },
@@ -159,12 +151,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 LOGOUT_REDIRECT_URL = 'index'
-
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_SAVE_EVERY_REQUEST = True
-
-AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=60), #sinet ko lang to test
-    'MESSAGE': 'The session has expired. Please login again to continue.',
-    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
-}

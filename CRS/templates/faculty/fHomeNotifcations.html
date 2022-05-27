@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
@@ -49,7 +51,7 @@
 
             <div class=" container-fluid">
 
-                <!-- Welcome Panel -->
+              <!-- Welcome Panel -->
                 <div class="main row">
 
                     <div class="col-lg-9">
@@ -62,23 +64,12 @@
                                 <table>
                                     <tr>
                                         <td class="notification"><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px">
-                                            <div class="dropdown-menu">
-                                                <p id="notiftitle">Notifications<br></p><!-- DB NOTIFICATION DATA BELOW -->
-                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
-                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
-                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
-                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                                <!-- FILE PATH: Faculty/cHome/fHomeNotifcations.html-->
-                                                <a  href="{% url 'fHomeNotifcations' %}"><p id="notifdrops"><b>Lorem Ipsum</b><br> consectetur adipiscing elit</p><br></a>
-                                            </div>
                                         </td>
                                         <td>
                                             <p id="pipe">|</p>
                                         </td>
                                         <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
-                                        <td id="uname">Full Name</td><!-- Yung Fullname daw dito galing DB -->
+                                        <td id="uname">{{user.firstName}} {{user.middleName}} {{user.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
                                         
                                     </tr>
                                 </table>
@@ -87,18 +78,22 @@
                     </div>
 
                     <div class="col-lg-3">
+                        {% for acads in acad %}
                         <table>
                             <tr>
                                 <td class="academicYearHeader">Academic Year:</td>
-                                <td class = "academicYearDetail">2020-2021</td><!-- DB ACADEMIC YEAR  -->
+                                <td class = "academicYearDetail">{{acads.yearstarted}} - {{acads.yearended}}</td><!-- DB ACADEMIC YEAR  -->
                             </tr>
 
                             <tr>
                                 <td class="semesterHeader">Semester:</td>
-                                <td class = "semesterDetails">1st</td><!-- DB SEMESTER  -->
+                                <td class = "semesterDetails">{{acads.semester}}</td><!-- DB SEMESTER  -->
                             </tr>
                         </table>
+                        {% endfor %}
                     </div>
+
+                </div>
 
                 </div>
 

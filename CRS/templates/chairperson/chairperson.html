@@ -2,238 +2,211 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title> Chairperson | Home </title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- include -->
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        
-        <!-- CSS -->
-        <link rel="stylesheet" href="{% static '/CRS/css/cHome/cHomeStyleCP.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Lato:200,300,400,600,700,900&subset=latin-ext" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&subset=latin-ext' rel='stylesheet' type='text/css'>
+<head>
+    <title> Chairperson | Home </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static '/CRS/css/cHome/cHomeStyle.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!-- JS -->
+    <script src="{% static '/CRS/js/cHome/cHomeMain.js' %}"></script>
+    <!--  ICON -->
+    <link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
 
-        <!--  ICON -->
-        <link rel="icon" href="{% static '/CRS/images/cHome/iPLM.png' %}" type="image/png" sizes="16x16">
-    </head>
+    <style>
+        .field {
+        font-size: 20px;
+        color: #0C66CC;
+        }
+
+        #sdtext {
+            color: #0C66CC;
+            margin-left: -90px;
+        }
+
+        .yellow-box{
+            background-color: white;
+        }
 
 
-    <body class="content-scrollbar" onload="today()">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-sm navbar-dark flex-sm-nowrap flex-wrap">           
-            <a href="#menu-toggle" id="menu-toggle" class="navbar-brand unselectable" onclick="togglemenu()">
-                <span></span><img class="nav-collapse unselectable" src="{% static 'CRS/images/cIcons/collapse.png' %}" height="13"></span>
-            </a>                 
-            <a id="iplm" href="{% url 'chairperson' %}">
-                <img class="iplmlogo unselectable" src="{% static 'CRS/images/fHomeAndProfile/iplmlogo.png' %}" height="35">
-            </a>            
-                   
-            <!-- Notification dropdown -->
-            <div class="unselectable dropdown notificon d-none d-sm-block">
-                <a class="dropdown-toggle profilehover" id="dropdownNotif" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {% if notifications %} 
-                        <span class="badge"> </span> <!-- red notif badge -->
-                    {% endif %}
-                    <img id="notif" src="{% static 'CRS/images/cIcons/notif.png' %}" height="20">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end dropdownNotifInfo p-3 text-muted custom-scrollbar" aria-labelledby="dropdownNotif">
-                    <div id="notiftitle"><p>Notifications<br></p></div>
-                    <div class="dropdown-divider-title"></div>
-                    <!-- DB NOTIFICATION DATA BELOW -->
-                    {% if notifications %}                    
-                        {% for notification in notifications %}                        
-                        <a href="{% url 'notifications' notification.id %}">
-                            <p id="notifdrops">
-                                <b class="notiftext">{{notification.title}}</b>
-                                <br>
-                                View details                       
-                            </p>
-                            <br>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        {% endfor %}
-                    {% else %}
-                            <p>No Notifications</p>
-                    {% endif %}
-                    <div id="notifbottom"></div>
-                </ul>
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
             </div>
-
-            <!-- navbar user name and title  -->
-            <p class="d-none d-sm-block usertitle unselectable">
-                Chairperson
-            </p>
-            <p href="{% url 'chairperson_profile' %}" class="d-none d-sm-block user unselectable">
-                {{user.firstName}} {{user.middleName}} {{user.lastName}}
-            </p>
-
-            <!-- user profile dropdown -->
-            <div class="unselectable dropdown pficon">
-                <a class="dropdown-toggle profilehover" id="dropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img id="profileicon" src="{% static 'CRS/images/fHomeAndProfile/userprofile.png' %}" width="35px" height="35px">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end dropdownProfileMenu p-3 text-muted" aria-labelledby="dropdownProfile">
-                    <img id="profileicon" src="{% static 'CRS/images/fHomeAndProfile/userprofile.png' %}" width="40px" height="40px">
-                    <p id="profilemenutitle">{{user.firstName}}<br></p>
-                    <p id="profilemenuemail">{{user.email}}<br></p>
-                    <div class="dropdown-divider"></div>
-                    <li><a class="profilelinks" href="{% url 'chairperson_profile' %}">View Profile</a></li>
-                    <li><a class="profilelinks" href="{% url 'logout' %}">Log out</a></li>
-                </ul>
-            </div>
+        <ul class="sidebar components">
+            <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+            <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+        </ul>
         </nav>
+        <!--End of Sidebar -->
 
-        <div id="mainwrapper" class="toggled">
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper" class="custom-scrollbar">
-                <ul class="sidebar-nav">
-                    <li class="active"> <a class="sb-links" href="{% url 'chairperson' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/home.png' %}" height="15"> Home</a> </li>
-                    <li class="sb-section unselectable"><span>CRS</span></li>
-                    <li> <a class="sb-links" href="{% url 'is_active' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/department.png' %}" height="15"> Department</a> </li>
-                    <li> <a class="sb-links" href="{% url 'dept_student' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/students.png' %}" height="15"> Students</a> </li>
-                    <li> <a class="sb-links" href="{% url 'full_time' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/faculty.png' %}" height="15"> Faculty</a> </li>
-                    <li class="sb-section unselectable"><span>Student Application</span></li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-studyPlan' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/studyplan.png' %}" height="15"> Study Plan</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-loa' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/loa.png' %}" height="15"> Leave of Absence</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-hd' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/hd.png' %}" height="15"> Honorable Dismissal</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-ojt' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/practicum.png' %}" height="15"> Practicum</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-shifter' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/shifter.png' %}" height="15"> Shifter</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-transferee' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/transferee.png' %}" height="15"> Transferee</a> </li>
-                    <li class="sb-section unselectable"><span>Faculty Application</span></li>
-                    <li> <a class="sb-links" href="{% url 'cfaculty_applicant' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/applicant.png' %}" height="15"> Application</a> </li>
-                    <li> <a class="sb-links" href="{% url 'cOthers-partTime' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/pta.png' %}" height="15">    Part-time Availability</a> </li>
-                </ul>
-            </div> 
-            <!-- end sidebar -->
-            
-            <!-- quick links-->
-            <div id="mainwrapper" class="toggled">
-                <div id="qlinks" class="custom-scrollbar unselectable qlinks-wrapper">
-                    <li class="ql-section unselectable"><span>Quick Access</span></li>
-                    <a class="qlinks-btn" href="{% url 'is_active' %}" role="button">Department Subjects</a>
-                    <a class="qlinks-btn" href="{% url 'cOthers-studyPlan' %}" role="button">Study Plan</a>
-                    <a class="qlinks-btn" href="{% url 'cfaculty_applicant' %}" role="button">Faculty Application</a>
-                    <a class="qlinks-btn" href="{% url 'cStudentSchedOnline' %}" role="button">Block Schedule</a>
+
+        <!-- Content -->
+        <div id="content">
+
+            <div class=" container-fluid">
+
+                <!-- Welcome Panel -->
+                <div class="main row">
+
+                    <div class="col-lg-10">
+                        <div class="row" id="head">
+                            <p>Welcome</p>
+                            <p>&nbsp;Chairperson!</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 pt-3">
+                                <table>
+                                    <tr>
+                                        <td class="notification"><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px">
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Notifications<br></p><!-- DB NOTIFICATION DATA BELOW -->
+                                                {% if notifications %}
+                                                    {% for notification in notifications %}
+                                                    <a  href="{% url 'notifications' notification.id %}"><p id="notifdrops"><b>{{notification.title}}</b><br>{{notification.description}}</p><br></a>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <p>No Notifications</p>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p id="pipe">|</p>
+                                        </td>
+                                        <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
+                                        <td id="uname">
+                                            <a href="{% url 'chairperson_profile' %}" onmouseover="changeText(this,'View Profile')" onmouseout="changeText(this,'  {{ lname|capfirst }}, {{ fname|capfirst }} {{ mname|capfirst }}')">{{ lname|capfirst }}, {{ fname|capfirst }} {{ mname|capfirst }}</a><!-- Yung Fullname daw dito galing DB -->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img class="pic" src="{% static '/CRS/images/cHome/clip-school-competitions.png' %}" width="290" height="200" align="right">
+                    </div>
+
                 </div>
+
+                <!-- Quick Access -->
+                <div class="sub-quick row">
+                    <p id="quick">Quick Access</p>
+                </div>
+
+                <div class="sub-buttons row">
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'is_active' %}" id="buttons"><button type="button" class=" btn">Department Subjects</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'cOthers-studyPlan' %}" id="buttons"><button type="button" class="btn">Study Plan</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'cfaculty_applicant' %}" id="buttons"><button type="button" class="btn ">Faculty Application</button></a></div>
+                    <div class="quickmargin col-lg-3 col-md-6 col-sm-12"><a href="{% url 'cStudentSchedOnline' %}" id="buttons"><button type="button" class=" btn">Block Schedule</button></a></div>
+                </div>
+                <!-- END of Quick Access -->
+                <div class="line row">
+                    <hr>
+                </div>
+                <!-- Overview  -->
+                <div class="sub-overview row">
+                    <p id="over">Overview</p>
+                </div>
+
+                <div class="sub-over row">
+
+                    <div class="col-yellow yellow-box col-lg-4">
+                        <div class="col-lg-12 mt-3">
+                            <div class="semdet row">
+                               
+                                <p id="sd">
+                                    <img src="{% static '/CRS/images/cHome/semesterDetails.png' %}" width="42" height="42" align="left">
+                                    <span id="sdtext">Semester Details</span>
+                                </p>
+                            </div>
+                            {% for acads in acad %}
+                            <div class="hordet row">
+                                <div class="text col"><b>Academic Year:</b></div>
+                                <div class="field col" style="background-color: #f1f1f1;">
+                                    {{acads.yearstarted}}-{{acads.yearended}}
+                                </div>
+                            </div>
+                            <div class="hordet row">
+                                <div class="text col"><b>Semester:</b></div>
+                                <div class="field col" style="background-color: #f1f1f1;">
+                                    {{acads.semester}}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="colwhite col-lg-4">
+                                <div class="white-box row">
+                                    <div class="col-lg">
+                                        <h5 id="cardnumber" style="color: #0C66CC;">{{counts}}</h5><!-- DB PUT STUDENT COUNT HERE -->
+                                        <p id="cardtext" style="color: #2781E7; font-size: 28px;"> Students </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="colwhite col-lg-4">
+                                <div class="white-box row">
+                                    <div class="col-lg">
+                                        <h5 id="cardnumber" style="color: #0C66CC;">{{countf}}</h5><!-- DB PUT FACULTY COUNT HERE -->
+                                        <p id="cardtext" style="color: #2781E7; font-size: 28px;"> Faculty </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="colwhite col-lg-4">
+                                <div class="white-box row">
+                                    <div class="col-lg">
+                                        <h5 id="cardnumber" style="color: #0C66CC;">{{countsub}}</h5><!-- DB PUT SUBJECT COUNT HERE -->
+                                        <p id="cardtext" style="color: #2781E7; font-size: 28px;"> Subjects </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <!-- end quick links-->
-            
-            <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <!-- navbar page title blue -->
-                    <div class="headertitle unselectable d-none d-md-block">Dashboard</div>
-                    <!-- content start-->
-                    <!-- body page title grey -->
-                    <h1 class="unselectable">Overview</h1> 
-                    <!-- overview blocks row 1 -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center">
-                        <!-- 1st block -->
-                        <div class="p-2 overview-block lg-overview-block">                            
-                            <div class="d-flex flex-wrap ov-block-content-1">
-                                <div class="p-2 unselectable">                                    
-                                    <img src="{% static '/CRS/images/cHome/semesterDetails.png' %}" height="38">
-                                </div>  
-                                <div class="p-2">                                    
-                                    <span class="ov-heading-1">Semester Details</span>
-                                    <table class="table table-sm table-borderless" id="ov-sem-details">
-                                        <tbody>
-                                            {% for acads in acad %}
-                                            <tr>
-                                                <td>Academic Year: <br> Semester:</td>
-                                                <td>{{acads.yearstarted}} - {{acads.yearended}} <br> {{acads.semester}}</td>
-                                            </tr>                                          
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>                            
-                            </div> 
-                        </div>
-                        <!-- 2nd block -->
-                        <div class="p-2 overview-block sm-overview-block">
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2 ov-block-content-top">
-                                <div class="p-2">                                    
-                                    Today is
-                                </div>                                                               
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    <h3 id="datetoday" class="ov-heading-2"></h3>                                 
-                                </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center">                                
-                                <div class="p-2">                                    
-                                    <h3 id="daytoday" class="ov-block-content-2"></h3>                                     
-                                </div>                                          
-                            </div>                             
-                        </div>
-                    </div> 
-                    <!-- overview blocks row 2 -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center">
-                        <!-- 1st block -->
-                        <div class="p-2 overview-block sm-overview-block">
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2 ov-heading-3">                                    
-                                    {{counts}}
-                                </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Students Enrolled
-                                </div>                                          
-                            </div>  
-                        </div>
-                        <!-- 2nd block -->
-                        <div class="p-2 overview-block sm-overview-block"><div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                            <div class="p-2 ov-heading-3">                                    
-                                {{countf}}
-                            </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Faculties Employed
-                                </div>                                          
-                            </div> 
-                        </div>
-                        <!-- 3rd block -->
-                        <div class="p-2 overview-block sm-overview-block"><div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                            <div class="p-2 ov-heading-3">                                    
-                                {{countsub}}
-                            </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Curriculum Subjects
-                                </div>                                          
-                            </div>  
-                        </div>
-                    </div>  
-                </div>
-                
-            </div> <!-- /#page-content-wrapper -->  
-        </div> <!-- /#wrapper -->
 
-        <img src="{% static 'CRS/images/cIcons/up-arrow.png' %}" id="btn-back-to-top" class="unselectable"> <!-- scroll to top -->
-        
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
-        <!-- JS -->
-        <script src="{% static '/CRS/js/cHome/cHomeMain.js' %}"></script>   
-        <script>
-            let mybutton = document.getElementById("btn-back-to-top");
-            window.onscroll = function () {
-              scrollFunction();
-            };
-            mybutton.addEventListener("click", backToTop);
-        </script>     
-    </body>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function changeText(obj, text) { obj.innerText = text; }
+    </script>
+
+</body>
 
 </html>
