@@ -1,7 +1,7 @@
 {% extends 'chairperson/students/students_bsit.html' %}
     {% block content %}
         <form method="get">
-            {{result.form}}
+             <input type="text" name="search">
             <button type="submit">Search</button>
         </form>
         <br>
@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in bsit %}
+                {% for i in bsee %}
                 <tr>
                     <td>{{ i.studentID }}</td>
                     <td>{{ i.studentUser.lastName }}</td>

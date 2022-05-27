@@ -204,194 +204,453 @@ def dept_student(request):
         return redirect('students_bsee1')
 
 
-def students_all(request):
+"""def students_all(request):
     bsit = StudentInfo.objects.filter(studentCourse='BSIT'); count = bsit.count()
     result = filters.Search(request.GET, queryset=bsit); bsit = result.qs
     year = "All"
     context = {'bsit': bsit, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_all.html', context)"""
+
+def students_all(request):
+    bsit = StudentInfo.objects.filter(studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit.count()
+    year = 'All';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit': bsit, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_all.html', context)
-def students_allI(request):
+
+"""def students_allI(request):
     bsit = StudentInfo.objects.filter(studentRegStatus='Irregular', studentCourse='BSIT'); count = bsit.count()
     result = filters.Search(request.GET, queryset=bsit); bsit = result.qs
     year = "All"
     context = {'bsit': bsit, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_allI.html', context)"""
+
+def students_allI(request):
+    bsit = StudentInfo.objects.filter(studentRegStatus='Irregular', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit.count()
+    year = 'All';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit': bsit, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_allI.html', context)
 
-
-def students_bsit(request):
+"""def students_bsit(request):
     bsit1 = StudentInfo.objects.filter(studentYearlevel='1', studentCourse='BSIT'); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = 'First Year'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_bsit.html', context)"""
+
+def students_bsit(request):
+    bsit1 = StudentInfo.objects.filter(studentYearlevel='1', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit1.count()
+    year = 'First Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit.html', context)
-def students_bsit1I(request):
+
+"""def students_bsit1I(request):
     bsit1 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='1', studentCourse='BSIT'); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = 'First Year'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students/students_bsit1I.html', context)
+    return render(request, './chairperson/students/students_bsit1I.html', context)"""
 
+def students_bsit1I(request):
+    bsit1 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='1', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit1.count()
+    year = 'First Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_bsit1I.html', context)    
 
 def students_bsit2(request):
-    bsit2 = StudentInfo.objects.filter(studentYearlevel='2', studentCourse='BSIT'); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
-    year = 'Second Year'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year}
+    bsit2 = StudentInfo.objects.filter(studentYearlevel='2', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit2.count()
+    year = 'Second Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit2.html', context)
-def students_bsit2I(request):
-    bsit2 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='2', studentCourse='BSIT'); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
-    year = 'Second Year'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students/students_bsit2I.html', context)
 
+def students_bsit2I(request):
+    bsit2 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='2', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit2.count()
+    year = 'Second Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_bsit2I.html', context)     
 
 def students_bsit3(request):
-    bsit3 = StudentInfo.objects.filter(studentYearlevel='3', studentCourse='BSIT'); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
-    year = 'Third Year'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year}
+    bsit3 = StudentInfo.objects.filter(studentYearlevel='3', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit3.count()
+    year = 'Third Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit3.html', context)
-def students_bsit3I(request):
-    bsit3 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='3', studentCourse='BSIT'); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
-    year = 'Third Year'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students/students_bsit3I.html', context)
 
+def students_bsit3I(request):
+    bsit3 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='3', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit3.count()
+    year = 'Third Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year}
+    return render(request, './chairperson/students/students_bsit3I.html', context)    
 
 def students_bsit4(request):
-    bsit4 = StudentInfo.objects.filter(studentYearlevel='4', studentCourse='BSIT'); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
-    year = 'Fourth Year'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year}
+    bsit4 = StudentInfo.objects.filter(studentYearlevel='4', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit4.count()
+    year = 'Fourth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit4.html', context)
+
 def students_bsit4I(request):
-    bsit4 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='4', studentCourse='BSIT'); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
-    year = 'Fourth Year'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year}
+    bsit4 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='4', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit4.count()
+    year = 'Fourth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit4I.html', context)
 
 def students_bsit5(request):
-    bsit5 = StudentInfo.objects.filter(studentYearlevel='5', studentCourse='BSIT'); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
-    year = 'Fifth Year'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year}
+    bsit5 = StudentInfo.objects.filter(studentYearlevel='5', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit5.count()
+    year = 'Fifth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit5.html', context)
+
 def students_bsit5I(request):
-    bsit5 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='5', studentCourse='BSIT'); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
-    year = 'Fifth Year'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year}
+    bsit5 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='5', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit5.count()
+    year = 'Fifth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit5I.html', context)
 
-
 def students_bsit6(request):
-    bsit6 = StudentInfo.objects.filter(studentYearlevel='6', studentCourse='BSIT'); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
-    year = 'Sixth Year'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year}
+    bsit6 = StudentInfo.objects.filter(studentYearlevel='6', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit6.count()
+    year = 'Sixth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit6.html', context)
+
 def students_bsit6I(request):
-    bsit6 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='6', studentCourse='BSIT'); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
-    year = 'Sixth Year'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year}
+    bsit6 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='6', studentCourse='BSIT').order_by('studentUser__lastName'); count = bsit6.count()
+    year = 'Sixth Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year}
     return render(request, './chairperson/students/students_bsit6I.html', context)
 
-
-def students_allbsee(request):
+"""def students_allbsee(request):
     bsee = StudentInfo.objects.filter(studentCourse='BSEE'); count = bsee.count()
     result = filters.Search(request.GET, queryset=bsee); bsee = result.qs
     year = "All"
     context = {'bsee': bsee, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_allbsee.html', context)"""
+
+def students_allbsee(request):
+    bsee = StudentInfo.objects.filter(studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee.count()
+    year = "All";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee': bsee, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_allbsee.html', context)
-def students_allIbsee(request):
+
+"""def students_allIbsee(request):
     bsit = StudentInfo.objects.filter(studentCourse='BSEE', studentRegStatus='Irregular'); count = bsit.count()
     result = filters.Search(request.GET, queryset=bsit); bsit = result.qs
     year = "All"
     context = {'bsit': bsit, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_allIbsee.html', context)"""
+
+def students_allIbsee(request):
+    bsee = StudentInfo.objects.filter(studentRegStatus='Irregular', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee.count()
+    year = "All";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee': bsee, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_allIbsee.html', context)
 
-def students_bsee(request):
+"""def students_bsee(request):
     bsit1 = StudentInfo.objects.filter(studentYearlevel='1', studentCourse='BSEE'); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = 'First Year'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee.html', context)"""
+
+def students_bsee(request):
+    bsee1 = StudentInfo.objects.filter(studentYearlevel='1', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee1.count()
+    year = 'First Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee.html', context)
-def students_bsee1I(request):
+
+"""def students_bsee1I(request):
     bsit1 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='1', studentCourse='BSEE'); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = 'First Year'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee1I.html', context)"""
+
+def students_bsee1I(request):
+    bsee1 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='1', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee1.count()
+    year = "First Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee1I.html', context)
 
 def students_bsee2(request):
-    bsit2 = StudentInfo.objects.filter(studentYearlevel='2', studentCourse='BSEE'); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
-    year = 'Second Year'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year}
+    bsee2 = StudentInfo.objects.filter(studentYearlevel='2', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee2.count()
+    year = 'Second Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee2.html', context)
+
 def students_bsee2I(request):
-    bsit2 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='2', studentCourse='BSEE');  count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
-    year = 'Second Year'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students BSEE/students_bsee2I.html', context)
+    bsee2 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='2', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee2.count()
+    year = "Second Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee2I.html', context)    
 
 def students_bsee3(request):
-    bsit3 = StudentInfo.objects.filter(studentYearlevel='3', studentCourse='BSEE'); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
-    year = 'Third Year'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year}
+    bsee3 = StudentInfo.objects.filter(studentYearlevel='3', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee3.count()
+    year = 'Third Year';
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee3.html', context)
+
 def students_bsee3I(request):
-    bsit3 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='3', studentCourse='BSEE'); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
-    year = 'Third Year'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students BSEE/students_bsee3I.html', context)
+    bsee3 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='3', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee3.count()
+    year = "Third Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee3I.html', context) 
 
 def students_bsee4(request):
-    bsit4 = StudentInfo.objects.filter(studentYearlevel='4', studentCourse='BSEE'); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
-    year = 'Fourth Year'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year}
+    bsee4 = StudentInfo.objects.filter(studentYearlevel='4', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee4.count()
+    year = "Fourth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee4.html', context)
+
 def students_bsee4I(request):
-    bsit4 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='4', studentCourse='BSEE'); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
-    year = 'Fourth Year'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students BSEE/students_bsee4I.html', context)
+    bsee4 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='4', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee4.count()
+    year = "Fourth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee4I.html', context)     
 
 def students_bsee5(request):
-    bsit5 = StudentInfo.objects.filter(studentYearlevel='5', studentCourse='BSEE'); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
-    year = 'Fifth Year'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year}
+    bsee5 = StudentInfo.objects.filter(studentYearlevel='5', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee5.count()
+    year = "Fifth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee5.html', context)
+
 def students_bsee5I(request):
-    bsit5 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='5', studentCourse='BSEE'); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
-    year = 'Fifth Year'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students BSEE/students_bsee5I.html', context)
+    bsee5 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='5', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee5.count()
+    year = "Fifth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee5I.html', context)     
 
 def students_bsee6(request):
-    bsit6 = StudentInfo.objects.filter(studentYearlevel='6', studentCourse='BSEE'); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
-    year = 'Sixth Year'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year}
+    bsee6 = StudentInfo.objects.filter(studentYearlevel='6', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee6.count()
+    year = "Sixth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year}
     return render(request, './chairperson/students BSEE/students_bsee6.html', context)
-def students_bsee6I(request):
-    bsit6 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='6', studentCourse='BSEE'); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
-    year = 'Sixth Year'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year}
-    return render(request, './chairperson/students BSEE/students_bsee6I.html', context)
 
+def students_bsee6I(request):
+    bsee6 = StudentInfo.objects.filter(studentRegStatus='Irregular', studentYearlevel='6', studentCourse='BSEE').order_by('studentUser__lastName'); count = bsee6.count()
+    year = "Fifth Year";
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year}
+    return render(request, './chairperson/students BSEE/students_bsee6I.html', context)     
 
 def profile1_1(request, dept_id):
     p11 = StudentInfo.objects.get(pk=dept_id)
@@ -403,520 +662,1181 @@ def profile1_1bsee(request, bsee_id):
     return render(request, './chairperson/students BSEE/profile1_1bsee.html', context)
 
 
-def students_bsit1(request):
+"""def students_bsit1(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSIT')
     bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = '1st Year'; block1 = '1'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit1.html', context) """
+
+def students_bsit1(request):
+    section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSIT')
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
+    year = '1st Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1.html', context)
+
 def students_bsit1_2(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="2", blockCourse='BSIT')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
     year = '1st Year'; block1 = '2'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1-2.html', context)
+
 def students_bsit1_3(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="3", blockCourse='BSIT')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
     year = '1st Year'; block1 = '3'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1-3.html', context)
+
 def students_bsit1_4(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="4", blockCourse='BSIT')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
     year = '1st Year'; block1 = '4'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1-4.html', context)
+
 def students_bsit1_5(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="5", blockCourse='BSIT')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
     year = '1st Year'; block1 = '5'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1-5.html', context)
+
 def students_bsit1_6(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="6", blockCourse='BSIT')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsit1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit1.count()
     year = '1st Year'; block1 = '6'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit1': bsit1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit1-6.html', context)
 
-def students_bsit2_1(request):
+"""def students_bsit2_1(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="1", blockCourse='BSIT')
     bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
     result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
     year = '2nd Year'; block1 = '1'
     context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit2-1.html', context)"""
+
+def students_bsit2_1(request):
+    section = BlockSection.objects.filter(blockYear="2", blockSection="1", blockCourse='BSIT')
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
+    year = '2nd Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-1.html', context)
+
 def students_bsit2_2(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="2", blockCourse='BSIT')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
     year = '2nd Year'; block1 = '2'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-2.html', context)
+
 def students_bsit2_3(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="3", blockCourse='BSIT')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
     year = '2nd Year'; block1 = '3'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-3.html', context)
+
 def students_bsit2_4(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="4", blockCourse='BSIT')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
     year = '2nd Year'; block1 = '4'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-4.html', context)
+
 def students_bsit2_5(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="5", blockCourse='BSIT')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
     year = '2nd Year'; block1 = '5'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-5.html', context)
+
 def students_bsit2_6(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="6", blockCourse='BSIT')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsit2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit2.count()
     year = '2nd Year'; block1 = '6'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit2': bsit2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit2-6.html', context)
 
-def students_bsit3_1(request):
+"""def students_bsit3_1(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="1", blockCourse='BSIT')
     bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
     result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
     year = '3rd Year'; block1 = '1'
     context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit3-1.html', context)"""
+
+def students_bsit3_1(request):
+    section = BlockSection.objects.filter(blockYear="3", blockSection="1", blockCourse='BSIT')
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
+    year = '3rd Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit3-1.html', context)
+
 def students_bsit3_2(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="2", blockCourse='BSIT')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
     year = '3rd Year'; block1 = '2'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit3-2.html', context)
+
 def students_bsit3_3(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="3", blockCourse='BSIT')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
     year = '3rd Year'; block1 = '3'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit3-3.html', context)
+
 def students_bsit3_4(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="4", blockCourse='BSIT')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
     year = '3rd Year'; block1 = '4'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit3-4.html', context)
+
 def students_bsit3_5(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="5", blockCourse='BSIT')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
     year = '3rd Year'; block1 = '5'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit3-5.html', context)
+
 def students_bsit3_6(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="6", blockCourse='BSIT')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsit3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit3.count()
     year = '3rd Year'; block1 = '6'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
-    return render(request, './chairperson/students/students_bsit3-6.html', context)
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit3': bsit3, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit3-5.html', context)
 
-def students_bsit4_1(request):
+"""def students_bsit4_1(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="1", blockCourse='BSIT')
     bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
     result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
     year = '4th Year'; block1 = '1'
     context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit4-1.html', context)"""
+
+def students_bsit4_1(request):
+    section = BlockSection.objects.filter(blockYear="4", blockSection="1", blockCourse='BSIT')
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
+    year = '4th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-1.html', context)
+
 def students_bsit4_2(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="2", blockCourse='BSIT')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
     year = '4th Year'; block1 = '2'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-2.html', context)
+
 def students_bsit4_3(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="3", blockCourse='BSIT')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
     year = '4th Year'; block1 = '3'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-3.html', context)
+
 def students_bsit4_4(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="4", blockCourse='BSIT')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
     year = '4th Year'; block1 = '4'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-4.html', context)
+
 def students_bsit4_5(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="5", blockCourse='BSIT')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
     year = '4th Year'; block1 = '5'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-5.html', context)
+
 def students_bsit4_6(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="6", blockCourse='BSIT')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsit4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit4.count()
     year = '4th Year'; block1 = '6'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit4': bsit4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit4-6.html', context)
 
-def students_bsit5_1(request):
+"""def students_bsit5_1(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="1", blockCourse='BSIT')
     bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
     result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
     year = '5th Year'; block1 = '1'
     context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit5-1.html', context)"""
+
+def students_bsit5_1(request):
+    section = BlockSection.objects.filter(blockYear="5", blockSection="1", blockCourse='BSIT')
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
+    year = '5th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-1.html', context)
+
 def students_bsit5_2(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="2", blockCourse='BSIT')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
     year = '5th Year'; block1 = '2'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-2.html', context)
+
 def students_bsit5_3(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="3", blockCourse='BSIT')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
     year = '5th Year'; block1 = '3'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-3.html', context)
+
 def students_bsit5_4(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="4", blockCourse='BSIT')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
     year = '5th Year'; block1 = '4'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-4.html', context)
+
 def students_bsit5_5(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="5", blockCourse='BSIT')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
     year = '5th Year'; block1 = '5'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-5.html', context)
+
 def students_bsit5_6(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="6", blockCourse='BSIT')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsit5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit5.count()
     year = '5th Year'; block1 = '6'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit5': bsit5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit5-6.html', context)
 
-def students_bsit6_1(request):
+"""def students_bsit6_1(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="1", blockCourse='BSIT')
     bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
     result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
     year = '6th Year'; block1 = '1'
     context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students/students_bsit6-1.html', context)"""
+
+def students_bsit6_1(request):
+    section = BlockSection.objects.filter(blockYear="6", blockSection="1", blockCourse='BSIT')
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
+    year = '6th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-1.html', context)
+
 def students_bsit6_2(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="2", blockCourse='BSIT')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
     year = '6th Year'; block1 = '2'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-2.html', context)
+
 def students_bsit6_3(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="3", blockCourse='BSIT')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
     year = '6th Year'; block1 = '3'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-3.html', context)
+
 def students_bsit6_4(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="4", blockCourse='BSIT')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
     year = '6th Year'; block1 = '4'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-4.html', context)
+
 def students_bsit6_5(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="5", blockCourse='BSIT')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
     year = '6th Year'; block1 = '5'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-5.html', context)
+
 def students_bsit6_6(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="6", blockCourse='BSIT')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsit6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsit6.count()
     year = '6th Year'; block1 = '6'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsit6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsit6': bsit6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students/students_bsit6-6.html', context)
 
-def students_bsee1(request):
+#BSEE Students
+"""def students_bsee1(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSEE')
     bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
     result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
     year = '1st Year'; block1 = '1'
     context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee1.html', context)"""
+
+def students_bsee1(request):
+    section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSEE')
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
+    year = '1st Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1.html', context)
+
 def students_bsee1_2(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="2", blockCourse='BSEE')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
     year = '1st Year'; block1 = '2'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1-2.html', context)
+
 def students_bsee1_3(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="3", blockCourse='BSEE')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
     year = '1st Year'; block1 = '3'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1-3.html', context)
+
 def students_bsee1_4(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="4", blockCourse='BSEE')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
     year = '1st Year'; block1 = '4'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1-4.html', context)
+
 def students_bsee1_5(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="5", blockCourse='BSEE')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
     year = '1st Year'; block1 = '5'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1-5.html', context)
+
 def students_bsee1_6(request):
     section = BlockSection.objects.filter(blockYear="1", blockSection="6", blockCourse='BSEE')
-    bsit1 = StudentInfo.objects.filter(studentSection__in=section); count = bsit1.count()
-    result = filters.Search(request.GET, queryset=bsit1); bsit1 = result.qs
+    bsee1 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee1.count()
     year = '1st Year'; block1 = '6'
-    context = {'bsit1': bsit1, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee1 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee1': bsee1, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee1-6.html', context)
 
-def students_bsee2_1(request):
+"""def students_bsee2_1(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="1", blockCourse='BSEE')
     bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
     result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
     year = '2nd Year'; block1 = '1'
     context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee2-1.html', context)"""
+
+def students_bsee2_1(request):
+    section = BlockSection.objects.filter(blockYear="2", blockSection="1", blockCourse='BSEE')
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
+    year = '2nd Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-1.html', context)
+
 def students_bsee2_2(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="2", blockCourse='BSEE')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
     year = '2nd Year'; block1 = '2'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-2.html', context)
+
 def students_bsee2_3(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="3", blockCourse='BSEE')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
     year = '2nd Year'; block1 = '3'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-3.html', context)
+
 def students_bsee2_4(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="4", blockCourse='BSEE')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
     year = '2nd Year'; block1 = '4'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-4.html', context)
+
 def students_bsee2_5(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="5", blockCourse='BSEE')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
     year = '2nd Year'; block1 = '5'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-5.html', context)
+
 def students_bsee2_6(request):
     section = BlockSection.objects.filter(blockYear="2", blockSection="6", blockCourse='BSEE')
-    bsit2 = StudentInfo.objects.filter(studentSection__in=section); count = bsit2.count()
-    result = filters.Search(request.GET, queryset=bsit2); bsit2 = result.qs
+    bsee2 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee2.count()
     year = '2nd Year'; block1 = '6'
-    context = {'bsit2': bsit2, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee2 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee2': bsee2, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee2-6.html', context)
 
-def students_bsee3_1(request):
+"""def students_bsee3_1(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="1", blockCourse='BSEE')
     bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
     result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
     year = '3rd Year'; block1 = '1'
     context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee3-1.html', context)"""
+
+def students_bsee3_1(request):
+    section = BlockSection.objects.filter(blockYear="3", blockSection="1", blockCourse='BSEE')
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
+    year = '3rd Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-1.html', context)
+
 def students_bsee3_2(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="2", blockCourse='BSEE')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
     year = '3rd Year'; block1 = '2'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-2.html', context)
+
 def students_bsee3_3(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="3", blockCourse='BSEE')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
     year = '3rd Year'; block1 = '3'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-3.html', context)
+
 def students_bsee3_4(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="4", blockCourse='BSEE')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
     year = '3rd Year'; block1 = '4'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-4.html', context)
+
 def students_bsee3_5(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="5", blockCourse='BSEE')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
     year = '3rd Year'; block1 = '5'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-5.html', context)
+
 def students_bsee3_6(request):
     section = BlockSection.objects.filter(blockYear="3", blockSection="6", blockCourse='BSEE')
-    bsit3 = StudentInfo.objects.filter(studentSection__in=section); count = bsit3.count()
-    result = filters.Search(request.GET, queryset=bsit3); bsit3 = result.qs
+    bsee3 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee3.count()
     year = '3rd Year'; block1 = '6'
-    context = {'bsit3': bsit3, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee3 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee3': bsee3, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee3-6.html', context)
 
-def students_bsee4_1(request):
+"""def students_bsee4_1(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="1", blockCourse='BSEE')
     bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
     result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
     year = '4th Year'; block1 = '1'
     context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee4-1.html', context)"""
+
+def students_bsee4_1(request):
+    section = BlockSection.objects.filter(blockYear="4", blockSection="1", blockCourse='BSEE')
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
+    year = '4th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-1.html', context)
+
 def students_bsee4_2(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="2", blockCourse='BSEE')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
     year = '4th Year'; block1 = '2'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-2.html', context)
+
 def students_bsee4_3(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="3", blockCourse='BSEE')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
     year = '4th Year'; block1 = '3'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-3.html', context)
+
 def students_bsee4_4(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="4", blockCourse='BSEE')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
     year = '4th Year'; block1 = '4'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-4.html', context)
+
 def students_bsee4_5(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="5", blockCourse='BSEE')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
     year = '4th Year'; block1 = '5'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-5.html', context)
+    
 def students_bsee4_6(request):
     section = BlockSection.objects.filter(blockYear="4", blockSection="6", blockCourse='BSEE')
-    bsit4 = StudentInfo.objects.filter(studentSection__in=section); count = bsit4.count()
-    result = filters.Search(request.GET, queryset=bsit4); bsit4 = result.qs
+    bsee4 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee4.count()
     year = '4th Year'; block1 = '6'
-    context = {'bsit4': bsit4, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee4 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee4': bsee4, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee4-6.html', context)
 
-def students_bsee5_1(request):
+"""def students_bsee5_1(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="1", blockCourse='BSEE')
     bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
     result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
     year = '5th Year'; block1 = '1'
     context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee5-1.html', context)"""
+
+def students_bsee5_1(request):
+    section = BlockSection.objects.filter(blockYear="5", blockSection="1", blockCourse='BSEE')
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
+    year = '5th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-1.html', context)
+
 def students_bsee5_2(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="2", blockCourse='BSEE')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
     year = '5th Year'; block1 = '2'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-2.html', context)
+
 def students_bsee5_3(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="3", blockCourse='BSEE')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
     year = '5th Year'; block1 = '3'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-3.html', context)
+
 def students_bsee5_4(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="4", blockCourse='BSEE')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
     year = '5th Year'; block1 = '4'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-4.html', context)
+
 def students_bsee5_5(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="5", blockCourse='BSEE')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
     year = '5th Year'; block1 = '5'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-5.html', context)
+
 def students_bsee5_6(request):
     section = BlockSection.objects.filter(blockYear="5", blockSection="6", blockCourse='BSEE')
-    bsit5 = StudentInfo.objects.filter(studentSection__in=section); count = bsit5.count()
-    result = filters.Search(request.GET, queryset=bsit5); bsit5 = result.qs
+    bsee5 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee5.count()
     year = '5th Year'; block1 = '6'
-    context = {'bsit5': bsit5, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee5 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee5': bsee5, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee5-6.html', context)
 
-def students_bsee6_1(request):
+"""def students_bsee6_1(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="1", blockCourse='BSEE')
     bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
     result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
     year = '6th Year'; block1 = '1'
     context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    return render(request, './chairperson/students BSEE/students_bsee6-1.html', context)"""
+
+def students_bsee6_1(request):
+    section = BlockSection.objects.filter(blockYear="6", blockSection="1", blockCourse='BSEE')
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
+    year = '6th Year'; block1 = '1'
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-1.html', context)
+
 def students_bsee6_2(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="2", blockCourse='BSEE')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
     year = '6th Year'; block1 = '2'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-2.html', context)
+
 def students_bsee6_3(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="3", blockCourse='BSEE')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
     year = '6th Year'; block1 = '3'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-3.html', context)
+
 def students_bsee6_4(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="4", blockCourse='BSEE')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
     year = '6th Year'; block1 = '4'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-4.html', context)
+
 def students_bsee6_5(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="5", blockCourse='BSEE')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
     year = '6th Year'; block1 = '5'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-5.html', context)
+
 def students_bsee6_6(request):
     section = BlockSection.objects.filter(blockYear="6", blockSection="6", blockCourse='BSEE')
-    bsit6 = StudentInfo.objects.filter(studentSection__in=section); count = bsit6.count()
-    result = filters.Search(request.GET, queryset=bsit6); bsit6 = result.qs
+    bsee6 = StudentInfo.objects.filter(studentSection__in=section).order_by('studentUser__lastName'); count = bsee6.count()
     year = '6th Year'; block1 = '6'
-    context = {'bsit6': bsit6, 'result': result, 'count': count, 'year': year, 'block1': block1, 'section': section}
+    if request.GET.get('search'):
+        search = request.GET['search']
+        bsee6 = StudentInfo.objects.filter(
+            Q(studentID__contains=search) |
+            Q(studentUser__firstName__icontains=search) |
+            Q(studentUser__lastName__icontains=search) |
+            Q(studentUser__middleName__icontains=search)
+        )
+    context = {'bsee6': bsee6, 'count': count, 'year': year, 'block1': block1, 'section': section}
     return render(request, './chairperson/students BSEE/students_bsee6-6.html', context)
 
 def edit_students(request,pk):
