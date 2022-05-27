@@ -5362,3 +5362,9 @@ def eventsCreate(request):
             messages.error(request, error.message)
             return redirect('events.create')
     return render(request, 'testfiles/event-create.html')
+
+# For rendering in homapages
+def eventsComponent(request):
+    if request.GET.get('sortCategory'):
+        return Event.objects.filter(eventCategory=request.GET['sortCategory']).order_by('eventStartDate')
+    return Event.objects.all().order_by('eventStartDate')
