@@ -1,4 +1,4 @@
-{% extends 'chairperson/students BSEE/students_bsee6.html' %}
+{% extends 'chairperson/students/students_bsit6.html' %}
     {% block content %}
         <form method="get">
             {{result.form}}
@@ -7,7 +7,7 @@
         <br>
         {{ year }}
         Students:{{count}}
-        <a href="{% url 'students_bsee6I' %}">Irregular</a>
+        <a href="{% url 'students_bsit6I' %}">Irregular</a>
         <table>
             <thead>
                 <h3></h3>
@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in bsee6 %}
+                {% for i in bsit6 %}
                 <tr>
                     <td>{{ i.studentID }}</td>
                     <td>{{ i.studentUser.lastName }}</td>
                     <td>{{ i.studentUser.firstName }}</td>
                     <td>{{ i.studentUser.middleName }}</td>
-                    <td><div class="container1"><a href="{% url 'profile1_1bsee' i.pk %}"><button class="btn btn5">view</button></a></div></td>
+                    <td><div class="container1"><a href="{% url 'profile1_1' i.pk %}"><button class="btn btn5">view</button></a></div></td>
                 </tr>
                 {% endfor %}
             </tbody>

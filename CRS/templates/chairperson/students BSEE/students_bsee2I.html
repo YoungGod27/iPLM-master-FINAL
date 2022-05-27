@@ -1,13 +1,13 @@
 {% extends 'chairperson/students BSEE/students_bsee2.html' %}
     {% block content %}
         <form method="get">
-            <input type="text" name="search">
+            {{result.form}}
             <button type="submit">Search</button>
         </form>
         <br>
         {{ year }}
         Students:{{count}}
-        <a href="{% url 'students_bsee2I' %}">Irregular</a>
+        <a href="{% url 'students_bsit2I' %}">Irregular</a>
         <table>
             <thead>
                 <h3></h3>
@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-                {% for i in bsee2 %}
+                {% for i in bsit2 %}
                 <tr>
                     <td>{{ i.studentID }}</td>
                     <td>{{ i.studentUser.lastName }}</td>
                     <td>{{ i.studentUser.firstName }}</td>
                     <td>{{ i.studentUser.middleName }}</td>
-                    <td><div class="container1"><a href="{% url 'profile1_1bsee' i.pk %}"><button class="btn btn5">view</button></a></div></td>
+                    <td><div class="container1"><a href="{% url 'profile1_1' i.pk %}"><button class="btn btn5">view</button></a></div></td>
                 </tr>
                 {% endfor %}
             </tbody>
