@@ -176,6 +176,7 @@
     display: inline;
     width: 1100px;
     }
+
     </style>
 
 </head>
@@ -222,28 +223,34 @@
                             <div class="col-lg-12">
                                 <div id="sdhtext">Semester Details</div>
                                 <div class="semdet row">
-                                    {% for acads in acad %}
+                                    
                                     <div class="sdtext col">Academic Year:</div>
-                                    <div class="field col">{{acads.yearstarted}}-{{acads.yearended}}</div>
-                                     {% endfor %}<!--DB ACADEMIC YEAR-->
+                                    <div class="field col">{{acad.yearstarted}}-{{acad.yearended}}</div>
+                                    <!--DB ACADEMIC YEAR-->
                                 </div>
                                 <div class="semdet row">
-                                    {% for acads in acad %}
+                                    
                                     <div class="sdtext col">Semester:</div>
-                                    <div class="field col">{{acads.semester}}</div><!--DB SEMESTER-->
-                                    {% endfor %}
+                                    <div class="field col">{{acad.semester}}</div><!--DB SEMESTER-->
+                                    
                                 </div>
-
+                                <!--
                                 <div class="semdet row">
                                     <div class="sdtext col">Subjects:</div>
-                                    <div class="field col">{{subjects}}</div><!--DB NO. OF SUBJECTS-->
-                                </div>                                
+                                    <div class="field col">{{subjects}}</div><!--DB NO. OF SUBJECTS
+                                </div>      -->                          
                             </div>
                         </div>
 
                         <!--Schedule Image Flipped-->
                         <div class="row">
+<<<<<<< Updated upstream
                             <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part Time Availability</button></a>
+=======
+                            {% if facultyInfo.facultyWorkstatus == 'Part-Time' %}
+                            <a href="{% url 'parttime_sched' %}" id="buttonPartTIme"><button type="button" class="btn">Part-Time Availability</button></a>
+                            {% endif %}
+>>>>>>> Stashed changes
                             <img src="{% static 'CRS/images/fClassroom/clip-homework.png' %}" height="350" width="auto">
                         </div>
                     </div>  
@@ -264,7 +271,9 @@
                                     <th scope="col" colspan="2" id="schedtext"><b>Session Type</b></th>
                                 </tr>
                                 <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
-                                    {% for sched  in schedule %}
+                                {% for sched  in schedule %}
+                                {% for c in curric %}
+                                {% if c.subjectCode_id == sched.subjectCode_id and c.schoolSem == acad.semester %}
                                 <tr class="tabletext2">
                                     <td id="schedtext-1">{{sched.subjectCode.subjectCode.subjectCode}}</td>
                                     <td><p  class="dataStyle"><b>{{sched.subjectCode.subjectCode.subjectName}}</b></p></td>
@@ -276,6 +285,8 @@
                                     <td id="schedtext-1">{{sched.type}}</td>
                                     <td id="schedtext-1"><a href="{% url 'viewstudent' sched.id  %}" id="buttonView"><button type="button" class="btn">View</button></a></td>
                                 </tr>
+                                {% endif %}
+                                {% endfor %}
                                 {% endfor %}
                             </table>
                         </div>
