@@ -2,6 +2,7 @@
 
 body {
     background: #fcfcfc;
+    overflow: hidden;
 }
 
 #content {
@@ -289,6 +290,7 @@ a:focus {
     background-color: white;
     width: 550px;
     height: 650px;
+    
     margin-left: -50px;
 
 }
@@ -792,6 +794,7 @@ a:focus {
 @media (max-width: 768px) {
     body {
         background: #fcfcfc;
+        overflow: auto;
     }
 
     #content {
