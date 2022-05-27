@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+          <div class="card p-3 bg-light mb-4">
+            <h3>Create Event</h3>
+            <form action="{% url 'events.create' %}" method="post">
+              {% csrf_token %}
+              <select name="eventCategory" class="form-select mb-3">
+                <option value="Academics">Academics</option>
+                <option value="Sports">Sports</option>
+                <option value="Social">Social</option>
+                <option value="Arts & Culture">Arts & Culture</option>
+                <option value="Featured">Featured</option>
+              </select>
+              <input type="text" name="eventTitle" class="form-control mb-3" placeholder="Title" required>
+              <input type="text" name="eventDescription" class="form-control mb-3" placeholder="Description" required>
+              <div class="mb-3">
+                <label class="form-label">Start</label>
+                <input type="datetime-local" name="eventStartDate" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">End</label>
+                <input type="datetime-local" name="eventEndDate" required>
+              </div>
+              <input type="submit" value="Submit" class="btn btn-outline-dark w-100">
+            </form>
+          </div>
+    <h1>Create</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
