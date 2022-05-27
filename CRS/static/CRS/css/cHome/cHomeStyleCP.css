@@ -599,18 +599,19 @@ body {
 
 .overview-block {
     background-color: #fff;
-    border-radius: 10px;
-    height: 150px;
+    border-radius: 10px;    
     box-shadow: 0 4px 8px 0 #d3dbe4, 0 6px 20px 0 #d3dbe4;
     margin: 20px 20px 0px 0px;
 }
 
 .lg-overview-block {
   width: 500px;
+  height: 150px;
 }
 
 .sm-overview-block {
   width: 240px;
+  height: 150px;
 }
 
 .ov-heading-1 {
@@ -698,3 +699,10 @@ body {
     font-size: 12px;
   }
  }
+
+
+ /******************DEPARTMENT CONTENT***********************/
+
+ .full-overview-block {
+  width: 100%;
+}
