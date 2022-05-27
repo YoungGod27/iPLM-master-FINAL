@@ -33,6 +33,7 @@ from django.db.models.query_utils import Q
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
+from datetime import datetime
 
 def error_404_view(request,exception):
     return render(request, 'error.html')
@@ -1636,14 +1637,32 @@ def others_studyplan(request):
 def fHome(request):
     if request.user.is_authenticated and request.user.is_faculty:
         user = request.user
+        id_adv = request.user.id
         facultyInfo = request.user.facultyinfo
         acad = AcademicYearInfo.objects.all
         departmentid=facultyInfo.departmentID_id
         collegeid=facultyInfo.collegeID_id
         college=College.objects.get(id=collegeid)
         department=Department.objects.get(id = departmentid)
+<<<<<<< Updated upstream
         
         return render(request,'./faculty/fHome.html',{'user':user,'facultyInfo':facultyInfo,'department':department,'college':college,'acad':acad})
+=======
+
+        f_user = FacultyInfo.objects.get(pk = id_adv)
+        advisory = BlockSection.objects.filter(adviser = f_user)
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory)
+        count_block = advisory.count()
+        count_stud = stud_advisory.count()
+        
+        #FOR NOTIF GRADES
+        try:
+            grade_file = crsGrade.objects.all
+        except crsGrade.DoesNotExist:
+            grade_file = None
+
+        return render(request,'./faculty/fHome.html',{'user':user,'facultyInfo':facultyInfo,'department':department,'college':college,'acad':acad, 'count_block':count_block, 'count_stud':count_stud, 'grade_file':grade_file, 'stud_advisory':stud_advisory})
+>>>>>>> Stashed changes
     else:
         return redirect('index')
 
@@ -1859,26 +1878,13 @@ def parttime_sched(request):
         return redirect('index')
 
 
-"""def fStudents_advisory(request):
-    if request.user.is_authenticated and request.user.is_faculty:
-        id= request.user.id
-        f_user = FacultyInfo.objects.get(pk = id)
-        advisory = BlockSection.objects.filter(adviser = f_user)
-        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory) 
-        count = stud_advisory.count()
-        if count == 0:
-            messages.error (request, 'You have no advisory class!')
-            return render (request, './faculty/fStudents_advisory.html')
-        context = {'advisory': advisory, 'count': count, 'stud_advisory': stud_advisory}
-        return render(request, 'faculty/fStudents_advisory.html', context)
-    else:
-        return redirect('index')"""
 
 def fStudents_advisory(request):
     if request.user.is_authenticated and request.user.is_faculty:
         id= request.user.id
         f_user = FacultyInfo.objects.get(pk = id)
         advisory = BlockSection.objects.filter(adviser = f_user)
+<<<<<<< Updated upstream
         section = BlockSection.objects.filter(blockYear="1", blockSection="1", blockCourse='BSIT')
         stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).filter(studentSection__in=section); 
         count = stud_advisory.count()
@@ -1886,12 +1892,48 @@ def fStudents_advisory(request):
             messages.error (request, 'You have no advisory class!')
             return render (request, './faculty/fStudents_advisory.html')
         context = {'advisory': advisory, 'count': count, 'stud_advisory': stud_advisory}
+=======
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory)
+
+        stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).order_by('studentUser__lastName')
+
+        #FILTER DROPDOWN
+        block = '0'
+        if (request.method=='POST'):
+            status=request.POST.get('slct')
+            if (status == '0'):
+                stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).order_by('studentUser__lastName')
+            elif (status == None):
+                stud_advisory = StudentInfo.objects.filter(studentSection__in = advisory).order_by('studentUser__lastName')
+            else: 
+                stud_advisory = stud_advisory.filter(studentSection_id = status)
+                block = '1'
+              
+        if (request.method == 'GET'):
+            if request.GET.get('studentID'):
+                search = request.GET['studentID']
+                stud_advisory = stud_advisory.filter(
+                    Q(studentID__contains=search) |
+                    Q(studentUser__firstName__icontains=search) |
+                    Q(studentUser__lastName__icontains=search) |
+                    Q(studentUser__middleName__icontains=search)
+                )
+        
+        count = stud_advisory.count()
+        if count == 0:
+            messages.error (request, 'No record found!')
+            context = {'advisory': advisory}
+            return render (request, './faculty/fStudents_advisory.html', context)   
+
+        context = {'advisory': advisory, 'count': count, 'stud_advisory': stud_advisory, 'block': block}
+>>>>>>> Stashed changes
         return render(request, 'faculty/fStudents_advisory.html', context)
     else:
         return redirect('index')
 
 
 def fStudents_viewStudentGrade (request,stud_id):
+    semester = '1'
     fcount = 0
     if request.user.is_authenticated and request.user.is_faculty: 
         try:
@@ -2072,6 +2114,9 @@ def fStudents_viewStudentGrade (request,stud_id):
         if 'submit' in request.POST:
             if (request.method=='POST'):
                 status=request.POST.get('slct')
+                semester = request.POST.get('semester')
+                if semester == None:
+                    semester = '1'
                 if status=='Submitted':
                     grade_file.remarks = "Submitted"
                     grade_file.save()
@@ -2082,6 +2127,11 @@ def fStudents_viewStudentGrade (request,stud_id):
                     messages.success(request,'File is Returned, No file.')
                 elif status=='Approved':
                     grade_file.remarks = "Approved"
+<<<<<<< Updated upstream
+=======
+                    grade_file.crsFile.delete()
+                    messages.success(request,'File is Approved!')
+>>>>>>> Stashed changes
                     grade_file.save()
         if 'feedbackBtn' in request.POST:
             fcount = 1
@@ -2090,7 +2140,11 @@ def fStudents_viewStudentGrade (request,stud_id):
                 grade_file.comment = request.POST.get('message')
                 grade_file.save()
                 messages.success(request,'Feedback is successfully sent!')
+<<<<<<< Updated upstream
         context = {'checklist': checklist,'checklist2': checklist2,'checklist3': checklist3,'checklist4': checklist4,'checklist5': checklist5,'checklist6': checklist6, 'checklist7': checklist7,'checklist8': checklist8,'checklist9': checklist9, 'checklist10': checklist10, 'checklist11': checklist11, 'checklist12': checklist12, 'ave':ave, 'ave2': ave2, 'ave3':ave3, 'ave4':ave4, 'ave5':ave5, 'ave6':ave6, 'ave7':ave7, 'ave8' :ave8, 'ave9':ave9, 'ave10':ave10, 'ave11':ave11, 'ave12':ave12, 'stud_id': stud_id, 'grade_file':grade_file, 'fcount':fcount}
+=======
+        context = {'checklist': checklist,'checklist2': checklist2,'checklist3': checklist3,'checklist4': checklist4,'checklist5': checklist5,'checklist6': checklist6, 'checklist7': checklist7,'checklist8': checklist8,'checklist9': checklist9, 'checklist10': checklist10, 'checklist11': checklist11, 'checklist12': checklist12, 'ave':ave, 'ave2': ave2, 'ave3':ave3, 'ave4':ave4, 'ave5':ave5, 'ave6':ave6, 'ave7':ave7, 'ave8' :ave8, 'ave9':ave9, 'ave10':ave10, 'ave11':ave11, 'ave12':ave12, 'stud_id': stud_id, 'grade_file':grade_file, 'fcount':fcount, 'flag':flag, 'flag2':flag2, 'flag3':flag3, 'flag4':flag4, 'flag5':flag5, 'flag6':flag6, 'flag7':flag7, 'flag8':flag8, 'flag9':flag9, 'flag10':flag10, 'flag11':flag11, 'flag12':flag12, 'semester':semester}
+>>>>>>> Stashed changes
         return render(request, 'faculty/fStudents_viewStudentGrade.html', context)
     else:
         return redirect('index')
@@ -2112,12 +2166,13 @@ def fviewstudent(request, sched_id):
 
 def fViewSched(request):
     if request.user.is_authenticated and request.user.is_faculty:
-        acad = AcademicYearInfo.objects.all
+        acad = AcademicYearInfo.objects.get(pk=1)
+        curric = curriculumInfo.objects.all
         id= request.user.id
         info = FacultyInfo.objects.get(facultyUser=id)
         schedule = studentScheduling.objects.filter(instructor=info)
         subjects = schedule.count()
-        context = {'id': id, 'info':info, 'acad': acad, 'schedule' : schedule, 'subjects' : subjects}
+        context = {'id': id, 'info':info, 'acad': acad, 'schedule' : schedule, 'subjects' : subjects, 'facultyInfo' : facultyInfo, 'curric':curric}
         return render(request, 'faculty/fViewSched.html', context)
     else:
         return redirect('index')
@@ -2612,7 +2667,7 @@ def sGradeSubmission2(request):
             crsFile = request.FILES.get('crsFile')
             try:
                 grade_file = crsGrade.objects.get(studentID_id=id)
-                if grade_file.remarks == "Returned":
+                if grade_file.remarks == "Returned" or grade_file.remarks == "Approved":
                     if (request.method == 'POST'):
                         grade_file.crsFile = request.FILES.get('crsFile')
                         grade_file.remarks = 'Submitted'

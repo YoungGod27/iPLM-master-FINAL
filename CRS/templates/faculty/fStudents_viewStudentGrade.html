@@ -491,7 +491,58 @@
                         <span id="note-text">The grade shall be verified through<br> the screenshots submitted by the students.</span>
                     </div>
                     <!--end info-->
+                    <div class="searchbox">
+                        <div class="dropdown">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <span class="status-select">
+                                    <select name="semester" id="stat-slct">
+                                        {% if semester == '1' %}
+                                            <option disabled selected hidden value="1">1st Year, 1st Semester</option>
+                                        {% elif semester == '2' %}
+                                            <option disabled selected hidden value="2">1st Year, 2nd Semester</option>
+                                        {% elif semester == '3' %}
+                                            <option disabled selected hidden value="3">2nd Year, 1st Semester</option>
+                                        {% elif semester == '4' %}
+                                            <option disabled selected hidden value="4">2nd Year, 2nd Semester</option>
+                                        {% elif semester == '5' %} 
+                                            <option disabled selected hidden value="5">3rd Year, 1st Semester</option>
+                                        {% elif semester == '6' %}
+                                            <option disabled selected hidden value="6">3rd Year, 2nd Semester</option>
+                                        {% elif semester == '7' %}
+                                            <option disabled selected hidden value="7">4th Year, 1st Semester</option>
+                                        {% elif semester == '8' %}
+                                            <option disabled selected hidden value="8">4th Year, 2nd Semester</option>
+                                        {% elif semester == '9' %}
+                                            <option disabled selected hidden value="9">5th Year, 1st Semester</option>
+                                        {% elif semester == '10' %}
+                                            <option disabled selected hidden value="10">5th Year, 2nd Semester</option>
+                                        {% elif semester == '11' %}
+                                            <option disabled selected hidden value="11">6th Year, 1st Semester</option>
+                                        {% elif semester == '12' %}
+                                            <option disabled selected hidden value="12">6th Year, 2nd Semester</option>
+                                        {% endif %}
+                                        <option value="1">1st Year, 1st Semester</option>
+                                        <option value="2">1st Year, 2nd Semester</option>
+                                        <option value="3">2nd Year, 1st Semester</option>
+                                        <option value="4">2nd Year, 2nd Semester</option>
+                                        <option value="5">3rd Year, 1st Semester</option>
+                                        <option value="6">3rd Year, 2nd Semester</option>
+                                        <option value="7">4th Year, 1st Semester</option>
+                                        <option value="8">4th Year, 2nd Semester</option>
+                                        <option value="9">5th Year, 1st Semester</option>
+                                        <option value="10">5th Year, 2nd Semester</option>
+                                        <option value="11">6th Year, 1st Semester</option>
+                                        <option value="12">6th Year, 2nd Semester</option>
+                                    </select>
+                                </span>
+                                <button name="submit" class="saveBtn" alt="submit" value="submit">Go</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                 
+
                 <br>
                 <div class="clist row"> 
                     <div class="col-lg-8">
@@ -506,6 +557,10 @@
                                
                             </tr>
                             <!-----------FROM THIS POINT LAHAT NG <TD> TAG GALING DATABASE-------------------------------------------->
+<<<<<<< Updated upstream
+=======
+                            {% if semester == '1' %}
+>>>>>>> Stashed changes
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>1st Yr, 1st Sem</b></td>
                                 <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave | floatformat:2 }}</p></td>
@@ -528,7 +583,7 @@
 
     
                             <!---------------------------------------------------------->
-
+                            {% elif semester == '2' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>1st Yr, 2nd Sem</b></td>
                                 <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave2|floatformat:2 }}</p></td>
@@ -550,6 +605,7 @@
                             {% endfor %}
 
                             <!------------------------------------------------------->
+                            {% elif semester == '3' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>2nd Yr, 1st Sem</b></td>
                                 <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave3|floatformat:2 }}</p></td>
@@ -572,7 +628,7 @@
                             {% endfor %}
 
                             <!---------------------------------------------------------->
-
+                            {% elif semester == '4' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3"style="font-size: 20px; background-color: #cae2ff;"><b>2nd Yr, 2nd Sem</b></td>
                                 <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave4|floatformat:2 }}</p></td>
@@ -595,7 +651,7 @@
                             {% endfor %}
 
                             <!---------------------------------------------------------->
-
+                            {% elif semester == '5' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>3rd Yr, 1st Sem</b></td>
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave5|floatformat:2 }}</p></td>
@@ -616,6 +672,8 @@
                                         {% endif %}</td>
                             </tr>
                             {% endfor %}
+
+                            {% elif semester == '6' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3"style="font-size: 20px; background-color: #cae2ff;"><b>3rd Yr, 2nd Sem</b></td>
                                 <td colspan="2" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave6 |floatformat:2 }}</p></td>
@@ -636,6 +694,7 @@
                             </tr>
                             {% endfor %}
 
+                            {% elif semester == '7' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>4th Yr, 1st Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave7|floatformat:2 }}</p></td>
@@ -657,6 +716,7 @@
                             </tr>
                             {% endfor %}
 
+                            {% elif semester == '8' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>4th Yr, 2nd Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave8|floatformat:2 }}</p></td>
@@ -678,6 +738,7 @@
                             </tr>
                             {% endfor %}
                             <!---------------------------------------------------------->
+                            {% elif semester == '9' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>5th Yr, 1st Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave9|floatformat:2 }}</p></td>
@@ -698,6 +759,7 @@
                             </tr>
                             {% endfor %}
                             <!---------------------------------------------------------->
+                            {% elif semester == '10' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>5th Yr, 2nd Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave10|floatformat:2 }}</p></td>
@@ -719,6 +781,7 @@
                             </tr>
                             {% endfor %}
                             <!---------------------------------------------------------->
+                            {% elif semester == '11' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>6th Yr, 1st Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave11|floatformat:2 }}</p></td>
@@ -740,6 +803,7 @@
                             </tr>
                             {% endfor %}
                             <!---------------------------------------------------------->
+                            {% elif semester == '12' %}
                             <tr class="tabletext1" style="box-shadow: 0 0 10px rgb(138, 138, 138);">
                                 <td colspan="3" style="font-size: 20px; background-color: #cae2ff;"><b>6th Yr, 2nd Sem</b></td>
                                 <td colspan="3" style="background-color: #cae2ff;"><p id="head3"><b>GWA: </b>{{ ave12|floatformat:2 }}</p></td>
@@ -760,6 +824,7 @@
                                 <td><a href="{% url 'sChecklistEmptyConfirmation' subject.id %}"><button id="delete" ><img id="delete" src="{% static 'CRS/images/sClassroom/deleteSubject.png' %}" width="24px" height="auto"></button></a></td>
                             </tr>
                             {% endfor %}
+                            {% endif %}
 
                         </table>
                     
