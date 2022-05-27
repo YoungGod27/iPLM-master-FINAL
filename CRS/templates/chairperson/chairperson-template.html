@@ -3,7 +3,7 @@
 <html>
 
     <head>
-        <title> Chairperson | Home </title>
+        <title> Chairperson | Department </title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -109,112 +109,18 @@
                     <li> <a class="sb-links" href="{% url 'cOthers-partTime' %}"><img class="sb-icons" src="{% static 'CRS/images/cIcons/pta.png' %}" height="15">    Part-time Availability</a> </li>
                 </ul>
             </div> 
-            <!-- end sidebar -->
-            
-            <!-- quick links-->
-            <div id="mainwrapper" class="toggled">
-                <div id="qlinks" class="custom-scrollbar unselectable qlinks-wrapper">
-                    <li class="ql-section unselectable"><span>Quick Access</span></li>
-                    <a class="qlinks-btn" href="{% url 'is_active' %}" role="button">Department Subjects</a>
-                    <a class="qlinks-btn" href="{% url 'cOthers-studyPlan' %}" role="button">Study Plan</a>
-                    <a class="qlinks-btn" href="{% url 'cfaculty_applicant' %}" role="button">Faculty Application</a>
-                    <a class="qlinks-btn" href="{% url 'cStudentSchedOnline' %}" role="button">Block Schedule</a>
-                </div>
-            </div>
-            <!-- end quick links-->
+            <!-- end sidebar -->            
             
             <!-- Page Content -->
             <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <!-- navbar page title blue -->
-                    <div class="headertitle unselectable d-none d-md-block">Dashboard</div>
-                    <!-- content start-->
-                    <!-- body page title grey -->
-                    <h1 class="unselectable">Overview</h1> 
-                    <!-- overview blocks row 1 -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center">
-                        <!-- 1st block -->
-                        <div class="p-2 overview-block lg-overview-block">                            
-                            <div class="d-flex flex-wrap ov-block-content-1">
-                                <div class="p-2 unselectable">                                    
-                                    <img src="{% static '/CRS/images/cHome/semesterDetails.png' %}" height="38">
-                                </div>  
-                                <div class="p-2">                                    
-                                    <span class="ov-heading-1">Semester Details</span>
-                                    <table class="table table-sm table-borderless" id="ov-sem-details">
-                                        <tbody>
-                                            {% for acads in acad %}
-                                            <tr>
-                                                <td>Academic Year: <br> Semester:</td>
-                                                <td>{{acads.yearstarted}} - {{acads.yearended}} <br> {{acads.semester}}</td>
-                                            </tr>                                          
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>                            
-                            </div> 
-                        </div>
-                        <!-- 2nd block -->
-                        <div class="p-2 overview-block sm-overview-block">
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2 ov-block-content-top">
-                                <div class="p-2">                                    
-                                    Today is
-                                </div>                                                               
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    <h3 id="datetoday" class="ov-heading-2"></h3>                                 
-                                </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center">                                
-                                <div class="p-2">                                    
-                                    <h3 id="daytoday" class="ov-block-content-2"></h3>                                     
-                                </div>                                          
-                            </div>                             
-                        </div>
-                    </div> 
-                    <!-- overview blocks row 2 -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center">
-                        <!-- 1st block -->
-                        <div class="p-2 overview-block sm-overview-block">
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2 ov-heading-3">                                    
-                                    {{counts}}
-                                </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Students Enrolled
-                                </div>                                          
-                            </div>  
-                        </div>
-                        <!-- 2nd block -->
-                        <div class="p-2 overview-block sm-overview-block"><div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                            <div class="p-2 ov-heading-3">                                    
-                                {{countf}}
-                            </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Faculties Employed
-                                </div>                                          
-                            </div> 
-                        </div>
-                        <!-- 3rd block -->
-                        <div class="p-2 overview-block sm-overview-block"><div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                            <div class="p-2 ov-heading-3">                                    
-                                {{countsub}}
-                            </div>                                          
-                            </div> 
-                            <div class="d-flex flex-wrap justify-content-center ov-block-content-2">                                
-                                <div class="p-2">                                    
-                                    Curriculum Subjects
-                                </div>                                          
-                            </div>  
-                        </div>
-                    </div>  
-                </div>
-                
+                <div class="container-fluid">  
+                    
+                    <!--------------------------------------- place content below this ------------------------------------------------------->                  
+
+                    
+                    
+                    <!--------------------------------------- place content above this ------------------------------------------------------->   
+                </div>            
             </div> <!-- /#page-content-wrapper -->  
         </div> <!-- /#wrapper -->
 

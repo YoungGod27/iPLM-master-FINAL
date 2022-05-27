@@ -1,0 +1,139 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chairperson | College Subjects</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" href="{% static '/CRS/css/cDepartment/deptstyle.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!--Icon-->
+    <link rel="icon" href="{% static 'CRS/images/cDepartment/iPLM.png' %}" type="image/png" sizes="16x16">
+</head>
+
+<body>
+{%block content%}
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <li>
+                    <p><br><br><img src="{% static 'CRS/images/fHomeAndProfile/hat.png' %}" width="126px" height="87px"><br><br>
+                </li>
+            </div>
+            <ul class="sidebar components">
+                <li class="active"><a href="{% url 'chairperson' %}"><img src="{% static 'CRS/images/cIcons/home2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'is_active' %}"><img src="{% static 'CRS/images/cIcons/department2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'dept_student' %}"><img src="{% static 'CRS/images/cIcons/students2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'full_time' %}"><img src="{% static 'CRS/images/cIcons/faculty2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'cOthers-studyPlan' %}"><img src="{% static 'CRS/images/cIcons/others2.png' %}" width="97px" height="auto"></a></li>
+                <li><a href="{% url 'logout' %}"><img src="{% static 'CRS/images/cIcons/log-out2.png' %}" width="97px" height="auto"></a></li>
+            </ul>
+          </nav>
+        <!--End of Sidebar -->
+
+        <!-- Content -->
+
+        <div class="container-fluid">
+            <div class="content">
+                <!-- Others -->
+                <div class="oth">
+                    <p id="others">Department</p>
+                </div>
+
+                <!-- Department Categories -->
+                <div class="row px-5">
+
+                    <div class="col-lg-4">
+                        <p id="students">Subjects</p>
+                        <div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'is_active' %}" id="buttons"><button type="button" class="btn-btn2">College</button></a></div>
+						<div class="quickmargin col-lg-10 col-md-6 col-sm-12"><a href="{% url 'sc_active' %}" id="buttons"><button type="button" class="btn btn1">Servicing College</button></a></div>
+						<div class="quickmargin col-lg-10 col-md-6 col-sm-12"><img src="{% static 'CRS/images/cDepartment/illu.png' %}" style="width: 100%; height: auto; align: bottom;"></div>
+					</div>
+
+                    <div class="container col-lg-8">
+                        <p id="application"><b>College Schedules</b></p>
+
+
+						<div class="year">1st Year</div><!-- DB YEAR -->
+                        {% for i in subject %}
+                        {%if i.realsection.blockYear == '1' and i.subjectCode.subjectCode.college.collegeName == 'CET' %}
+                        <div class="app-panel row">
+                            <div class="col-sm col-lg-2"><b>{{ i.subjectCode.subjectCode.subjectCode }}</b></div><!-- DB SUBJECT CODE -->
+                            <div class="col-sm col-lg-3" id="cntr">{{ i.subjectCode.subjectCode.subjectName }}</div><!-- DB SUJBECT NAME -->
+							<div class="col-sm col-lg-1" id="cntr">{{ i.section}}</div><!-- DB SECTION -->
+                            <div class="col-sm col-lg-3" id="cntr"><img src="{% static 'CRS/images/cDepartment/facilitator.png' %}" style="width: auto; height: 24px; padding-right: 10px;">{{ i.instructor.facultyUser.lastName }}, {{ i.instructor.facultyUser.firstName }} </div><!-- DB FACILITATOR -->
+                            <div class="col-sm col-lg-3"><a href="{% url 'is_subject_view' i.id %}" id="buttons"><button type="button" class="btn btn2">View</button></a></div><!-- DB VIEW -->
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                        <div class="year">2nd Year</div><!-- DB YEAR -->
+                        {% for i in subject %}
+                        {%if i.realsection.blockYear == '2' and i.subjectCode.subjectCode.college.collegeName == 'CET' %}
+                        <div class="app-panel row">
+                            <div class="col-sm col-lg-2"><b>{{ i.subjectCode.subjectCode.subjectCode }}</b></div><!-- DB SUBJECT CODE -->
+                            <div class="col-sm col-lg-3" id="cntr">{{ i.subjectCode.subjectCode.subjectName }}</div><!-- DB SUJBECT NAME -->
+							<div class="col-sm col-lg-1" id="cntr">{{ i.section}}</div><!-- DB SECTION -->
+                            <div class="col-sm col-lg-3" id="cntr"><img src="{% static 'CRS/images/cDepartment/facilitator.png' %}" style="width: auto; height: 24px; padding-right: 10px;">{{ i.instructor.facultyUser.lastName }}, {{ i.instructor.facultyUser.firstName }} </div><!-- DB FACILITATOR -->
+                            <div class="col-sm col-lg-3"><a href="{% url 'is_subject_view' i.id %}" id="buttons"><button type="button" class="btn btn2">View</button></a></div><!-- DB VIEW -->
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                        <div class="year">3rd Year</div><!-- DB YEAR -->
+                        {% for i in subject %}
+                        {%if i.realsection.blockYear == '3' and i.subjectCode.subjectCode.college.collegeName == 'CET' %}
+                        <div class="app-panel row">
+                            <div class="col-sm col-lg-2"><b>{{ i.subjectCode.subjectCode.subjectCode }}</b></div><!-- DB SUBJECT CODE -->
+                            <div class="col-sm col-lg-3" id="cntr">{{ i.subjectCode.subjectCode.subjectName }}</div><!-- DB SUJBECT NAME -->
+							<div class="col-sm col-lg-1" id="cntr">{{ i.section}}</div><!-- DB SECTION -->
+                            <div class="col-sm col-lg-3" id="cntr"><img src="{% static 'CRS/images/cDepartment/facilitator.png' %}" style="width: auto; height: 24px; padding-right: 10px;">{{ i.instructor.facultyUser.lastName }}, {{ i.instructor.facultyUser.firstName }} </div><!-- DB FACILITATOR -->
+                            <div class="col-sm col-lg-3"><a href="{% url 'is_subject_view' i.id %}" id="buttons"><button type="button" class="btn btn2">View</button></a></div><!-- DB VIEW -->
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                        <div class="year">4th Year</div><!-- DB YEAR -->
+                        {% for i in subject %}
+                        {%if i.realsection.blockYear == '4' and i.subjectCode.subjectCode.college.collegeName == 'CET' %}
+                        <div class="app-panel row">
+                            <div class="col-sm col-lg-2"><b>{{ i.subjectCode.subjectCode.subjectCode }}</b></div><!-- DB SUBJECT CODE -->
+                            <div class="col-sm col-lg-3" id="cntr">{{ i.subjectCode.subjectCode.subjectName }}</div><!-- DB SUJBECT NAME -->
+							<div class="col-sm col-lg-1" id="cntr">{{ i.section}}</div><!-- DB SECTION -->
+                            <div class="col-sm col-lg-3" id="cntr"><img src="{% static 'CRS/images/cDepartment/facilitator.png' %}" style="width: auto; height: 24px; padding-right: 10px;">{{ i.instructor.facultyUser.lastName }}, {{ i.instructor.facultyUser.firstName }} </div><!-- DB FACILITATOR -->
+                            <div class="col-sm col-lg-3"><a href="{% url 'is_subject_view' i.id %}" id="buttons"><button type="button" class="btn btn2">View</button></a></div><!-- DB VIEW -->
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {%endblock content%}
+        <!-- Javascript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
