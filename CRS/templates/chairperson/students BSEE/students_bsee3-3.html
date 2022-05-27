@@ -34,7 +34,7 @@
                             <table>
                                 <!--ROW 1-->
 
-                                {% for i in bsee3 %}
+                                {% for i in bsit3 %}
                                 <tr>
                                     <td id="list"><p>{{ i.studentID }}</p><!-- DB FACULTY NO --></td>
                                     <td id="listname"><p>{{ i.studentUser.lastName }}</p><!-- DB LAST NAME --></td>
@@ -53,12 +53,12 @@
 
 
 
-                <!-- Search box -->
+                <!--Search box-->
                 <div class="searchbox">
                     <form method ="get">
-                        <input type="text" name="search">
-                        <button type="submit" id="submit" value="Search"> Search </button>
-                    </form>
+                     {{ result.form }}&nbsp;&nbsp;
+                    <button type="submit" id="submit" value="Search"> Search </button>
+                    </button></form>
                 </div>
                 <!--End of Search box-->
 
