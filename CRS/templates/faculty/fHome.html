@@ -156,7 +156,25 @@
                             <div class="col-lg-9 pt-3">
                                 <table>
                                     <tr>
+<<<<<<< Updated upstream
                                         <br>
+=======
+                                       <td class="notification"><!--<a href="{% url 'fHomeNotification' %}">--><img id="notif" src="{% static 'CRS/images/cHome/notification.svg' %}" width="40px" height="30px"></a>
+                                            <div class="dropdown-menu">
+                                                <p id="notiftitle">Notifications<br></p>
+                                                {% for i in grade_file reversed %}
+                                                    {% for x in stud_advisory %}
+                                                        {% if i.studentID_id == x.studentUser_id and i.remarks != 'Approved' and i.remarks != 'Returned' %}
+                                                            <a href="{% url 'fStudents_viewStudentGrade' x.studentUser.id %}"><p id="notifdrops"><b>{{x.studentUser.lastName}}, {{x.studentUser.firstName}} {{x.studentUser.middleName}} - {{x.studentSection}}</b><br>Submitted a grade! Please verify.</p></a>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p id="pipe">|</p>
+                                        </td>
+>>>>>>> Stashed changes
                                         <td><img id="user" src="{% static 'CRS/images/cHome/user.svg' %}" width="35px" height="35px"></td>
                                         <td id="uname">{{user.firstName}} {{user.middleName}} {{user.lastName}}</td><!-- Yung Fullname daw dito galing DB -->
                                     </tr>
