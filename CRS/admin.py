@@ -812,7 +812,3 @@ class NotificationAdmin(admin.ModelAdmin):
     list_display = ['user_id', 'title', 'description', 'status', 'created_at']
 
 admin.site.register(Notification, NotificationAdmin) 
-
-class EventAdmin(admin.ModelAdmin):
-    list_display = ['eventTitle', 'eventDescription', 'eventCategory', 'eventStartDate', 'eventEndDate']
-admin.site.register(Event, EventAdmin) 

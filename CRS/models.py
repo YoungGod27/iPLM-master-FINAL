@@ -7,10 +7,6 @@ from django.dispatch import receiver
 from django.core.validators import RegexValidator
 from django.utils import timezone
 from django.db.models import JSONField, Model
-from django.forms import ValidationError
-from django.utils.dateparse import parse_datetime
-from datetime import timedelta
-from pytz import utc
 
 now = timezone.now()
 
@@ -797,33 +793,3 @@ class Notification(models.Model):
 
     def __str__(self):
         return self.title
-
-class Event(models.Model):
-    CATEGORY_CHOICES = (
-        ('Academics', 'Academics'), 
-        ('Sports', 'Sports'),
-        ('Social', 'Social'),
-        ('Arts & Culture', 'Arts & Culture'),
-        ('Featured', 'Featured')
-        )
-    eventCategory = models.CharField(verbose_name='Category', max_length=255, choices=CATEGORY_CHOICES)
-    eventTitle = models.CharField(verbose_name='title', max_length=255)
-    eventDescription = models.TextField(verbose_name='description')
-    eventStartDate = models.DateTimeField(verbose_name='start date', default=now + timedelta(hours=1))
-    eventEndDate = models.DateTimeField(verbose_name='end date', default=now + timedelta(hours=2))
-
-    # Validator For Admin Page
-    def clean(self):
-        if self.eventStartDate < now:
-            raise ValidationError('Cannot Add Events in the Past')
-        if self.eventStartDate > self.eventEndDate:
-            raise ValidationError('Cannot Add End Date if in the Past of Start Date')
-
-    def validate_frontend(self, *args, **kwargs):
-        if utc.localize(parse_datetime(self.eventStartDate)) < now:
-            raise ValidationError('Cannot Add Events in the Past')
-        if utc.localize(parse_datetime(self.eventStartDate)) > utc.localize(parse_datetime(self.eventEndDate)):
-            raise ValidationError('Cannot Add End Date if in the Past of Start Date')
-
-    def __str__(self):
-        return '%s - %s' %(self.eventTitle, self.eventCategory) 
